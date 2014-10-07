@@ -1,13 +1,13 @@
 package com.soen6441.ui.parallel;
 
-import javax.swing.JButton;
+import javax.swing.JLabel;
+
 
 //not finish
 /**
  *@author Zhe Zhao
  *@since version 1.0
  */
-public class Button extends JButton {
+public class Label extends JLabel{
 
-	
 }
