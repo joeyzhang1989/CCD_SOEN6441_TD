@@ -1,12 +1,35 @@
 package com.soen6441.ui.parallel;
 
+import java.awt.Dimension;
 import java.awt.LayoutManager;
+import java.awt.Point;
 
 import javax.swing.JPanel;
 
 /**
- * A Parallel Class, which represent a view.
- * It provide some template methods, which give views a life-cycle.
+ * <h1>Introduction</h1>
+ * <p>A Parallel Class, which represent a view.</p>
+ * <br></br>
+ * 
+ * <h1>Life Cycle</h1>
+ * 
+ * <h3>Life Cycle - Initialization</h3>
+ * 
+ * <h5>General Idea</h5>
+ * <p>When a view is contructing using the constructor, it will call some hook methods.</p>
+ * <p>Every subclass of the {@link View} should know them, and put the correct code into the right method.</p>
+ * 
+ * <h5>1. {@link #init()}</h5>
+ * <p>The constructor first call this method, so every subclass could use this method to initialize some insential properties.</p>
+ * <p>Getting some thing from model to the property, setting the size of the view should be put here.</p>
+ * 
+ * <h5>2. {@link #initSubviews()}</h5>
+ * <p>The constructor then call this method. Every subclass should use this method to create subviews.</p>
+ * <p>Creating, Modifying, Layouting the subviews should be put here.</p>
+ * 
+ * <h5>3. {@link #initEvents()}</h5>
+ * <p>The constructor finally call this method. It's time to link the events.</p>
+ * 
  * 
  * @author Zhe Zhao
  */
@@ -19,8 +42,6 @@ public class View extends JPanel {
 	
 	/**
 	 * The Standard Constructor
-	 * 
-	 * @author Zhe Zhao
 	 */
 	public View(){
 		super();
@@ -29,8 +50,6 @@ public class View extends JPanel {
 	
 	/**
 	 * close the access to the Constructor inherated from the JPanel
-	 * 
-	 * @author Zhe Zhao
 	 */
 	private View(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
@@ -39,8 +58,6 @@ public class View extends JPanel {
 	
 	/**
 	 * close the access to the Constructor inherated from the JPanel
-	 * 
-	 * @author Zhe Zhao
 	 */
 	private View(LayoutManager layout, boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
@@ -49,8 +66,6 @@ public class View extends JPanel {
 	
 	/**
 	 * close the access to the Constructor inherated from the JPanel
-	 * 
-	 * @author Zhe Zhao
 	 */
 	private View(LayoutManager layout) {
 		super(layout);
@@ -59,10 +74,10 @@ public class View extends JPanel {
 	
 	/**
 	 * Initialization
-	 * 
-	 * @author Zhe Zhao
 	 */
 	private void initialize(){
+		this.setLayout(null);
+		init();
 		initSubviews();
 		initEvents();
 	}
@@ -71,11 +86,13 @@ public class View extends JPanel {
 	 * Methods
 	 */
 	
+	protected void init(){
+		
+	}
+	
 	/**
 	 * An method will be called when contracting the view object. 
 	 * Any code related to creating or modifying a view should be put in here.
-	 * 
-	 * @author Zhe Zhao
 	 */
 	protected void initSubviews(){
 		
@@ -85,8 +102,6 @@ public class View extends JPanel {
 	 * An method will be called when contracting the view object. 
 	 * When you want to add event listener to a subview, you should put the code here.
 	 * This method will be called right after <code> initSubviews </code>
-	 * 
-	 * @author Zhe Zhao
 	 */
 	protected void initEvents(){
 		

@@ -6,7 +6,7 @@ import com.soen6441.ui.common.GridViewCell;
 /**
  * This class defines ?
  * 
- * @author JeanRaymondDaher
+ * @author JeanRaymondDaher 
  * 
  * @see GridViewCell
  * 

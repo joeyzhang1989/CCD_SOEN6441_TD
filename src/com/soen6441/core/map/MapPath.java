@@ -6,7 +6,6 @@ import java.util.List;
  * This class will define the amount of distance the object has to travel along the path in the Map.  
  * 
  * @author Mohammad Ali
- * @since version 1.0
  */
 
 public class MapPath  {

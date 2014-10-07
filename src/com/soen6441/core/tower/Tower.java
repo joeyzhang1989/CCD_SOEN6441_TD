@@ -61,10 +61,8 @@ public class Tower extends MapItem {
 	 * The method is used to sell an existing tower.
 	 * Add the sell price of the tower to a user's currency, then remove the tower from the map.
 	 * 
-	 * @see 
 	 */
 	public void sell() {
-		
 		int afterSellCoins;
 		afterSellCoins = Play.currentPlay().getCoins() + this.sellPrice;
 		Play.currentPlay().setCoins(afterSellCoins);

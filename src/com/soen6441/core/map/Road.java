@@ -6,7 +6,6 @@ package com.soen6441.core.map;
  * specific to it. 
  * 
  * @author Mohammad Ali
- * @since version 1.0
  */
 
 public class Road extends MapItem {

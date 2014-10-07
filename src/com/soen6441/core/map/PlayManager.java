@@ -9,7 +9,6 @@ import com.soen6441.core.Play;
  * The class PalyManager will handle the task of saving the gamePlay in XML file and reading the XML file to generate gamePlay;
  * 
  * @author Mohammad Ali
- * @since version 1.0
  */
 public class PlayManager {
 
@@ -17,7 +16,7 @@ public class PlayManager {
 	/**
 	 * The method save will save the gamePlay in the specified file
 	 * 
-	 * @parma file The name of the File where to save .
+	 * @param file The name of the File where to save .
 	 * @param play A play object
 	 */
 	
@@ -29,7 +28,7 @@ public class PlayManager {
 	/**
 	 * The method read will read the specified file and generate a Play object.
 	 * 
-	 * @parma file The name of the File where to save .
+	 * @param file The name of the File where to save .
 	 */
 	public Play read(File file){
 		
