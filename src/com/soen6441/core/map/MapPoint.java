@@ -6,7 +6,6 @@ package com.soen6441.core.map;
  * Moreover this class will provide a method "distanceTo" to find the distance from the MapPoint.
  * 
  * @author Mohammad Ali
- * @since version 1.0
  */
 
 public class MapPoint {
