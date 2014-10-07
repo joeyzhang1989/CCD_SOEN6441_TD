@@ -1,9 +1,9 @@
-package com.soen6441.logic.tower;
+package com.soen6441.core.tower;
 
-import com.soen6441.logic.Play;
-import com.soen6441.logic.effect.AffectableValue;
-import com.soen6441.logic.map.GridMap;
-import com.soen6441.logic.map.MapItem;
+import com.soen6441.core.Play;
+import com.soen6441.core.effect.AffectableValue;
+import com.soen6441.core.map.GridMap;
+import com.soen6441.core.map.MapItem;
 
 
 /**

@@ -7,7 +7,6 @@ import com.soen6441.ui.parallel.*;
  * This class is the Editing scene class where the user edits a created or new map.
  * 
  * @author JeanRaymondDaher
- * @version 1.0
  *
  */
 

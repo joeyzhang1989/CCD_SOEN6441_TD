@@ -1,4 +1,4 @@
-package com.soen6441.logic.tower;
+package com.soen6441.core.tower;
 
 import java.util.ArrayList;
 import java.util.Arrays;

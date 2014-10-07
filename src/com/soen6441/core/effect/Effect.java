@@ -1,4 +1,4 @@
-package com.soen6441.logic.effect;
+package com.soen6441.core.effect;
 
 /**
  * 

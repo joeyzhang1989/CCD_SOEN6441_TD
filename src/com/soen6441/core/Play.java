@@ -1,6 +1,6 @@
-package com.soen6441.logic;
+package com.soen6441.core;
 
-import com.soen6441.logic.map.GridMap;
+import com.soen6441.core.map.GridMap;
 
 public class Play {
 	

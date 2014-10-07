@@ -1,4 +1,4 @@
-package com.soen6441.logic.map;
+package com.soen6441.core.map;
 
 /**
  * The class MapPoint will define a point on the map by its x and y coordinates.

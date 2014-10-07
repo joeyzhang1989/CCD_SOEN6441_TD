@@ -1,8 +1,8 @@
-package com.soen6441.logic.map;
+package com.soen6441.core.map;
 
 import java.io.File;
 
-import com.soen6441.logic.Play;
+import com.soen6441.core.Play;
 
 
 /**

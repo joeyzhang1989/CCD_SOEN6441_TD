@@ -1,4 +1,4 @@
-package com.soen6441.logic.tower;
+package com.soen6441.core.tower;
 
 import java.io.*;
 import java.util.List;
