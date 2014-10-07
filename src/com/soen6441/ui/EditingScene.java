@@ -13,7 +13,7 @@ public class EditingScene extends View {
 
 	private Button controlButton;
 	private Label infoLabel;
-	private initialMoneyLabel Label;
+	private Label label;
 	
 	private MapView mapView;
 	private InspectorView inspectorView;

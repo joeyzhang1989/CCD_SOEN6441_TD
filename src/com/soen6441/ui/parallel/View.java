@@ -4,19 +4,13 @@ import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 
-<<<<<<< HEAD
-//not finish
-/**
- *@author Zhe Zhao
- *@since version 1.0
-=======
 /**
  * A Parallel Class, which represent a view.
  * It provide some template methods, which give views a life-cycle.
  * 
  * @author Zhe Zhao
->>>>>>> zz_local
  */
+
 public class View extends JPanel {
 	
 	/* 	

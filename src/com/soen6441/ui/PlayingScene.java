@@ -20,6 +20,6 @@ public class PlayingScene implements Inspectable {
 	private Button controlButton;
 	private Button backButton;
 	private InspectorView inspectorView = new InspectorView();
-	private Mapview mapView = new Mapview();
+	private MapView mapView = new MapView();
 
 }
