@@ -7,7 +7,7 @@ package com.soen6441.ui.common;
  * @since version 1.0
  * @see InspectorView
  */
-public interface Inspectable {
+public interface IInspectable {
 
 	public String title;
 	public String subtitle;
