@@ -1,5 +1,8 @@
 package com.soen6441.ui.common;
 
+import com.soen6441.ui.parallel.Button;
+import com.soen6441.ui.parallel.ImageView;
+import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
 
 // not finish 
