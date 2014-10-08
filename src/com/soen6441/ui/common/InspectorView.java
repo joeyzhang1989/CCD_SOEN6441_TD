@@ -1,5 +1,6 @@
 package com.soen6441.ui.common;
 
+
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.ImageView;
 import com.soen6441.ui.parallel.Label;
@@ -19,7 +20,7 @@ public class InspectorView extends View{
 	private Label subtitleLabel;
 	private ImageView imageView;
 	private Label description;
-	private Button[] commandButtons;
+	private List<Button> commandButtons;
 	
 	private IInspectable on;
 	private Command[] commands;

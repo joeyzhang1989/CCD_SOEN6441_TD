@@ -9,11 +9,11 @@ package com.soen6441.ui.common;
  */
 public interface IInspectable {
 
-	public String title;
-	public String subtitle;
-	public Image image;
-	public String description;
-	public Command[] commands;
+	public String title();
+	public String subtitle();
+	//public Image image;
+	public String description();
+	public Command[] commands();
 	
 	public void execute (Command command);
 
