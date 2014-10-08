@@ -1,4 +1,7 @@
 package com.soen6441.ui;
+
+import com.soen6441.logic.map.MapItem;
+
 /**
  * This interface responds to commands , and selections on the map.
  * 
