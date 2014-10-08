@@ -1,5 +1,7 @@
 package com.soen6441.ui.common;
 
+import java.util.List;
+
 //not finish
 /**
  * This is the interface inspectable. Every object that implements inspectable will have options displayed on the right side, as explained in Inspector view.
@@ -13,7 +15,7 @@ public interface IInspectable {
 	public String subtitle();
 	//public Image image;
 	public String description();
-	public Command[] commands();
+	public List<Command> commands();
 	
 	public void execute (Command command);
 
