@@ -1,4 +1,4 @@
-package com.soen6441.ui;
+package com.soen6441.ui.common;
 
 /**
  * Its a value object, which will be use to set on a button
