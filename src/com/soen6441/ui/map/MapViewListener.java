@@ -1,4 +1,4 @@
-package com.soen6441.ui;
+package com.soen6441.ui.map;
 
 import com.soen6441.logic.map.MapItem;
 
