@@ -20,7 +20,7 @@ public class InspectorView extends View{
 	private Label subtitleLabel;
 	private ImageView imageView;
 	private Label description;
-	private List<Button> commandButtons;
+	private Button[] commandButtons;
 	
 	private IInspectable on;
 	private Command[] commands;
