@@ -10,5 +10,23 @@ import com.soen6441.ui.common.GridView;
  */
 public class MapView extends GridView{
 
-	public GridMap map;
+	private GridMap map;
+	private MapViewListener eventListener;
+	
+	public GridMap getMap() {
+		return map;
+	}
+	
+	public void setMap(GridMap map) {
+		this.map = map;
+	}
+	
+	public MapViewListener getEventListener() {
+		return eventListener;
+	}
+	
+	public void setEventListener(MapViewListener eventListener) {
+		this.eventListener = eventListener;
+	}
+	
 }

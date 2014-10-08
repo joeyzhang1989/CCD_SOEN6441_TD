@@ -21,6 +21,15 @@ public class InspectorView extends View{
 	private Label description;
 	private Button[] commandButtons;
 	
-	public Inspectable on;
+	private IInspectable on;
 	private Command[] commands;
+	
+	public IInspectable getOn() {
+		return on;
+	}
+	public void setOn(IInspectable on) {
+		this.on = on;
+	}
+	
+	
 }

@@ -1,4 +1,4 @@
-package com.soen6441.ui.sence;
+package com.soen6441.ui.scene;
 
 import com.soen6441.ui.parallel.*;
 

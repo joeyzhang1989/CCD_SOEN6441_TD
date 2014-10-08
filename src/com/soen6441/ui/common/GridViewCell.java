@@ -11,7 +11,16 @@ import com.soen6441.ui.parallel.View;
 
 public class GridViewCell extends View {
 
-	public GridView gridView;
+	private GridView gridView;
+
+	public GridView getGridView() {
+		return gridView;
+	}
+
+	public void setGridView(GridView gridView) {
+		this.gridView = gridView;
+	}
+	
 	
 	
 	
