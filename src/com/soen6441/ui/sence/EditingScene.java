@@ -1,4 +1,6 @@
-package com.soen6441.ui;
+package com.soen6441.ui.sence;
+import com.soen6441.ui.common.InspectorView;
+import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.*;
 
 /**
