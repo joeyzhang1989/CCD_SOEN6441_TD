@@ -1,6 +1,7 @@
 package com.soen6441.ui.sence;
 
-import com.soen6441.ui.common.IInspectable;
+import com.soen6441.ui.common.Command;
+import com.soen6441.ui.common.Inspectable;
 import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
@@ -14,7 +15,7 @@ import com.soen6441.ui.parallel.Label;
  * not finish with the inner classes
  * @see
  */
-public class PlayingScene implements IInspectable {
+public class PlayingScene implements Inspectable {
 	
 	// these properties are defined in the ui.parallel package that inherited from javax.swing
 	private Label moneyLabel;
@@ -24,5 +25,10 @@ public class PlayingScene implements IInspectable {
 	private Button backButton;
 	private InspectorView inspectorView = new InspectorView();
 	private MapView mapView = new MapView();
+	@Override
+	public void execute(Command command) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }
