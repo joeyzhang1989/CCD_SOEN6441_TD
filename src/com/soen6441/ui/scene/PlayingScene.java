@@ -5,6 +5,7 @@ import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.View;
 
 
 /**
@@ -15,7 +16,7 @@ import com.soen6441.ui.parallel.Label;
  * not finish with the inner classes
  * @see 
  */
-public class PlayingScene {
+public class PlayingScene extends View{
 	
 	/**
 	 * 
@@ -28,16 +29,6 @@ public class PlayingScene {
 	private Button backButton;
 	private InspectorView inspectorView = new InspectorView();
 	private MapView mapView = new MapView();
-	
-	/**
-	 * 
-	 * @param command
-	 *
-	 */
-	public void execute(Command command) {
-		// TODO Auto-generated method stub
-		
-	}
 
 
 }
