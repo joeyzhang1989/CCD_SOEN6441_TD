@@ -1,7 +1,10 @@
 package com.soen6441.logic.tower;
 
-import com.soen6441.logic.*;
+import com.soen6441.logic.Play;
+import com.soen6441.logic.effect.AffectableValue;
+import com.soen6441.logic.map.GridMap;
 import com.soen6441.logic.map.MapItem;
+
 
 /**
  * This class is the parent class of all types of tower classes.
@@ -45,11 +48,12 @@ public class Tower extends MapItem {
 
 	public void upgrade() {
 		
-		if (Play.points >= this.upgradePrice) {
+		if (Play.currentPlay().getCoins() >= this.upgradePrice) {
 			
 			manager.upgrade(this);
-			Play.points -= this.upgradePrice;
-			
+			int afterUpgradeCoins;
+			afterUpgradeCoins = Play.currentPlay().getCoins() - this.upgradePrice;
+			Play.currentPlay().setCoins(afterUpgradeCoins);
 		}
 	}
 	
@@ -61,8 +65,9 @@ public class Tower extends MapItem {
 	 */
 	public void sell() {
 		
-		Play.points += sellPrice;
-		GridMap.removeItem(this);
+		int afterSellCoins;
+		afterSellCoins = Play.currentPlay().getCoins() + this.sellPrice;
+		Play.currentPlay().setCoins(afterSellCoins);
 		
 	}
 	
@@ -74,9 +79,4 @@ public class Tower extends MapItem {
 		
 	}
 	
-	
-
 }
-
-
-
