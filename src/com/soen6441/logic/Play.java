@@ -30,6 +30,16 @@ public class Play {
 	}
 	
 	/**
+	 * Use this method to set the shared instance to null
+	 * 
+	 * @author Zhe Zhao
+	 * 
+	 */
+	public static void destroy(){
+		currentPlay = null;
+	}
+	
+	/**
 	 * Close the access to the general constructor
 	 * 
 	 * @author Zhe Zhao
