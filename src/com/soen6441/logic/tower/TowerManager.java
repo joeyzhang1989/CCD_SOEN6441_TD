@@ -1,6 +1,7 @@
 package com.soen6441.logic.tower;
 
 import java.io.*;
+import java.util.List;
 
 /**
  * This class responds to manage towers. Such as, create, upgrade, etc. 
@@ -16,7 +17,7 @@ public class TowerManager {
 	 */
 	
 	public File dataFile;
-	private Tower[] leveledTowers;
+	private List<Tower> leveledTowers;
 	
 	/**
 	 * This method is used to read and analyze files that store tower information.
