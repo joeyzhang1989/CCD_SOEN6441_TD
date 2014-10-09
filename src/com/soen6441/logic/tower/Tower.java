@@ -1,6 +1,7 @@
 package com.soen6441.logic.tower;
 
 import com.soen6441.logic.*;
+import com.soen6441.logic.map.MapItem;
 
 /**
  * This class is the parent class of all types of tower classes.

@@ -8,15 +8,19 @@ import com.soen6441.ui.parallel.Label;
 
 
 /**
- * @author chenglong zhang chenglongzhang931@gmail.com
+ * @author chenglong zhang 
  * @since version 1.0
- * this is PlayingScene class is responsible of the playscene view
+ * this is PlayingScene class is responsible of the playscene view and showing the 
+ * corresponding information of the related models
  * not finish with the inner classes
- * @see
+ * @see 
  */
 public class PlayingScene {
 	
-	// these properties are defined in the ui.parallel package that inherited from javax.swing
+	/**
+	 * 
+	 * these properties are defined in the ui.parallel package that inherited from javax.swing
+	 */
 	private Label moneyLabel;
 	private Label infoLabel;
 	private Label lifelabel;
@@ -25,6 +29,11 @@ public class PlayingScene {
 	private InspectorView inspectorView = new InspectorView();
 	private MapView mapView = new MapView();
 	
+	/**
+	 * 
+	 * @param command
+	 *
+	 */
 	public void execute(Command command) {
 		// TODO Auto-generated method stub
 		
@@ -32,3 +41,4 @@ public class PlayingScene {
 
 
 }
+
