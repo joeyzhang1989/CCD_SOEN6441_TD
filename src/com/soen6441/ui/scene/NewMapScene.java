@@ -10,7 +10,7 @@ import com.soen6441.ui.parallel.*;
  */
 
 public class NewMapScene extends View{
-	private TextField WidthTextField;
+	private TextField widthTextField;
 	private TextField heightTextFeild;
 	private Button nextButton;
 	
