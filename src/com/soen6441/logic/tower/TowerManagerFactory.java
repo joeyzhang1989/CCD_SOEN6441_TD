@@ -1,5 +1,7 @@
 package com.soen6441.logic.tower;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -15,7 +17,7 @@ public class TowerManagerFactory {
 	/**
 	 * The array is used to store type names.
 	 */
-	public List<String> typeNames;
+	public List<String> typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
 	
 	/**
 	 * The map is used to store TowerManager objects and its names.
