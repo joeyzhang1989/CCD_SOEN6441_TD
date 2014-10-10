@@ -78,5 +78,61 @@ public class Tower extends MapItem {
 	public void attack() {
 		
 	}
+
+	public int getLevel() {
+		return level;
+	}
+
+	public void setLevel(int level) {
+		this.level = level;
+	}
+
+	public int getInitialPrice() {
+		return initialPrice;
+	}
+
+	public void setInitialPrice(int initialPrice) {
+		this.initialPrice = initialPrice;
+	}
+
+	public int getUpgradePrice() {
+		return upgradePrice;
+	}
+
+	public void setUpgradePrice(int upgradePrice) {
+		this.upgradePrice = upgradePrice;
+	}
+
+	public int getSellPrice() {
+		return sellPrice;
+	}
+
+	public void setSellPrice(int sellPrice) {
+		this.sellPrice = sellPrice;
+	}
+
+	public AffectableValue getRange() {
+		return range;
+	}
+
+	public void setRange(AffectableValue range) {
+		this.range = range;
+	}
+
+	public AffectableValue getDamage() {
+		return damage;
+	}
+
+	public void setDamage(AffectableValue damage) {
+		this.damage = damage;
+	}
+
+	public AffectableValue getCdTime() {
+		return cdTime;
+	}
+
+	public void setCdTime(AffectableValue cdTime) {
+		this.cdTime = cdTime;
+	}
 	
 }
