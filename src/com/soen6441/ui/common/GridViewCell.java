@@ -5,7 +5,7 @@ import com.soen6441.ui.parallel.View;
  * This class defines a unit of the GridView. 
  * 
  * @author JeanRaymondDaher
- * @version 1.0
+ * @since 0.1
  * @see GridView
  */
 

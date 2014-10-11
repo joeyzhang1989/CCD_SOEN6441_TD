@@ -6,13 +6,18 @@ import com.soen6441.ui.parallel.View;
  * This class defines the GridView, the main grid, map of the game.
  * 
  * @author JeanRaymondDaher
- * @version 1.0
+ * @since 0.1
  * @see GridView
  */
 
 
 public class GridView extends View {
 
+	// this class should draw a GridView 
+	//it should also know when some cell is selected 
+	//so that we can do some stuff on inspector view
+	
+	
 	private GridViewCell selectedCell;
 	
 	public void selectCell(int row,int column){
