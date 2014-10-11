@@ -32,8 +32,6 @@ public class Button extends JButton {
 	 * @deprecated
 	 * @see #setTitle(String)
 	 * 
-	 * @author Zhe Zhao
-	 * 
 	 */
 	@Override
 	public void setText(String text) {
@@ -46,8 +44,6 @@ public class Button extends JButton {
 	 * @deprecated
 	 * @see #getTitle()
 	 * 
-	 * @author Zhe Zhao
-	 * 
 	 */
 	@Override
 	public String getText() {
@@ -56,9 +52,6 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>title</code>
-	 *  
-	 * @author Zhe Zhao
-	 * 
 	 */
 	public String getTitle() {
 		return title;
@@ -66,9 +59,6 @@ public class Button extends JButton {
 	
 	/**
 	 * Setter for property <code>title</code>
-	 *  
-	 * @author Zhe Zhao
-	 * 
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -77,9 +67,6 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>subtitle</code>
-	 *  
-	 * @author Zhe Zhao
-	 * 
 	 */
 	public String getSubtitle() {
 		return subtitle;
@@ -87,8 +74,6 @@ public class Button extends JButton {
 	
 	/**
 	 * Setter for property <code>subtitle</code>
-	 *  
-	 * @author Zhe Zhao
 	 * 
 	 */
 	public void setSubtitle(String subtitle) {
