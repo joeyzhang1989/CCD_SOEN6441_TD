@@ -13,12 +13,6 @@ public class SceneDemo extends View{
 	private ViewDemo view;
 	
 	@Override
-	protected void init() {
-		super.init();
-		this.setSize(800, 600);
-	}
-	
-	@Override
 	protected void initSubviews() {
 		super.initSubviews();
 		

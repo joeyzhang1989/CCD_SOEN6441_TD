@@ -23,6 +23,9 @@ import javax.swing.JPanel;
  * <h5>1. {@link #init()}</h5>
  * <p>The constructor first call this method, so every subclass could use this method to initialize some insential properties.</p>
  * <p>Getting some thing from model to the property, setting the size of the view should be put here.</p>
+ * <p><strong>Attention:</strong> {@code Scene} is able to not set the size in this class.
+ * Because in defualt, it will be set to 800,600 in this method.
+ * So, if there is not any else things that a {@code Scene} wants to do in the {@link #init()}, it can choose not to override this method.</p>
  * 
  * <h5>2. {@link #initSubviews()}</h5>
  * <p>The constructor then call this method. Every subclass should use this method to create subviews.</p>
@@ -92,7 +95,6 @@ public class View extends JPanel {
 	protected void init(){
 		this.setSize(800, 600);
 		this.setBackground(new Color(255, 255, 255));
-		
 	}
 	
 	/**
