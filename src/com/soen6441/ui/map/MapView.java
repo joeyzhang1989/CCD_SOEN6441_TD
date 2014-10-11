@@ -19,7 +19,9 @@ public class MapView extends GridView{
 	
 	
 	private GridMap map;
+	
 	private MapViewListener eventListener;
+	
 	
 	public GridMap getMap() {
 		return map;
@@ -35,6 +37,13 @@ public class MapView extends GridView{
 	
 	public void setEventListener(MapViewListener eventListener) {
 		this.eventListener = eventListener;
+	}
+	
+	public int suggestedSize()
+	{
+		
+		return 0;
+		
 	}
 	
 }
