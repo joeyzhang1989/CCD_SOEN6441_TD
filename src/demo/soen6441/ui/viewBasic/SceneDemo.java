@@ -2,6 +2,7 @@ package demo.soen6441.ui.viewBasic;
 
 import java.awt.Color;
 
+import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.TextField;
@@ -20,7 +21,7 @@ public class SceneDemo extends View{
 
 	private TextField money;
 
-	
+	private MapView map;
 	
 	@Override
 	protected void initSubviews() {
@@ -70,12 +71,20 @@ public class SceneDemo extends View{
 			
 			this.add(saveButton);
 			this.add(backButton);
-
+			//double height=this.map.getMap().getHeight();
+			//double width=this.map.getMap().getWidth();
+		/*	height=15;
+			width=15;
 			View view = new View();
 			view.setLocation(10, 50);
-			view.setSize(500,500);
-			view.setBackground(Color.BLACK);
-			this.add(view);
+			view.setSize(485,485);
+			for(int i=0;i<height;i++)
+					for(int j=0;j<width;j++){
+						
+					}
+			*/
+			//view.setBackground(Color.BLACK);
+			//this.add(view);
 	
 	}
 	
