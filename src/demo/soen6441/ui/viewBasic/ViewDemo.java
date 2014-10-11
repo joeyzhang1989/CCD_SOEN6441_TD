@@ -26,10 +26,8 @@ public class ViewDemo extends View {
 		super.initSubviews();
 		
 		button = new Button();
-		button.setSize(80, 40);
-		button.setLocation(10, 10);
-		button.setTitle("Upgrade");
-		this.add(button);
+		
+
 	}
 	
 	@Override
