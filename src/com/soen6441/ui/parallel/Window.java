@@ -18,6 +18,8 @@ public class Window extends JFrame {
 //		this.setUndecorated(true);
 		
 		this.add(contentView);
+		this.repaint();
+		this.setVisible(true);
 	}
 	
 	@Override

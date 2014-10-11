@@ -47,7 +47,11 @@ public class Button extends JButton {
 	 */
 	@Override
 	public String getText() {
-		return title + " " + subtitle;
+		if (subtitle == null){
+			return title;
+		} else {
+			return title + " " + subtitle;
+		}
 	}
 	
 	/**

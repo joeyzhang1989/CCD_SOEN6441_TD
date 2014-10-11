@@ -1,16 +1,22 @@
 package com.soen6441.core.map;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * This class will define the amount of distance the object has to travel along the path in the Map.  
  * 
+ * @author Zhe Zhao
  * @author Mohammad Ali
  */
 
 public class MapPath  {
 
 	private List<MapPoint> locations;
+	
+	public MapPath() {
+		locations = new ArrayList<MapPoint>();
+	}
 	
 	
 	/**
@@ -27,5 +33,18 @@ public class MapPath  {
 		
 		return valueToReturn;
 	}
+
+
+	public List<MapPoint> getLocations() {
+		return locations;
+	}
+
+
+	public void setLocations(List<MapPoint> locations) {
+		this.locations = locations;
+	}
 	
+	public void addLocation(MapPoint location){
+		this.locations.add(location);
+	}
 }

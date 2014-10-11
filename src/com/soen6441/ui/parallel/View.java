@@ -1,9 +1,10 @@
 package com.soen6441.ui.parallel;
 
-import java.awt.Dimension;
+import java.awt.Color;
+import java.awt.Component;
 import java.awt.LayoutManager;
-import java.awt.Point;
 
+import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 /**
@@ -35,6 +36,8 @@ import javax.swing.JPanel;
  */
 
 public class View extends JPanel {
+	
+	
 	
 	/* 	
 	 * Constructors 
@@ -87,6 +90,8 @@ public class View extends JPanel {
 	 */
 	
 	protected void init(){
+		this.setSize(800, 600);
+		this.setBackground(new Color(255, 255, 255));
 		
 	}
 	
@@ -106,5 +111,43 @@ public class View extends JPanel {
 	protected void initEvents(){
 		
 	}
+	
+	@Override
+	public Component add(Component comp) {
+		Component result = super.add(comp, 0);
+		this.repaint();
+		return result;
+	}
+
+	@Override
+	public void remove(Component comp){
+		super.remove(comp);
+		this.repaint();
+	}
+	
+//	@Override
+//	public boolean isOptimizedDrawingEnabled() {
+//		return false;
+//	}
+	
+	/*
+	 * Property - View Flow
+	 */
+	
+	protected ViewFlow viewFlow;
+
+	
+	/*
+	 * Getters & Setters - View Flow
+	 */
+	
+	public ViewFlow getViewFlow() {
+		return viewFlow;
+	}
+
+	public void setViewFlow(ViewFlow viewFlow) {
+		this.viewFlow = viewFlow;
+	}
+	
 }
 

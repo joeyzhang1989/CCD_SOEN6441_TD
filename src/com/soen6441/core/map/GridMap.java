@@ -1,20 +1,17 @@
 package com.soen6441.core.map;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GridMap {
 	
 	/*
-	 * Properties
+	 * Properties - Grided Item Management
 	 */
 	
-	private int width;
-	private int height;
-	private int[][] items;
-	
-	private List<MapPoint> startPoints;
-	private List<MapPoint> endPoints;
-	private List<MapPath> paths;
+	private int width = 2;
+	private int height = 2;
+	private MapItem[][] items; 
 	
 	/*
 	 * Methods - Grided Item Management
@@ -29,7 +26,8 @@ public class GridMap {
 	 * @param location	An grided location where put the item
 	 */
 	public void setItem(MapItem item, MapPoint location){
-		
+		item.setLocation(location);
+		items[location.getGridedY()][location.getGridedX()] = item;
 	}
 	
 	/**
@@ -39,7 +37,7 @@ public class GridMap {
 	 * @return Return the item if there is, or return null if there isn't
 	 */
 	public MapItem getItem(MapPoint location){
-		return null;
+		return items[location.getGridedY()][location.getGridedX()];
 	}
 	
 	/**
@@ -52,14 +50,50 @@ public class GridMap {
 	 * 
 	 */
 	public void removeItem(MapItem item){
-		
+		MapPoint location = item.getLocation();
+		items[location.getGridedY()][location.getGridedX()] = null;
 	}
 	
+	/*
+	 * Getters & Setters - Grided Item Management
+	 */
+
+	public int getWidth() {
+		return width;
+	}
+
+	public void setWidth(int width) {
+		this.width = width;
+		regenerateGrid();
+	}
+
+	public int getHeight() {
+		return height;
+	}
+
+	public void setHeight(int height) {
+		this.height = height;
+		regenerateGrid();
+	}
+	
+	private void regenerateGrid(){
+		items = new MapItem[this.height][this.width];
+	}
+
+	
+	/*
+	 * Properties - Path
+	 */
+	
+	private List<MapPoint> startPoints;
+	private List<MapPoint> endPoints;
+	private List<MapPath> paths;
 
 	/*
 	 * Methods - Path
 	 */
 	
+
 	/**
 	 * Get any path which start from a specific point
 	 * If there is no branches in the game, it will give you only one path
@@ -68,7 +102,44 @@ public class GridMap {
 	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it.
 	 */
 	public List<MapPath> pathFrom(MapPoint point){
-		return null;
+		List<MapPath> resultPaths = new ArrayList<MapPath>();
+		for(MapPath path : paths){
+			if (path.getLocations().get(0).equals(point)){
+				resultPaths.add(path);
+			}
+		}
+		return resultPaths;
 	}
 	
+
+	/*
+	 * Getters & Setters - Path
+	 */
+
+	public List<MapPoint> getStartPoints() {
+		return startPoints;
+	}
+
+	public void setStartPoints(List<MapPoint> startPoints) {
+		this.startPoints = startPoints;
+	}
+
+	public List<MapPoint> getEndPoints() {
+		return endPoints;
+	}
+
+	public void setEndPoints(List<MapPoint> endPoints) {
+		this.endPoints = endPoints;
+	}
+
+	public List<MapPath> getPaths() {
+		return paths;
+	}
+
+	public void setPaths(List<MapPath> paths) {
+		this.paths = paths;
+	}
+	
+	
+	 
 }

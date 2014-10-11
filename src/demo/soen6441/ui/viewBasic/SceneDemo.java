@@ -1,4 +1,4 @@
-package demo.soen6441.ui;
+package demo.soen6441.ui.viewBasic;
 
 import java.awt.Color;
 
@@ -37,7 +37,7 @@ public class SceneDemo extends View{
 	// Using a window to test a view.
 	public static void main(String[] args) {
 		SceneDemo sceneDemo = new SceneDemo();
-		new Window(sceneDemo).show();
+		new Window(sceneDemo);
 	}
 	
 }
