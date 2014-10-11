@@ -13,11 +13,12 @@ import com.soen6441.ui.parallel.*;
  *
  */
 
-public class EditingScene extends View {
+public class EditingScene extends View{
 
 	private Button controlButton;
 	private Label infoLabel;
-	private Label label;
+	//private Label label;
+	private TextField money;
 	
 	private MapView mapView;
 	private InspectorView inspectorView;
@@ -25,6 +26,7 @@ public class EditingScene extends View {
 	private Button backButton;
 	private Button saveButton;
 	
+
 	
 	protected void initSubviews() {
 		super.initSubviews();
@@ -50,11 +52,11 @@ public class EditingScene extends View {
 	    initialMoney.setLocation(600, 10);
 	    
 	    //actual money
-	    this.label=new Label();
-	    this.label.setText("1000");
+	    this.money=new TextField();
+	    this.money.setText("1000");
 	    //THIS SHOULD BE SET TO PLAY.GETCOINS()
-	    this.label.setSize(150,40);
-	    this.label.setLocation(700,10);
+	    this.money.setSize(80,40);
+	    this.money.setLocation(700,10);
 	    
 		//back button
 	    this.saveButton=new Button();
@@ -68,8 +70,16 @@ public class EditingScene extends View {
 		this.backButton.setLocation(10, 550);
 	    
 	    
-	    
-		this.inspectorView=new InspectorView();		
+	    //this.mapView=new MapView();
+		this.inspectorView=new InspectorView();	
+	
+		View view = new View();
+		view.setLocation(70, 10);
+		view.setSize(550, 550);
+		
+		
+		
 		}
 	
 }
+

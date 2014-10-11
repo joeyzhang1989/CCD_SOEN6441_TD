@@ -4,6 +4,7 @@ import java.awt.Color;
 
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.TextField;
 import com.soen6441.ui.parallel.View;
 import com.soen6441.ui.parallel.Window;
 
@@ -16,6 +17,8 @@ public class SceneDemo extends View{
 	private Label label;
 
 	private Label infolabel;
+
+	private TextField money;
 
 	
 	
@@ -44,13 +47,13 @@ public class SceneDemo extends View{
 		    initialMoney.setLocation(600, 10);
 		this.add(initialMoney);    
 			
-		 this.label=new Label();
-		    this.label.setText("1000");
+	
+		    this.money=new TextField();
+		    this.money.setText("1000");
 		    //THIS SHOULD BE SET TO PLAY.GETCOINS()
-		    this.label.setSize(150,40);
-		    this.label.setLocation(700,10);
-		    this.add(label);
-		
+		    this.money.setSize(80,40);
+		    this.money.setLocation(700,10);
+		    this.add(money);
 		    
 		    
 		    
@@ -67,11 +70,13 @@ public class SceneDemo extends View{
 			
 			this.add(saveButton);
 			this.add(backButton);
-		    
-	//	view = new ViewDemo();
-		//view.setLocation(0, 100);
-	//	view.setBackground(new Color(255, 0, 0));
-		//this.add(view);
+
+			View view = new View();
+			view.setLocation(10, 50);
+			view.setSize(500,500);
+			view.setBackground(Color.BLACK);
+			this.add(view);
+	
 	}
 	
 	// Using a window to test a view.
