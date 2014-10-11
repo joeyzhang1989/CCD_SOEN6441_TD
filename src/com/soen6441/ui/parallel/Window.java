@@ -32,3 +32,4 @@ public class Window extends JFrame {
 		contentView.setSize(width, height);
 	}
 }
+

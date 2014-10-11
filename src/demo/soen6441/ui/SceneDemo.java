@@ -39,5 +39,6 @@ public class SceneDemo extends View{
 		SceneDemo sceneDemo = new SceneDemo();
 		new Window(sceneDemo).show();
 	}
+	
 }
 
