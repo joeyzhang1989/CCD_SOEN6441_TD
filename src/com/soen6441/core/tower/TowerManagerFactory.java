@@ -14,10 +14,44 @@ import java.util.Map;
 
 public class TowerManagerFactory {
 	
+	private static TowerManagerFactory currentManagerFactory;
+	
+	public static TowerManagerFactory currentManagerFactory() {
+		
+		if (currentManagerFactory == null){
+			currentManagerFactory = new TowerManagerFactory();
+		}
+		return currentManagerFactory;
+		
+	}
+	
+	/**
+	 * Use this method to set the shared instance to null
+	 */
+	public static void destroy(){
+		currentManagerFactory = null;
+	}
+	
+	/**
+	 * Close the access to the general constructor
+	 */
+	
+	private TowerManagerFactory()
+	{
+		
+		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
+		
+		for(int i=0; i<typeNames.size(); i++) {
+			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i)+".xml");
+			managers.put(typeNames.get(i), towerManager);
+		}
+		
+	}
 	/**
 	 * The array is used to store type names.
 	 */
-	public List<String> typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
+	public static List<String> typeNames;
+	
 	
 	/**
 	 * The map is used to store TowerManager objects and its names.
@@ -42,7 +76,7 @@ public class TowerManagerFactory {
 	 */
 	
 	public TowerManager getManager(String typeName) {
-		return null;
+		return managers.get(typeName);
 	}
 
 }

@@ -8,6 +8,9 @@ package com.soen6441.core.tower;
  */
 public class BottleTower extends Tower {
 	
+	public void copyTo(BottleTower bottleTower){
+		super.copyTo(bottleTower);
+	}
 	
 
 }

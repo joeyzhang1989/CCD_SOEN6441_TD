@@ -16,7 +16,7 @@ import com.soen6441.ui.scene.PlayingScene;
  * <h3>Tasks - Using the object</h3>
  * 
  * <h5>General Idea</h5>
- * <p>Play is using the singleton design parttern. </p>
+ * <p>Play is using the singleton design pattern. </p>
  * <p>The {@link Play} is kind of semi single.
  *  which means once the instance has been created, it can be destroyed and created a new one. 
  *  But there will be only zero / one object in the runtime </p>
@@ -24,9 +24,9 @@ import com.soen6441.ui.scene.PlayingScene;
  * <h5>To get the play object</h5>
  * <p>Use {@link Play#currentPlay()} method to get the instance.</p>
  * 
- * <h5>To destory the play object</h5>
- * <p>When finished a play, like you quit from {@link PlayingScene} you should destory the {@link Play} object.</p>
- * <p>Use {@link Play#destroy()} method to destory the shared instance, so when someone call {@link Play#currentPlay()} later, they will get a new one.</p>
+ * <h5>To destroy the play object</h5>
+ * <p>When finished a play, like you quit from {@link PlayingScene} you should destroy the {@link Play} object.</p>
+ * <p>Use {@link Play#destroy()} method to destroy the shared instance, so when someone call {@link Play#currentPlay()} later, they will get a new one.</p>
  * 
  * <br></br>
  * <h3>Tasks - Managing the coins</h3>
