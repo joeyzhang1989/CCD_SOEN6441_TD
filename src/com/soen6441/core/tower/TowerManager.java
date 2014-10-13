@@ -14,6 +14,8 @@ import com.soen6441.core.effect.AffectableValue;
  * This class responds to manage towers. Such as, create, upgrade, etc. 
  * This class uses dom4j to read XML files.
  * 
+ * @see TowerManagerFactory
+ * @see Tower
  * 
  * @author Haiyang Sun
  *
