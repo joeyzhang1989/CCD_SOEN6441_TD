@@ -1,7 +1,12 @@
 package com.soen6441.ui.scene;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.List;
 
+import com.soen6441.ui.common.Command;
+import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -39,7 +44,7 @@ public class PlayingScene extends View{
 	
 	private MapView mapView;
 	
-	private TextField t1,t2;
+	private TextField grid,inspector;
 	
 /**
  * override the method initSubviews in the super class View
@@ -90,17 +95,21 @@ public class PlayingScene extends View{
 		this.add(saveButton);
 		this.add(backButton);
 		
-		t1 = new TextField();
-		t1.setLocation(10, 60);
-		t1.setSize(600,480);
-		t1.setBackground(Color.BLACK);
-		this.add(t1);
+		// buttons on the inspector view
 		
-		t2  = new TextField();
-		t2.setLocation(620, 60);
-		t2.setSize(180,480);
-		t2.setBackground(Color.BLACK);
-		this.add(t2);
+		//grid 
+		grid = new TextField();
+		grid.setLocation(10, 60);
+		grid.setSize(600,480);
+		grid.setBackground(Color.BLACK);
+		this.add(grid);
+		
+		//inspector
+		inspector  = new TextField();
+		inspector.setLocation(620, 60);
+		inspector.setSize(180,480);
+		inspector.setBackground(Color.BLACK);
+		this.add(inspector);
 		
 		//get the size of the map then put into the interface, leave for the map instance
 		
@@ -122,6 +131,64 @@ public class PlayingScene extends View{
 	public static void main(String[] args) {
 		PlayingScene so = new PlayingScene();
 		new Window(so);
+	}
+	
+	
+
+	@Override
+	protected void initEvents() {
+		super.initEvents();
+		
+		controlButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.out.println("action");
+			}
+		});
+		
+	}
+	
+	//
+	
+	/**
+	 * 
+	 * inner class that implements the IInspectable interface to capture 
+	 * the event of mouse to change the value of the label, buttons etc.
+	 */
+	private class SelectTower implements IInspectable
+	{
+
+		@Override
+		public String title() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String subtitle() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String description() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<Command> commands() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void execute(Command command) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		
 	}
 	
 	
