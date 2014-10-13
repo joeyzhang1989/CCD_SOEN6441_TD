@@ -9,7 +9,8 @@ import java.util.Map;
  * This class is used to define TowerManagers.
  * This class uses singleton pattern.
  * While the first time using this class, it will generate all kinds of TowerManagers and store them in a map.
- * When there is a need to create or upgrade a tower, this class should be called first, in order to get a particular TowerManager. 
+ * When there is a need to create or upgrade a tower, this class should be called first, 
+ * in order to get a particular TowerManager. 
  * 
  * @see TowerManager
  * @see Tower
