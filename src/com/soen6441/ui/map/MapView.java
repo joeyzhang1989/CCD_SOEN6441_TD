@@ -5,7 +5,8 @@ import com.soen6441.ui.common.GridView;
 
 //not finish
 /**
- * @author chenglong zhang chenglongzhang931@gmail.com , jean raymond daher
+ * @author jean raymond daher
+ * @author chenglong zhang 
  */
 public class MapView extends GridView{
 
