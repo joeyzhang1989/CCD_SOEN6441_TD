@@ -6,13 +6,21 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * This class is used to define TowerManager.
+ * This class is used to define TowerManagers.
+ * This class uses singleton pattern.
+ * When there is a need to create or upgrade a tower, this class should be called first, in order to get a particular TowerManager. 
+ * While the first time using this class, it will generate all kinds of TowerManagers and store them in a map.
+ * 
  * 
  * @author Haiyang Sun
  *
  */
 
 public class TowerManagerFactory {
+	
+	/*
+	 * Singleton
+	 */
 	
 	private static TowerManagerFactory currentManagerFactory;
 	
@@ -32,21 +40,7 @@ public class TowerManagerFactory {
 		currentManagerFactory = null;
 	}
 	
-	/**
-	 * Close the access to the general constructor
-	 */
 	
-	private TowerManagerFactory()
-	{
-		
-		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
-		
-		for(int i=0; i<typeNames.size(); i++) {
-			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i)+".xml");
-			managers.put(typeNames.get(i), towerManager);
-		}
-		
-	}
 	/**
 	 * The array is used to store type names.
 	 */
@@ -60,13 +54,25 @@ public class TowerManagerFactory {
 	
 	
 	/**
+	 * Constructor
 	 * 
-	 * @return TowerManagerFactory
+	 * Declare all kinds of tower type names, find the XML data file path by type names, then create TowerManagers by both of them. 
+	 * 
 	 */
-
-	public static TowerManagerFactory defaultFactory() {
-		return null;
+	
+	private TowerManagerFactory()
+	{
+		
+		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
+		
+		for(int i=0; i<typeNames.size(); i++) {
+			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i)+".xml");
+			managers.put(typeNames.get(i), towerManager);
+		}
+		
 	}
+	
+	
 	
 	/**
 	 * This method is used to get a certain type of TowerManager by its type name.
