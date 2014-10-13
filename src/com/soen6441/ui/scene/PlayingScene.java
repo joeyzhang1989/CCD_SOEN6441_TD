@@ -10,7 +10,7 @@ import com.soen6441.ui.parallel.View;
 
 /**
  * @author chenglong zhang 
- * this is PlayingScene class is responsible of the playScene view and showing the 
+ * this is PlayingScene class is responsible of the playscene view and showing the 
  * corresponding information of the related models
  * not finish with the inner classes
  */
