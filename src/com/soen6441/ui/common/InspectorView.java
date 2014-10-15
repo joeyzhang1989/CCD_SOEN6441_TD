@@ -16,15 +16,11 @@ import com.soen6441.ui.parallel.View;
 /**
  * This class defines the inspector view. On the right side of our game the menu that will show editing options or tower information is the inspector view.
  * An element needs to be inspectable to be displayed on the view.
-<<<<<<< HEAD
- * @author chenglong zhang
- * @author jean raymond daher
-=======
  * 
  * @author Zhe Zhao
  * @author jean raymond daher
  * @author chenglong zhang
->>>>>>> zz_local
+ * 
  * @see IInspectable
  */
 public class InspectorView extends View{
