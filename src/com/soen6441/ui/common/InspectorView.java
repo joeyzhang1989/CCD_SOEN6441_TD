@@ -96,6 +96,7 @@ public class InspectorView extends View {
 			button.setSize(160, 40);
 			button.setLocation(10, this.getHeight() - 50 * (commands.size() - i));
 			this.add(button);
+			this.commandButtons.add(button);
 			
 			button.addActionListener(new ActionListener() {
 				@Override
@@ -118,39 +119,4 @@ public class InspectorView extends View {
 		this.on = on;
 	}
 	
-	public static void main(String[] args) {
-		InspectorView v = new InspectorView();
-		v.setOn(new IInspectable() {
-			
-			@Override
-			public String title() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public String subtitle() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public void execute(Command command) {
-				// TODO Auto-generated method stub
-				
-			}
-			
-			@Override
-			public String description() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-			
-			@Override
-			public List<Command> commands() {
-				// TODO Auto-generated method stub
-				return null;
-			}
-		});
-	}
 }

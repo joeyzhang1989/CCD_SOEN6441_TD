@@ -1,5 +1,7 @@
 package com.soen6441.ui.parallel;
 
+import java.awt.Graphics;
+
 import javax.swing.JButton;
 
 /**

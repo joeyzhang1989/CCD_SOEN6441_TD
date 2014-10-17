@@ -1,24 +1,20 @@
 package com.soen6441.ui.scene;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.soen6441.core.Play;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.IInspectable;
+import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.TextField;
 import com.soen6441.ui.parallel.View;
-import com.soen6441.ui.parallel.ViewFlow;
-import com.soen6441.ui.parallel.Window;
-
-import demo.soen6441.ui.viewFlow.ViewFlowDemoScene1;
-import demo.soen6441.ui.viewFlow.ViewFlowDemoScene2;
 
 
 
@@ -54,8 +50,7 @@ public class PlayingScene extends View{
 	
 	private MapView mapView;
 	
-	private TextField grid,
-					  inspector;
+	private InspectorView inspectorView;
 					  
 	
 /**
@@ -124,13 +119,6 @@ public class PlayingScene extends View{
 		bottomView.setSize(800, 40);
 		PlayingScene.this.add(bottomView);
 		
-		//Save button
-		saveButton = new Button();
-		saveButton.setTitle("SAVE");
-		saveButton.setSize(60, 20);
-		saveButton.setLocation(730, 10);
-		bottomView.add(saveButton);
-		
 		//Quit button
 		backButton = new Button();
 		backButton.setTitle("Quit");
@@ -141,35 +129,21 @@ public class PlayingScene extends View{
 		// buttons on the inspector view
 		
 		//grid 
-		grid = new TextField();
-		grid.setLocation(10, 60);
-		grid.setSize(600,480);
-		grid.setBackground(Color.BLACK);
-		this.add(grid);
+		mapView = new MapView();
+		mapView.setLocation(0, 60);
+		mapView.setSize(620,480);
+		mapView.setBackground(new Color(0xDDDDDD));
+		this.add(mapView);
 		
 		//inspector
-		inspector  = new TextField();
-		inspector.setLocation(620, 60);
-		inspector.setSize(180,480);
-		inspector.setBackground(Color.BLACK);
-		this.add(inspector);
+		inspectorView  = new InspectorView();
+		inspectorView.setLocation(620, 60);
+		inspectorView.setSize(180,480);
+		inspectorView.setBackground(new Color(0xEEEEEE));
+		this.add(inspectorView);
 		
-		//get the size of the map then put into the interface, leave for the map instance
-		
-			//double height=this.map.getMap().getHeight();
-			//double width=this.map.getMap().getWidth();
-		/*	height=15;
-			width=15;
-			View view = new View();
-			view.setLocation(10, 50);
-			view.setSize(485,485);
-			for(int i=0;i<height;i++)
-					for(int j=0;j<width;j++){
-						
-					}
-			*/
-			//view.setBackground(Color.BLACK);
-			//this.add(view);
+		inspectorView.setOn(new InspectableScenary());
+		inspectorView.update();
 	}
 
 	@Override
@@ -200,21 +174,63 @@ public class PlayingScene extends View{
 			}
 		});
 		
-		/**
-		 * perform the save function to save the game for next load
-		 * 
-		 */
-		saveButton.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				System.out.println("action");
-			}
-		});
+//		/**
+//		 * perform the save function to save the game for next load
+//		 * 
+//		 */
+//		saveButton.addActionListener(new ActionListener() {
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				System.out.println("action");
+//			}
+//		});
 		
 		
 	}
 	
-	//
+	private class InspectableScenary implements IInspectable
+	{
+		private Command buildBottleTower;
+		private Command buildMudTower;
+		
+		public InspectableScenary() {
+			buildBottleTower = new Command("Build Bottle Tower", "100$");
+			buildMudTower = new Command("Build Mud Tower", "100$");
+		}
+
+		@Override
+		public String title() {
+			return "Scenary";
+		}
+
+		@Override
+		public String subtitle() {
+			return "An Empty Space";
+		}
+
+		@Override
+		public String description() {
+			return "You can build anything on it";
+		}
+
+		@Override
+		public List<Command> commands() {
+			List<Command> commands = new ArrayList<Command>();
+			commands.add(buildBottleTower);
+			commands.add(buildMudTower);
+			return commands;
+		}
+
+		@Override
+		public void execute(Command command) {
+			if(command == buildBottleTower){
+				System.out.println("Going to build a bottle tower");
+			} else if(command == buildMudTower){
+				System.out.println("Going to build a mud tower");
+			}
+			
+		}		
+	}	
 	
 	/**
 	 * @author chenglong zhang 
