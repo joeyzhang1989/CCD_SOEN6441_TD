@@ -171,20 +171,7 @@ public class PlayingScene extends View{
 			//view.setBackground(Color.BLACK);
 			//this.add(view);
 	}
-<<<<<<< HEAD
-//	public static void main(String[] args) {
-//		//PlayingScene ps = new PlayingScene();
-//		//new Window(ps);
-//		ViewFlow viewFlow = new ViewFlow();
-//		viewFlow.push(new PlayingScene());
-//		new Window(viewFlow);
-//	}
-	
-	
 
-=======
-	
->>>>>>> 004cfd049d4837eceb8534676b9ff0e0da157f98
 	@Override
 	protected void initEvents() {
 		super.initEvents();
