@@ -99,7 +99,11 @@ public class TowerManager {
 	public Tower createTower() {
 		
 		Tower tower = leveledTowers.get(0);
+		Tower newTower = new Tower();
+		tower.copyTo(newTower);
+		return newTower;
 		
+		/*
 		if (this.towerType == "BottleTower") {
 			BottleTower bottleTower = (BottleTower)tower;
 			BottleTower newTower = new BottleTower();
@@ -113,6 +117,7 @@ public class TowerManager {
 			return newTower;
 		}
 		return null;
+		*/
 	}
 	
 	/**
@@ -123,6 +128,13 @@ public class TowerManager {
 	
 	public void upgrade(Tower tower) {
 		
+		if (tower.level < leveledTowers.size()) {
+			
+			
+			leveledTowers.get(tower.level).copyTo(tower);
+			
+		}
+		/*
 		switch (tower.level) {
 		case 1:
 			Tower level2Tower = leveledTowers.get(1);
@@ -146,6 +158,9 @@ public class TowerManager {
 				mudTower.copyTo(tower);
 			}
 			break;	
-		}	
+		}
+		*/
+				
 	}	
+	
 }

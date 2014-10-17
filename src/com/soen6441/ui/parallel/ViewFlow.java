@@ -14,10 +14,9 @@ public class ViewFlow extends View {
 	}
 	
 	public void push(View view){
-//		if (contentViews.size() > 0){
-//			View oldView = contentViews.get(contentViews.size() - 1);
-//			this.remove(oldView);
-//		}
+		if(contentViews.size() > 0){
+			contentViews.get(contentViews.size() - 1).setVisible(false);
+		}
 		
 		contentViews.add(view);
 		view.setViewFlow(this);
@@ -31,6 +30,7 @@ public class ViewFlow extends View {
 			View view = contentViews.get(contentViews.size() - 1);
 			this.remove(view);
 			contentViews.remove(view);
+			contentViews.get(contentViews.size() - 1).setVisible(true);
 //			view = contentViews.get(contentViews.size() - 1);
 //			this.add(view);
 		}

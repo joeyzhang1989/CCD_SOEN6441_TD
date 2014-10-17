@@ -72,6 +72,7 @@ public class EditingScene extends View{
 	    this.backButton.setTitle("BACK");
 	    this.backButton.setSize(60, 20);
 		this.backButton.setLocation(10, 550);
+		this.add(this.backButton);
 	    
 	    
 	    //this.mapView=new MapView();
@@ -83,7 +84,7 @@ public class EditingScene extends View{
 		
 		
 		
-		}
+	}
 	
 	@Override
 	protected void initEvents()	{
