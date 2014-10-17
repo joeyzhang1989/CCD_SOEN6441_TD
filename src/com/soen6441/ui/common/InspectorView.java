@@ -3,8 +3,9 @@ package com.soen6441.ui.common;
 
 
 
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.soen6441.ui.parallel.Button;
@@ -22,7 +23,7 @@ import com.soen6441.ui.parallel.View;
  * @author chenglong zhang
  * @see IInspectable
  */
-public class InspectorView extends View{
+public class InspectorView extends View {
 
 	/*
 	 * Properties
@@ -45,6 +46,7 @@ public class InspectorView extends View{
 	protected void init() {
 		super.init();
 		this.setSize(180, 500);
+		this.commandButtons = new ArrayList<Button>();
 	}
 	
 	@Override
@@ -70,20 +72,39 @@ public class InspectorView extends View{
 		this.descriptionLabel = descriptionLabel;
 	
 	}
-	
-	@Override
-	protected void initEvents() {
-		super.initEvents();
+
+	public void update() {
+		titleLabel.setText(on.title());
+		subtitleLabel.setText(on.subtitle());
+		descriptionLabel.setText(on.description());
 		
-		this.addPropertyChangeListener("on", new PropertyChangeListener() {
+		//remove old buttons
+		for (Button button:commandButtons){
+			this.remove(button);
+		}
+		
+		//add new buttons
+		commandButtons.clear();
+		commands = on.commands();
+		for (int i = 0; i < commands.size(); i++){
+			Command command = commands.get(i);
 			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt) {
-				System.out.println("change");
-			}
-		});
+			Button button = new Button();
+			button.setTitle(command.getTitle());
+			button.setSubtitle(command.getSubtitle());
+			button.setSize(160, 40);
+			button.setLocation(10, this.getHeight() - 50 * (commands.size() - i));
+			this.add(button);
+			
+			button.addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					int index = commandButtons.indexOf(e.getSource());
+					on.execute(commands.get(index));
+				}
+			});
+		}
 	}
-	
 	
 	/*
 	 * Getters & Setters
@@ -130,7 +151,5 @@ public class InspectorView extends View{
 				return null;
 			}
 		});
-		
-		
 	}
 }
