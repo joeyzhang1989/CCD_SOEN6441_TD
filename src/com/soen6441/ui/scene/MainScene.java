@@ -115,8 +115,6 @@ public class MainScene extends View{
 	
 	
 	public static void main(String[] args) {
-		//PlayingScene ps = new PlayingScene();
-		//new Window(ps);
 		ViewFlow viewFlow = new ViewFlow();
 		viewFlow.push(new MainScene());
 		new Window(viewFlow);

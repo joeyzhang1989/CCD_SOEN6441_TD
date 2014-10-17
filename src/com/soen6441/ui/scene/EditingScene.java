@@ -97,7 +97,6 @@ public class EditingScene extends View{
 			 * *perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e){
-				MainScene mainScene = new MainScene();
 				EditingScene.this.viewFlow.pop();
 			}
 		});
