@@ -155,14 +155,13 @@ public class PlayingScene extends View{
 			//view.setBackground(Color.BLACK);
 			//this.add(view);
 	}
-	
-	public static void main(String[] args) {
-		//PlayingScene ps = new PlayingScene();
-		//new Window(ps);
-		ViewFlow viewFlow = new ViewFlow();
-		viewFlow.push(new PlayingScene());
-		new Window(viewFlow);
-	}
+//	public static void main(String[] args) {
+//		//PlayingScene ps = new PlayingScene();
+//		//new Window(ps);
+//		ViewFlow viewFlow = new ViewFlow();
+//		viewFlow.push(new PlayingScene());
+//		new Window(viewFlow);
+//	}
 	
 	
 
