@@ -142,6 +142,7 @@ public class PlayingScene extends View{
 		inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
 		
+		// send the notifications to the inspectorView
 		inspectorView.setOn(new InspectableScenary());
 		inspectorView.update();
 	}
@@ -167,9 +168,7 @@ public class PlayingScene extends View{
 		backButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 MainScene ms= new  MainScene ();
-				//wait the MainScene to finish implementation
-				 PlayingScene.this.viewFlow.push(ms);
+				 PlayingScene.this.viewFlow.pop();
 				
 			}
 		});
@@ -187,6 +186,13 @@ public class PlayingScene extends View{
 		
 		
 	}
+	/**
+	 * @author Zhe Zhao
+	 * @author chenglong zhang 
+	 * inner class that implements the IInspectable interface to 
+	 * add the inspectorView into the PlayingScene .
+	 * update the inspector view due to the operations 
+	 */
 	
 	private class InspectableScenary implements IInspectable
 	{
