@@ -9,7 +9,7 @@ import java.util.List;
  * @author jean raymond daher
  * @see InspectorView
  */
-public interface IInspectable {
+public interface IInspectable{
 
 	public String title();
 	public String subtitle();

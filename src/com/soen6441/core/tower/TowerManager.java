@@ -146,8 +146,6 @@ public class TowerManager {
 				mudTower.copyTo(tower);
 			}
 			break;	
-		}
-				
+		}	
 	}	
-	
 }
