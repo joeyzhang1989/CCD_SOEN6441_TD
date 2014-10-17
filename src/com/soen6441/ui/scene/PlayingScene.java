@@ -1,6 +1,7 @@
 package com.soen6441.ui.scene;
 
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
@@ -41,6 +42,10 @@ public class PlayingScene extends View{
 	
 	private Label lifelabel;
 	
+	private Label money;
+	
+	private Label life;
+	
 	private Button controlButton;
 	
 	private Button backButton;
@@ -50,9 +55,8 @@ public class PlayingScene extends View{
 	private MapView mapView;
 	
 	private TextField grid,
-					  inspector,
-					  money,
-					  life;
+					  inspector;
+					  
 	
 /**
  * override the method initSubviews in the super class View
@@ -60,67 +64,79 @@ public class PlayingScene extends View{
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
-		// add the controlButton to the play Scene
+		//initial the bannnerView 
+		View bannerView = new View();
+		bannerView.setLocation(0, 0);
+		bannerView.setSize(800, 60);
+		this.add(bannerView);
+		
+		// add the controlButton to the play Scene bannerview
+		
 		controlButton = new Button();
 		controlButton.setTitle("Next Wave");
 		// set button location to the interface 
 		controlButton.setSize(120, 40);
 		controlButton.setLocation(10, 10);
-		//button.setTitle("validate");
-		this.add(controlButton);
+		bannerView.add(controlButton);
 		
 		// this label should be updated 
-		String Wave = "1/10";
-		this.infoLabel = new Label();
-		this.infoLabel.setText("Wave : "+Wave);
-		this.infoLabel.setSize(120, 40);
-		this.infoLabel.setLocation(140, 10);
-		this.add(infoLabel);
+		String wave = "1/10";
+		infoLabel = new Label();
+		infoLabel.setText("Wave : "+wave);
+		infoLabel.setSize(120, 40);
+		infoLabel.setLocation(140, 10);
+		bannerView.add(infoLabel);
 		
 		//moneylabel
 		moneyLabel = new Label();
 		moneyLabel.setText("Money");
 		moneyLabel.setSize(120, 40);
 		moneyLabel.setLocation(400, 10);
-		this.add(moneyLabel);   
+		bannerView.add(moneyLabel);   
 		
-		//textfield to store the coins change
-		this.money=new TextField();
-		this.money.setText("1000");
+		//label to show the coins change
+		money = new Label();
+		money.setText("1000");
+		money.setSize(80,40);
+		money.setLocation(520,10);
+		bannerView.add(money);
 		Play pl = Play.currentPlay();
 		//THIS SHOULD BE SET TO PLAY.GETCOINS()
-		this.money.setSize(80,40);
-		this.money.setLocation(520,10);
-		this.add(money);
 		
 		//lifelabel
 		lifelabel = new Label();
 		lifelabel.setText("Life");
 		lifelabel.setSize(120, 40);
 		lifelabel.setLocation(640, 10);
-		this.add(lifelabel);   
+		bannerView.add(lifelabel);   
 		
-		//textfield to store the life change
-		this.life=new TextField();
-		this.life.setText("1000");
+		//lable to store the life change
+		life = new Label();
+		life.setText("1000");
 		//THIS SHOULD BE SET TO PLAY.GETLIFE()
-		this.life.setSize(80,40);
-		this.life.setLocation(720,10);
-		this.add(life);
+		life.setSize(80,40);
+		life.setLocation(720,10);
+		bannerView.add(life);
+		
+		//create the bottomView to the PlayingScene
+		View bottomView = new View();
+		bottomView.setLocation(0, 540);
+		bottomView.setSize(800, 40);
+		PlayingScene.this.add(bottomView);
 		
 		//Save button
-		saveButton=new Button();
+		saveButton = new Button();
 		saveButton.setTitle("SAVE");
 		saveButton.setSize(60, 20);
-		saveButton.setLocation(730, 550);
-		    
+		saveButton.setLocation(730, 10);
+		bottomView.add(saveButton);
+		
 		//Quit button
-		backButton=new Button();
+		backButton = new Button();
 		backButton.setTitle("Quit");
 		backButton.setSize(60, 20);
-		backButton.setLocation(10, 550);
-		this.add(saveButton);
-		this.add(backButton);
+		backButton.setLocation(10, 10);
+		bottomView.add(backButton);
 		
 		// buttons on the inspector view
 		
@@ -155,6 +171,7 @@ public class PlayingScene extends View{
 			//view.setBackground(Color.BLACK);
 			//this.add(view);
 	}
+<<<<<<< HEAD
 //	public static void main(String[] args) {
 //		//PlayingScene ps = new PlayingScene();
 //		//new Window(ps);
@@ -165,6 +182,9 @@ public class PlayingScene extends View{
 	
 	
 
+=======
+	
+>>>>>>> 004cfd049d4837eceb8534676b9ff0e0da157f98
 	@Override
 	protected void initEvents() {
 		super.initEvents();
@@ -251,85 +271,85 @@ public class PlayingScene extends View{
 
 
 
-/**
- * @author chenglong zhang 
- * inner class that implements the IInspectable interface to capture 
- * the event of mouse to change the value of the label, buttons etc.
- * selecting a road scene that the inspector view should update 
- */
-private class SelectRoad implements IInspectable
-{
+	/**
+	 * @author chenglong zhang 
+	 * inner class that implements the IInspectable interface to capture 
+	 * the event of mouse to change the value of the label, buttons etc.
+	 * selecting a road scene that the inspector view should update 
+	 */
+	private class SelectRoad implements IInspectable
+	{
 
-	@Override
-	public String title() {
+		@Override
+		public String title() {
 		
-		return null;
-	}
+			return null;
+		}
 
-	@Override
-	public String subtitle() {
+		@Override
+		public String subtitle() {
 		
-		return null;
-	}
+			return null;
+		}
 
-	@Override
-	public String description() {
+		@Override
+		public String description() {
 		
-		return null;
-	}
+			return null;
+		}
 
-	@Override
-	public List<Command> commands() {
+		@Override
+		public List<Command> commands() {
 		
-		return null;
-	}
+			return null;
+		}
 
-	@Override
-	public void execute(Command command) {
+		@Override
+		public void execute(Command command) {
 		
 		
-	}
+		}
 	
-}
-
-
-/**
- * @author chenglong zhang 
- * inner class that implements the IInspectable interface to capture 
- * the event of mouse to change the value of the label, buttons etc.
- * selecting a empty space scene that the inspector view should update 
- */
-private class SelectEmptySpace implements IInspectable
-{
-
-	@Override
-	public String title() {
-		
-		return null;
 	}
 
-	@Override
-	public String subtitle() {
-		
-		return null;
-	}
 
-	@Override
-	public String description() {
-		
-		return null;
-	}
+	/**
+	 * @author chenglong zhang 
+	 * inner class that implements the IInspectable interface to capture 
+	 * the event of mouse to change the value of the label, buttons etc.
+	 * selecting a empty space scene that the inspector view should update 
+	 */
+	private class SelectEmptySpace implements IInspectable
+	{
 
-	@Override
-	public List<Command> commands() {
+		@Override
+		public String title() {
 		
-		return null;
-	}
+			return null;
+		}
 
-	@Override
-	public void execute(Command command) {
+		@Override
+		public String subtitle() {
+		
+			return null;
+		}
+
+		@Override
+		public String description() {
+		
+			return null;
+		}
+
+		@Override
+		public List<Command> commands() {
+		
+			return null;
+		}
+
+		@Override
+		public void execute(Command command) {
 		
 		
+		}
 	}
-  }
 }

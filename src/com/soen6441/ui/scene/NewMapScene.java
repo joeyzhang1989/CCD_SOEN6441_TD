@@ -32,7 +32,7 @@ public class NewMapScene extends View{
 		this.add(widthTextLabel);
 		
 		this.widthTextField = new TextField();
-		this.widthTextField.setText("大于4小于15");
+		this.widthTextField.setText("澶т簬4灏忎簬15");
 		this.widthTextField.setSize(200,40);
 		this.widthTextField.setLocation(350,100);
 		this.add(widthTextField);
@@ -44,7 +44,7 @@ public class NewMapScene extends View{
 		this.add(heightTextLabel);
 		
 		this.heightTextField = new TextField();
-		this.heightTextField.setText("大于4小于12");
+		this.heightTextField.setText("澶т簬4灏忎簬12");
 		this.heightTextField.setSize(200,40);
 		this.heightTextField.setLocation(350,150);
 		this.add(heightTextField);
@@ -71,8 +71,8 @@ public class NewMapScene extends View{
 			 * *perform the function that click the nextbutton to go to mainscene
 			 */
 			public void actionPerformed(ActionEvent e){
-				MainScene mainScene = new MainScene();
-				NewMapScene.this.viewFlow.push(mainScene);
+				EditingScene editingScene = new EditingScene();
+				NewMapScene.this.viewFlow.push(editingScene);
 			}
 		});
 	
@@ -83,7 +83,6 @@ public class NewMapScene extends View{
 			 * *perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e){
-				EditingScene editingScene = new EditingScene();
 				NewMapScene.this.viewFlow.pop();
 			}
 		});
