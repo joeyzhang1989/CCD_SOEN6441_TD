@@ -1,6 +1,9 @@
 package com.soen6441.ui.scene;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.*;
@@ -9,6 +12,7 @@ import com.soen6441.ui.parallel.*;
  * This class is the Editing scene class where the user edits a created or new map.
  * 
  * @author JeanRaymondDaher
+ * @author Mengyao Wang
  * @since 0.1
  *
  */
@@ -80,6 +84,23 @@ public class EditingScene extends View{
 		
 		
 		}
+	
+	@Override
+	protected void initEvents()	{
+		
+	
+		backButton.addActionListener(new ActionListener(){
+			
+			@Override
+			/**
+			 * *perform the function that click the backbutton to go to editingscene
+			 */
+			public void actionPerformed(ActionEvent e){
+				MainScene mainScene = new MainScene();
+				EditingScene.this.viewFlow.pop();
+			}
+		});
+	}
 	
 }
 
