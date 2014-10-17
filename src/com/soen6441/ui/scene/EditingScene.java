@@ -83,7 +83,7 @@ public class EditingScene extends View{
 		View view = new View();
 		view.setLocation(70, 10);
 		view.setSize(550, 550);
-		this.add(view);
+//		this.add(view);
 		
 		
 		

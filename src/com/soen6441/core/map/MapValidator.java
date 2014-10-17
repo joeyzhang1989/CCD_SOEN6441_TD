@@ -15,8 +15,6 @@ import java.util.List;
 public class MapValidator {
 
 	private GridMap map;
-	
-	
 
 	public boolean validate(){
 		
