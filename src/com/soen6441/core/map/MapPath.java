@@ -24,8 +24,8 @@ public class MapPath  {
 	 * 
 	 * @param point		A MapPoint object
 	 * @param amount	The distance from the MapPoint object represented by a double
-	 * @return 			The distance to travel on the Map
-	 */
+	
+	 * @return 			The distance to travel on the Map */
 	
 	 public double goAlong(MapPoint point , double amount){
 		
@@ -35,15 +35,27 @@ public class MapPath  {
 	}
 
 
+	/**
+	 * Method getLocations.
+	 * @return List<MapPoint>
+	 */
 	public List<MapPoint> getLocations() {
 		return locations;
 	}
 
 
+	/**
+	 * Method setLocations.
+	 * @param locations List<MapPoint>
+	 */
 	public void setLocations(List<MapPoint> locations) {
 		this.locations = locations;
 	}
 	
+	/**
+	 * Method addLocation.
+	 * @param location MapPoint
+	 */
 	public void addLocation(MapPoint location){
 		this.locations.add(location);
 	}
