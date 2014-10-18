@@ -10,7 +10,6 @@ import com.soen6441.ui.common.GridView;
  * This class defines the view of the map
  * 
  * @author jean raymond daher
->>>>>>> Stashed changes
  * @author Chenglong Zhang
  * @since 0.1
  * 
@@ -19,12 +18,10 @@ public class MapView extends GridView {
 
 	private GridMap map;
 	private MapViewListener eventListener;
-<<<<<<< Updated upstream
 
 	/**
 	 * Method getMap.
 	 * @return GridMap
-=======
 	
 	/*
 	 * Getters & Setters

@@ -21,14 +21,12 @@ public class GridView extends View {
 
 	private GridViewCell[][] cells;
 
-<<<<<<< Updated upstream
 	/**
 	 * Method getUnitWidth.
 	 * @return int
-=======
+
 	/*
 	 * Getters & Setters
->>>>>>> Stashed changes
 	 */
 	public int getUnitWidth() {
 		return unitWidth;
