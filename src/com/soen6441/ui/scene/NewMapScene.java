@@ -10,6 +10,7 @@ import com.soen6441.ui.parallel.*;
  * and with two buttons that the abilities are go to next page or back to last page. 
  * 
  * @author Mengyao Wang
+ * @author Chenglong Zhang
  */
 
 public class NewMapScene extends View{

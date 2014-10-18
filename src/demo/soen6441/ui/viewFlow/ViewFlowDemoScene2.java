@@ -7,6 +7,8 @@ import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
 
+/**
+ */
 public class ViewFlowDemoScene2 extends View {
 	
 	private Button button;

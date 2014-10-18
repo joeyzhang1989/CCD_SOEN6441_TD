@@ -7,6 +7,9 @@ import com.soen6441.core.IArchive;
 
 import demo.soen6441.core.archiving.Point.NameForArchiving;
 
+/**
+ *  @author Zhe Zhao
+ */
 public class Circle implements IArchive{
 	
 	/*
@@ -24,6 +27,11 @@ public class Circle implements IArchive{
 		super();
 	}
 	
+	/**
+	 * Constructor for Circle.
+	 * @param origin Point
+	 * @param radius int
+	 */
 	public Circle(Point origin, int radius) {
 		super();
 		this.origin = origin;
@@ -35,12 +43,19 @@ public class Circle implements IArchive{
 	 * Archiving
 	 */
 	
+	/**
+	 */
 	public class NameForArchiving{
 		public static final String Class = "Circle";
 		private static final String Origin = "origin";
 		private static final String Radius = "radius";
 	}
 	
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element){
 		Element originElement = element.element(NameForArchiving.Origin);
@@ -52,6 +67,11 @@ public class Circle implements IArchive{
 		this.radius = Integer.parseInt(radiusElement.getText());
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class); 
@@ -70,19 +90,39 @@ public class Circle implements IArchive{
 	 * Getters & Setters
 	 */
 	
+	/**
+	 * Method getOrigin.
+	 * @return Point
+	 */
 	public Point getOrigin() {
 		return origin;
 	}
+	/**
+	 * Method setOrigin.
+	 * @param origin Point
+	 */
 	public void setOrigin(Point origin) {
 		this.origin = origin;
 	}
+	/**
+	 * Method getRadius.
+	 * @return int
+	 */
 	public int getRadius() {
 		return radius;
 	}
+	/**
+	 * Method setRadius.
+	 * @param radius int
+	 */
 	public void setRadius(int radius) {
 		this.radius = radius;
 	}
 
+	/**
+	 * Method toString.
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return "{" + "origin: " + origin.toString() + ", " + "radius: " + radius + "}";

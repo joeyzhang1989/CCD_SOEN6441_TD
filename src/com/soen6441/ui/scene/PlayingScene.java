@@ -192,6 +192,7 @@ public class PlayingScene extends View{
 	 * inner class that implements the IInspectable interface to 
 	 * add the inspectorView into the PlayingScene .
 	 * update the inspector view due to the operations 
+	 * @version $Revision: 1.0 $
 	 */
 	
 	private class InspectableScenary implements IInspectable
@@ -204,21 +205,41 @@ public class PlayingScene extends View{
 			buildMudTower = new Command("Build Mud Tower", "100$");
 		}
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 			return "Scenary";
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 			return "An Empty Space";
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			return "You can build anything on it";
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
@@ -227,6 +248,11 @@ public class PlayingScene extends View{
 			return commands;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 			if(command == buildBottleTower){
@@ -243,34 +269,60 @@ public class PlayingScene extends View{
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
 	 * selecting tower scene the inspector view should update 
+	 * @version $Revision: 1.0 $
 	 */
 	private class SelectTower implements IInspectable
 	{
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 			
 			return null;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 			
 			return null;
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			
 			return null;
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 			
 			return null;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 			
@@ -285,34 +337,60 @@ public class PlayingScene extends View{
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
 	 * selecting a road scene that the inspector view should update 
+	 * @version $Revision: 1.0 $
 	 */
 	private class SelectRoad implements IInspectable
 	{
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 		
 			return null;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 		
 			return null;
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 		
 			return null;
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 		
 			return null;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 		
@@ -327,34 +405,60 @@ public class PlayingScene extends View{
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
 	 * selecting a empty space scene that the inspector view should update 
+	 * @version $Revision: 1.0 $
 	 */
 	private class SelectEmptySpace implements IInspectable
 	{
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 		
 			return null;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 		
 			return null;
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 		
 			return null;
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 		
 			return null;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 		

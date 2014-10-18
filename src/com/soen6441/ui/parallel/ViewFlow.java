@@ -3,6 +3,9 @@ package com.soen6441.ui.parallel;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author Zhe Zhao
+ */
 public class ViewFlow extends View {
 	private List<View> contentViews;
 	
@@ -13,6 +16,10 @@ public class ViewFlow extends View {
 		contentViews = new ArrayList<View>();
 	}
 	
+	/**
+	 * Method push.
+	 * @param view View
+	 */
 	public void push(View view){
 		if(contentViews.size() > 0){
 			contentViews.get(contentViews.size() - 1).setVisible(false);

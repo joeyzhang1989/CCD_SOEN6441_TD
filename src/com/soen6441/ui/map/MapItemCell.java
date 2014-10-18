@@ -16,10 +16,18 @@ public class MapItemCell extends GridViewCell{
 
 	private MapItem item;
 	
+	/**
+	 * Method getItem.
+	 * @return MapItem
+	 */
 	public MapItem getItem() {
 		return item;
 	}
 
+	/**
+	 * Method setItem.
+	 * @param item MapItem
+	 */
 	public void setItem(MapItem item) {
 		this.item = item;
 	}

@@ -29,6 +29,7 @@ public class PlayManager {
 	 * The method read will read the specified file and generate a Play object.
 	 * 
 	 * @param file The name of the File where to save .
+	 * @return Play
 	 */
 	public Play read(File file){
 		
