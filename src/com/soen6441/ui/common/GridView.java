@@ -21,12 +21,13 @@ public class GridView extends View {
 
 	private GridViewCell[][] cells;
 
+	/*
+	 * Getters & Setters
+	 */
+
 	/**
 	 * Method getUnitWidth.
 	 * @return int
-
-	/*
-	 * Getters & Setters
 	 */
 	public int getUnitWidth() {
 		return unitWidth;
@@ -57,17 +58,10 @@ public class GridView extends View {
 	}
 
 	/**
-<<<<<<< Updated upstream
-	 * Method addCell.
-	 * @param cell GridViewCell
-	 * @param row int
-	 * @param column int
-=======
 	 * Add a cell to the cells[row][column].
 	 * @param cell Defines the cell that needs to be added
 	 * @param row Defines the row where the cell should reside
-	 * @param column Defines the column where the cell should be
->>>>>>> Stashed changes
+	 * @param column Defines the column where the cell should reside
 	 */
 	public void addCell(GridViewCell cell, int row, int column) {
 		if (this.cells[row][column] == null) {
@@ -78,13 +72,10 @@ public class GridView extends View {
 	}
 
 	/**
-<<<<<<< Updated upstream
 	 * Method removeCell.
 	 * @param cell GridViewCell
-=======
 	 * Loop through all the cells and remove the appropriate cell.
 	 * @param cell The cell that needs to be removed
->>>>>>> Stashed changes
 	 */
 	public void removeCell(GridViewCell cell) {
 		for (int i = 0; i < this.cells.length; i++) {
@@ -95,19 +86,11 @@ public class GridView extends View {
 			}
 		}
 	}
-<<<<<<< Updated upstream
 
-	/**
-	 * Method replaceCell.
-	 * @param cell GridViewCell
-	 * @param newCell GridViewCell
-=======
-	
 	/**
 	 * Loop through all the cells and replace the appropriate cell.
 	 * @param cell The cell that needs to be replaced
 	 * @param newCell The new cell that needs to be added
->>>>>>> Stashed changes
 	 */
 	public void replaceCell(GridViewCell cell, GridViewCell newCell) {
 		for (int i = 0; i < this.cells.length; i++) {

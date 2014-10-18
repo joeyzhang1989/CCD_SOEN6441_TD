@@ -13,16 +13,13 @@ import com.soen6441.ui.scene.MainScene;
 public class GridViewCell extends View {
 
 	private GridView gridView;
-<<<<<<< Updated upstream
 
 	/**
 	 * Method getGridView.
 	 * @return GridView
-=======
 	
 	/*
 	 * Getters & Setters
->>>>>>> Stashed changes
 	 */
 	public GridView getGridView() {
 		return gridView;

@@ -16,14 +16,11 @@ public class MapItemCell extends GridViewCell{
 
 	private MapItem item;
 	
-<<<<<<< Updated upstream
 	/**
 	 * Method getItem.
 	 * @return MapItem
-=======
 	/*
 	 * Getters & Setters
->>>>>>> Stashed changes
 	 */
 	public MapItem getItem() {
 		return item;
