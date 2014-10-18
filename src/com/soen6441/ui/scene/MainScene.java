@@ -14,7 +14,6 @@ import com.soen6441.ui.parallel.*;
 /**
  * @author Mengyao Wang
  * @author Chenglong Zhang
- * @version jdk 1.7
  * @see 
  * This class defines the mainscene. On the Main interface of our game, 
  * there are 3 buttons presented: Playbutton, Editbutton and Newmapbutton
@@ -114,6 +113,10 @@ public class MainScene extends View{
 	}
 	
 	
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		ViewFlow viewFlow = new ViewFlow();
 		viewFlow.push(new MainScene());

@@ -24,22 +24,44 @@ public class GridView extends View {
 
 	private GridViewCell[][] cells;
 
+	/**
+	 * Method getUnitWidth.
+	 * @return int
+	 */
 	public int getUnitWidth() {
 		return unitWidth;
 	}
 
+	/**
+	 * Method setUnitWidth.
+	 * @param unitWidth int
+	 */
 	public void setUnitWidth(int unitWidth) {
 		this.unitWidth = unitWidth;
 	}
 
+	/**
+	 * Method getUnitHeight.
+	 * @return int
+	 */
 	public int getUnitHeight() {
 		return unitHeight;
 	}
 
+	/**
+	 * Method setUnitHeight.
+	 * @param unitHeight int
+	 */
 	public void setUnitHeight(int unitHeight) {
 		this.unitHeight = unitHeight;
 	}
 
+	/**
+	 * Method addCell.
+	 * @param cell GridViewCell
+	 * @param row int
+	 * @param column int
+	 */
 	public void addCell(GridViewCell cell, int row, int column) {
 		if (this.cells[row][column] == null) {
 			this.cells[row][column] = cell;
@@ -48,6 +70,10 @@ public class GridView extends View {
 		}
 	}
 
+	/**
+	 * Method removeCell.
+	 * @param cell GridViewCell
+	 */
 	public void removeCell(GridViewCell cell) {
 		for (int i = 0; i < this.cells.length; i++) {
 			for (int j = 0; j < this.cells.length; j++) {
@@ -58,6 +84,11 @@ public class GridView extends View {
 		}
 	}
 
+	/**
+	 * Method replaceCell.
+	 * @param cell GridViewCell
+	 * @param newCell GridViewCell
+	 */
 	public void replaceCell(GridViewCell cell, GridViewCell newCell) {
 		for (int i = 0; i < this.cells.length; i++) {
 			for (int j = 0; j < this.cells.length; j++) {
@@ -68,6 +99,11 @@ public class GridView extends View {
 		}
 	}
 
+	/**
+	 * Method selectCell.
+	 * @param row int
+	 * @param column int
+	 */
 	public void selectCell(int row, int column) {
 //		this.selectedCell = new GridViewCell();
 		this.selectedCell = this.cells[row][column];

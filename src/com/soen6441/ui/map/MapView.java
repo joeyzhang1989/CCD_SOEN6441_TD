@@ -5,7 +5,7 @@ import com.soen6441.ui.common.GridView;
 
 //not finish
 /**
- * @author jean raymond daher
+ * @author Jean Raymond Daher
  * @author Chenglong Zhang
  */
 public class MapView extends GridView {
@@ -18,22 +18,42 @@ public class MapView extends GridView {
 
 	private MapViewListener eventListener;
 
+	/**
+	 * Method getMap.
+	 * @return GridMap
+	 */
 	public GridMap getMap() {
 		return map;
 	}
 
+	/**
+	 * Method setMap.
+	 * @param map GridMap
+	 */
 	public void setMap(GridMap map) {
 		this.map = map;
 	}
 
+	/**
+	 * Method getEventListener.
+	 * @return MapViewListener
+	 */
 	public MapViewListener getEventListener() {
 		return eventListener;
 	}
 
+	/**
+	 * Method setEventListener.
+	 * @param eventListener MapViewListener
+	 */
 	public void setEventListener(MapViewListener eventListener) {
 		this.eventListener = eventListener;
 	}
 
+	/**
+	 * Method suggestedSize.
+	 * @return int
+	 */
 	public int suggestedSize() {
 
 		return 0;

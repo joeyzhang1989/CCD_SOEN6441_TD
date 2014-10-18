@@ -6,6 +6,9 @@ import org.dom4j.tree.DefaultElement;
 import com.soen6441.core.IArchive;
 
 
+/**
+ * @author Zhe Zhao
+ */
 public class Point implements IArchive {
 	
 	/*
@@ -23,6 +26,11 @@ public class Point implements IArchive {
 		super();
 	}
 	
+	/**
+	 * Constructor for Point.
+	 * @param x int
+	 * @param y int
+	 */
 	public Point(int x, int y) {
 		super();
 		this.x = x;
@@ -33,18 +41,30 @@ public class Point implements IArchive {
 	 * Archiving
 	 */
 
+	/**
+	 */
 	public class NameForArchiving{
 		public static final String Class = "Point";
 		private static final String X = "x";
 		private static final String Y = "y";
 	}
 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		x = Integer.parseInt(element.attributeValue(NameForArchiving.X));
 		y = Integer.parseInt(element.attributeValue(NameForArchiving.Y));
 	}
 	
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class); 
@@ -57,19 +77,39 @@ public class Point implements IArchive {
 	 * Getters & Setters
 	 */
 
+	/**
+	 * Method getX.
+	 * @return int
+	 */
 	public int getX() {
 		return x;
 	}
+	/**
+	 * Method setX.
+	 * @param x int
+	 */
 	public void setX(int x) {
 		this.x = x;
 	}
+	/**
+	 * Method getY.
+	 * @return int
+	 */
 	public int getY() {
 		return y;
 	}
+	/**
+	 * Method setY.
+	 * @param y int
+	 */
 	public void setY(int y) {
 		this.y = y;
 	}
 
+	/**
+	 * Method toString.
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return "{" + "x: " + x + ", " + "y: " + y + "}";

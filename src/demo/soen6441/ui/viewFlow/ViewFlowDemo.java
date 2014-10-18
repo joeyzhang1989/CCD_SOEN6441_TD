@@ -4,9 +4,15 @@ import com.soen6441.ui.parallel.View;
 import com.soen6441.ui.parallel.ViewFlow;
 import com.soen6441.ui.parallel.Window;
 
+/**
+ */
 public class ViewFlowDemo extends View {
 	
 	
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		ViewFlow viewFlow = new ViewFlow();
 		viewFlow.push(new ViewFlowDemoScene1());

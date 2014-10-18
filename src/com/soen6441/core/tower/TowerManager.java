@@ -36,6 +36,11 @@ public class TowerManager {
 	
 	private List<Tower> leveledTowers;
 	
+	/**
+	 * Constructor for TowerManager.
+	 * @param towerType String
+	 * @param filePath String
+	 */
 	public TowerManager(String towerType, String filePath) {
 		
 		this.towerType = towerType;
@@ -93,8 +98,8 @@ public class TowerManager {
 	/**
 	 * Create a specific Tower object.
 	 * 
-	 * @return Tower 
-	 */
+	
+	 * @return Tower  */
 	
 	public Tower createTower() {
 		

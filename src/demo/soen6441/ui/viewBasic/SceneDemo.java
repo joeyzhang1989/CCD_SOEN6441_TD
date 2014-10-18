@@ -9,6 +9,8 @@ import com.soen6441.ui.parallel.TextField;
 import com.soen6441.ui.parallel.View;
 import com.soen6441.ui.parallel.Window;
 
+/**
+ */
 public class SceneDemo extends View {
 
 	private Button button;
@@ -83,6 +85,10 @@ public class SceneDemo extends View {
 	}
 
 	// Using a window to test a view.
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		SceneDemo sceneDemo = new SceneDemo();
 		new Window(sceneDemo);

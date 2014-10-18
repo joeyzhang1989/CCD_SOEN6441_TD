@@ -2,8 +2,14 @@ package demo.soen6441.core.reflection;
 
 import com.soen6441.core.tower.Tower;
 
+/**
+ */
 public class ReflectionDemo {
 
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		String className = "Tower";
 		String classPath = "com.soen6441.core.tower.";

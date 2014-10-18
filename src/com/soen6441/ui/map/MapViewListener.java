@@ -11,6 +11,10 @@ import com.soen6441.core.map.MapItem;
 
 public interface MapViewListener {
 
+	/**
+	 * Method select.
+	 * @param item MapItem
+	 */
 	public void select(MapItem item);
 	
 }

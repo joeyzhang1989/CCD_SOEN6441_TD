@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.View;
 
+/**
+ */
 public class ViewDemo extends View {
 
 	private Button button;

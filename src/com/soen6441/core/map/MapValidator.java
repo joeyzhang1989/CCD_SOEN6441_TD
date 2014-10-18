@@ -16,6 +16,10 @@ public class MapValidator {
 
 	private GridMap map;
 
+	/**
+	 * Method validate.
+	 * @return boolean
+	 */
 	public boolean validate(){
 		
 		return true;
@@ -24,9 +28,9 @@ public class MapValidator {
 	/**
 	 * The method generatePaths will return a List of Object MapPath
 	 * 
-	 * @return A List of MapPaths
+	
 	 * 
-	 */
+	 * @return A List of MapPaths */
 	
 	public List<MapPath> generatePaths(){
 	

@@ -14,6 +14,7 @@ import com.soen6441.ui.parallel.*;
  * 
  * @author JeanRaymondDaher
  * @author Mengyao Wang
+ * @author Chenglong Zhang
  * @since 0.1
  *
  */
@@ -104,21 +105,6 @@ public class EditingScene extends View{
 		inspectorView.setSize(180,480);
 		inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
-		
-	
-<<<<<<< Updated upstream
-		View view = new View();
-		view.setLocation(70, 10);
-		view.setSize(550, 550);
-//		this.add(view);
-=======
-	//	View view = new View();
-		//view.setLocation(70, 10);
-		//view.setSize(550, 550);
->>>>>>> Stashed changes
-		
-		
-		
 	}
 	
 	@Override

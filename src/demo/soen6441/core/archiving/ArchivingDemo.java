@@ -8,7 +8,14 @@ import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
 
+/**
+ * @author Zhe Zhao
+ */
 public class ArchivingDemo {
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		
 		// archiving - encoding

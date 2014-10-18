@@ -13,10 +13,18 @@ public class GridViewCell extends View {
 
 	private GridView gridView;
 
+	/**
+	 * Method getGridView.
+	 * @return GridView
+	 */
 	public GridView getGridView() {
 		return gridView;
 	}
 
+	/**
+	 * Method setGridView.
+	 * @param gridView GridView
+	 */
 	public void setGridView(GridView gridView) {
 		this.gridView = gridView;
 		

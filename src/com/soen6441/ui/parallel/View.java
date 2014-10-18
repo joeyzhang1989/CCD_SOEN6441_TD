@@ -56,6 +56,7 @@ public class View extends JPanel {
 	
 	/**
 	 * close the access to the Constructor inherated from the JPanel
+	 * @param isDoubleBuffered boolean
 	 */
 	private View(boolean isDoubleBuffered) {
 		super(isDoubleBuffered);
@@ -64,6 +65,8 @@ public class View extends JPanel {
 	
 	/**
 	 * close the access to the Constructor inherated from the JPanel
+	 * @param layout LayoutManager
+	 * @param isDoubleBuffered boolean
 	 */
 	private View(LayoutManager layout, boolean isDoubleBuffered) {
 		super(layout, isDoubleBuffered);
@@ -72,6 +75,7 @@ public class View extends JPanel {
 	
 	/**
 	 * close the access to the Constructor inherated from the JPanel
+	 * @param layout LayoutManager
 	 */
 	private View(LayoutManager layout) {
 		super(layout);
@@ -114,6 +118,11 @@ public class View extends JPanel {
 		
 	}
 	
+	/**
+	 * Method add.
+	 * @param comp Component
+	 * @return Component
+	 */
 	@Override
 	public Component add(Component comp) {
 		Component result = super.add(comp, 0);
@@ -121,6 +130,10 @@ public class View extends JPanel {
 		return result;
 	}
 
+	/**
+	 * Method remove.
+	 * @param comp Component
+	 */
 	@Override
 	public void remove(Component comp){
 		super.remove(comp);
@@ -143,10 +156,18 @@ public class View extends JPanel {
 	 * Getters & Setters - View Flow
 	 */
 	
+	/**
+	 * Method getViewFlow.
+	 * @return ViewFlow
+	 */
 	public ViewFlow getViewFlow() {
 		return viewFlow;
 	}
 
+	/**
+	 * Method setViewFlow.
+	 * @param viewFlow ViewFlow
+	 */
 	public void setViewFlow(ViewFlow viewFlow) {
 		this.viewFlow = viewFlow;
 	}
