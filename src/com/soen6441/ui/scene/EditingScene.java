@@ -104,10 +104,7 @@ public class EditingScene extends View{
 		inspectorView.setSize(180,480);
 		inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
-<<<<<<< Updated upstream
-=======
-				
->>>>>>> Stashed changes
+
 	}
 	
 	@Override
