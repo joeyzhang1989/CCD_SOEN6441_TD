@@ -212,7 +212,7 @@ public class PlayingScene extends View{
 		 */
 		@Override
 		public String title() {
-			return "Scenary";
+			return "Scenery";
 		}
 
 		/**
