@@ -6,16 +6,23 @@ import com.soen6441.ui.scene.MainScene;
  * This class defines a unit of the GridView. 
  * 
  * @author JeanRaymondDaher
+ * @since 0.1
  * @see GridView
  */
 
 public class GridViewCell extends View {
 
 	private GridView gridView;
+<<<<<<< Updated upstream
 
 	/**
 	 * Method getGridView.
 	 * @return GridView
+=======
+	
+	/*
+	 * Getters & Setters
+>>>>>>> Stashed changes
 	 */
 	public GridView getGridView() {
 		return gridView;

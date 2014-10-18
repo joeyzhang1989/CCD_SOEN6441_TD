@@ -19,8 +19,13 @@ import com.soen6441.ui.parallel.View;
  * An element needs to be inspectable to be displayed on the view.
  * 
  * @author Zhe Zhao
+<<<<<<< Updated upstream
  * @author Jean Raymond Daher
  * @author Chenglong Zhang
+=======
+ * @author JeanRaymondDaher
+ * @author chenglong zhang
+>>>>>>> Stashed changes
  * 
  * @see IInspectable
  */

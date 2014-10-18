@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * This is the interface inspectable. Every object that implements inspectable will have options displayed on the right side, as explained in Inspector view.
  * @author chenglong zhang
- * @author jean raymond daher
+ * @author JeanRaymondDaher
  * @see InspectorView
  * @version $Revision: 1.0 $
  */

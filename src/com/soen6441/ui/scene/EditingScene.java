@@ -21,9 +21,9 @@ import com.soen6441.ui.parallel.*;
 
 public class EditingScene extends View{
 
-	private Button controlButton;
+	
+	private Button controlButton;//validate button to make sure map is valid
 	private Label infoLabel;
-	//private Label label;
 	private TextField money;
 	
 	private MapView mapView;
@@ -33,15 +33,17 @@ public class EditingScene extends View{
 	private Button saveButton;
 	
 
-	
+	/**
+	 * This method adds the buttons and components to the editing scene.
+	 */
 	protected void initSubviews() {
 		super.initSubviews();
 		
+		//upper view containing the money label,infolabel label,controlbutton .
 		View upperView = new View();
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
-		upperView.setBackground(Color.gray);
-		
+		//upperView.setBackground(Color.gray);
 		
 		//Validate button
 		this.controlButton=new Button();
@@ -70,18 +72,15 @@ public class EditingScene extends View{
 	    upperView.add(this.infoLabel);
 	    upperView.add(initialMoney);
 	    upperView.add(this.money);
-	    
 		this.add(upperView);
 
 	 
-	    
+	    //Lower view containing the back and save buttons
 	    View  lowerView= new View();
 	    lowerView.setLocation(0,550);
 	    lowerView.setSize(800, 40);;
 	   // lowerView.setBackground(Color.blue);
-
 	    
-	  
 		//back button
 	    this.saveButton=new Button();
 	    this.saveButton.setTitle("SAVE");
@@ -95,16 +94,20 @@ public class EditingScene extends View{
 		
 		lowerView.add(this.saveButton);
 		lowerView.add(this.backButton);
-		lowerView.setBackground(Color.cyan);
+		//lowerView.setBackground(Color.cyan);
 	    this.add(lowerView);
 	    
 		
-	    //this.mapView=new MapView();
+	    //Inspectorview 
 		this.inspectorView=new InspectorView();	
 		inspectorView.setLocation(620, 60);
 		inspectorView.setSize(180,480);
 		inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
+<<<<<<< Updated upstream
+=======
+				
+>>>>>>> Stashed changes
 	}
 	
 	@Override
