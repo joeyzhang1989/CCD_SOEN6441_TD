@@ -3,6 +3,12 @@ package com.soen6441.core.map;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * This class was designed to be the core logic of the map.
+ * 
+ * @author Zhe Zhao
+ *
+ */
 public class GridMap {
 	
 	/*
@@ -34,10 +40,19 @@ public class GridMap {
 	 * Get a grided map item on the map
 	 * 
 	 * @param location An grided location you want to check
-	 * @return Return the item if there is, or return null if there isn't
+	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary.
 	 */
 	public MapItem getItem(MapPoint location){
-		return items[location.getGridedY()][location.getGridedX()];
+		int x = location.getGridedX();
+		int y = location.getGridedY();
+		
+		// boundary check
+		if (x < 0 || y < 0 || x >= width || y >= height){
+			return null;
+		}
+		
+		// get the one
+		return items[y][x];
 	}
 	
 	/**
@@ -138,8 +153,5 @@ public class GridMap {
 
 	public void setPaths(List<MapPath> paths) {
 		this.paths = paths;
-	}
-	
-	
-	 
+	} 
 }
