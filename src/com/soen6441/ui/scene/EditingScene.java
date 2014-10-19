@@ -26,7 +26,7 @@ public class EditingScene extends View{
 	private Label infoLabel;
 	private TextField money;
 	
-	private MapView mapView;
+	private MapView mapView;//the map of the game where the grid resides
 	private InspectorView inspectorView;
 	
 	private Button backButton;
@@ -39,7 +39,7 @@ public class EditingScene extends View{
 	protected void initSubviews() {
 		super.initSubviews();
 		
-		//upper view containing the money label,infolabel label,controlbutton .
+		//upper view containing the money label,infolabel label,controlbutton button.
 		View upperView = new View();
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
