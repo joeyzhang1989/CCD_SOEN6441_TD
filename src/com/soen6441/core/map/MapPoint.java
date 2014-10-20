@@ -32,16 +32,11 @@ public class MapPoint {
 	 * setGridedX() and setGridedY() setters to set the value of  x and y from an int to a double.
 	 */
 	
-<<<<<<< HEAD
 	
 	/**
 	 * Method getGridedX.
 	 * @return int
 	 */
-=======
-
-
->>>>>>> zz_local
 	public int getGridedX(){
 		
 	  return (int)this.x;

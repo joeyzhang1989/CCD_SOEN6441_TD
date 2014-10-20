@@ -213,13 +213,7 @@ public class PlayingScene extends View implements Observer{
 	 * inner class that implements the IInspectable interface to 
 	 * add the inspectorView into the PlayingScene .
 	 * update the inspector view due to the operations 
-<<<<<<< HEAD
 	 * @version $Revision: 1.0 $
-=======
-	 * 
-	 * @author Zhe Zhao
-	 * @author chenglong zhang 
->>>>>>> zz_local
 	 */
 	
 	private class InspectableScenary implements IInspectable
