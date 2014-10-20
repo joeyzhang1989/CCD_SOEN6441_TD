@@ -1,5 +1,7 @@
 package com.soen6441.core;
 
+import java.util.Observable;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.ui.scene.PlayingScene;
 
@@ -48,7 +50,7 @@ import com.soen6441.ui.scene.PlayingScene;
  * 
  */
 
-public class Play {
+public class Play extends Observable {
 	
 	/*
 	 * Singleton
@@ -109,7 +111,7 @@ public class Play {
 	 *
 	 */
 	public void earnCoins(int coins){
-		this.coins += coins;
+		this.setCoins(this.getCoins() + coins);
 	}
 
 	
@@ -125,6 +127,13 @@ public class Play {
 	public void spendCoins(int coins){
 		this.coins -= coins;
 	}
+	
+	/*
+	 * Observerable
+	 */
+	
+	public static String OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE = "ObservableEvent_PropertyCoinsDidChange";
+	public static String OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE = "ObservableEvent_PropertyLifeDidChange";
 
 	/*
 	 * Getters and Setters
@@ -176,5 +185,8 @@ public class Play {
 	 */
 	public void setCoins(int coins) {
 		this.coins = coins;
+		
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 	}
 }

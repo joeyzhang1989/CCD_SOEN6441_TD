@@ -1,6 +1,5 @@
 package com.soen6441.core.map;
 
-import java.util.ArrayList;
 import java.util.List;
 
 
@@ -33,13 +32,11 @@ public class MapValidator {
 	 * @return A List of MapPaths */
 	
 	public List<MapPath> generatePaths(){
-	
-		// 	Dummy Code! Must be removed after implementation
-		MapPath a=new MapPath();
-		List<MapPath> myList = new ArrayList<MapPath>();
-		myList.add(a);
-		return myList;
+//		for ()
+		return null;
 		
 	}
+	
+	
 	
 }
