@@ -1,6 +1,6 @@
 package demo.soen6441.core.singleton;
 
-import com.soen6441.core.Play;
+import com.soen6441.core.play.Play;
 
 /**
  */

@@ -1,4 +1,4 @@
-package com.soen6441.core.map;
+package com.soen6441.core.play;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -15,7 +15,9 @@ import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
-import com.soen6441.core.Play;
+import com.soen6441.core.map.GridMap;
+import com.soen6441.core.map.MapPath;
+import com.soen6441.core.map.MapPoint;
 
 
 /**

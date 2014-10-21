@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import com.soen6441.core.Play;
+import com.soen6441.core.play.Play;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;

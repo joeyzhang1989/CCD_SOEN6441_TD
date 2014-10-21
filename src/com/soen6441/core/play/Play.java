@@ -1,4 +1,4 @@
-package com.soen6441.core;
+package com.soen6441.core.play;
 
 import java.util.Observable;
 
