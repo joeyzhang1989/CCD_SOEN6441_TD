@@ -25,7 +25,6 @@ public class MapView extends GridView {
 	
 	/*
 	 * Getters & Setters
->>>>>>> Stashed changes
 	 */
 	public GridMap getMap() {
 		return map;

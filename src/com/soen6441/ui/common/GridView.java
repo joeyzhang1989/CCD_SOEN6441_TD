@@ -20,6 +20,10 @@ public class GridView extends View {
 	private int unitHeight;
 
 	private GridViewCell[][] cells;
+	
+	public GridView(int row ,int column){
+		cells=new GridViewCell[row][column];
+	}
 
 	/*
 	 * Getters & Setters
