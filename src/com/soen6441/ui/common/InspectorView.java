@@ -19,8 +19,13 @@ import com.soen6441.ui.parallel.View;
  * An element needs to be inspectable to be displayed on the view.
  * 
  * @author Zhe Zhao
- * @author jean raymond daher
+<<<<<<< Updated upstream
+ * @author Jean Raymond Daher
+ * @author Chenglong Zhang
+=======
+ * @author JeanRaymondDaher
  * @author chenglong zhang
+>>>>>>> Stashed changes
  * 
  * @see IInspectable
  */
@@ -112,9 +117,17 @@ public class InspectorView extends View {
 	 * Getters & Setters
 	 */
 	
+	/**
+	 * Method getOn.
+	 * @return IInspectable
+	 */
 	public IInspectable getOn() {
 		return on;
 	}
+	/**
+	 * Method setOn.
+	 * @param on IInspectable
+	 */
 	public void setOn(IInspectable on) {
 		this.on = on;
 	}

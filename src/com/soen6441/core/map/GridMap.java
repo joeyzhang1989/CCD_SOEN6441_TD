@@ -40,8 +40,8 @@ public class GridMap {
 	 * Get a grided map item on the map
 	 * 
 	 * @param location An grided location you want to check
-	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary.
-	 */
+	
+	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary. */
 	public MapItem getItem(MapPoint location){
 		int x = location.getGridedX();
 		int y = location.getGridedY();
@@ -61,9 +61,9 @@ public class GridMap {
 	 * 
 	 * @param item An grided item which you want to remove.
 	 * 
-	 * @see #getItem(MapPoint)
+	
 	 * 
-	 */
+	 * @see #getItem(MapPoint) */
 	public void removeItem(MapItem item){
 		MapPoint location = item.getLocation();
 		items[location.getGridedY()][location.getGridedX()] = null;
@@ -73,19 +73,35 @@ public class GridMap {
 	 * Getters & Setters - Grided Item Management
 	 */
 
+	/**
+	 * Method getWidth.
+	 * @return int
+	 */
 	public int getWidth() {
 		return width;
 	}
 
+	/**
+	 * Method setWidth.
+	 * @param width int
+	 */
 	public void setWidth(int width) {
 		this.width = width;
 		regenerateGrid();
 	}
 
+	/**
+	 * Method getHeight.
+	 * @return int
+	 */
 	public int getHeight() {
 		return height;
 	}
 
+	/**
+	 * Method setHeight.
+	 * @param height int
+	 */
 	public void setHeight(int height) {
 		this.height = height;
 		regenerateGrid();
@@ -114,8 +130,8 @@ public class GridMap {
 	 * If there is no branches in the game, it will give you only one path
 	 * 
 	 * @param point The location
-	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it.
-	 */
+	
+	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it. */
 	public List<MapPath> pathFrom(MapPoint point){
 		List<MapPath> resultPaths = new ArrayList<MapPath>();
 		for(MapPath path : paths){
@@ -131,26 +147,50 @@ public class GridMap {
 	 * Getters & Setters - Path
 	 */
 
+	/**
+	 * Method getStartPoints.
+	 * @return List<MapPoint>
+	 */
 	public List<MapPoint> getStartPoints() {
 		return startPoints;
 	}
 
+	/**
+	 * Method setStartPoints.
+	 * @param startPoints List<MapPoint>
+	 */
 	public void setStartPoints(List<MapPoint> startPoints) {
 		this.startPoints = startPoints;
 	}
 
+	/**
+	 * Method getEndPoints.
+	 * @return List<MapPoint>
+	 */
 	public List<MapPoint> getEndPoints() {
 		return endPoints;
 	}
 
+	/**
+	 * Method setEndPoints.
+	 * @param endPoints List<MapPoint>
+	 */
 	public void setEndPoints(List<MapPoint> endPoints) {
 		this.endPoints = endPoints;
 	}
 
+	/**
+	 * Method getPaths.
+	 * @return List<MapPath>
+	 */
 	public List<MapPath> getPaths() {
 		return paths;
 	}
 
+	/**
+	 * Method setPaths.
+	 * @param paths List<MapPath>
+	 */
 	public void setPaths(List<MapPath> paths) {
 		this.paths = paths;
 	} 

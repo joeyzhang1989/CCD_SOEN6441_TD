@@ -27,6 +27,10 @@ public class TowerManagerFactory {
 	
 	private static TowerManagerFactory currentManagerFactory;
 	
+	/**
+	 * Method currentManagerFactory.
+	 * @return TowerManagerFactory
+	 */
 	public static TowerManagerFactory currentManagerFactory() {
 		
 		if (currentManagerFactory == null){
@@ -81,8 +85,8 @@ public class TowerManagerFactory {
 	 * This method is used to get a certain type of TowerManager by its type name.
 	 * 
 	 * @param typeName
-	 * @return Return a TowerManager object
-	 */
+	
+	 * @return Return a TowerManager object */
 	
 	public TowerManager getManager(String typeName) {
 		return managers.get(typeName);

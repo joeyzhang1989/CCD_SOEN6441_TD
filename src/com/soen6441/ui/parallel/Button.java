@@ -31,10 +31,11 @@ public class Button extends JButton {
 	/**
 	 * This method should be no longer called. Use <code>setTitle</code> instead.
 	 *  
-	 * @deprecated
-	 * @see #setTitle(String)
+	
+	
 	 * 
-	 */
+	 * @param text String
+	 * @see #setTitle(String) */
 	@Override
 	public void setText(String text) {
 		this.setTitle(text);
@@ -43,10 +44,12 @@ public class Button extends JButton {
 	/**
 	 * This method should be no longer called. Use <code>getTitle</code> instead.
 	 *  
-	 * @deprecated
-	 * @see #getTitle()
+	
+	
 	 * 
-	 */
+	 * @deprecated since <unknown>
+	 * @return String
+	 * @see #getTitle() */
 	@Override
 	public String getText() {
 		if (subtitle == null){
@@ -58,6 +61,7 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>title</code>
+	 * @return String
 	 */
 	public String getTitle() {
 		return title;
@@ -65,6 +69,7 @@ public class Button extends JButton {
 	
 	/**
 	 * Setter for property <code>title</code>
+	 * @param title String
 	 */
 	public void setTitle(String title) {
 		this.title = title;
@@ -73,6 +78,7 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>subtitle</code>
+	 * @return String
 	 */
 	public String getSubtitle() {
 		return subtitle;
@@ -81,6 +87,7 @@ public class Button extends JButton {
 	/**
 	 * Setter for property <code>subtitle</code>
 	 * 
+	 * @param subtitle String
 	 */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;

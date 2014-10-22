@@ -32,26 +32,41 @@ public class MapPoint {
 	 * setGridedX() and setGridedY() setters to set the value of  x and y from an int to a double.
 	 */
 	
-
-
+	
+	/**
+	 * Method getGridedX.
+	 * @return int
+	 */
 	public int getGridedX(){
 		
 	  return (int)this.x;
 	}
 	
 	
+	/**
+	 * Method setGridedX.
+	 * @param x int
+	 */
 	public void setGridedX(int x){
 		
       this.x = x;
 	}
 	
 	
+	/**
+	 * Method getGridedY.
+	 * @return int
+	 */
 	public int getGridedY(){
 			
 	   return (int)this.y;
 	}
 		
 	
+	/**
+	 * Method setGridedY.
+	 * @param y int
+	 */
 	public void setGridedY(int y){
 		
 	   this.y = y;
@@ -62,8 +77,8 @@ public class MapPoint {
 	 * The method distanceTo will calculate the distance of the calling Object from a certain MapPoint
 	 * 
 	 * @param point  A MapPoint Object
-	 * @return  distance to the MapPoinit
-	 * */
+	
+	 * * @return  distance to the MapPoinit */
 	
 	public double distanceTo(MapPoint point){
 		
@@ -75,21 +90,37 @@ public class MapPoint {
 	 * Getter and Setters
 	 */
 	
+	/**
+	 * Method getX.
+	 * @return double
+	 */
 	public double getX() {
 		return x;
 	}
 
 
+	/**
+	 * Method setX.
+	 * @param x double
+	 */
 	public void setX(double x) {
 		this.x = x;
 	}
 
 
+	/**
+	 * Method getY.
+	 * @return double
+	 */
 	public double getY() {
 		return y;
 	}
 
 
+	/**
+	 * Method setY.
+	 * @param y double
+	 */
 	public void setY(double y) {
 		this.y = y;
 	}
@@ -98,6 +129,11 @@ public class MapPoint {
 	 * Object - Equals
 	 */
 
+	/**
+	 * Method equals.
+	 * @param obj Object
+	 * @return boolean
+	 */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

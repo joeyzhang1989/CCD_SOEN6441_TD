@@ -1,7 +1,9 @@
 package demo.soen6441.core.singleton;
 
-import com.soen6441.core.Play;
+import com.soen6441.core.play.Play;
 
+/**
+ */
 public class PlayDemo {
 	
 	public void func1(){
@@ -20,6 +22,10 @@ public class PlayDemo {
 		
 	}
 	
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		
 		PlayDemo demo = new PlayDemo();

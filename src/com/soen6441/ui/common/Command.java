@@ -17,6 +17,11 @@ public class Command {
 		super();
 	}
 	
+	/**
+	 * Constructor for Command.
+	 * @param title String
+	 * @param subtitle String
+	 */
 	public Command(String title, String subtitle) {
 		super();
 		this.title = title;
@@ -26,16 +31,32 @@ public class Command {
 	/*
 	 * Getters and Setters
 	 */
+	/**
+	 * Method getTitle.
+	 * @return String
+	 */
 	public String getTitle() {
 		return title;
 	}
 	
+	/**
+	 * Method setTitle.
+	 * @param title String
+	 */
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	/**
+	 * Method getSubtitle.
+	 * @return String
+	 */
 	public String getSubtitle() {
 		return subtitle;
 	}
+	/**
+	 * Method setSubtitle.
+	 * @param subtitle String
+	 */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 	}

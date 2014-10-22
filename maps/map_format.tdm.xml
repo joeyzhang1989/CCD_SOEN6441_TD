@@ -1,30 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
-	<Play>
+    <Play>
 		<coins></coins>
 		<map>
 			<Map>
 				<width></width>
 				<height></height>
 				<startPoints>
-					<MapPoint x="" y="" />
-					***
+					  <startPoint>   
+					         <xValue></xValue>
+					         <yValue></yValue>
+					 </startPoint>
+					 <startPoint>   
+					         <xValue></xValue>
+					         <yValue></yValue>
+					 </startPoint>
+					 ***
 				</startPoints>
 				<endPoints>
-					<MapPoint x="" y="" />
-					***
+					 <endPoint>   
+					         <xValue></xValue>
+					         <yValue></yValue>
+					 </endPoint>
+					 <endPoint>   
+					         <xValue></xValue>
+					         <yValue></yValue>
+					 </endPoint>
+					 ***
 				</endPoints>
 				<paths>
-					<Path>
+					<road>
 						<locations>
-							<MapPoint x="" y="" />
-							<MapPoint x="" y="" />
-							***
+							<xValue></xValue>
+					        <yValue></yValue>
 						</locations>
-					</Path>
-					***
+						<locations>
+							<xValue></xValue>
+					        <yValue></yValue>
+						</locations>
+						***
+					</road>
 				</paths>
 			</Map>
 		</map>
-	</Play>
+    </Play>
 </xml>

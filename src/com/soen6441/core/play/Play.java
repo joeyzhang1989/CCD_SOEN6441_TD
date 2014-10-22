@@ -1,4 +1,4 @@
-package com.soen6441.core;
+package com.soen6441.core.play;
 
 import java.util.Observable;
 
@@ -47,6 +47,7 @@ import com.soen6441.ui.scene.PlayingScene;
  * 
  * @author Zhe Zhao
  *
+ * 
  */
 
 public class Play extends Observable {
@@ -58,13 +59,14 @@ public class Play extends Observable {
 	/**
 	 * The private shared instance to make singleton
 	 * 
-	 * @author Zhe Zhao
+	
 	 * 
 	 */
 	private static Play currentPlay;
 	
 	/**
 	 * Use this method to get the shared instance
+	 * @return Play
 	 */
 	public static Play currentPlay(){
 		if (currentPlay == null){
@@ -119,9 +121,9 @@ public class Play extends Observable {
 	 * 
 	 * @param coins
 	 * 
-	 * @see #getCoins()
+	
 	 * 
-	 */
+	 * @see #getCoins() */
 	public void spendCoins(int coins){
 		this.coins -= coins;
 	}
@@ -137,26 +139,50 @@ public class Play extends Observable {
 	 * Getters and Setters
 	 */
 	
+	/**
+	 * Method getMap.
+	 * @return GridMap
+	 */
 	public GridMap getMap() {
 		return map;
 	}
 
+	/**
+	 * Method setMap.
+	 * @param map GridMap
+	 */
 	public void setMap(GridMap map) {
 		this.map = map;
 	}
 
+	/**
+	 * Method getLife.
+	 * @return int
+	 */
 	public int getLife() {
 		return life;
 	}
 
+	/**
+	 * Method setLife.
+	 * @param life int
+	 */
 	public void setLife(int life) {
 		this.life = life;
 	}
 
+	/**
+	 * Method getCoins.
+	 * @return int
+	 */
 	public int getCoins() {
 		return coins;
 	}
 
+	/**
+	 * Method setCoins.
+	 * @param coins int
+	 */
 	public void setCoins(int coins) {
 		this.coins = coins;
 		

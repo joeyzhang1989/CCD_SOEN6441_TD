@@ -6,6 +6,8 @@ package com.soen6441.core.effect;
  * 
  * @see AffectableValue
  *
+ * @author chenglong
+ * 
  */
 public class Effect {
 	
@@ -24,6 +26,10 @@ public class Effect {
 		super();
 	}
 
+	/**
+	 * Constructor for Effect.
+	 * @param on IAffectable
+	 */
 	public Effect(IAffectable on) {
 		super();
 		this.on = on;
@@ -40,11 +46,11 @@ public class Effect {
 	 * Use <code>getType</code> before calling this method.
 	 * 
 	 * @param effect Another effect, which should be same type as this one.
-	 * @return <code>true</code> if this effect is stronger, <code>false</code> if the effect in the para is stronger or they are imcomparable.
+	
 	 * 
-	 * @see #getType()
+	
 	 * 
-	 */
+	 * @return <code>true</code> if this effect is stronger, <code>false</code> if the effect in the para is stronger or they are imcomparable. * @see #getType() */
 	public boolean strongerThan(Effect effect){
 		return false;
 	}
@@ -61,14 +67,26 @@ public class Effect {
 	 * Getters and Setters
 	 */
 	
+	/**
+	 * Method getType.
+	 * @return String
+	 */
 	public String getType() {
 		return type;
 	}
 	
+	/**
+	 * Method getOn.
+	 * @return IAffectable
+	 */
 	public IAffectable getOn() {
 		return on;
 	}
 	
+	/**
+	 * Method setOn.
+	 * @param on IAffectable
+	 */
 	public void setOn(IAffectable on) {
 		this.on = on;
 	}
