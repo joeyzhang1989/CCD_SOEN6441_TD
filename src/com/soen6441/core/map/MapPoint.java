@@ -14,6 +14,18 @@ public class MapPoint {
 	private double x;
 	private double y;
 	
+	
+
+	public MapPoint() {
+		super();
+	}
+
+	
+	public MapPoint(double x, double y) {
+		super();
+		this.x = x;
+		this.y = y;
+	}
 
 	/*
 	 * getGridedX() and getGridedY() getters to get the valuer of x and y as an Int

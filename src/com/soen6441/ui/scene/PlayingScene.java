@@ -5,8 +5,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
-import com.soen6441.core.Play;
+import com.soen6441.core.play.Play;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
@@ -20,19 +22,23 @@ import com.soen6441.ui.parallel.View;
 
 
 /**
- * @author chenglong zhang 
+ * 
  * 
  * this is PlayingScene class is responsible of the playscene view and showing the 
  * corresponding information of the related models
  * not finish with the inner classes
+ * 
+ * @author chenglong zhang 
  */
-public class PlayingScene extends View{
+public class PlayingScene extends View implements Observer{
+	
+	private Play play;
 	
 	/**
 	 * 
 	 * these properties are defined in the ui.parallel package that inherited from javax.swing
 	 */
-	private Label moneyLabel;
+	private Label coinsLabel;
 	
 	private Label infoLabel;
 	
@@ -51,6 +57,17 @@ public class PlayingScene extends View{
 	private MapView mapView;
 	
 	private InspectorView inspectorView;
+	
+	
+	public PlayingScene() {
+		super();
+		
+		play = Play.currentPlay();
+		play.addObserver(this);
+		
+		
+	
+	}
 					  
 	
 /**
@@ -83,11 +100,11 @@ public class PlayingScene extends View{
 		bannerView.add(infoLabel);
 		
 		//moneylabel
-		moneyLabel = new Label();
-		moneyLabel.setText("Money");
-		moneyLabel.setSize(120, 40);
-		moneyLabel.setLocation(400, 10);
-		bannerView.add(moneyLabel);   
+		coinsLabel = new Label();
+		coinsLabel.setText("Money");
+		coinsLabel.setSize(120, 40);
+		coinsLabel.setLocation(400, 10);
+		bannerView.add(coinsLabel);   
 		
 		//label to show the coins change
 		money = new Label();
@@ -169,26 +186,32 @@ public class PlayingScene extends View{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 PlayingScene.this.viewFlow.pop();
+				 
+				 play.deleteObserver(PlayingScene.this);
 				
 			}
 		});
-		
-//		/**
-//		 * perform the save function to save the game for next load
-//		 * 
-//		 */
-//		saveButton.addActionListener(new ActionListener() {
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				System.out.println("action");
-//			}
-//		});
-		
-		
 	}
+	
+	/*
+	 * Observer
+	 */
+	
+
+	@Override
+	public void update(Observable o, Object arg) {
+		if (o == play) {
+			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE){
+				coinsLabel.setText(Integer.toString(play.getCoins()));
+			}
+		}
+	}
+	
+	/*
+	 * Inner Classes
+	 */
+	
 	/**
-	 * @author Zhe Zhao
-	 * @author chenglong zhang 
 	 * inner class that implements the IInspectable interface to 
 	 * add the inspectorView into the PlayingScene .
 	 * update the inspector view due to the operations 
@@ -199,10 +222,12 @@ public class PlayingScene extends View{
 	{
 		private Command buildBottleTower;
 		private Command buildMudTower;
+		private Command tempToTestObserver;
 		
 		public InspectableScenary() {
 			buildBottleTower = new Command("Build Bottle Tower", "100$");
 			buildMudTower = new Command("Build Mud Tower", "100$");
+			tempToTestObserver = new Command("Observer Test", "");
 		}
 
 		/**
@@ -245,6 +270,7 @@ public class PlayingScene extends View{
 			List<Command> commands = new ArrayList<Command>();
 			commands.add(buildBottleTower);
 			commands.add(buildMudTower);
+			commands.add(tempToTestObserver);
 			return commands;
 		}
 
@@ -259,10 +285,13 @@ public class PlayingScene extends View{
 				System.out.println("Going to build a bottle tower");
 			} else if(command == buildMudTower){
 				System.out.println("Going to build a mud tower");
+			} else if(command == tempToTestObserver){
+				play.earnCoins(25);
 			}
 			
 		}		
 	}	
+	
 	
 	/**
 	 * @author chenglong zhang 
@@ -271,6 +300,7 @@ public class PlayingScene extends View{
 	 * selecting tower scene the inspector view should update 
 	 * @version $Revision: 1.0 $
 	 */
+	
 	private class SelectTower implements IInspectable
 	{
 
@@ -465,4 +495,6 @@ public class PlayingScene extends View{
 		
 		}
 	}
+
+	
 }

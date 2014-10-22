@@ -1,7 +1,5 @@
 package com.soen6441.ui.common;
 
-import java.util.List;
-
 import com.soen6441.ui.parallel.View;
 
 /**
@@ -19,11 +17,34 @@ public class GridView extends View {
 	private int unitWidth;
 	private int unitHeight;
 
+<<<<<<< HEAD
 	private GridViewCell[][] cells;
 	
 	public GridView(int row ,int column){
 		cells=new GridViewCell[row][column];
 	}
+=======
+	private int horizontalUnits = 2;
+	private int verticalUnits = 2;
+
+	public int getHorizontalUnits() {
+		return horizontalUnits;
+	}
+
+	public void setHorizontalUnits(int horizontalUnits) {
+		this.horizontalUnits = horizontalUnits;
+	}
+
+	public int getVerticalUnits() {
+		return verticalUnits;
+	}
+
+	public void setVerticalUnits(int verticalUnits) {
+		this.verticalUnits = verticalUnits;
+	}
+
+	private GridViewCell[][] cells = new GridViewCell[10][10];
+>>>>>>> FETCH_HEAD
 
 	/*
 	 * Getters & Setters
@@ -64,12 +85,17 @@ public class GridView extends View {
 	/**
 	 * Add a cell to the cells[row][column].
 	 * @param cell Defines the cell that needs to be added
-	 * @param row Defines the row where the cell should reside
-	 * @param column Defines the column where the cell should reside
+	 * @param point Defines the location where the cell should reside
 	 */
-	public void addCell(GridViewCell cell, int row, int column) {
+	public void addCell(GridViewCell cell, GridPoint point) {
+		int row = point.getRow();
+		int column = point.getColumn();
 		if (this.cells[row][column] == null) {
 			this.cells[row][column] = cell;
+			cell.setPoint(point);
+			cell.setGridView(this);
+			cell.setLocation(column * unitWidth, row * unitHeight);
+			this.add(cell);
 		} else {
 			System.out.println("cannot add - cell already present");
 		}
@@ -108,12 +134,13 @@ public class GridView extends View {
 
 	/**
 	 * Method selectCell.
-	 * @param row int
-	 * @param column int
+	 * @param cell cell
 	 */
-	public void selectCell(int row, int column) {
-//		this.selectedCell = new GridViewCell();
-		this.selectedCell = this.cells[row][column];
+	public void selectCell(GridViewCell cell) {
+		if (this.selectedCell != cell) {
+			if (this.selectedCell != null) this.selectedCell.setSelected(false);
+			this.selectedCell = cell;
+			if (this.selectedCell != null) this.selectedCell.setSelected(true);
+		}
 	}
-
 }
