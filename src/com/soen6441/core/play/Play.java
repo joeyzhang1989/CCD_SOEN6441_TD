@@ -1,8 +1,14 @@
 package com.soen6441.core.play;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Observable;
+import java.util.Observer;
 
 import com.soen6441.core.map.GridMap;
+import com.soen6441.core.map.MapPath;
+import com.soen6441.core.map.MapPoint;
+import com.soen6441.core.map.Road;
 import com.soen6441.ui.scene.PlayingScene;
 
 /**
@@ -42,6 +48,18 @@ import com.soen6441.ui.scene.PlayingScene;
  * <p>Use {@link #spendCoins(int)} to decrease the coins.</p>
  * <p><strong>Attention:</strong> Call {@link #getCoins()} before call {@link #spendCoins(int)} to check whether the coins is enough to spend</p>
  * 
+ * <br></br>
+ * <h3>Tasks - Being Observed</h3>
+ * 
+ * <h5>General Idea</h5>
+ * <p>This class has been adapted to the Observor Design Pattern.</p>
+ * <p>Some of the information could be observed by Observers.</p>
+ * <p>When it notifies observers, a extra object will be sent to indicate which information has been changed.</p>
+ * 
+ * <h5>Details</h5>
+ * <p>Observers need to compare the second parameter in the {@link Observer#update(Observable, Object)} to the values below to know the detail.</p>
+ * <p>{@link #OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE} This indicate that the {@link #coins} has been changed.</p>
+ * <p>{@link #OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE} This indicate that the {@link #life} has been changed.</p>
  * 
  * 
  * 
@@ -188,5 +206,40 @@ public class Play extends Observable {
 		
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
+	}
+	
+	public void buildDemo(){
+		map = new GridMap();
+		
+		map.setWidth(4);
+		map.setHeight(4);
+		
+		MapPoint p1 = new MapPoint(1, 1);
+		MapPoint p2 = new MapPoint(2, 1);
+		MapPoint p3 = new MapPoint(2, 2);
+		
+		Road r1 = new Road();
+		Road r2 = new Road();
+		Road r3 = new Road();
+		map.setItem(r1, p1);
+		map.setItem(r2, p2);
+		map.setItem(r3, p3);
+		
+		List<MapPoint> starts = new ArrayList<MapPoint>();
+		starts.add(p1);
+		map.setStartPoints(starts);
+
+		List<MapPoint> ends = new ArrayList<MapPoint>();
+		ends.add(p3);
+		map.setEndPoints(ends);
+		
+		MapPath path = new MapPath();
+		path.addLocation(p1);
+		path.addLocation(p2);
+		path.addLocation(p3);
+
+		List<MapPath> paths = new ArrayList<MapPath>();
+		paths.add(path);
+		map.setPaths(paths);
 	}
 }
