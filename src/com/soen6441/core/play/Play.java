@@ -209,6 +209,10 @@ public class Play extends Observable {
 	}
 	
 	public void buildDemo(){
+		
+		this.setCoins(1000);
+		this.setLife(10);
+		
 		map = new GridMap();
 		
 		map.setWidth(4);
