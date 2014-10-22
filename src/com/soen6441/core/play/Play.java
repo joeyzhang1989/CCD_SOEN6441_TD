@@ -187,6 +187,9 @@ public class Play extends Observable {
 	 */
 	public void setLife(int life) {
 		this.life = life;
+		
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE);
 	}
 
 	/**
@@ -203,7 +206,7 @@ public class Play extends Observable {
 	 */
 	public void setCoins(int coins) {
 		this.coins = coins;
-		
+
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 	}
