@@ -56,34 +56,22 @@ public class TowerManager {
 		
 		SAXReader reader = new SAXReader();
 	    Document document = null;
-	    
 		try {
 			document = reader.read(filePath);
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-		
 		Element root = document.getRootElement();
         Element towerManagerElement = root.element("TowerManager");
         Element leveledTowersElement = towerManagerElement.element("leveledTowers");
-        
         for ( @SuppressWarnings("rawtypes")Iterator i = leveledTowersElement.elementIterator(); i.hasNext(); ) {
-        	
             Element element = (Element)i.next();
             Tower tower = new Tower();
             tower.setManager(this);
-            
-            //Assignment
     		tower.setLevel(Integer.parseInt(element.element("level").getText()));
-    		
-    		if (tower.getLevel() == 1) {
-    			tower.setInitialPrice(Integer.parseInt(element.element("initialPrice").getText()));
-    		}
-    		
+    		tower.setInitialPrice(Integer.parseInt(element.element("initialPrice").getText()));
     		tower.setUpgradePrice(Integer.parseInt(element.element("upgradePrice").getText()));
-    		
     		tower.setSellPrice(Integer.parseInt(element.element("sellPrice").getText()));
-    		
     		AffectableValue range = new AffectableValue(Double.parseDouble(element.element("range").getText()));
     		tower.setRange(range);
     		
@@ -91,15 +79,11 @@ public class TowerManager {
     		tower.setDamage(damage);
     		
     		AffectableValue cdTime = new AffectableValue(Double.parseDouble(element.element("cdTime").getText()));
-    		tower.setCdTime(cdTime);
-    		
-    		//Check if this is BottleTower, then cast and put the results in leveledTowers list 
+    		tower.setCdTime(cdTime);		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;
     			leveledTowers.add(towerResult);
     		}
-    		
-    		//Check if this is MudTower, then cast and put the results in leveledTowers list 
     		if (this.towerType == "MudTower") {
     			MudTower towerResult = (MudTower)tower;
     			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));

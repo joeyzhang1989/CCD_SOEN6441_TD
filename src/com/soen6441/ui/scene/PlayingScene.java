@@ -99,34 +99,36 @@ public class PlayingScene extends View implements Observer{
 		infoLabel.setLocation(140, 10);
 		bannerView.add(infoLabel);
 		
-		//coinslabel
-		money = new Label();
-		money.setText("Money");
-		money.setSize(120, 40);
-		money.setLocation(400, 10);
-		bannerView.add(money);   
-		
-	
-		//label to show the coins change
+		//moneylabel
 		coinsLabel = new Label();
-		coinsLabel.setSize(80,40);
-		coinsLabel.setLocation(520,10);
-		bannerView.add(coinsLabel);
+		coinsLabel.setText("Money");
+		coinsLabel.setSize(120, 40);
+		coinsLabel.setLocation(400, 10);
+		bannerView.add(coinsLabel);   
 		
+		//label to show the coins change
+		money = new Label();
+		money.setText("1000");
+		money.setSize(80,40);
+		money.setLocation(520,10);
+		bannerView.add(money);
+		Play pl = Play.currentPlay();
 		//THIS SHOULD BE SET TO PLAY.GETCOINS()
 		
 		//lifelabel
-		life = new Label();
-		life.setText("Life");
-		life.setSize(120, 40);
-		life.setLocation(640, 10);
-		bannerView.add(life);   
+		lifelabel = new Label();
+		lifelabel.setText("Life");
+		lifelabel.setSize(120, 40);
+		lifelabel.setLocation(640, 10);
+		bannerView.add(lifelabel);   
 		
 		//lable to store the life change
-		lifelabel = new Label();
-		lifelabel.setSize(80,40);
-		lifelabel.setLocation(720,10);
-		bannerView.add(lifelabel);
+		life = new Label();
+		life.setText("1000");
+		//THIS SHOULD BE SET TO PLAY.GETLIFE()
+		life.setSize(80,40);
+		life.setLocation(720,10);
+		bannerView.add(life);
 		
 		//create the bottomView to the PlayingScene
 		View bottomView = new View();
@@ -184,6 +186,7 @@ public class PlayingScene extends View implements Observer{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				 PlayingScene.this.viewFlow.pop();
+				 
 				 play.deleteObserver(PlayingScene.this);
 				
 			}
@@ -200,9 +203,6 @@ public class PlayingScene extends View implements Observer{
 		if (o == play) {
 			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE){
 				coinsLabel.setText(Integer.toString(play.getCoins()));
-			}
-			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE){
-				lifelabel.setText(Integer.toString(play.getLife()));
 			}
 		}
 	}
@@ -287,7 +287,6 @@ public class PlayingScene extends View implements Observer{
 				System.out.println("Going to build a mud tower");
 			} else if(command == tempToTestObserver){
 				play.earnCoins(25);
-				play.setLife(22);
 			}
 			
 		}		
