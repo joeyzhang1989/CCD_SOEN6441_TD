@@ -64,6 +64,8 @@ public class PlayingScene extends View implements Observer{
 		
 		play = Play.currentPlay();
 		play.addObserver(this);
+		
+		
 	
 	}
 					  

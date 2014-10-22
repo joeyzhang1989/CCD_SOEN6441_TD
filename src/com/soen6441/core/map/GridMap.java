@@ -12,7 +12,15 @@ import java.util.List;
 public class GridMap {
 	
 	/*
-	 * Properties - Grided Item Management
+	 * Mark - Constructors
+	 */
+	
+	public GridMap() {
+		this.pathManager = new PathManager();
+	}
+	
+	/*
+	 * Mark - Grided Item Management - Properties
 	 */
 	
 	private int width = 2;
@@ -20,7 +28,7 @@ public class GridMap {
 	private MapItem[][] items; 
 	
 	/*
-	 * Methods - Grided Item Management
+	 * Mark - Grided Item Management - Methods
 	 */
 	
 	/**
@@ -70,7 +78,7 @@ public class GridMap {
 	}
 	
 	/*
-	 * Getters & Setters - Grided Item Management
+	 * Mark - Grided Item Management - Getters & Setters
 	 */
 
 	/**
@@ -113,15 +121,16 @@ public class GridMap {
 
 	
 	/*
-	 * Properties - Path
+	 * Mark - Path - Properties
 	 */
 	
 	private List<MapPoint> startPoints;
 	private List<MapPoint> endPoints;
 	private List<MapPath> paths;
+	private PathManager pathManager;
 
 	/*
-	 * Methods - Path
+	 * Mark - Path - Methods
 	 */
 	
 
@@ -144,7 +153,7 @@ public class GridMap {
 	
 
 	/*
-	 * Getters & Setters - Path
+	 * Mark - Path - Getters & Setters
 	 */
 
 	/**
@@ -193,5 +202,12 @@ public class GridMap {
 	 */
 	public void setPaths(List<MapPath> paths) {
 		this.paths = paths;
-	} 
+	}
+
+	public PathManager getPathManager() {
+		return pathManager;
+	}
+
+	
+	
 }
