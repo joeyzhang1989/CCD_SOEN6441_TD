@@ -81,8 +81,8 @@ public class PlayManager {
 		Element map1 = map.addElement( "Map" );
 		Element width = map1.addElement( "width" );
 		Element height = map1.addElement( "height" );
-		Element startPoints1 = map1.addElement( "startpoints" );
-		Element endPoints1 = map1.addElement( "endpoints" );
+		Element startPoints1 = map1.addElement( "startPoints" );
+		Element endPoints1 = map1.addElement( "endPoints" );
 		Element paths = map1.addElement( "paths" );
 		Element road = paths.addElement( "road" );
 	      
@@ -97,7 +97,7 @@ public class PlayManager {
 	      
 	      //adding startPoints in document
 	      for(int i=0;i<startPoints.size();i++){
-	      Element startPnt=startPoints1.addElement("startpoint");
+	      Element startPnt=startPoints1.addElement("startPoint");
 	      			startPnt.addElement("xValue").setText(String.valueOf(startPoints.get(i).getGridedX()));;
 	      			startPnt.addElement("yValue").setText(String.valueOf(startPoints.get(i).getGridedY()));;
 	     
@@ -107,7 +107,7 @@ public class PlayManager {
 	      
 	    //adding endPoints in documents
 	      for(int i=0;i<endPoints.size();i++){
-	      Element endPnt=endPoints1.addElement("endpoint");
+	      Element endPnt=endPoints1.addElement("endPoint");
 	      			endPnt.addElement("xValue").setText(String.valueOf(endPoints.get(i).getGridedX()));;
 	      			endPnt.addElement("yValue").setText(String.valueOf(endPoints.get(i).getGridedY()));;
 	     

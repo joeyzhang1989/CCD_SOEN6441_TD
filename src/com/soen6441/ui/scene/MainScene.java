@@ -116,6 +116,7 @@ public class MainScene extends View{
 	/**
 	 * Method main.
 	 * @param args String[]
+	 * perform the main interface at beginning  
 	 */
 	public static void main(String[] args) {
 		ViewFlow viewFlow = new ViewFlow();

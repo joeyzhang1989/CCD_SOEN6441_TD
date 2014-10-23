@@ -17,23 +17,25 @@ public class GridView extends View {
 	private int unitWidth;
 	private int unitHeight;
 
-	private int horizontalUnits = 2;
-	private int verticalUnits = 2;
+	private int numberOfRows = 2;
+	private int numberOfColumns = 2;
 
-	public int getHorizontalUnits() {
-		return horizontalUnits;
+
+
+	public int getNumberOfRows() {
+		return numberOfRows;
 	}
 
-	public void setHorizontalUnits(int horizontalUnits) {
-		this.horizontalUnits = horizontalUnits;
+	public void setNumberOfRows(int numberOfRows) {
+		this.numberOfRows = numberOfRows;
 	}
 
-	public int getVerticalUnits() {
-		return verticalUnits;
+	public int getNumberOfColumns() {
+		return numberOfColumns;
 	}
 
-	public void setVerticalUnits(int verticalUnits) {
-		this.verticalUnits = verticalUnits;
+	public void setNumberOfColumns(int numberOfColumns) {
+		this.numberOfColumns = numberOfColumns;
 	}
 
 	private GridViewCell[][] cells = new GridViewCell[10][10];
