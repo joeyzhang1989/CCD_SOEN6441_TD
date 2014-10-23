@@ -1,5 +1,7 @@
 package com.soen6441.ui.common;
 
+import java.awt.Dimension;
+
 import com.soen6441.ui.parallel.View;
 
 /**
@@ -161,22 +163,16 @@ public class GridView extends View {
 	 */
 	
 	/**
-	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width
-	 * @return int 
-	 * 			  Suggested Width of our map
+	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width AND
+	 * the suggested height by taking the number of rows and multiplying it by the cell's height
+	 * @return Dimension 
+	 * 			  		Object containing (width and height)
 	 */
-	public int suggestedWidth(){
+	
+	public Dimension suggestedSize() {
 		int width=this.numberOfColumns*this.unitWidth;
-		return width;
+		int height=this.numberOfRows*this.unitHeight;
+		return new Dimension(width, height);
 	}
 	
-	/**
-	 * This method will return the suggested height by taking the number of rows and multiplying it by the cell's height
-	 * @return int 
-	 * 			  Suggested Height of our map
-	 */
-	public int suggestedHeight(){
-		int height=this.numberOfRows*this.unitHeight;
-		return height;
-	}
 }
