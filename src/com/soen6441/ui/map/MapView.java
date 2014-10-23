@@ -5,6 +5,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
+import com.soen6441.ui.common.GridViewCell;
 
 /**
  * This class defines the view of the map
@@ -58,5 +59,10 @@ public class MapView extends GridView {
 		}
 	}
 	
-	
+	@Override
+	public void selectCell(GridViewCell cell) {
+		GridPoint gridPoint = cell.getPoint();
+		this.map.setSelectedPoint(new MapPoint(gridPoint.getColumn(), gridPoint.getRow()));
+		super.selectCell(cell);
+	}
 }
