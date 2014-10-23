@@ -1,7 +1,5 @@
 package com.soen6441.ui.map;
 
-import java.awt.Dimension;
-
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
@@ -23,12 +21,13 @@ public class MapView extends GridView {
 	private static final int _UNIT_LENGTH = 40;
 	
 	
+	/*
+	 * Getters & Setters
+	 */
+	
 	/**
 	 * Method getMap.
 	 * @return GridMap
-	
-	/*
-	 * Getters & Setters
 	 */
 	public GridMap getMap() {
 		return map;
@@ -58,4 +57,6 @@ public class MapView extends GridView {
 			}
 		}
 	}
+	
+	
 }
