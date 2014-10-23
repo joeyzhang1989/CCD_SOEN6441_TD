@@ -232,32 +232,35 @@ public class Play extends Observable {
 		
 		map = new GridMap();
 		
-		map.setWidth(4);
+		map.setWidth(6);
 		map.setHeight(4);
 		
 		MapPoint p1 = new MapPoint(1, 1);
 		MapPoint p2 = new MapPoint(2, 1);
-		MapPoint p3 = new MapPoint(2, 2);
+		MapPoint p3 = new MapPoint(3, 1);
+		MapPoint p4 = new MapPoint(3, 2);
 		
 		Road r1 = new Road(Road.Type.START);
 		Road r2 = new Road();
-		Road r3 = new Road(Road.Type.END);
+		Road r3 = new Road();
+		Road r4 = new Road(Road.Type.END);
 		map.setItem(r1, p1);
 		map.setItem(r2, p2);
 		map.setItem(r3, p3);
+		map.setItem(r4, p4);
 		
 		List<MapPoint> starts = new ArrayList<MapPoint>();
 		starts.add(p1);
 		map.setStartPoints(starts);
 
 		List<MapPoint> ends = new ArrayList<MapPoint>();
-		ends.add(p3);
+		ends.add(p4);
 		map.setEndPoints(ends);
 		
 		MapPath path = new MapPath();
 		path.addLocation(p1);
-		path.addLocation(p2);
 		path.addLocation(p3);
+		path.addLocation(p4);
 
 		List<MapPath> paths = new ArrayList<MapPath>();
 		paths.add(path);

@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 
 
 
+
+import com.soen6441.core.play.Play;
 import com.soen6441.ui.parallel.*;
 
 /**
@@ -28,9 +30,13 @@ public class MainScene extends View{
 	
 	private Button newMapButton;
 	
-/**
- * override the method initSubviews in the super class View
-*/	
+	public MainScene() {
+		Play play = Play.currentPlay();
+		play.buildDemo();
+	}
+	/**
+	 * override the method initSubviews in the super class View
+	 */	
 	
 	@Override
 	protected void initSubviews(){
