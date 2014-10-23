@@ -1,7 +1,7 @@
 package com.soen6441.ui.common;
 
 /**
- * Its a value object, which will be use to set on a button
+ * Its a value object, which will be used to set on a button
  * 
  * @author Zhe Zhao
  */

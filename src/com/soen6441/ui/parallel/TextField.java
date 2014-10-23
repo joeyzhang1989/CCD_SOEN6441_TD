@@ -3,7 +3,7 @@ package com.soen6441.ui.parallel;
 import javax.swing.JTextField;
 
 /**
- * A Parallel Class, which represent a text field.
+ * A Parallel Class, which represents a text field.
  *
  * @author Zhe Zhao
  *

@@ -39,7 +39,7 @@ public class GridView extends View {
 	/*
 	 * Getters & Setters for numberOfRows and numberOfColumns
 	 */
-
+	
 	public int getNumberOfRows() {
 		return numberOfRows;
 	}
@@ -155,5 +155,28 @@ public class GridView extends View {
 			if (this.selectedCell != null)
 				this.selectedCell.setSelected(true);
 		}
+	}
+	/*
+	 * These methods will suggest how big our GridView should be.
+	 */
+	
+	/**
+	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width
+	 * @return int 
+	 * 			  Suggested Width of our map
+	 */
+	public int suggestedWidth(){
+		int width=this.numberOfColumns*this.unitWidth;
+		return width;
+	}
+	
+	/**
+	 * This method will return the suggested height by taking the number of rows and multiplying it by the cell's height
+	 * @return int 
+	 * 			  Suggested Height of our map
+	 */
+	public int suggestedHeight(){
+		int height=this.numberOfRows*this.unitHeight;
+		return height;
 	}
 }

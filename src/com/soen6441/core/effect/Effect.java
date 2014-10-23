@@ -2,7 +2,7 @@ package com.soen6441.core.effect;
 
 /**
  * 
- * Any spicial thing which will temperarly change the <code>AffectableValue</code> should use this class to make it happen.
+ * Any spatial thing which will temporarily change the <code>AffectableValue</code> should use this class to make it happen.
  * 
  * @see AffectableValue
  *

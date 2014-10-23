@@ -101,7 +101,6 @@ public class EditingScene extends View{
 	    this.mapView=new MapView();
 	    this.mapView.setLocation(10, 60);
 	    this.mapView.setSize(600,480);
-	    
 	    this.mapView.setBackground(Color.red);
 	    this.add(mapView);
 	    

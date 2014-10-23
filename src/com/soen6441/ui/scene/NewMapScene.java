@@ -14,6 +14,7 @@ import com.soen6441.ui.parallel.*;
  */
 
 public class NewMapScene extends View{
+	
 	private TextField widthTextField;
 	private TextField heightTextField;
 	private Label widthTextLabel;
