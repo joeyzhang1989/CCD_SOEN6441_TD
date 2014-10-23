@@ -139,10 +139,10 @@ public class TowerManager {
 	 */
 	
 	public void upgrade(Tower tower) {
-			System.out.println("ture1");
+			
 		if (tower.level < leveledTowers.size()) {
 			
-			System.out.println("ture");
+			
 			leveledTowers.get(tower.level).copyTo(tower);
 			
 		}

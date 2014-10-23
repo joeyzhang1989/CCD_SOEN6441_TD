@@ -26,7 +26,7 @@ public class TowerManagerFactory {
 	 * Singleton
 	 */
 	
-	private static TowerManagerFactory currentManagerFactory;
+	public static TowerManagerFactory currentManagerFactory;
 	
 	/**
 	 * Method currentManagerFactory.
