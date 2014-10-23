@@ -79,6 +79,19 @@ public class GridMap {
 		items[location.getGridedY()][location.getGridedX()] = null;
 	}
 	
+	public List<MapItem> getAllItems() {
+		List<MapItem> itemList = new ArrayList<MapItem>();
+		for (int x = 0; x < width; x ++){
+			for (int y = 0; y < height; y++){
+				MapItem item = this.getItem(new MapPoint(x, y));
+				if (item != null){
+					itemList.add(item);
+				}
+			}
+		}
+		return itemList;
+	}
+	
 	/*
 	 * Mark - Grided Item Management - Getters & Setters
 	 */
@@ -124,12 +137,35 @@ public class GridMap {
 	/*
 	 * Mark - Selection - Properties
 	 */
+	
+	private MapPoint selectedPoint;
 
+	/*
+	 * Mark - Selection - Method
+	 */
+	
+	public MapItem selectedItem() {
+		return this.getItem(selectedPoint);
+	}
+
+	/*
+	 * Mark - Selection - Getters & Setters
+	 */
+	
+	public MapPoint getSelectedPoint() {
+		return selectedPoint;
+	}
+
+	public void setSelectedPoint(MapPoint selectedPoint) {
+		this.selectedPoint = selectedPoint;
+	}
+	
 	
 	/*
 	 * Mark - Path - Properties
 	 */
 	
+
 	private List<MapPoint> startPoints;
 	private List<MapPoint> endPoints;
 	private List<MapPath> paths;
