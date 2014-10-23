@@ -13,13 +13,10 @@ public class MapPoint {
 
 	private double x;
 	private double y;
-	
-	
 
 	public MapPoint() {
 		super();
 	}
-
 	
 	public MapPoint(double x, double y) {
 		super();

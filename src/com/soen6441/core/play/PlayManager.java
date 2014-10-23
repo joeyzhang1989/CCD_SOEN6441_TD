@@ -227,7 +227,6 @@ public class PlayManager {
 				  path.add(rPoint);
 			}
 		  
-
 		/*
 		 * Creating a GridMap Object in order to create an Play object after.
 		 * In order to create a GridMap object we need a MapPath object which

@@ -96,13 +96,20 @@ public class EditingScene extends View{
 		lowerView.add(this.backButton);
 		//lowerView.setBackground(Color.cyan);
 	    this.add(lowerView);
+
+	    //MapView
+	    this.mapView=new MapView();
+	    this.mapView.setLocation(10, 60);
+	    this.mapView.setSize(600,480);
 	    
-		
+	    this.mapView.setBackground(Color.red);
+	    this.add(mapView);
+	    
 	    //Inspectorview 
 		this.inspectorView=new InspectorView();	
-		inspectorView.setLocation(620, 60);
-		inspectorView.setSize(180,480);
-		inspectorView.setBackground(new Color(0xEEEEEE));
+		this.inspectorView.setLocation(620, 60);
+		this.inspectorView.setSize(180,480);
+		this.inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
 
 	}
