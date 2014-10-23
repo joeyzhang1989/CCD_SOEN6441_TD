@@ -5,8 +5,6 @@ import java.util.List;
 
 public class StartPointValidator extends PathValidator {
 	
-	
-
 	@Override
 	public boolean validate() {
 	
@@ -33,11 +31,6 @@ public class StartPointValidator extends PathValidator {
 	
 		return result;
 	
-	}
-	
-	@Override
-	public void setErrorMassage(String errorMessage){
-		this.setErrorMassage(errorMessage); 
 	}
 	
 	

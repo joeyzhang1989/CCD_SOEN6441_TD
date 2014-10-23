@@ -1,7 +1,5 @@
 package com.soen6441.core.map;
 
-import java.util.ArrayList;
-import java.util.List;
 
 
 
@@ -39,7 +37,9 @@ public abstract class PathValidator {
 		return errorMessage;
 	}
 	
-	abstract public void setErrorMassage(String errorMessage);
+	public void setErrorMassage(String errorMessage){
+		this.errorMessage = errorMessage;
+	}
 		
 	
 	
