@@ -5,7 +5,7 @@ import java.awt.Graphics;
 import javax.swing.JButton;
 
 /**
- * A Parallel Class, which represent a button.
+ * A Parallel Class, which represents a button.
  *
  * @author Zhe Zhao
  *

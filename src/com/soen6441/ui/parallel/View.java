@@ -9,7 +9,7 @@ import javax.swing.JPanel;
 
 /**
  * <h1>Introduction</h1>
- * <p>A Parallel Class, which represent a view.</p>
+ * <p>A Parallel Class, which represents a view.</p>
  * <br></br>
  * 
  * <h1>Life Cycle</h1>
@@ -17,14 +17,14 @@ import javax.swing.JPanel;
  * <h3>Life Cycle - Initialization</h3>
  * 
  * <h5>General Idea</h5>
- * <p>When a view is contructing using the constructor, it will call some hook methods.</p>
+ * <p>When a view is constructed using the constructor, it will call some hook methods.</p>
  * <p>Every subclass of the {@link View} should know them, and put the correct code into the right method.</p>
  * 
  * <h5>1. {@link #init()}</h5>
- * <p>The constructor first call this method, so every subclass could use this method to initialize some insential properties.</p>
+ * <p>The constructor first calls this method, so every subclass could use this method to initialize some essential properties.</p>
  * <p>Getting some thing from model to the property, setting the size of the view should be put here.</p>
  * <p><strong>Attention:</strong> {@code Scene} is able to not set the size in this class.
- * Because in defualt, it will be set to 800,600 in this method.
+ * Because in default, it will be set to 800,600 in this method.
  * So, if there is not any else things that a {@code Scene} wants to do in the {@link #init()}, it can choose not to override this method.</p>
  * 
  * <h5>2. {@link #initSubviews()}</h5>

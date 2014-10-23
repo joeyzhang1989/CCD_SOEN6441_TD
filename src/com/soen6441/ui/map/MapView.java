@@ -1,14 +1,17 @@
 package com.soen6441.ui.map;
 
+import java.awt.Dimension;
+
 import com.soen6441.core.map.GridMap;
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.map.MapPoint;
+import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
 
 /**
-<<<<<<< Updated upstream
- * @author Jean Raymond Daher
-=======
  * This class defines the view of the map
  * 
+ * @author Zhe Zhao
  * @author jean raymond daher
  * @author Chenglong Zhang
  * @since 0.1
@@ -17,8 +20,9 @@ import com.soen6441.ui.common.GridView;
 public class MapView extends GridView {
 
 	private GridMap map;
-	private MapViewListener eventListener;
-
+	private static final int _UNIT_LENGTH = 40;
+	
+	
 	/**
 	 * Method getMap.
 	 * @return GridMap
@@ -36,32 +40,22 @@ public class MapView extends GridView {
 	 */
 	public void setMap(GridMap map) {
 		this.map = map;
+		initialSetup();
 	}
-
-	/**
-	 * Method getEventListener.
-	 * @return MapViewListener
-	 */
-	public MapViewListener getEventListener() {
-		return eventListener;
+	
+	private void initialSetup(){
+		this.setUnitWidth(_UNIT_LENGTH);
+		this.setUnitHeight(_UNIT_LENGTH);
+		this.setNumberOfRows(map.getHeight());
+		this.setNumberOfColumns(map.getWidth());
+		
+		for (int i = 0; i < map.getWidth(); i++){
+			for (int j = 0; j < map.getHeight(); j++){
+				MapItem item = map.getItem(new MapPoint(i, j));
+				MapItemCell cell = MapItemCellFactory.cellFromItem(item);
+				cell.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
+				this.addCell(cell, new GridPoint(j, i));
+			}
+		}
 	}
-
-	/**
-	 * Method setEventListener.
-	 * @param eventListener MapViewListener
-	 */
-	public void setEventListener(MapViewListener eventListener) {
-		this.eventListener = eventListener;
-	}
-
-	/**
-	 * Method suggestedSize.
-	 * @return int
-	 */
-	public int suggestedSize() {
-
-		return 0;
-
-	}
-
 }
