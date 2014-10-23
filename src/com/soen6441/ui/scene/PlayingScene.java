@@ -58,15 +58,11 @@ public class PlayingScene extends View implements Observer{
 	
 	private InspectorView inspectorView;
 	
-	
-	public PlayingScene() {
-		super();
-		
+	@Override
+	protected void init() {
 		play = Play.currentPlay();
 		play.addObserver(this);
-		
-		
-	
+		super.init();
 	}
 					  
 	
@@ -148,6 +144,7 @@ public class PlayingScene extends View implements Observer{
 		mapView.setLocation(0, 60);
 		mapView.setSize(620,480);
 		mapView.setBackground(new Color(0xDDDDDD));
+	    mapView.setMap(play.getMap());
 		this.add(mapView);
 		
 		//inspector

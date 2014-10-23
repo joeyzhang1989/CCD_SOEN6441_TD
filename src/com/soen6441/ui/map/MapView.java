@@ -53,7 +53,8 @@ public class MapView extends GridView {
 			for (int j = 0; j < map.getHeight(); j++){
 				MapItem item = map.getItem(new MapPoint(i, j));
 				MapItemCell cell = MapItemCellFactory.cellFromItem(item);
-				this.addCell(cell, new GridPoint(i, j));
+				cell.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
+				this.addCell(cell, new GridPoint(j, i));
 			}
 		}
 	}

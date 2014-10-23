@@ -99,6 +99,7 @@ public class GridView extends View {
 			this.cells[row][column] = cell;
 			cell.setPoint(point);
 			cell.setGridView(this);
+			
 			cell.setLocation(column * unitWidth, row * unitHeight);
 			this.add(cell);
 		} else {

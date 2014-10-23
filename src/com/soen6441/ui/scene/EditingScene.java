@@ -5,6 +5,7 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import com.soen6441.core.play.Play;
 import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.*;
@@ -32,6 +33,12 @@ public class EditingScene extends View{
 	private Button backButton;
 	private Button saveButton;
 	
+	private Play play;
+	
+	protected void init() {
+		play = Play.currentPlay();
+		super.init();
+	};
 
 	/**
 	 * This method adds the buttons and components to the editing scene.
@@ -101,7 +108,8 @@ public class EditingScene extends View{
 	    this.mapView=new MapView();
 	    this.mapView.setLocation(10, 60);
 	    this.mapView.setSize(600,480);
-	    this.mapView.setBackground(Color.red);
+//	    this.mapView.setBackground(Color.red);
+	    this.mapView.setMap(play.getMap());
 	    this.add(mapView);
 	    
 	    //Inspectorview 
