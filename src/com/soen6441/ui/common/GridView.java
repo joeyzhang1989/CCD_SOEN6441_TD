@@ -172,21 +172,20 @@ public class GridView extends View {
 	private GridViewSelectionListener selectionListener;
 	
 	/*
-	 * Mark - Selection - Methods
+	 * Mark - Selection - Getters & Setters
 	 */
-	
-	/**
-	 * Method selectCell which
-	 * 
-	 * @param cell
-	 *            cell
-	 */
-	public void selectCell(GridViewCell cell) {
-		if (this.selectedCell != cell) {
+
+	public GridViewCell getSelectedCell() {
+		return selectedCell;
+	}
+
+	public void setSelectedCell(GridViewCell selectedCell) {
+
+		if (this.selectedCell != selectedCell) {
 			if (this.selectedCell != null) {
 				this.selectedCell.setSelected(false);
 			}
-			this.selectedCell = cell;
+			this.selectedCell = selectedCell;
 			if (this.selectionListener != null) {
 				this.selectionListener.gridViewDidSelect();
 			}
@@ -196,14 +195,9 @@ public class GridView extends View {
 		}
 	}
 
-	/*
-	 * Mark - Selection - Getters & Setters
-	 */
-	
 	public GridViewSelectionListener getSelectionListener() {
 		return selectionListener;
 	}
-
 	public void setSelectionListener(GridViewSelectionListener selectionListener) {
 		this.selectionListener = selectionListener;
 	}

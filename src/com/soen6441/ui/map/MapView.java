@@ -60,9 +60,9 @@ public class MapView extends GridView {
 	}
 	
 	@Override
-	public void selectCell(GridViewCell cell) {
+	public void setSelectedCell(GridViewCell cell) {
 		GridPoint gridPoint = cell.getPoint();
 		this.map.setSelectedPoint(new MapPoint(gridPoint.getColumn(), gridPoint.getRow()));
-		super.selectCell(cell);
+		super.setSelectedCell(cell);
 	}
 }
