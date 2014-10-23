@@ -14,8 +14,25 @@ import com.soen6441.ui.parallel.View;
 
 public class GridView extends View {
 
-	private GridViewCell selectedCell;
 
+	/*
+	 * Constructor
+	 */
+	
+	public GridView(){
+		this(10, 10);
+	}
+	
+	public GridView(int row, int column) {
+		this.numberOfColumns = column;
+		this.numberOfRows = row;
+		this.cells = new GridViewCell[row][column];
+	}
+	
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
 	private int numberOfRows;
 	private int numberOfColumns;
 
@@ -25,17 +42,20 @@ public class GridView extends View {
 	private GridViewCell[][] cells;
 
 	/*
-	 * Constructor
+	 * Mark - Basic - Methods
 	 */
 	
-	public GridView(){
-		this(10, 10);
-	}
-
-	public GridView(int row, int column) {
-		this.numberOfColumns = column;
-		this.numberOfRows = row;
-		this.cells = new GridViewCell[row][column];
+	/**
+	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width AND
+	 * the suggested height by taking the number of rows and multiplying it by the cell's height
+	 * @return Dimension 
+	 * 			  		Object containing (width and height)
+	 */
+	
+	public Dimension suggestedSize() {
+		int width=this.numberOfColumns*this.unitWidth;
+		int height=this.numberOfRows*this.unitHeight;
+		return new Dimension(width, height);
 	}
 
 	/*
@@ -144,33 +164,42 @@ public class GridView extends View {
 		this.add(newCell);
 	}
 
-	/**
-	 * Method selectCell which
-	 * 
-	 * @param cell
-	 *            cell
+	/*
+	 * Mark - Selection - Properties
 	 */
-	public void selectCell(GridViewCell cell) {
-		if (this.selectedCell != cell) {
-			if (this.selectedCell != null)
+	
+	private GridViewCell selectedCell;
+	private GridViewSelectionListener selectionListener;
+	
+	/*
+	 * Mark - Selection - Getters & Setters
+	 */
+
+	public GridViewCell getSelectedCell() {
+		return selectedCell;
+	}
+
+	public void setSelectedCell(GridViewCell selectedCell) {
+
+		if (this.selectedCell != selectedCell) {
+			if (this.selectedCell != null) {
 				this.selectedCell.setSelected(false);
-			this.selectedCell = cell;
-			if (this.selectedCell != null)
+			}
+			this.selectedCell = selectedCell;
+			if (this.selectionListener != null) {
+				this.selectionListener.gridViewDidSelect();
+			}
+			if (this.selectedCell != null) {
 				this.selectedCell.setSelected(true);
+			}
 		}
 	}
 
-	/**
-	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width AND
-	 * the suggested height by taking the number of rows and multiplying it by the cell's height
-	 * @return Dimension 
-	 * 			  		Object containing (width and height)
-	 */
-	
-	public Dimension suggestedSize() {
-		int width=this.numberOfColumns*this.unitWidth;
-		int height=this.numberOfRows*this.unitHeight;
-		return new Dimension(width, height);
+	public GridViewSelectionListener getSelectionListener() {
+		return selectionListener;
+	}
+	public void setSelectionListener(GridViewSelectionListener selectionListener) {
+		this.selectionListener = selectionListener;
 	}
 	
 }

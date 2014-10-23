@@ -43,7 +43,7 @@ public class GridViewCell extends View {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				GridViewCell cell = GridViewCell.this;
-				cell.gridView.selectCell(cell);
+				cell.gridView.setSelectedCell(cell);
 			}
 		});
 	}
