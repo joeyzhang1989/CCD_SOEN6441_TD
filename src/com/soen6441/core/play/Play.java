@@ -71,14 +71,11 @@ import com.soen6441.ui.scene.PlayingScene;
 public class Play extends Observable {
 	
 	/*
-	 * Singleton
+	 * Mark - Singleton - Basic
 	 */
 	
 	/**
 	 * The private shared instance to make singleton
-	 * 
-	
-	 * 
 	 */
 	private static Play currentPlay;
 	
@@ -94,13 +91,6 @@ public class Play extends Observable {
 	}
 	
 	/**
-	 * Use this method to set the shared instance to null
-	 */
-	public static void destroy(){
-		currentPlay = null;
-	}
-	
-	/**
 	 * Close the access to the general constructor
 	 */
 	private Play()
@@ -109,7 +99,27 @@ public class Play extends Observable {
 	}
 	
 	/*
-	 * Properties
+	 * Mark - Singleton - Additional
+	 */
+	
+	/**
+	 * Use this method to set the shared instance
+	 * @param play
+	 */
+	public static void setPlay(Play play){
+		currentPlay = play;
+	}
+	
+	/**
+	 * Use this method to set the shared instance to null
+	 */
+	public static void destroy(){
+		currentPlay = null;
+	}
+	
+	
+	/*
+	 * Mark - Basic - Properties
 	 */
 	
 	private GridMap map;
@@ -118,7 +128,7 @@ public class Play extends Observable {
 	private int coins;
 	
 	/*
-	 * Methods
+	 * Mark - Basic - Methods
 	 */
 	
 	/**
@@ -147,14 +157,14 @@ public class Play extends Observable {
 	}
 	
 	/*
-	 * Observerable
+	 * Mark - Basic - Observerable
 	 */
 	
 	public static String OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE = "ObservableEvent_PropertyCoinsDidChange";
 	public static String OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE = "ObservableEvent_PropertyLifeDidChange";
 
 	/*
-	 * Getters and Setters
+	 * Mark - Basic - Getters and Setters
 	 */
 	
 	/**
@@ -211,6 +221,10 @@ public class Play extends Observable {
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 	}
 	
+	/*
+	 * Mark - Debug - Methods
+	 */
+	
 	public void buildDemo(){
 		
 		this.setCoins(1000);
@@ -225,9 +239,9 @@ public class Play extends Observable {
 		MapPoint p2 = new MapPoint(2, 1);
 		MapPoint p3 = new MapPoint(2, 2);
 		
-		Road r1 = new Road();
+		Road r1 = new Road(Road.Type.START);
 		Road r2 = new Road();
-		Road r3 = new Road();
+		Road r3 = new Road(Road.Type.END);
 		map.setItem(r1, p1);
 		map.setItem(r2, p2);
 		map.setItem(r3, p3);

@@ -49,7 +49,8 @@ public class GridMap {
 	 * 
 	 * @param location An grided location you want to check
 	
-	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary. */
+	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary. 
+	 */
 	public MapItem getItem(MapPoint location){
 		int x = location.getGridedX();
 		int y = location.getGridedY();
@@ -71,7 +72,8 @@ public class GridMap {
 	 * 
 	
 	 * 
-	 * @see #getItem(MapPoint) */
+	 * @see #getItem(MapPoint) 
+	 */
 	public void removeItem(MapItem item){
 		MapPoint location = item.getLocation();
 		items[location.getGridedY()][location.getGridedX()] = null;
@@ -118,6 +120,10 @@ public class GridMap {
 	private void regenerateGrid(){
 		items = new MapItem[this.height][this.width];
 	}
+	
+	/*
+	 * Mark - Selection - Properties
+	 */
 
 	
 	/*
@@ -140,7 +146,8 @@ public class GridMap {
 	 * 
 	 * @param point The location
 	
-	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it. */
+	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it. 
+	 */
 	public List<MapPath> pathFrom(MapPoint point){
 		List<MapPath> resultPaths = new ArrayList<MapPath>();
 		for(MapPath path : paths){

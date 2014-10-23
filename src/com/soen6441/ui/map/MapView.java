@@ -4,11 +4,9 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.ui.common.GridView;
 
 /**
-<<<<<<< Updated upstream
- * @author Jean Raymond Daher
-=======
  * This class defines the view of the map
  * 
+ * @author Zhe Zhao
  * @author jean raymond daher
  * @author Chenglong Zhang
  * @since 0.1
@@ -17,8 +15,9 @@ import com.soen6441.ui.common.GridView;
 public class MapView extends GridView {
 
 	private GridMap map;
-	private MapViewListener eventListener;
-
+	private static final int _UNIT_LENGTH = 40;
+	
+	
 	/**
 	 * Method getMap.
 	 * @return GridMap
@@ -38,30 +37,13 @@ public class MapView extends GridView {
 		this.map = map;
 	}
 
-	/**
-	 * Method getEventListener.
-	 * @return MapViewListener
-	 */
-	public MapViewListener getEventListener() {
-		return eventListener;
-	}
-
-	/**
-	 * Method setEventListener.
-	 * @param eventListener MapViewListener
-	 */
-	public void setEventListener(MapViewListener eventListener) {
-		this.eventListener = eventListener;
-	}
 
 	/**
 	 * Method suggestedSize.
 	 * @return int
 	 */
 	public int suggestedSize() {
-
 		return 0;
-
 	}
 
 }
