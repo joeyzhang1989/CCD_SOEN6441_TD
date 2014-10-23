@@ -18,9 +18,7 @@ public class GridView extends View {
 	private int unitHeight;
 
 	private int numberOfRows = 2;
-	private int numberOfColumns = 2;
-
-
+	private int numberOfColumns = 2;	
 
 	public int getNumberOfRows() {
 		return numberOfRows;
