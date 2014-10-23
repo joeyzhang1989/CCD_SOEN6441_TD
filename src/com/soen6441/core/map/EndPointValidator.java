@@ -2,8 +2,22 @@ package com.soen6441.core.map;
 
 import java.util.List;
 
+/**
+ * The class EndPointValidator is a subclass of PathValidator.
+ * It overrides the method Validate() of its parent class and check the number of EndPoints in the Map.
+ * 
+ * */
+
+
 public class EndPointValidator extends PathValidator{
 
+	/**
+	 * Method Validate() overrides the method of parent class PathValidator.
+	 * It checks the Map for end points and validates the Map.
+	 * 
+	 * @return boolean A boolean values that represent whether # of EndPoints are valid.
+	 * */
+	
 	@Override
 	public boolean validate() {
 		boolean result=true;
