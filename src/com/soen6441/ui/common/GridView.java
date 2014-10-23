@@ -22,7 +22,7 @@ public class GridView extends View {
 	private int unitWidth;
 	private int unitHeight;
 
-	private GridViewCell[][] cells;// new GridViewCell[10][10];
+	private GridViewCell[][] cells;
 
 	/*
 	 * Constructor
@@ -159,10 +159,7 @@ public class GridView extends View {
 				this.selectedCell.setSelected(true);
 		}
 	}
-	/*
-	 * These methods will suggest how big our GridView should be.
-	 */
-	
+
 	/**
 	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width AND
 	 * the suggested height by taking the number of rows and multiplying it by the cell's height
