@@ -1,7 +1,5 @@
 package com.soen6441.ui.common;
 
-import javax.swing.JLabel;
-
 import com.soen6441.ui.parallel.View;
 
 /**
