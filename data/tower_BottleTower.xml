@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<TowerManager>
+		<initialPrice>100</initialPrice>
 		<leveledTowers>
 			<BottleTower>
 				<level>1</level>
-				<initialPrice>100</initialPrice>
 				<upgradePrice>180</upgradePrice>
 				<sellPrice>80</sellPrice>
 				<damage>60</damage>

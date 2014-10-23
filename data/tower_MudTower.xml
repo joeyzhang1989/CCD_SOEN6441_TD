@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<TowerManager>
+	<initialPrice>120</initialPrice>
 		<leveledTowers>
 			<MudTower>
 				<level>1</level>
-				<initialPrice>120</initialPrice>
 				<upgradePrice>220</upgradePrice>
 				<sellPrice>96</sellPrice>
 				<damage>30</damage>

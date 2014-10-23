@@ -1,5 +1,6 @@
 package com.soen6441.core.tower;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -29,12 +30,14 @@ public class TowerManager {
 	public String towerType;
 	public String filePath;
 	
+	protected int initialPrice;
+	
 	
 	/**
 	 * This list is used to store all levels of tower object of a particular tower type.
 	 */
 	
-	private List<Tower> leveledTowers;
+	private List<Tower> leveledTowers = new ArrayList<Tower>();
 	
 	/**
 	 * Constructor for TowerManager.
@@ -44,7 +47,9 @@ public class TowerManager {
 	public TowerManager(String towerType, String filePath) {
 		
 		this.towerType = towerType;
-		this.filePath = filePath;	
+		this.filePath = filePath;
+		
+		this.analyse();
 	}
 	
 	/**
@@ -65,21 +70,23 @@ public class TowerManager {
 		
 		Element root = document.getRootElement();
         Element towerManagerElement = root.element("TowerManager");
+        this.initialPrice = (Integer.parseInt(towerManagerElement.element("initialPrice").getText()));
         Element leveledTowersElement = towerManagerElement.element("leveledTowers");
         
         for ( @SuppressWarnings("rawtypes")Iterator i = leveledTowersElement.elementIterator(); i.hasNext(); ) {
         	
             Element element = (Element)i.next();
-            Tower tower = new Tower();
+                        
+            Tower tower = null;
+			try {
+				tower = (Tower) (Class.forName("com.soen6441.core.tower." + towerType).newInstance());
+			} catch (InstantiationException | IllegalAccessException
+					| ClassNotFoundException e) {
+				e.printStackTrace();
+			} 
             tower.setManager(this);
             
     		tower.setLevel(Integer.parseInt(element.element("level").getText()));
-    		
-    		if ( tower.level == 1) {
-    			tower.setInitialPrice(Integer.parseInt(element.element("initialPrice").getText()));
-    		}
-    		
-    		tower.setInitialPrice(Integer.parseInt(element.element("initialPrice").getText()));
     		
     		tower.setUpgradePrice(Integer.parseInt(element.element("upgradePrice").getText()));
     		
@@ -123,21 +130,6 @@ public class TowerManager {
 		tower.copyTo(newTower);
 		return newTower;
 		
-		/*
-		if (this.towerType == "BottleTower") {
-			BottleTower bottleTower = (BottleTower)tower;
-			BottleTower newTower = new BottleTower();
-			bottleTower.copyTo(newTower);
-			return newTower;
-		}
-		if (this.towerType == "MudTower") {
-			MudTower mudTower = (MudTower)tower;
-			MudTower newTower = new MudTower();
-			mudTower.copyTo(newTower);
-			return newTower;
-		}
-		return null;
-		*/
 	}
 	
 	/**
@@ -147,39 +139,13 @@ public class TowerManager {
 	 */
 	
 	public void upgrade(Tower tower) {
-		
+			System.out.println("ture1");
 		if (tower.level < leveledTowers.size()) {
 			
-			
+			System.out.println("ture");
 			leveledTowers.get(tower.level).copyTo(tower);
 			
 		}
-		/*
-		switch (tower.level) {
-		case 1:
-			Tower level2Tower = leveledTowers.get(1);
-			if (this.towerType == "BottleTower") {
-				BottleTower bottleTower = (BottleTower)level2Tower;
-				bottleTower.copyTo(tower);
-			}
-			if (this.towerType == "MudTower") {
-				MudTower mudTower = (MudTower)level2Tower;
-				mudTower.copyTo(tower);
-			}
-			break;
-		case 2:
-			Tower level3Tower = leveledTowers.get(2);
-			if (this.towerType == "BottleTower") {
-				BottleTower bottleTower = (BottleTower)level3Tower;
-				bottleTower.copyTo(tower);
-			}
-			if (this.towerType == "MudTower") {
-				MudTower mudTower = (MudTower)level3Tower;
-				mudTower.copyTo(tower);
-			}
-			break;	
-		}
-		*/
 				
 	}	
 	

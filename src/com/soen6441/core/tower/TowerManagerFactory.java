@@ -2,6 +2,7 @@ package com.soen6441.core.tower;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -57,7 +58,7 @@ public class TowerManagerFactory {
 	/**
 	 * The map is used to store TowerManager objects and its names.
 	 */
-	private Map<String, TowerManager> managers;
+	private static Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
 	
 	
 	/**
@@ -74,6 +75,7 @@ public class TowerManagerFactory {
 		
 		for(int i=0; i<typeNames.size(); i++) {
 			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i)+".xml");
+			managers.put("1", towerManager);
 			managers.put(typeNames.get(i), towerManager);
 		}
 		

@@ -2,7 +2,7 @@ package com.soen6441.core.map;
 
 /**
  * The class MapPoint will define a point on the map by its x and y coordinates.
- * It will also provide getter and setter for MapPoint Object.
+ * It will also provide  a getter and setter for the MapPoint Object.
  * Moreover this class will provide a method "distanceTo" to find the distance from the MapPoint.
  * 
  * @author Zhe Zhao
@@ -13,13 +13,10 @@ public class MapPoint {
 
 	private double x;
 	private double y;
-	
-	
 
 	public MapPoint() {
 		super();
 	}
-
 	
 	public MapPoint(double x, double y) {
 		super();

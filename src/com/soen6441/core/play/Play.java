@@ -26,14 +26,14 @@ import com.soen6441.ui.scene.PlayingScene;
  * <h5>General Idea</h5>
  * <p>Play is using the singleton design pattern. </p>
  * <p>The {@link Play} is kind of semi single.
- *  which means once the instance has been created, it can be destroyed and created a new one. 
- *  But there will be only zero / one object in the runtime </p>
+ *  which means once the instance has been created, it can be destroyed and recreated. 
+ *  But there will be only zero / one object at runtime </p>
  * 
  * <h5>To get the play object</h5>
  * <p>Use {@link Play#currentPlay()} method to get the instance.</p>
  * 
  * <h5>To destroy the play object</h5>
- * <p>When finished a play, like you quit from {@link PlayingScene} you should destroy the {@link Play} object.</p>
+ * <p>When a play is finished, e.g. you quit from {@link PlayingScene} you should destroy the {@link Play} object.</p>
  * <p>Use {@link Play#destroy()} method to destroy the shared instance, so when someone call {@link Play#currentPlay()} later, they will get a new one.</p>
  * 
  * <br></br>
@@ -52,7 +52,7 @@ import com.soen6441.ui.scene.PlayingScene;
  * <h3>Tasks - Being Observed</h3>
  * 
  * <h5>General Idea</h5>
- * <p>This class has been adapted to the Observor Design Pattern.</p>
+ * <p>This class has been adapted to the Observer Design Pattern.</p>
  * <p>Some of the information could be observed by Observers.</p>
  * <p>When it notifies observers, a extra object will be sent to indicate which information has been changed.</p>
  * 

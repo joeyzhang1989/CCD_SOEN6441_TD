@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * This class will define the amount of distance the object has to travel along the path in the Map.  
+ * This class will define the distance the object has to travel along the path in the Map.  
  * 
  * @author Zhe Zhao
  * @author Mohammad Ali

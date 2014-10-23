@@ -3,7 +3,7 @@ package com.soen6441.ui.parallel;
 import javax.swing.JLabel;
 
 /**
- * A Parallel Class, which represent a label.
+ * A Parallel Class, which represents a label.
  *
  * @author Zhe Zhao
  *
