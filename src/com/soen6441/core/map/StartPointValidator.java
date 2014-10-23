@@ -3,7 +3,20 @@ package com.soen6441.core.map;
 
 import java.util.List;
 
+/**
+ * The class StartPointValidator is a subclass of PathValidator.
+ * It overrides the method Validate() of its parent class and check the number of StartPoints in the Map.
+ */
+
 public class StartPointValidator extends PathValidator {
+	
+	
+	/**
+	 * This method Validate() overrides the method Validate() of parent class PathValidator.
+	 * It checks the Map for start points and validates the Map.
+	 * 
+	 * @return boolean A boolean values that represent whether # of startPoints are valid.
+	 */
 	
 	@Override
 	public boolean validate() {
