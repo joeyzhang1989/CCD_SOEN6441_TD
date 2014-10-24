@@ -97,10 +97,11 @@ public class MainScene extends View implements ActionListener {
 			 * playingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
-
+				/*
+				 * Open a window to select maps.
+				 */
 				JFileChooser fileChooser = new JFileChooser();
-				// fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				// fileChooser.set
+				
 				playButton.addActionListener(this);
 
 				if (e.getSource() == playButton) {
@@ -168,10 +169,6 @@ public class MainScene extends View implements ActionListener {
 		new Window(viewFlow);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
