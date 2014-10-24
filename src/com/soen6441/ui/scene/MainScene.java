@@ -97,10 +97,11 @@ public class MainScene extends View implements ActionListener {
 			 * playingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
-
+				/*
+				 * Open a window to select maps.
+				 */
 				JFileChooser fileChooser = new JFileChooser();
-				// fileChooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				// fileChooser.set
+				
 				playButton.addActionListener(this);
 
 				if (e.getSource() == playButton) {
