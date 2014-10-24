@@ -143,7 +143,16 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 	@Override
 	protected void initEvents() {
-
+		
+		saveButton.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if(validateMap()){
+					save();
+				}
+			}
+		});
 		controlButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -315,19 +324,21 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - Storage - Methods
 	 */
 
-	private void validateMap() {
+	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
 		
 		if (gridMap.getPathManager().validate()) {
 			infoLabel.setText("Validation : Path Is Valid");
+			return true;
 		}else {
 			infoLabel.setText("Validation : "+gridMap.getPathManager().getErrorMessage());
+			return false;
 		}
 
 	}
 
 	private void save() {
-
+		System.out.println("saving");
 	}
 
 	/*
