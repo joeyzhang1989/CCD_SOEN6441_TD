@@ -81,8 +81,6 @@ public class TowerManagerFactory {
 		
 	}
 	
-	
-	
 	/**
 	 * This method is used to get a certain type of TowerManager by its type name.
 	 * 

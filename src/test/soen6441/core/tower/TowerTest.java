@@ -8,12 +8,20 @@ import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
 
+/**
+ * This test responses to test methods related to Tower Class
+ * @author Haiyang Sun
+ *
+ */
+
 public class TowerTest {
 	
 	private static TowerManagerFactory newTMF = TowerManagerFactory.currentManagerFactory();
 	private static TowerManager newTM = newTMF.getManager("BottleTower");
 	Tower tower = newTM.createTower();
-	
+	/**
+	 * Check whether properties of the copy and original are same.
+	 */
 	@Test
 	public void copyToTest() {
 		
@@ -24,6 +32,7 @@ public class TowerTest {
 		tower.copyTo(newTower);
 		
 		assertEquals(newTower.getLevel(),tower.getLevel());
+		assertEquals(newTower.getSellPrice(),tower.getSellPrice());
 		
 	}
 
