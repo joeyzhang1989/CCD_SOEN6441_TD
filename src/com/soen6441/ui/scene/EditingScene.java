@@ -1,17 +1,28 @@
 package com.soen6441.ui.scene;
 
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.tower.Tower;
+import com.soen6441.ui.common.Command;
+import com.soen6441.ui.common.GridViewSelectionListener;
+import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
-import com.soen6441.ui.parallel.*;
+import com.soen6441.ui.parallel.Button;
+import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.TextField;
+import com.soen6441.ui.parallel.View;
 
 /**
- * This class is the Editing scene class where the user edits a created or new map.
+ * This class is the Editing scene class where the user edits a created or new
+ * map.
  * 
  * @author JeanRaymondDaher
  * @author Mengyao Wang
@@ -20,21 +31,20 @@ import com.soen6441.ui.parallel.*;
  *
  */
 
-public class EditingScene extends View{
+public class EditingScene extends View implements GridViewSelectionListener {
 
-	
-	private Button controlButton;//validate button to make sure map is valid
+	private Button controlButton;// validate button to make sure map is valid
 	private Label infoLabel;
 	private TextField money;
-	
-	private MapView mapView;//the map of the game where the grid resides
+
+	private MapView mapView;// the map of the game where the grid resides
 	private InspectorView inspectorView;
-	
+
 	private Button backButton;
 	private Button saveButton;
-	
+
 	private Play play;
-	
+
 	protected void init() {
 		play = Play.currentPlay();
 		super.init();
@@ -45,99 +55,234 @@ public class EditingScene extends View{
 	 */
 	protected void initSubviews() {
 		super.initSubviews();
-		
-		//upper view containing the money label,infolabel label,controlbutton button.
+
+		// upper view containing the money label,infolabel label,controlbutton
+		// button.
 		View upperView = new View();
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
-		//upperView.setBackground(Color.gray);
-		
-		//Validate button
-		this.controlButton=new Button();
+		// upperView.setBackground(Color.gray);
+		this.setBackground(new Color(0xDDDDDD));// set the overall background
+												// color
+
+		// Validate button
+		this.controlButton = new Button();
 		this.controlButton.setLocation(10, 10);
 		this.controlButton.setTitle("Validate");
-		this.controlButton.setSize(120,40);
-		//InfoLabel : valid or not 
-		String valid="Not valid";
-		this.infoLabel=new Label();
-		this.infoLabel.setText("Validation : "+valid);
+		this.controlButton.setSize(120, 40);
+		// InfoLabel : valid or not
+		String valid = "Not valid";
+		this.infoLabel = new Label();
+		this.infoLabel.setText("Validation : " + valid);
 		this.infoLabel.setSize(500, 40);
 		this.infoLabel.setLocation(135, 10);
-		//initial money Label
-	    Label initialMoney=new Label();
-	    initialMoney.setText("Initial Money");
-	    initialMoney.setSize(300, 40);
-	    initialMoney.setLocation(600, 10);
-	    //actual money
-	    this.money=new TextField();
-	    this.money.setText("1000");
-	    //THIS SHOULD BE SET TO PLAY.GETCOINS()
-	    this.money.setSize(80,40);
-	    this.money.setLocation(700,10);
+		// initial money Label
+		Label initialMoney = new Label();
+		initialMoney.setText("Initial Money");
+		initialMoney.setSize(300, 40);
+		initialMoney.setLocation(600, 10);
+		// actual money
+		this.money = new TextField();
+		this.money.setText("1000");
+		// THIS SHOULD BE SET TO PLAY.GETCOINS()
+		this.money.setSize(80, 40);
+		this.money.setLocation(700, 10);
 
-	    upperView.add(this.controlButton);
-	    upperView.add(this.infoLabel);
-	    upperView.add(initialMoney);
-	    upperView.add(this.money);
+		upperView.add(this.controlButton);
+		upperView.add(this.infoLabel);
+		upperView.add(initialMoney);
+		upperView.add(this.money);
 		this.add(upperView);
 
-	 
-	    //Lower view containing the back and save buttons
-	    View  lowerView= new View();
-	    lowerView.setLocation(0,550);
-	    lowerView.setSize(800, 40);;
-	   // lowerView.setBackground(Color.blue);
-	    
-		//back button
-	    this.saveButton=new Button();
-	    this.saveButton.setTitle("SAVE");
-	    this.saveButton.setSize(60, 20);
-	    this.saveButton.setLocation(730, 0);
-	    //save button
-	    this.backButton=new Button();
-	    this.backButton.setTitle("BACK");
-	    this.backButton.setSize(60, 20);
+		// Lower view containing the back and save buttons
+		View lowerView = new View();
+		lowerView.setLocation(0, 550);
+		lowerView.setSize(800, 40);
+		;
+		// lowerView.setBackground(Color.blue);
+
+		// back button
+		this.saveButton = new Button();
+		this.saveButton.setTitle("SAVE");
+		this.saveButton.setSize(60, 20);
+		this.saveButton.setLocation(730, 0);
+		// save button
+		this.backButton = new Button();
+		this.backButton.setTitle("BACK");
+		this.backButton.setSize(60, 20);
 		this.backButton.setLocation(10, 0);
-		
+
 		lowerView.add(this.saveButton);
 		lowerView.add(this.backButton);
-		//lowerView.setBackground(Color.cyan);
-	    this.add(lowerView);
+		// lowerView.setBackground(Color.cyan);
+		this.add(lowerView);
 
-	    //MapView
-	    this.mapView=new MapView();
-	    this.mapView.setMap(play.getMap());
-	    this.mapView.setSize(this.mapView.suggestedSize());
-	    int height=(600-this.mapView.suggestedSize().height)/2;
-	    int width=(800-180-this.mapView.suggestedSize().width)/2;
-	    //180 is the size of the inspector View
-	    this.mapView.setLocation(width, height);
-	    this.add(mapView);
-	    
-	    //Inspectorview 
-		this.inspectorView=new InspectorView();	
+		// MapView
+		this.mapView = new MapView();
+		this.mapView.setMap(play.getMap());
+		this.mapView.setSize(this.mapView.suggestedSize());
+		int height = (600 - this.mapView.suggestedSize().height) / 2;
+		int width = (800 - 180 - this.mapView.suggestedSize().width) / 2;
+		// 180 is the size of the inspector View
+		this.mapView.setLocation(width, height);
+		this.add(mapView);
+		this.mapView.setSelectionListener(this);
+		// Inspectorview
+		this.inspectorView = new InspectorView();
 		this.inspectorView.setLocation(620, 60);
-		this.inspectorView.setSize(180,480);
+		this.inspectorView.setSize(180, 480);
 		this.inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
 
 	}
-	
+
+	// 1 show click options on inspector for every cell
+	// 2
+
 	@Override
-	protected void initEvents()	{
-		
-	
-		backButton.addActionListener(new ActionListener(){
-			
+	protected void initEvents() {
+
+		backButton.addActionListener(new ActionListener() {
+
 			@Override
 			/**
 			 * *perform the function that click the backbutton to go to editingscene
 			 */
-			public void actionPerformed(ActionEvent e){
+			public void actionPerformed(ActionEvent e) {
 				EditingScene.this.viewFlow.pop();
 			}
 		});
 	}
+
+	@Override
+	public void gridViewDidSelect() {
+
+		// System.out.println("...");
+		MapItem item = play.getMap().getSelectedItem();
+		if (item == null) {
+			this.inspectorView.setOn(new InspectableScenery());
+			this.inspectorView.update();
+		} else if(item instanceof Road) {
+			this.inspectorView.setOn(new InspectableRoad());
+			this.inspectorView.update();
+		} else if(item instanceof Tower) {
+			this.inspectorView.setOn(new InspectableTower());
+			this.inspectorView.update();
+		}
+
+	}
+
+	private class InspectableScenery implements IInspectable {
+		
+		private Command build_start_point;
+		private Command build_end_point;
+		private Command build_road;
+		
+		public InspectableScenery() {
+			this.build_start_point=new Command("Build Start Point","");
+			this.build_end_point=new Command("Build End Point","");
+			this.build_road=new Command("Build Road","");
+		}
+		
+		@Override
+		public String title() {
+			String title="Scenery";
+			return title;
+		}
+
+		@Override
+		public String subtitle() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String description() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<Command> commands() {
+			List<Command> commands = new ArrayList<Command>();
+			commands.add(this.build_end_point);
+			commands.add(this.build_start_point);
+			commands.add(this.build_road);
+			return commands;
+		}
+
+		@Override
+		public void execute(Command command) {
+			
+			// TODO Auto-generated method stub
+
+		}
+
+	}
+	private class InspectableRoad implements IInspectable {
+
+		@Override
+		public String title() {
+			String title="Road";
+			return title;
+		}
+
+		@Override
+		public String subtitle() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String description() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<Command> commands() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void execute(Command command) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
+	
+	private class InspectableTower implements IInspectable {
+
+		@Override
+		public String title() {
+			String title="Tower";
+			return title;
+		}
+
+		@Override
+		public String subtitle() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public String description() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public List<Command> commands() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		@Override
+		public void execute(Command command) {
+			// TODO Auto-generated method stub
+			
+		}
+	}
 	
 }
-

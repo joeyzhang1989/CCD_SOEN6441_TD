@@ -246,7 +246,7 @@ public class Play extends Observable {
 		MapPoint p6 = new MapPoint(5, 0);
 		TowerManager manager2 = TowerManagerFactory.currentManagerFactory().getManager("MudTower");
 		Tower t2 = manager2.createTower();
-		manager2.upgrade(t2); //t2.upgrade();
+		/*manager2.upgrade(t2); */t2.upgrade();
 		map.setItem(t2, p6);
 		
 		MapPoint p1 = new MapPoint(1, 1);

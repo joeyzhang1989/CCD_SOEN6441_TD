@@ -12,7 +12,7 @@ import com.soen6441.core.map.Road;
  * @author Mohammad Ali
  */
 
-public class PathLengthValidator extends PathValidator {
+public class RoadQuantityValidator extends PathValidator {
 
 
 	/**
@@ -40,7 +40,7 @@ public class PathLengthValidator extends PathValidator {
 		
 		if (pathLength < 1) {
 			result = false;
-			this.setErrorMassage("Alert! there must be atleast one pathpoint between start and finish");
+			this.setErrorMassage("Alert! there must be atleast one Road between start and finish");
 		}
 		
 		return result;

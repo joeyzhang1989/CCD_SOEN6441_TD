@@ -252,8 +252,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @version $Revision: 1.0 $
 	 */
 	
-	private class InspectableDemo implements IInspectable
-	{
+	private class InspectableDemo implements IInspectable {
 		private Command buildBottleTower;
 		private Command buildMudTower;
 		private Command tempToTestObserver;
