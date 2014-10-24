@@ -12,7 +12,7 @@
 				<cdTime>1200</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
-			</MudTower>
+				<cellImageName>ower_cell_2_1.png</cellImageName></MudTower>
 			<MudTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -22,6 +22,7 @@
 				<cdTime>1050</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
+				<cellImageName>ower_cell_2_2.png</cellImageName>
 			</MudTower>
 			<MudTower>
 				<level>3</level>
@@ -32,6 +33,7 @@
 				<cdTime>900</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
+				<cellImageName>ower_cell_2_3.png</cellImageName>
 			</MudTower>
 		</leveledTowers>
 	</TowerManager>
