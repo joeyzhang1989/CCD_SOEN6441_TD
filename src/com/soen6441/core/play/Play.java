@@ -238,6 +238,7 @@ public class Play extends Observable {
 		
 		MapPoint p5 = new MapPoint(2, 2);
 		BottleTower tower = new BottleTower();
+		tower.setLevel(1);
 		map.setItem(tower, p5);
 		
 		MapPoint p1 = new MapPoint(1, 1);

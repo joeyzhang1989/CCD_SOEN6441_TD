@@ -1,6 +1,7 @@
 package com.soen6441.ui.map.cell;
 
 import java.awt.Graphics;
+import java.util.Observable;
 
 import javax.swing.ImageIcon;
 
@@ -33,5 +34,13 @@ public class RoadCell extends MapItemCell{
 	
 	public Road getRoadItem(){
 		return (Road)this.getItem();
+	}
+	
+	@Override
+	public void update(Observable o, Object arg) {
+		super.update(o, arg);
+		if (arg == Road.OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE){
+			this.repaint();
+		}
 	}
 }
