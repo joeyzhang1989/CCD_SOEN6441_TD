@@ -43,7 +43,7 @@ public class EndPointValidator extends PathValidator{
 			result=false;
 			this.setErrorMassage("There is No End Point In the Map");
 			
-		} else if(numberOfEndPoints > 1) {
+		} else if (numberOfEndPoints > 1) {
 			result=false;
 			this.setErrorMassage("There can't be more than 1 End Point in the Map");
 		}

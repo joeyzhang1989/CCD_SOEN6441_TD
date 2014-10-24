@@ -40,7 +40,7 @@ public class RoadQuantityValidator extends PathValidator {
 		
 		if (pathLength < 1) {
 			result = false;
-			this.setErrorMassage("Alert! there must be atleast one Road between start and finish");
+			this.setErrorMassage("there must be at least one Road between start and finish");
 		}
 		
 		return result;
