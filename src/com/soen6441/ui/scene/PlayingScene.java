@@ -509,9 +509,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	private class SelectScenery implements IInspectable
 	{
-
+		private Command BottleTower;
+		private Command MudTower;
+		
 		public SelectScenery() {
-			// TODO Auto-generated constructor stub
+			BottleTower = new Command("Build BottleTower", "50$");
+			MudTower = new Command("Build MudTower", "100$");
 		}
 
 		/**
@@ -532,7 +535,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String subtitle() {
-		
 			return null;
 		}
 
@@ -554,8 +556,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public List<Command> commands() {
-		
-			return null;
+			
+			List<Command> commands = new ArrayList<Command>();
+			commands.add(BottleTower);
+			commands.add(MudTower);
+			return commands;
 		}
 
 		/**
@@ -565,7 +570,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-		
+			if(command == BottleTower){
+				System.out.println("BottleTower");
+			} else if(command == MudTower){
+				System.out.println("MudTower");
+			} 
 		
 		}
 	}
