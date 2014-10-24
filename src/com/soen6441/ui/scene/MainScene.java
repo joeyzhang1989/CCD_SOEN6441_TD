@@ -34,7 +34,7 @@ import com.soen6441.ui.parallel.Window;
  * @see
  */
 
-public class MainScene extends View implements ActionListener {
+public class MainScene extends View {
 
 	private Button playButton;
 
