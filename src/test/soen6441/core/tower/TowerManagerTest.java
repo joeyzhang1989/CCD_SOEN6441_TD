@@ -2,7 +2,6 @@ package test.soen6441.core.tower;
 
 import static org.junit.Assert.*;
 
-import org.junit.Assert;
 import org.junit.Test;
 
 import com.soen6441.core.tower.Tower;

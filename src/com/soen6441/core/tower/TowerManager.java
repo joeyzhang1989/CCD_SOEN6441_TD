@@ -101,6 +101,9 @@ public class TowerManager {
     		AffectableValue cdTime = new AffectableValue(Double.parseDouble(element.element("cdTime").getText()));
     		tower.setCdTime(cdTime);
     		
+    		tower.setCellImageName(element.element("cellImageName").getText());
+    		
+    		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;
     			leveledTowers.add(towerResult);
