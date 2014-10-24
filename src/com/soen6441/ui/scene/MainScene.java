@@ -168,10 +168,6 @@ public class MainScene extends View implements ActionListener {
 		new Window(viewFlow);
 	}
 
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
-
-	}
+	
 
 }
