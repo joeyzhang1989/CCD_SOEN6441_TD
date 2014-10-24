@@ -25,27 +25,27 @@ public class StartPointValidator extends PathValidator {
 	@Override
 	public boolean validate() {
 	
-	    boolean result=true;
+	    boolean result = true;
 		
 		int numberOfStartPoint = 0;
-		List<MapItem> mapItems=this.getMap().getAllItems();
+		List<MapItem> mapItems = this.getMap().getAllItems();
 		
-		for (int i=0;i< mapItems.size();i++){
+		for (int i=0;i < mapItems.size();i++) {
 			   MapItem  mapItem = mapItems.get(i);
-			if ( mapItem instanceof Road){
-				Road road =(Road)mapItem;
-				if(road.getType() == Road.Type.START){
+			if ( mapItem instanceof Road) {
+				Road road = (Road) mapItem;
+				if(road.getType() == Road.Type.START) {
 					numberOfStartPoint += 1;
 				}
 			}
 		}
 		
 		
-		if (numberOfStartPoint == 0){
+		if (numberOfStartPoint == 0) {
 			result=false;
 			this.setErrorMassage("There is No start Point In the Map");
-		}
-		else if(numberOfStartPoint > 1){
+		
+		} else if(numberOfStartPoint > 1 ) {
 			 result=false;
 			 this.setErrorMassage("There can't be more than 1 start Point in the Map");
 		}
@@ -53,6 +53,5 @@ public class StartPointValidator extends PathValidator {
 		return result;
 	
 	}
-	
 	
 }
