@@ -199,7 +199,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		@Override
 		public String subtitle() {
-			return "Welcome to your scenery editing scene";
+			return "Scenery editing";
 		}
 
 		@Override
@@ -272,7 +272,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		@Override
 		public String subtitle() {
-			return "Welcome to your road editing scene";
+			return "Road editing";
 		}
 
 		@Override
