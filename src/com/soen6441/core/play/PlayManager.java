@@ -27,7 +27,7 @@ import com.soen6441.core.map.MapPoint;
  */
 public class PlayManager {
 
-	String mapFilePath="./maps/"; 
+	 String mapFilePath="./maps/"; 
 	
 	
 	/**
@@ -83,9 +83,7 @@ public class PlayManager {
 		Element height = map1.addElement( "height" );
 		Element startPoints1 = map1.addElement( "startPoints" );
 		Element endPoints1 = map1.addElement( "endPoints" );
-		Element paths = map1.addElement( "paths" );
-		Element road = paths.addElement( "road" );
-	      
+		Element paths = map1.addElement( "Path" );
 		
 		/*
 		 * Saving the data read from Play object into XML Map file.
@@ -116,15 +114,21 @@ public class PlayManager {
 	      
 	     //adding path in document
 	      
-	      for(int i=0;i<pathToPoint.size();i++){
-		      Element loc=road.addElement("locations");
-		      			loc.addElement("xValue").setText(String.valueOf(pathToPoint.get(i).getGridedX()));;
-		      			loc.addElement("yValue").setText(String.valueOf(pathToPoint.get(i).getGridedY()));;
-		     
-		     }
-		      
+	     for(int i = 0; i < path.size();i++ ) {
+	    	 List<MapPoint> pathLoc = path.get(i).getLocations();
+	    	 Element loc1 = paths .addElement("paths");
+	    	 for ( int j=0; j < pathLoc.size();j++) {
+	    		
+	    		Element loc2 = loc1.addElement("locations");
+	    		loc2.addElement("xValue").setText(String.valueOf(pathLoc.get(j).getGridedX()));; 
+	    		loc2.addElement("yValue").setText(String.valueOf(pathLoc.get(j).getGridedY()));; 
+	    		
+	    		}
+	     }
 	      
-	  // lets write to a file
+	      
+	     
+	        // lets write to a file
 	        XMLWriter writer = null;
 			try {
 				writer = new XMLWriter(new FileWriter( mapFilePath+fileName ) );
