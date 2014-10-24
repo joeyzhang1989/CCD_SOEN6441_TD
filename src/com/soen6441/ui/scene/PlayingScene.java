@@ -9,6 +9,9 @@ import java.util.Observable;
 import java.util.Observer;
 
 import com.soen6441.core.play.Play;
+import com.soen6441.core.tower.Tower;
+import com.soen6441.core.tower.TowerManager;
+import com.soen6441.core.tower.TowerManagerFactory;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
@@ -114,8 +117,6 @@ public class PlayingScene extends View implements Observer{
 		coinsLabel.setLocation(520,10);
 		bannerView.add(coinsLabel);
 		
-		//THIS SHOULD BE SET TO PLAY.GETCOINS()
-		
 		//lifelabel
 		life = new Label();
 		life.setText("Life");
@@ -123,7 +124,7 @@ public class PlayingScene extends View implements Observer{
 		life.setLocation(640, 10);
 		bannerView.add(life);   
 		
-		//lable to store the life change
+		//lifelable to store the life change
 		lifelabel = new Label();
 		lifelabel.setSize(80,40);
 		lifelabel.setLocation(720,10);
@@ -315,7 +316,9 @@ public class PlayingScene extends View implements Observer{
 	
 	private class SelectTower implements IInspectable
 	{
-
+		// TowerManagerFactory tmf = TowerManagerFactory.currentManagerFactory();
+		// TowerManager tm = tmf.getManager("BottleTower");
+		//	Tower tower = tm.createTower();
 		/**
 		 * Method title.
 		 * @return String
@@ -453,7 +456,7 @@ public class PlayingScene extends View implements Observer{
 	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
-	private class SelectEmptySpace implements IInspectable
+	private class SelectScenery implements IInspectable
 	{
 
 		/**
