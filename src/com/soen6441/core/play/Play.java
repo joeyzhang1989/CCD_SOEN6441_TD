@@ -9,6 +9,7 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.tower.BottleTower;
 import com.soen6441.ui.scene.PlayingScene;
 
 /**
@@ -234,6 +235,10 @@ public class Play extends Observable {
 		
 		map.setWidth(6);
 		map.setHeight(4);
+		
+		MapPoint p5 = new MapPoint(2, 2);
+		BottleTower tower = new BottleTower();
+		map.setItem(tower, p5);
 		
 		MapPoint p1 = new MapPoint(1, 1);
 		MapPoint p2 = new MapPoint(2, 1);
