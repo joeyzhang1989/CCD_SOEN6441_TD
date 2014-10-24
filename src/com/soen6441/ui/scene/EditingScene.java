@@ -31,12 +31,15 @@ import com.soen6441.ui.parallel.View;
  * @author JeanRaymondDaher
  * @author Mengyao Wang
  * @author Chenglong Zhang
- * @since 0.1
  *
  */
 
 public class EditingScene extends View implements GridViewSelectionListener {
 
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
 	private Button controlButton;// validate button to make sure map is valid
 	private Label infoLabel;
 	private TextField money;
@@ -60,15 +63,13 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	protected void initSubviews() {
 		super.initSubviews();
 
-		// upper view containing the money label,infolabel label,controlbutton
-		// button.
+		// Upper view containing the money label,infolabel label,controlbutton button
 		View upperView = new View();
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
 		// upperView.setBackground(Color.gray);
 
-		this.setBackground(new Color(0xDDDDDD));// set the overall background
-												// color
+		this.setBackground(new Color(0xDDDDDD));// set the overall background color
 
 		// Validate button
 		this.controlButton = new Button();
@@ -88,7 +89,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		// actual money
 		this.money = new TextField();
 		this.money.setText("1000");
-		// THIS SHOULD BE SET TO PLAY.GETCOINS()
 		this.money.setSize(80, 40);
 		this.money.setLocation(700, 10);
 
@@ -102,7 +102,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		View lowerView = new View();
 		lowerView.setLocation(0, 550);
 		lowerView.setSize(800, 40);
-		;
 		// lowerView.setBackground(Color.blue);
 
 		// back button
@@ -200,11 +199,17 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * @author JeanRaymondDaher
 	 */
 	private class InspectableScenery implements IInspectable {
-
+		
+		/*
+		 * Mark - Basic - Properties
+		 */
 		private Command buildStartPoint;
 		private Command buildEndPoint;
 		private Command buildRoad;
 
+		/*
+		 * Constructor
+		 */
 		public InspectableScenery() {
 			this.buildStartPoint = new Command("Build Start Point", "");
 			this.buildEndPoint = new Command("Build End Point", "");
@@ -328,6 +333,13 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - Storage - Methods
 	 */
 
+	/**
+	 * This method will check that the path is valid from Start to End.
+	 * 
+	 * @see PathManager 
+	 * @return boolean
+	 * 				  True or False depending on validation
+	 */
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
 
@@ -341,13 +353,16 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		}
 
 	}
-
+	/**
+	 * This method will save the game to a file.
+	 * 
+	 */
 	private void save() {
 		System.out.println("saving");
 	}
 
 	/*
-	 * Mark - Storage - Properties
+	 * Mark - Storage - Getters & Setters
 	 */
 	public File getWorkingFile() {
 		return workingFile;

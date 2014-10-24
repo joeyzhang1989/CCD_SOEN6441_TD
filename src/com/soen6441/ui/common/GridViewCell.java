@@ -6,11 +6,13 @@ import com.soen6441.ui.parallel.View;
 import com.soen6441.ui.scene.MainScene;
 
 /**
- * This class defines a unit of the GridView. 
+ * This class defines a unit of the GridView, a cell on the GridView. 
+ * 
+ * @see GridView
  * 
  * @author JeanRaymondDaher
  * @author Zhe Zhao
- * @see GridView
+ *
  */
 
 public class GridViewCell extends View {
@@ -54,7 +56,7 @@ public class GridViewCell extends View {
 	
 	/**
 	 * Method getGridView.
-	 * @return GridView
+	 * @return GridView 
 	 */
 	public GridView getGridView() {
 		return gridView;

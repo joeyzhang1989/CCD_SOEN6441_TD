@@ -5,15 +5,15 @@ import java.awt.Dimension;
 import com.soen6441.ui.parallel.View;
 
 /**
- * This class defines the GridView, the main grid, map of the game.
+ * This class defines the GridView, the main grid which is displayed on the view.
  *
- * @author JeanRaymondDaher
- * @since 0.1
  * @see GridViewCell
+ * 
+ * @author JeanRaymondDaher
+ * 
  */
 
 public class GridView extends View {
-
 
 	/*
 	 * Constructor

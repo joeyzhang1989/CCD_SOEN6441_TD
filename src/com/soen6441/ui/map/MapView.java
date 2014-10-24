@@ -8,16 +8,19 @@ import com.soen6441.ui.common.GridView;
 import com.soen6441.ui.common.GridViewCell;
 
 /**
- * This class defines the view of the map
+ * This class defines the view of the map.
  * 
  * @author Zhe Zhao
- * @author jean raymond daher
+ * @author JeanRaymondDaher
  * @author Chenglong Zhang
- * @since 0.1
  * 
  */
 public class MapView extends GridView {
 
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
 	private GridMap map;
 	private static final int _UNIT_LENGTH = 40;
 	
