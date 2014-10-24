@@ -56,20 +56,26 @@ public class ConnectedPathValidator extends PathValidator {
 		    if(type == Road.Type.NORMAL) {
 		    	if(totalNeighbours > 2) {
 		    		this.setErrorMassage("Branches are not allowed");
+		    		return false;
 		    	} else if (totalNeighbours < 2) {
-		    		this.setErrorMassage("The Road are not connected");
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
 		    	}
 		    } else if(type == Road.Type.START) {
 		    	if(totalNeighbours > 1) {
-		    		this.setErrorMassage("Start point should be only connected by one side");
+		    		this.setErrorMassage("Start point should have one neigbour");
+		    		return false;
 		    	} else if (totalNeighbours < 1) {
-		    		this.setErrorMassage("The Road are not connected");
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
 		    	}
 		    } else if(type == Road.Type.END) {
 		    	if(totalNeighbours > 1) {
-		    		this.setErrorMassage("End point should be only connected by one side");
+		    		this.setErrorMassage("End point should have one neighbour");
+		    		return false;
 		    	} else if (totalNeighbours < 1) {
-		    		this.setErrorMassage("The Road are not connected");
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
 		    	}
 		    }
 		}

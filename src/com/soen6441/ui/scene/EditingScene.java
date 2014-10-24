@@ -77,7 +77,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.controlButton.setSize(120, 40);
 		// InfoLabel : valid or not
 		this.infoLabel = new Label();
-		this.infoLabel.setText("Validation : Please Validate Map" );
+		this.infoLabel.setText("Validation : Please Validate Map");
 		this.infoLabel.setSize(500, 40);
 		this.infoLabel.setLocation(135, 10);
 		// initial money Label
@@ -141,19 +141,23 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 	}
 
+	/**
+	 * This method will respond to buttons pressed on the screen :
+	 * Save,Validate,Back
+	 */
 	@Override
 	protected void initEvents() {
-		
-		saveButton.addActionListener(new ActionListener() {
-			
+
+		this.saveButton.addActionListener(new ActionListener() {
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(validateMap()){
+				if (validateMap()) {
 					save();
 				}
 			}
 		});
-		controlButton.addActionListener(new ActionListener() {
+		this.controlButton.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -161,7 +165,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 			}
 		});
-		backButton.addActionListener(new ActionListener() {
+		this.backButton.addActionListener(new ActionListener() {
 			@Override
 			/**
 			 * *perform the function that click the backbutton to go to editingscene
@@ -326,12 +330,13 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
-		
+
 		if (gridMap.getPathManager().validate()) {
 			infoLabel.setText("Validation : Path Is Valid");
 			return true;
-		}else {
-			infoLabel.setText("Validation : "+gridMap.getPathManager().getErrorMessage());
+		} else {
+			infoLabel.setText("Validation : "
+					+ gridMap.getPathManager().getErrorMessage());
 			return false;
 		}
 

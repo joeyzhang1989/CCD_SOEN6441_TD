@@ -25,7 +25,7 @@ public class RoadQuantityValidator extends PathValidator {
 	public boolean validate() {
 		boolean result = true;
 		
-		int pathLength = 0;
+		int quantity = 0;
 		List<MapItem> mapItems = this.getMap().getAllItems();
 		
 		for (int i=0; i < mapItems.size();i++) {
@@ -33,14 +33,14 @@ public class RoadQuantityValidator extends PathValidator {
 			if ( mapItem instanceof Road) {
 				Road road = (Road) mapItem;
 				if(road.getType() == Road.Type.NORMAL) {
-					pathLength += 1;
+					quantity += 1;
 				}
 			}
 		}
 		
-		if (pathLength < 1) {
+		if (quantity < 1) {
 			result = false;
-			this.setErrorMassage("there must be at least one Road between start and finish");
+			this.setErrorMassage("There must be at least one road");
 		}
 		
 		return result;
