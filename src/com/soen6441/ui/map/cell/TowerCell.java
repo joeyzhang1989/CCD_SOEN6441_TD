@@ -11,9 +11,15 @@ import com.soen6441.ui.map.MapItemCell;
 /**
  */
 public class TowerCell extends MapItemCell {
+	
+	/*
+	 * Mark - Displaying - Methods
+	 */
+	
 	@Override
 	public void paint(Graphics g) {
-		g.drawImage(new ImageIcon("images/tower_cell_1_" + getTowerItem().getLevel() + ".png").getImage(), 0, 0, null);
+		
+		g.drawImage(new ImageIcon("images/" + getItemTower().getCellImageName()).getImage(), 0, 0, null);
 		super.paint(g);
 	}
 	
@@ -21,12 +27,16 @@ public class TowerCell extends MapItemCell {
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
 		if (arg == Tower.OBSERVABLE_EVENT_PROPERTY_LEVEL_DID_CHANGE){
-			System.out.println(getTowerItem().getLevel());
+			System.out.println(getItemTower().getLevel());
 			this.repaint();
 		}
 	}
+
+	/*
+	 * Mark - Convenience - Methods
+	 */
 	
-	public Tower getTowerItem(){
+	public Tower getItemTower(){
 		return (Tower)this.getItem();
 	}
 }
