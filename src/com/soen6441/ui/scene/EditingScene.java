@@ -163,14 +163,12 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 	@Override
 	public void gridViewDidSelect() {
-
 		MapItem item = play.getMap().getSelectedItem();
 		if (item == null) {
 			this.inspectorView.setOn(new InspectableScenery());
 			this.inspectorView.update();
 		} else if (item instanceof Road) {
-			String name = (String) item.getName();
-			this.inspectorView.setOn(new InspectableRoad(name));
+			this.inspectorView.setOn(new InspectableRoad(item));
 			this.inspectorView.update();
 		} 
 	}
@@ -253,18 +251,18 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	private class InspectableRoad implements IInspectable {
 
 		private Command destroyCell;
-		private String name;
+		private MapItem item;
 
-		public InspectableRoad(String name) {
+		public InspectableRoad(MapItem temp) {
 			this.destroyCell = new Command("Delete", "");
-			this.name = name;
+			this.item = temp;
 		}
 
 		@Override
 		public String title() {
 			String title;
-			if (this.name != "Road") {
-				title = "Road =>" + this.name;
+			if (this.item.getName() != "Road") {
+				title = "Road =>" + this.item.getName();
 			}else{
 				title = "Road";
 			}
