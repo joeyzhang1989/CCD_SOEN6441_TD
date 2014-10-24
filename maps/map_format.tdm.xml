@@ -28,8 +28,8 @@
 					 </endPoint>
 					 ***
 				</endPoints>
-				<paths>
-					<road>
+				<Path>
+					<paths>
 						<locations>
 							<xValue></xValue>
 					        <yValue></yValue>
@@ -39,8 +39,9 @@
 					        <yValue></yValue>
 						</locations>
 						***
-					</road>
-				</paths>
+					</paths>
+					***
+				</Path>
 			</Map>
 		</map>
     </Play>

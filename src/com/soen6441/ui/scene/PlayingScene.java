@@ -11,6 +11,9 @@ import java.util.Observer;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.tower.Tower;
+import com.soen6441.core.tower.TowerManager;
+import com.soen6441.core.tower.TowerManagerFactory;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
@@ -41,25 +44,22 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * 
 	 * these properties are defined in the ui.parallel package that inherited from javax.swing
 	 */
-	private Label coinsLabel;
-	
-	private Label infoLabel;
-	
-	private Label lifelabel;
-	
-	private Label money;
-	
-	private Label life;
-	
+	//bannerView properties
 	private Button controlButton;
-	
-	private Button backButton;
-	
-	private Button saveButton;
-	
+	private Label infoLabel;
+	private Label money;
+	private Label coinsLabel;
+	private Label life;
+	private Label lifelabel;
+   
+	//mapView
 	private MapView mapView;
 	
+	//inspectorView
 	private InspectorView inspectorView;
+	
+	//bottomView
+	private Button backButton;
 	
 	@Override
 	protected void init() {
@@ -68,12 +68,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		super.init();
 		
 	}
-					  
 	
-/**
- * override the method initSubviews in the super class View
- * to initialize the PlayingScene UI
- */
+	/**
+	 * override the method initSubviews in the super class View
+	 * to initialize the PlayingScene UI
+	 */
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
@@ -113,6 +112,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		coinsLabel = new Label();
 		coinsLabel.setSize(80,40);
 		coinsLabel.setLocation(520,10);
+		coinsLabel.setText(Integer.toString(play.getCoins()));
 		bannerView.add(coinsLabel);
 		
 		//lifelabel
@@ -125,6 +125,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		//lifelable to store the life change
 		lifelabel = new Label();
 		lifelabel.setSize(80,40);
+		lifelabel.setText(Integer.toString(play.getLife()));
 		lifelabel.setLocation(720,10);
 		bannerView.add(lifelabel);
 		
@@ -142,8 +143,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		bottomView.add(backButton);
 		
 		//mapView
-		int height;// the hight of the map
-		int width;// the width of the map
+		int x;
+		int y;
 		/* 
 		 * get the map information from the mapView and set the 
 		 * map to the center of GridmapView
@@ -151,9 +152,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		mapView = new MapView();
 		mapView.setMap(play.getMap());
 	    mapView.setSize(this.mapView.suggestedSize());
-		height=(600-this.mapView.suggestedSize().height)/2;
-		width=(800-180-this.mapView.suggestedSize().width)/2;
-		mapView.setLocation(width, height);
+		x=(600-this.mapView.suggestedSize().height)/2;
+		y=(800-180-this.mapView.suggestedSize().width)/2;
+		mapView.setLocation(x, y);
 		add(mapView);
 		
 		//inspectorView
@@ -167,16 +168,15 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		inspectorView.setOn(new InspectableScenary());
 		inspectorView.update();
 		
-}	
+	}	
 	
 
 	@Override
 	protected void initEvents() {
 		super.initEvents();
-		/**
-		 * perform the nextWave function to create the next wave of critters
-		 * 
-		 */
+		
+		//perform the nextWave function to create the next wave of critters
+		
 		controlButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -222,7 +222,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	public void gridViewDidSelect() {
 		System.out.println("...");
-		MapItem mi = play.getMap().selectedItem();
+		MapItem mi = play.getMap().getSelectedItem();
 		//MapItemCellFactory.cellFromItem(mi);
 		if (mi == null){
 			inspectorView.setOn(new SelectScenery());
@@ -232,13 +232,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			inspectorView.setOn(new SelectRoad(road));
 			inspectorView.update();
 		}
-		/*
-		/else if (MapItemCellFactory.cellFromItem(mi)instanceof RoadCell){
-		}
-		else if (MapItemCellFactory.cellFromItem(mi)instanceof TowerCell){
+		else if (mi instanceof Tower){
 			inspectorView.setOn(new SelectTower());
 			inspectorView.update();
-		}*/
+		}
 	  }
 		
 	
@@ -343,18 +340,25 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	private class SelectTower implements IInspectable
 	{
-		// TowerManagerFactory tmf = TowerManagerFactory.currentManagerFactory();
-		// TowerManager tm = tmf.getManager("BottleTower");
-		//	Tower tower = tm.createTower();
+		 
 		/**
 		 * Method title.
 		 * @return String
 		 * @see com.soen6441.ui.common.IInspectable#title()
 		 */
+		private Command Upgrade;
+		private Command Refund;
+
+		
+		public SelectTower() {
+			Upgrade = new Command("Upgrade Tower", "50$");
+			Refund = new Command("Refund Tower", "100$");
+			
+		}
 		@Override
 		public String title() {
 			
-			return null;
+			return "Tower";
 		}
 
 		/**
@@ -386,8 +390,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public List<Command> commands() {
-			
-			return null;
+			List<Command> commands = new ArrayList<Command>();
+			commands.add(Upgrade);
+			commands.add(Refund);
+			return commands;
 		}
 
 		/**
@@ -397,8 +403,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-			
-			
+			if(command == Upgrade){
+				System.out.println("Upgrade");
+			} else if(command == Refund){
+				System.out.println("Refund");
+			} 
 		}		
 	}	
 
@@ -418,20 +427,30 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		private Road road;
 		
 		public SelectRoad(Road road){
-			this.setRoad(road);
+			this.road = road;
 		}
-		
 		/**
-		 * Method title.
+		 * Method title. check the selected road type to update the inspectorView Title
 		 * @return String
 		 * @see com.soen6441.ui.common.IInspectable#title()
 		 */
 		@Override
 		public String title() {
-		
+			Road.Type type = road.getType();
+	
+			if (type == Road.Type.NORMAL){
+				return "NORMALROAD";
+			}else if (type ==Road.Type.START){
+				return "STARTPOINT";
+			}else if (type == Road.Type.END){
+				return "ENDPOINT";
+			}
 			return null;
 		}
+		
 
+		
+		
 		/**
 		 * Method subtitle.
 		 * @return String
@@ -490,6 +509,16 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	private class SelectScenery implements IInspectable
 	{
+		private Command BottleTower;
+		private Command MudTower;
+		private TowerManagerFactory towerManagerFactory;
+		private TowerManager towerManger;
+		private Tower tower;
+		public SelectScenery() {
+			BottleTower = new Command("Build BottleTower", "50$");
+			MudTower = new Command("Build MudTower", "100$");
+			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
+		}
 
 		/**
 		 * Method title.
@@ -509,7 +538,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String subtitle() {
-		
 			return null;
 		}
 
@@ -531,8 +559,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public List<Command> commands() {
-		
-			return null;
+			
+			List<Command> commands = new ArrayList<Command>();
+			commands.add(BottleTower);
+			commands.add(MudTower);
+			return commands;
 		}
 
 		/**
@@ -542,7 +573,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-		
+			if(command == BottleTower){
+				towerManger = towerManagerFactory.getManager("BottleTower");
+				tower = towerManger.createTower();
+			} else if(command == MudTower){
+				towerManger = towerManagerFactory.getManager("MudTower");
+				tower = towerManger.createTower();
+			} 
 		
 		}
 	}
