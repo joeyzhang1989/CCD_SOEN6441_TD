@@ -9,31 +9,18 @@ import com.soen6441.core.map.Road;
 import com.soen6441.ui.map.MapItemCell;
 
 /**
+ * @author Zhe Zhao
  */
 public class RoadCell extends MapItemCell{
+	
+	/*
+	 * Mark - Displaying - Methods
+	 */
+	
 	@Override
 	public void paint(Graphics g) {
-		String[] fileNames = {"road_cell_normal.png", "road_cell_start.png", "road_cell_end.png"};
-		String fileName = null;
-		switch (this.getRoadItem().getType()) {
-		case NORMAL:
-			fileName = fileNames[0];
-			break;
-		case START:
-			fileName = fileNames[1];
-			break;
-		case END:
-			fileName = fileNames[2];
-			break;
-		default:
-			break;
-		}
-		g.drawImage(new ImageIcon("images/" + fileName).getImage(), 0, 0, null);
+		g.drawImage(new ImageIcon("images/" + getItem().getCellImageName()).getImage(), 0, 0, null);
 		super.paint(g);
-	}
-	
-	public Road getRoadItem(){
-		return (Road)this.getItem();
 	}
 	
 	@Override
@@ -42,5 +29,13 @@ public class RoadCell extends MapItemCell{
 		if (arg == Road.OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE){
 			this.repaint();
 		}
+	}
+	
+	/*
+	 * Mark - Convenience - Methods
+	 */
+	
+	public Road getItemRoad(){
+		return (Road)this.getItem();
 	}
 }
