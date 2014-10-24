@@ -144,7 +144,7 @@ public class GridMap {
 	 * Mark - Selection - Method
 	 */
 	
-	public MapItem selectedItem() {
+	public MapItem getSelectedItem() {
 		return this.getItem(selectedPoint);
 	}
 
