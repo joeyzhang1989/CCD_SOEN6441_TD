@@ -66,7 +66,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
 		// upperView.setBackground(Color.gray);
-		
+
 		this.setBackground(new Color(0xDDDDDD));// set the overall background
 												// color
 
@@ -76,9 +76,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.controlButton.setTitle("Validate");
 		this.controlButton.setSize(120, 40);
 		// InfoLabel : valid or not
-		String valid = "Not valid";
 		this.infoLabel = new Label();
-		this.infoLabel.setText("Validation : " + valid);
+		this.infoLabel.setText("Validation : Please Validate Map" );
 		this.infoLabel.setSize(500, 40);
 		this.infoLabel.setLocation(135, 10);
 		// initial money Label
@@ -132,7 +131,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.mapView.setLocation(width, height);
 		this.add(mapView);
 		this.mapView.setSelectionListener(this);
-		
+
 		// Inspectorview
 		this.inspectorView = new InspectorView();
 		this.inspectorView.setLocation(620, 60);
@@ -145,8 +144,15 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	@Override
 	protected void initEvents() {
 
-		backButton.addActionListener(new ActionListener() {
+		controlButton.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				validateMap();
+
+			}
+		});
+		backButton.addActionListener(new ActionListener() {
 			@Override
 			/**
 			 * *perform the function that click the backbutton to go to editingscene
@@ -154,6 +160,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			public void actionPerformed(ActionEvent e) {
 				EditingScene.this.viewFlow.pop();
 			}
+
 		});
 	}
 
@@ -170,7 +177,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		} else if (item instanceof Road) {
 			this.inspectorView.setOn(new InspectableRoad(item));
 			this.inspectorView.update();
-		} 
+		}
 	}
 
 	/**
@@ -263,7 +270,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			String title;
 			if (this.item.getName() != "Road") {
 				title = "Road =>" + this.item.getName();
-			}else{
+			} else {
 				title = "Road";
 			}
 
@@ -297,25 +304,32 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			}
 		}
 	}
-	
+
 	/*
 	 * Mark - Storage - Properties
 	 */
-	
+
 	private File workingFile;
-	
+
 	/*
 	 * Mark - Storage - Methods
 	 */
 
-	private void validateMap(){
+	private void validateMap() {
+		GridMap gridMap = this.play.getMap();
 		
+		if (gridMap.getPathManager().validate()) {
+			infoLabel.setText("Validation : Path Is Valid");
+		}else {
+			infoLabel.setText("Validation : "+gridMap.getPathManager().getErrorMessage());
+		}
+
 	}
-	
-	private void save(){
-		
+
+	private void save() {
+
 	}
-	
+
 	/*
 	 * Mark - Storage - Properties
 	 */
@@ -326,7 +340,5 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	public void setWorkingFile(File workingFile) {
 		this.workingFile = workingFile;
 	}
-	
-	
 
 }

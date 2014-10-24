@@ -58,17 +58,17 @@ public class ConnectedPathValidator extends PathValidator {
 			    if(roadItems.get(i).getType() == Road.Type.NORMAL && totalNeighbours != 2 ) {
 			    	
 			    	result = false;
-			    	this.setErrorMassage("There Map is either Disconnected  or Have more than one Path");
+			    	this.setErrorMassage("The Map is either Disconnected or Has more than one Path");
 			   
 			    } else if(roadItems.get(i).getType() == Road.Type.START && totalNeighbours != 1 ) {
 			    	
 			    	result = false;
-			    	this.setErrorMassage("There Map has multiple Paths which are not Allowed");
+			    	this.setErrorMassage("The Map has multiple Paths which is not Allowed");
 			    	
 			    } else if(roadItems.get(i).getType() == Road.Type.END && totalNeighbours != 1 ) {
 			    	
 			    	result = false;
-			    	this.setErrorMassage("There Map has multiple Paths which are not Allowed");
+			    	this.setErrorMassage("The Map has multiple Paths which is not Allowed");
 			    	
 			    }
 				
