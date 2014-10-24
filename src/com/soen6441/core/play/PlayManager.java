@@ -27,9 +27,6 @@ import com.soen6441.core.map.MapPoint;
  */
 public class PlayManager {
 
-	String mapFilePath="./maps/"; 
-	
-	
 	/**
 	 * The method save will save the gamePlay in the specified file
 	 * 
@@ -39,9 +36,6 @@ public class PlayManager {
 
 	public void save (File file ,Play play){
 	
-	
-		
-		String fileName=file.toString();
 		/*
 		 * getting the required information from PLay object to save in the file.
 		 * */
@@ -150,10 +144,6 @@ public class PlayManager {
 			}
 
 		
-		
-		
-		
-		
 	}
 	
 	
@@ -176,13 +166,11 @@ public class PlayManager {
 		ArrayList<MapPath> multiplePaths = new ArrayList<MapPath>();
 		
 		
-		File mapFile=new File(mapFilePath+file);
-		
 		
 		SAXReader reader = new SAXReader();
 		Document document = null;
 		try {
-			document = reader.read(mapFile);
+			document = reader.read(file);
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}

@@ -17,6 +17,7 @@ public class GridMap {
 	
 	public GridMap() {
 		this.pathManager = new PathManager();
+		this.pathManager.setMap(this);
 	}
 	
 	/*

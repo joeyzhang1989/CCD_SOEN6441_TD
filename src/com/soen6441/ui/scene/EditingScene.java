@@ -3,6 +3,7 @@ package com.soen6441.ui.scene;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.Type;
 import com.soen6441.core.play.Play;
-import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
@@ -297,5 +297,36 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			}
 		}
 	}
+	
+	/*
+	 * Mark - Storage - Properties
+	 */
+	
+	private File workingFile;
+	
+	/*
+	 * Mark - Storage - Methods
+	 */
+
+	private void validateMap(){
+		
+	}
+	
+	private void save(){
+		
+	}
+	
+	/*
+	 * Mark - Storage - Properties
+	 */
+	public File getWorkingFile() {
+		return workingFile;
+	}
+
+	public void setWorkingFile(File workingFile) {
+		this.workingFile = workingFile;
+	}
+	
+	
 
 }
