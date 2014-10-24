@@ -6,14 +6,18 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.Type;
 import com.soen6441.core.play.Play;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
+import com.soen6441.ui.map.MapItemCell;
+import com.soen6441.ui.map.MapItemCellFactory;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -162,10 +166,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		if (item == null) {
 			this.inspectorView.setOn(new InspectableScenery());
 			this.inspectorView.update();
-		} else if(item instanceof Road) {
+		} else if (item instanceof Road) {
+			String name = (String) item.getName();
 			this.inspectorView.setOn(new InspectableRoad());
 			this.inspectorView.update();
-		} else if(item instanceof Tower) {
+		} else if (item instanceof Tower) {
 			this.inspectorView.setOn(new InspectableTower());
 			this.inspectorView.update();
 		}
@@ -173,90 +178,114 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	}
 
 	private class InspectableScenery implements IInspectable {
-		
-		private Command build_start_point;
-		private Command build_end_point;
-		private Command build_road;
-		
+
+		private Command buildStartPoint;
+		private Command buildEndPoint;
+		private Command buildRoad;
+
 		public InspectableScenery() {
-			this.build_start_point=new Command("Build Start Point","");
-			this.build_end_point=new Command("Build End Point","");
-			this.build_road=new Command("Build Road","");
+			this.buildStartPoint = new Command("Build Start Point", "");
+			this.buildEndPoint = new Command("Build End Point", "");
+			this.buildRoad = new Command("Build Road", "");
 		}
-		
+
 		@Override
 		public String title() {
-			String title="Scenery";
+			String title = "Scenery Cell";
 			return title;
 		}
 
 		@Override
 		public String subtitle() {
-			// TODO Auto-generated method stub
-			return null;
+			return "Welcome to your scenery editing scene";
 		}
 
 		@Override
 		public String description() {
+			return "This is an empty cell where u can add a start, end or normal-road point";
 			// TODO Auto-generated method stub
-			return null;
 		}
 
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
-			commands.add(this.build_end_point);
-			commands.add(this.build_start_point);
-			commands.add(this.build_road);
+			commands.add(this.buildStartPoint);
+			commands.add(this.buildEndPoint);
+			commands.add(this.buildRoad);
 			return commands;
 		}
 
 		@Override
 		public void execute(Command command) {
-			
-			// TODO Auto-generated method stub
-
+			if (command == buildRoad) {
+				Road road = new Road();
+				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
+				GridMap gridMap = play.getMap();
+				gridMap.setItem(road, gridMap.getSelectedPoint());
+				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
+			} else if (command == buildStartPoint) {
+				Road road = new Road(Type.START);
+				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
+				GridMap gridMap = play.getMap();
+				gridMap.setItem(road, gridMap.getSelectedPoint());
+				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
+			} else if (command == buildEndPoint) {
+				Road road = new Road(Type.END);
+				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
+				GridMap gridMap = play.getMap();
+				gridMap.setItem(road, gridMap.getSelectedPoint());
+				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
+			}
 		}
 
 	}
+
 	private class InspectableRoad implements IInspectable {
 
+		private Command destroyCell;
+		
+		public InspectableRoad() {
+			this.destroyCell=new Command("Destroy Cell","");
+		}
 		@Override
 		public String title() {
-			String title="Road";
+			String title = "Road";
 			return title;
 		}
 
 		@Override
 		public String subtitle() {
-			// TODO Auto-generated method stub
-			return null;
+			return "Welcome to your road editing scene";
 		}
 
 		@Override
 		public String description() {
-			// TODO Auto-generated method stub
-			return null;
+			return "This is a road cell that you can destroy";
 		}
 
 		@Override
 		public List<Command> commands() {
-			// TODO Auto-generated method stub
-			return null;
+			List<Command> commands = new ArrayList<Command>();
+			commands.add(this.destroyCell);
+			return commands;
 		}
 
 		@Override
 		public void execute(Command command) {
-			// TODO Auto-generated method stub
-			
+			if(command == destroyCell) {
+				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
+				GridMap gridMap = play.getMap();
+				gridMap.removeItem(gridMap.getSelectedItem());
+				mapView.replaceCell(mapView.getSelectedCell(), cell);
+			}
 		}
 	}
-	
+
 	private class InspectableTower implements IInspectable {
 
 		@Override
 		public String title() {
-			String title="Tower";
+			String title = "Tower";
 			return title;
 		}
 
@@ -281,8 +310,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		@Override
 		public void execute(Command command) {
 			// TODO Auto-generated method stub
-			
+
 		}
 	}
-	
+
 }
