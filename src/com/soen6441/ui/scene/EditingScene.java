@@ -66,6 +66,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
 		// upperView.setBackground(Color.gray);
+		
 		this.setBackground(new Color(0xDDDDDD));// set the overall background
 												// color
 
@@ -131,6 +132,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.mapView.setLocation(width, height);
 		this.add(mapView);
 		this.mapView.setSelectionListener(this);
+		
 		// Inspectorview
 		this.inspectorView = new InspectorView();
 		this.inspectorView.setLocation(620, 60);
@@ -139,9 +141,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.add(inspectorView);
 
 	}
-
-	// 1 show click options on inspector for every cell
-	// 2
 
 	@Override
 	protected void initEvents() {
@@ -158,25 +157,30 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		});
 	}
 
+	/**
+	 * This method responds to selections on the screen, when selected a cell
+	 * should display its valid information
+	 */
 	@Override
 	public void gridViewDidSelect() {
 
-		// System.out.println("...");
 		MapItem item = play.getMap().getSelectedItem();
 		if (item == null) {
 			this.inspectorView.setOn(new InspectableScenery());
 			this.inspectorView.update();
 		} else if (item instanceof Road) {
 			String name = (String) item.getName();
-			this.inspectorView.setOn(new InspectableRoad());
+			this.inspectorView.setOn(new InspectableRoad(name));
 			this.inspectorView.update();
-		} else if (item instanceof Tower) {
-			this.inspectorView.setOn(new InspectableTower());
-			this.inspectorView.update();
-		}
-
+		} 
 	}
 
+	/**
+	 * This class is used to display the information of a scenery cell, it will
+	 * also let the user add a start, end and road point.
+	 * 
+	 * @author JeanRaymondDaher
+	 */
 	private class InspectableScenery implements IInspectable {
 
 		private Command buildStartPoint;
@@ -191,7 +195,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		@Override
 		public String title() {
-			String title = "Scenery Cell";
+			String title = "Scenery";
 			return title;
 		}
 
@@ -240,16 +244,31 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 	}
 
+	/**
+	 * This class is used to display the information of a road cell, it will
+	 * also let the destroy this cell.
+	 * 
+	 * @author JeanRaymondDaher
+	 */
 	private class InspectableRoad implements IInspectable {
 
 		private Command destroyCell;
-		
-		public InspectableRoad() {
-			this.destroyCell=new Command("Destroy Cell","");
+		private String name;
+
+		public InspectableRoad(String name) {
+			this.destroyCell = new Command("Delete", "");
+			this.name = name;
 		}
+
 		@Override
 		public String title() {
-			String title = "Road";
+			String title;
+			if (this.name != "Road") {
+				title = "Road =>" + this.name;
+			}else{
+				title = "Road";
+			}
+
 			return title;
 		}
 
@@ -272,45 +291,12 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		@Override
 		public void execute(Command command) {
-			if(command == destroyCell) {
+			if (command == destroyCell) {
 				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
 				GridMap gridMap = play.getMap();
 				gridMap.removeItem(gridMap.getSelectedItem());
 				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			}
-		}
-	}
-
-	private class InspectableTower implements IInspectable {
-
-		@Override
-		public String title() {
-			String title = "Tower";
-			return title;
-		}
-
-		@Override
-		public String subtitle() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public String description() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public List<Command> commands() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void execute(Command command) {
-			// TODO Auto-generated method stub
-
 		}
 	}
 
