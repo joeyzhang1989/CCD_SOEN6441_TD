@@ -162,6 +162,13 @@ public class GridView extends View {
 		this.remove(cells[row][column]);
 		
 		this.add(newCell);
+		
+		if (cell == this.selectedCell) {
+			setSelectedCell(newCell);
+		}
+		
+//		newCell.repaint();
+//		this.repaint(newCell.getVisibleRect());
 	}
 
 	/*
