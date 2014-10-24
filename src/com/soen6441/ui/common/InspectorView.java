@@ -87,24 +87,26 @@ public class InspectorView extends View {
 		//add new buttons
 		commandButtons.clear();
 		commands = on.commands();
-		for (int i = 0; i < commands.size(); i++){
-			Command command = commands.get(i);
-			
-			Button button = new Button();
-			button.setTitle(command.getTitle());
-			button.setSubtitle(command.getSubtitle());
-			button.setSize(160, 40);
-			button.setLocation(10, this.getHeight() - 50 * (commands.size() - i));
-			this.add(button);
-			this.commandButtons.add(button);
-			
-			button.addActionListener(new ActionListener() {
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					int index = commandButtons.indexOf(e.getSource());
-					on.execute(commands.get(index));
-				}
-			});
+		if (commands != null) {
+			for (int i = 0; i < commands.size(); i++){
+				Command command = commands.get(i);
+				
+				Button button = new Button();
+				button.setTitle(command.getTitle());
+				button.setSubtitle(command.getSubtitle());
+				button.setSize(160, 40);
+				button.setLocation(10, this.getHeight() - 50 * (commands.size() - i));
+				this.add(button);
+				this.commandButtons.add(button);
+				
+				button.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						int index = commandButtons.indexOf(e.getSource());
+						on.execute(commands.get(index));
+					}
+				});
+			}
 		}
 	}
 	
