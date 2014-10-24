@@ -252,6 +252,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @version $Revision: 1.0 $
 	 */
 	
+	//Scenery not Scenary ''']
 	private class InspectableScenary implements IInspectable
 	{
 		private Command buildBottleTower;
