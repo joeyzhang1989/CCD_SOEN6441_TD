@@ -1,6 +1,11 @@
-package com.soen6441.core.map;
+package com.soen6441.core.map.validator;
 
 import java.util.List;
+
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.map.PathValidator;
+import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.Type;
 
 /**
  * The class EndPointValidator is a subclass of PathValidator.
