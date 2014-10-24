@@ -27,7 +27,7 @@ import com.soen6441.core.map.MapPoint;
  */
 public class PlayManager {
 
-	 String mapFilePath="./maps/"; 
+	String mapFilePath="./maps/"; 
 	
 	
 	/**
@@ -165,7 +165,7 @@ public class PlayManager {
 	 * @param file The name of the File form which to read 
 	 * @return Play
 	 */
-	public Play read(File file){
+	public  Play read(File file){
 		
 		
 		int totalCoins;
@@ -173,7 +173,6 @@ public class PlayManager {
 		int mapHeight;
 		ArrayList<MapPoint> startPoints = new ArrayList<MapPoint>();
 		ArrayList<MapPoint> endPoints = new ArrayList<MapPoint>();
-		ArrayList<MapPoint> path = new ArrayList<MapPoint>();
 		ArrayList<MapPath> multiplePaths = new ArrayList<MapPath>();
 		
 		
@@ -222,23 +221,36 @@ public class PlayManager {
 			 }
 		  
 		
+		
 		//reading paths
 		@SuppressWarnings("unchecked")
-		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/paths/road/locations" );
-			for (Iterator<Node> iter = list2.iterator(); iter.hasNext(); ) {
-				  Node n=(Node)iter.next();
-				  MapPoint rPoint=new MapPoint(Double.parseDouble(n.valueOf("xValue")), Double.parseDouble(n.valueOf("yValue")));
-				  path.add(rPoint);
+		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/Path/paths" );
+		
+			for(int i=0; i < list2.size();i++ ) {
+				Node n=(Node) list2.get(i);
+				
+				@SuppressWarnings("unchecked")
+				List<Node> list3 = n.selectNodes("locations") ;
+				
+				MapPath p=new MapPath();
+				MapPoint rPoint=null;
+				
+				for(int j=0;j < list3.size();j++ ) {
+					Node m = (Node) list3.get(j);
+					rPoint = new MapPoint(Double.parseDouble(m.valueOf("xValue")), Double.parseDouble(m.valueOf("yValue")));
+				    p.addLocation(rPoint);
+				}
+				 
+				multiplePaths.add(p);
 			}
-		  
+			
+			
+		
 		/*
 		 * Creating a GridMap Object in order to create an Play object after.
-		 * In order to create a GridMap object we need a MapPath object which
-		 * in turn Need an MapPoint Object
-		 * */
-		MapPath locations=new MapPath();
-		locations.setLocations(path);
-		multiplePaths.add(locations);
+		 * In order to create a GridMap object we need a MapPath object
+		 */
+	
 		
 		
 		GridMap newGridMap=new GridMap();
