@@ -6,7 +6,6 @@ import java.util.List;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
-import com.soen6441.core.map.Road.Type;
 
 /**
  * The class StartPointValidator is a subclass of PathValidator.
