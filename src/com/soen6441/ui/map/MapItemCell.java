@@ -39,7 +39,7 @@ public class MapItemCell extends GridViewCell{
 	
 	@Override
 	public void paint(Graphics g) {
-		super.paint(g);
+//		super.paint(g);
 		g.setColor(new Color(0xF8F8F8));
 		g.drawRect(0, 0, 40, 40);
 		if (this.isSelected()) {
