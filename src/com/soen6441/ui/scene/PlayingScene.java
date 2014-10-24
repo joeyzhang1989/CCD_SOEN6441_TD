@@ -352,8 +352,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		
 		public SelectTower() {
-			Upgrade = new Command("Upgrade this Tower", "50$");
-			Refund = new Command("Refund thi Tower", "100$");
+			Upgrade = new Command("Upgrade Tower", "50$");
+			Refund = new Command("Refund Tower", "100$");
 		}
 		@Override
 		public String title() {
@@ -403,8 +403,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-			
-			
+			if(command == Upgrade){
+				System.out.println("Upgrade");
+			} else if(command == Refund){
+				System.out.println("Refund");
+			} 
 		}		
 	}	
 
