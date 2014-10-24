@@ -40,11 +40,11 @@ public class ConnectedPathValidator extends PathValidator {
 		
 		
 		for (int i=0; i < mapItems.size();i++) {
-			   MapItem  aItem = mapItems.get(i);
-				if ( aItem instanceof Road) {
-					Road road =(Road)aItem;
-					roadItems.add(road);
-				}
+		    MapItem  aItem = mapItems.get(i);
+			if ( aItem instanceof Road) {
+				Road road =(Road)aItem;
+				roadItems.add(road);
+			}
 		}
 		
 		/*
@@ -53,7 +53,7 @@ public class ConnectedPathValidator extends PathValidator {
 		 */
 		
 		for (int i=0; i < roadItems.size();i++) {
-			    int totalNeighbours = NumberOfNeighbours(roadItems.get(i));
+			    int totalNeighbours = numberOfNeighbours(roadItems.get(i));
 			    
 			    if(roadItems.get(i).getType() == Road.Type.NORMAL && totalNeighbours != 2 ) {
 			    	
@@ -85,42 +85,42 @@ public class ConnectedPathValidator extends PathValidator {
 	 * 
 	 * @param aRoad  A Road Object
 	 * @return numberOfNeighbours 
-	 * */
+	 */
 	
-	public int NumberOfNeighbours(Road aRoad) {
+	public int numberOfNeighbours(Road aRoad) {
 		
-			int numOFNeighbours=0;
-			
-			int sPointX = aRoad.getLocation().getGridedX();
-			int sPointY = aRoad.getLocation().getGridedY();
-			
-			//neighbour MapPoints
-			MapPoint lookLeft = new MapPoint(sPointX-1,sPointY);
-			MapPoint lookRight = new MapPoint(sPointX+1,sPointY);
-			MapPoint lookUp = new MapPoint(sPointX,sPointY+1);
-			MapPoint lookDown = new MapPoint(sPointX,sPointY-1);
-			
-			MapPoint[] neighbours = new MapPoint[4];
-			
-			neighbours[0] = lookLeft;
-			neighbours[1] = lookRight;
-			neighbours[2] = lookUp;
-			neighbours[3] = lookDown;
-			
-			/*
-			 * Check the neighbours of the given mapPoints and return the one that is part of path.
-			 * Limitation: Only work on a single Path.If multiple paths have to be supported we then the method 
-			 * must return a list of MapPoints rather than a single MapPoint.
-			 */
-			
-			for(int i=0; i < neighbours.length; i++) {
-				MapItem currentItem = this.getMap().getItem(neighbours[i]);
-				if(currentItem != null && currentItem instanceof Road) {
-					numOFNeighbours +=1;
-				}
+		int numOFNeighbours=0;
+		
+		int sPointX = aRoad.getLocation().getGridedX();
+		int sPointY = aRoad.getLocation().getGridedY();
+		
+		//neighbour MapPoints
+		MapPoint lookLeft = new MapPoint(sPointX-1,sPointY);
+		MapPoint lookRight = new MapPoint(sPointX+1,sPointY);
+		MapPoint lookUp = new MapPoint(sPointX,sPointY+1);
+		MapPoint lookDown = new MapPoint(sPointX,sPointY-1);
+		
+		MapPoint[] neighbours = new MapPoint[4];
+		
+		neighbours[0] = lookLeft;
+		neighbours[1] = lookRight;
+		neighbours[2] = lookUp;
+		neighbours[3] = lookDown;
+		
+		/*
+		 * Check the neighbours of the given mapPoints and return the one that is part of path.
+		 * Limitation: Only work on a single Path.If multiple paths have to be supported we then the method 
+		 * must return a list of MapPoints rather than a single MapPoint.
+		 */
+		
+		for(int i=0; i < neighbours.length; i++) {
+			MapItem currentItem = this.getMap().getItem(neighbours[i]);
+			if(currentItem != null && currentItem instanceof Road) {
+				numOFNeighbours +=1;
 			}
-	
-			return numOFNeighbours;
+		}
+
+		return numOFNeighbours;
 	}
 	
 }
