@@ -8,17 +8,16 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
-import com.soen6441.core.tower.Tower;
-import com.soen6441.core.tower.TowerManager;
-import com.soen6441.core.tower.TowerManagerFactory;
 import com.soen6441.ui.common.Command;
+import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
-import com.soen6441.ui.parallel.TextField;
 import com.soen6441.ui.parallel.View;
 
 
@@ -34,7 +33,7 @@ import com.soen6441.ui.parallel.View;
  * @author Chenglong Zhang 
  * 
  */
-public class PlayingScene extends View implements Observer{
+public class PlayingScene extends View implements Observer, GridViewSelectionListener{
 	
 	private Play play;
 	
@@ -66,7 +65,6 @@ public class PlayingScene extends View implements Observer{
 	protected void init() {
 		play = Play.currentPlay();
 		play.addObserver(this);
-		play.getMap();
 		super.init();
 		
 	}
@@ -168,7 +166,9 @@ public class PlayingScene extends View implements Observer{
 		// send the notifications to the inspectorView
 		inspectorView.setOn(new InspectableScenary());
 		inspectorView.update();
-	}
+		
+}	
+	
 
 	@Override
 	protected void initEvents() {
@@ -196,6 +196,8 @@ public class PlayingScene extends View implements Observer{
 				
 			}
 		});
+		
+		mapView.setSelectionListener(this);
 	}
 	
 	/*
@@ -214,6 +216,31 @@ public class PlayingScene extends View implements Observer{
 			}
 		}
 	}
+	
+
+
+	@Override
+	public void gridViewDidSelect() {
+		System.out.println("...");
+		MapItem mi = play.getMap().selectedItem();
+		//MapItemCellFactory.cellFromItem(mi);
+		if (mi == null){
+			inspectorView.setOn(new SelectScenery());
+			inspectorView.update();
+		} else if (mi instanceof Road){
+			Road road = (Road)mi;
+			inspectorView.setOn(new SelectRoad(road));
+			inspectorView.update();
+		}
+		/*
+		/else if (MapItemCellFactory.cellFromItem(mi)instanceof RoadCell){
+		}
+		else if (MapItemCellFactory.cellFromItem(mi)instanceof TowerCell){
+			inspectorView.setOn(new SelectTower());
+			inspectorView.update();
+		}*/
+	  }
+		
 	
 	/*
 	 * Inner Classes
@@ -388,7 +415,12 @@ public class PlayingScene extends View implements Observer{
 	 */
 	private class SelectRoad implements IInspectable
 	{
-
+		private Road road;
+		
+		public SelectRoad(Road road){
+			this.setRoad(road);
+		}
+		
 		/**
 		 * Method title.
 		 * @return String
@@ -467,7 +499,7 @@ public class PlayingScene extends View implements Observer{
 		@Override
 		public String title() {
 		
-			return null;
+			return "Selected";
 		}
 
 		/**
@@ -514,6 +546,4 @@ public class PlayingScene extends View implements Observer{
 		
 		}
 	}
-
-	
 }
