@@ -28,7 +28,8 @@ import com.soen6441.ui.parallel.View;
  * corresponding information of the related models
  * not finish with the inner classes
  * 
- * @author chenglong zhang 
+ * @author Chenglong Zhang 
+ * 
  */
 public class PlayingScene extends View implements Observer{
 	
@@ -62,12 +63,15 @@ public class PlayingScene extends View implements Observer{
 	protected void init() {
 		play = Play.currentPlay();
 		play.addObserver(this);
+		play.getMap();
 		super.init();
+		
 	}
 					  
 	
 /**
  * override the method initSubviews in the super class View
+ * to initialize the PlayingScene UI
  */
 	@Override
 	protected void initSubviews() {
@@ -80,6 +84,7 @@ public class PlayingScene extends View implements Observer{
 		
 		// add the controlButton to the play Scene bannerview
 		
+		this.setBackground(new Color(0xDDDDDD));// set the overall background color
 		controlButton = new Button();
 		controlButton.setTitle("Next Wave");
 		// set button location to the interface 
@@ -137,17 +142,22 @@ public class PlayingScene extends View implements Observer{
 		backButton.setLocation(10, 10);
 		bottomView.add(backButton);
 		
-		// buttons on the inspector view
-		
-		//grid 
+		//mapView
+		int height;// the hight of the map
+		int width;// the width of the map
+		/* 
+		 * get the map information from the mapView and set the 
+		 * map to the center of GridmapView
+		 */
 		mapView = new MapView();
-		mapView.setLocation(0, 60);
-		mapView.setSize(620,480);
-		mapView.setBackground(new Color(0xDDDDDD));
-	    mapView.setMap(play.getMap());
-		this.add(mapView);
+		mapView.setMap(play.getMap());
+	    mapView.setSize(this.mapView.suggestedSize());
+		height=(600-this.mapView.suggestedSize().height)/2;
+		width=(800-180-this.mapView.suggestedSize().width)/2;
+		mapView.setLocation(width, height);
+		add(mapView);
 		
-		//inspector
+		//inspectorView
 		inspectorView  = new InspectorView();
 		inspectorView.setLocation(620, 60);
 		inspectorView.setSize(180,480);
@@ -212,6 +222,8 @@ public class PlayingScene extends View implements Observer{
 	 * inner class that implements the IInspectable interface to 
 	 * add the inspectorView into the PlayingScene .
 	 * update the inspector view due to the operations 
+	 * 
+	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
 	
@@ -292,10 +304,12 @@ public class PlayingScene extends View implements Observer{
 	
 	
 	/**
-	 * @author chenglong zhang 
+	 * 
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
 	 * selecting tower scene the inspector view should update 
+	 * 
+	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
 	
@@ -361,10 +375,12 @@ public class PlayingScene extends View implements Observer{
 
 
 	/**
-	 * @author chenglong zhang 
+	 *
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
 	 * selecting a road scene that the inspector view should update 
+	 * 
+	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
 	private class SelectRoad implements IInspectable
@@ -429,10 +445,12 @@ public class PlayingScene extends View implements Observer{
 
 
 	/**
-	 * @author chenglong zhang 
+	 *
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
 	 * selecting a empty space scene that the inspector view should update 
+	 * 
+	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
 	private class SelectEmptySpace implements IInspectable
