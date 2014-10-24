@@ -10,7 +10,8 @@
 				<damage>60</damage>
 				<range>190</range>
 				<cdTime>600</cdTime>
-				<cellImageName>tower_cell_1_1.png</cellImageName></BottleTower>
+				<cellImageName>tower_cell_1_1.png</cellImageName>
+			</BottleTower>
 			<BottleTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -18,7 +19,8 @@
 				<damage>80</damage>
 				<range>240</range>
 				<cdTime>400</cdTime>
-				<cellImageName>tower_cell_1_2.png</cellImageName></BottleTower>
+				<cellImageName>tower_cell_1_2.png</cellImageName>
+			</BottleTower>
 			<BottleTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>

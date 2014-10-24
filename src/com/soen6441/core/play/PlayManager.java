@@ -131,7 +131,7 @@ public class PlayManager {
 	        // lets write to a file
 	        XMLWriter writer = null;
 			try {
-				writer = new XMLWriter(new FileWriter( mapFilePath+fileName ) );
+				writer = new XMLWriter(new FileWriter( file ) );
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -268,4 +268,10 @@ public class PlayManager {
 		return play;
 	}
 
+	public static void main(String[] args) {
+		Play play = Play.currentPlay();
+		play.buildDemo();
+		File file = new File("maps/a.xml");
+		new PlayManager().save(file, play);
+	}
 }
