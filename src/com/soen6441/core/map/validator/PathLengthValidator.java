@@ -23,23 +23,23 @@ public class PathLengthValidator extends PathValidator {
 	 */
 	@Override
 	public boolean validate() {
-		boolean result=true;
+		boolean result = true;
 		
 		int pathLength = 0;
-		List<MapItem> mapItems=this.getMap().getAllItems();
+		List<MapItem> mapItems = this.getMap().getAllItems();
 		
-		for (int i=0;i< mapItems.size();i++){
+		for (int i=0; i < mapItems.size();i++) {
 			   MapItem  mapItem = mapItems.get(i);
-			if ( mapItem instanceof Road){
-				Road road =(Road)mapItem;
-				if(road.getType() == Road.Type.NORMAL){
+			if ( mapItem instanceof Road) {
+				Road road = (Road) mapItem;
+				if(road.getType() == Road.Type.NORMAL) {
 					pathLength += 1;
 				}
 			}
 		}
 		
-		if (pathLength < 1){
-			result=false;
+		if (pathLength < 1) {
+			result = false;
 			this.setErrorMassage("Alert! there must be atleast one pathpoint between start and finish");
 		}
 		
