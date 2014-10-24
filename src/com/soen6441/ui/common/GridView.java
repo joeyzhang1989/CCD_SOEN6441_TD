@@ -169,6 +169,8 @@ public class GridView extends View {
 		
 //		newCell.repaint();
 //		this.repaint(newCell.getVisibleRect());
+		this.validate();
+		this.repaint();
 	}
 
 	/*
