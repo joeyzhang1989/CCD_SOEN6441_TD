@@ -11,6 +11,8 @@ package com.soen6441.core.map;
 
 public class Road extends MapItem {
 	
+	public static String OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE = "ObservableEvent_PropertyTypeDidChange";
+	
 	public enum Type{
 		NORMAL, START, END
 	}
@@ -33,5 +35,10 @@ public class Road extends MapItem {
 
 	public void setType(Type type) {
 		this.type = type;
+
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE);
 	}
+	
+	
 }
