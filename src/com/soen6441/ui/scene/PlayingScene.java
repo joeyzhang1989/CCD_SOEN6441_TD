@@ -12,6 +12,8 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
 import com.soen6441.core.tower.Tower;
+import com.soen6441.core.tower.TowerManager;
+import com.soen6441.core.tower.TowerManagerFactory;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
@@ -339,9 +341,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	private class SelectTower implements IInspectable
 	{
-		// TowerManagerFactory tmf = TowerManagerFactory.currentManagerFactory();
-		// TowerManager tm = tmf.getManager("BottleTower");
-		//	Tower tower = tm.createTower();
+		 
 		/**
 		 * Method title.
 		 * @return String
@@ -354,6 +354,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		public SelectTower() {
 			Upgrade = new Command("Upgrade Tower", "50$");
 			Refund = new Command("Refund Tower", "100$");
+			
 		}
 		@Override
 		public String title() {
@@ -511,10 +512,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	{
 		private Command BottleTower;
 		private Command MudTower;
-		
+		private TowerManagerFactory towerManagerFactory;
+		private TowerManager towerManger;
+		private Tower tower;
 		public SelectScenery() {
 			BottleTower = new Command("Build BottleTower", "50$");
 			MudTower = new Command("Build MudTower", "100$");
+			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
 		}
 
 		/**
@@ -571,9 +575,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public void execute(Command command) {
 			if(command == BottleTower){
-				System.out.println("BottleTower");
+				towerManger = towerManagerFactory.getManager("BottleTower");
+				tower = towerManger.createTower();
 			} else if(command == MudTower){
-				System.out.println("MudTower");
+				towerManger = towerManagerFactory.getManager("MudTower");
+				tower = towerManger.createTower();
 			} 
 		
 		}
