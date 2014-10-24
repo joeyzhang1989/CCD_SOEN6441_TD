@@ -60,7 +60,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	//bottomView
 	private Button backButton;
-	private Button saveButton;
 	
 	@Override
 	protected void init() {
@@ -223,7 +222,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	public void gridViewDidSelect() {
 		System.out.println("...");
-		MapItem mi = play.getMap().selectedItem();
+		MapItem mi = play.getMap().getSelectedItem();
 		//MapItemCellFactory.cellFromItem(mi);
 		if (mi == null){
 			inspectorView.setOn(new SelectScenery());
