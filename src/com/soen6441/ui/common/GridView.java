@@ -166,6 +166,9 @@ public class GridView extends View {
 		if (cell == this.selectedCell) {
 			setSelectedCell(newCell);
 		}
+		
+//		newCell.repaint();
+//		this.repaint(newCell.getVisibleRect());
 	}
 
 	/*

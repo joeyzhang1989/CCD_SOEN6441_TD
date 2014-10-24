@@ -72,7 +72,7 @@ public class InspectorView extends View {
 		JTextArea descriptionTextArea = new JTextArea();
 		descriptionTextArea.setSize(160, 100);
 		descriptionTextArea.setLineWrap(true);
-		descriptionTextArea.setBackground(new Color(0x00000000, true));
+		descriptionTextArea.setBackground(new Color(0xEEEEEE));
 		descriptionTextArea.setLocation(10, 160);
 		this.add(descriptionTextArea);
 		this.descriptionTextArea = descriptionTextArea;
