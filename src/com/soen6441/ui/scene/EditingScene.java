@@ -106,10 +106,12 @@ public class EditingScene extends View{
 
 	    //MapView
 	    this.mapView=new MapView();
-	    this.mapView.setLocation(10, 60);
-	    this.mapView.setSize(600,480);
-//	    this.mapView.setBackground(Color.red);
 	    this.mapView.setMap(play.getMap());
+	    this.mapView.setSize(this.mapView.suggestedSize());
+	    int height=(600-this.mapView.suggestedSize().height)/2;
+	    int width=(800-180-this.mapView.suggestedSize().width)/2;
+	    //180 is the size of the inspector View
+	    this.mapView.setLocation(width, height);
 	    this.add(mapView);
 	    
 	    //Inspectorview 
