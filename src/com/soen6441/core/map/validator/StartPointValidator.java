@@ -42,11 +42,11 @@ public class StartPointValidator extends PathValidator {
 		}
 		
 		
-		if (numberOfStartPoint<1){
+		if (numberOfStartPoint == 0){
 			result=false;
 			this.setErrorMassage("There is No start Point In the Map");
 		}
-		else if(numberOfStartPoint>1){
+		else if(numberOfStartPoint > 1){
 			 result=false;
 			 this.setErrorMassage("There can't be more than 1 start Point in the Map");
 		}
