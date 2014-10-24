@@ -4,8 +4,10 @@ import java.util.List;
 
 //not finish
 /**
- * This is the interface inspectable. Every object that implements inspectable will have options displayed on the right side, as explained in Inspector view.
- * @author chenglong zhang
+ * This is the interface inspectable. 
+ * Every object that implements inspectable will have options 
+ * displayed on the right side, as explained in Inspector view.
+ * @author Chenglong Zhang
  * @author JeanRaymondDaher
  * @see InspectorView
  * @version $Revision: 1.0 $
