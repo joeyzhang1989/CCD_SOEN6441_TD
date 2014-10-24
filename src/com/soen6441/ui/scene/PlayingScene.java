@@ -418,7 +418,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		private Road road;
 		
 		public SelectRoad(Road road){
-			this.setRoad(road);
+			this.road = road;
 		}
 		
 		/**

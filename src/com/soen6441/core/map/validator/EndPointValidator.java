@@ -27,25 +27,25 @@ public class EndPointValidator extends PathValidator{
 		boolean result=true;
 		
 		int numberOfEndPoints = 0;
-		List<MapItem> mapItems=this.getMap().getAllItems();
+		List<MapItem> mapItems = this.getMap().getAllItems();
 		
-		for (int i=0;i< mapItems.size();i++){
-			   MapItem  mapItem = mapItems.get(i);
-			if ( mapItem instanceof Road){
-				Road road =(Road)mapItem;
+		for (int i=0; i < mapItems.size();i++){
+			MapItem mapItem = mapItems.get(i);
+			if (mapItem instanceof Road){
+				Road road = (Road) mapItem;
 				if(road.getType() == Road.Type.END){
 					numberOfEndPoints += 1;
 				}
 			}
 		}
 		
-		if (numberOfEndPoints == 0){
+		if (numberOfEndPoints == 0) {
 			result=false;
 			this.setErrorMassage("There is No End Point In the Map");
-		}
-		else if(numberOfEndPoints > 1){
-			 result=false;
-			 this.setErrorMassage("There can't be more than 1 End Point in the Map");
+			
+		} else if(numberOfEndPoints > 1) {
+			result=false;
+			this.setErrorMassage("There can't be more than 1 End Point in the Map");
 		}
 		
 		return result;	
