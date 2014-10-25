@@ -336,21 +336,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public void execute(Command command) {
 			if(command == upgradeCommand){
-				TowerManager towerManager = towerManagerFactory.getManager("BottelTower");
-				int price = towerManager.getInitialPrice();
-				int upgrade = 50;
-				if (play.getCoins() >= price) {
-					play.spendCoins(upgrade);
-					towerManager.upgrade();
-				}
-				else if (play.getCoins() < price) {
-					JOptionPane.showMessageDialog(null, "My Goodness, you do not have money to upgrade tower!!");
-			    }
+				System.out.println("Refund");
 			}
 			else if (command == refundCommand){
 				System.out.println("Refund");
 			} 
-		}		
+		}	
 	}	
 
 
