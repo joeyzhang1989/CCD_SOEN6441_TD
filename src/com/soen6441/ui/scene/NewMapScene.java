@@ -71,7 +71,7 @@ public class NewMapScene extends View{
 			
 			@Override
 			/**
-			 * *perform the function that click the nextbutton to go to mainscene
+			 * perform the function that click the nextbutton to go to mainscene
 			 */
 			public void actionPerformed(ActionEvent e){
 				EditingScene editingScene = new EditingScene();
@@ -83,7 +83,7 @@ public class NewMapScene extends View{
 			
 			@Override
 			/**
-			 * *perform the function that click the backbutton to go to editingscene
+			 * perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e){
 				NewMapScene.this.viewFlow.pop();
