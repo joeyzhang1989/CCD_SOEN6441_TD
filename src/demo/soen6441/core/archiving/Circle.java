@@ -9,6 +9,7 @@ import demo.soen6441.core.archiving.Point.NameForArchiving;
 
 /**
  *  @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Circle implements IArchive{
 	
@@ -44,6 +45,8 @@ public class Circle implements IArchive{
 	 */
 	
 	/**
+	 * @author chenglong
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		public static final String Class = "Circle";
@@ -54,8 +57,8 @@ public class Circle implements IArchive{
 	/**
 	 * Method decode.
 	 * @param element Element
-	 * @see com.soen6441.core.IArchive#decode(Element)
-	 */
+	
+	 * @see com.soen6441.core.IArchive#decode(Element) */
 	@Override
 	public void decode(Element element){
 		Element originElement = element.element(NameForArchiving.Origin);
@@ -69,9 +72,9 @@ public class Circle implements IArchive{
 
 	/**
 	 * Method encode.
-	 * @return Element
-	 * @see com.soen6441.core.IArchive#encode()
-	 */
+	
+	
+	 * @return Element * @see com.soen6441.core.IArchive#encode() */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class); 
@@ -92,8 +95,8 @@ public class Circle implements IArchive{
 	
 	/**
 	 * Method getOrigin.
-	 * @return Point
-	 */
+	
+	 * @return Point */
 	public Point getOrigin() {
 		return origin;
 	}
@@ -106,8 +109,8 @@ public class Circle implements IArchive{
 	}
 	/**
 	 * Method getRadius.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getRadius() {
 		return radius;
 	}
@@ -121,8 +124,8 @@ public class Circle implements IArchive{
 
 	/**
 	 * Method toString.
-	 * @return String
-	 */
+	
+	 * @return String */
 	@Override
 	public String toString() {
 		return "{" + "origin: " + origin.toString() + ", " + "radius: " + radius + "}";

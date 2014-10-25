@@ -10,6 +10,7 @@ import com.soen6441.ui.map.MapItemCell;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class RoadCell extends MapItemCell{
 	
@@ -17,12 +18,22 @@ public class RoadCell extends MapItemCell{
 	 * Mark - Displaying - Methods
 	 */
 	
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	@Override
 	public void paint(Graphics g) {
 		g.drawImage(new ImageIcon("images/" + getItem().getCellImageName()).getImage(), 0, 0, null);
 		super.paint(g);
 	}
 	
+	/**
+	 * Method update.
+	 * @param o Observable
+	 * @param arg Object
+	 * @see java.util.Observer#update(Observable, Object)
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
@@ -35,6 +46,10 @@ public class RoadCell extends MapItemCell{
 	 * Mark - Convenience - Methods
 	 */
 	
+	/**
+	 * Method getItemRoad.
+	 * @return Road
+	 */
 	public Road getItemRoad(){
 		return (Road)this.getItem();
 	}

@@ -18,6 +18,7 @@ import java.util.Map;
  * 
  * @author Haiyang Sun
  *
+ * @version $Revision: 1.0 $
  */
 
 public class TowerManagerFactory {
@@ -30,8 +31,8 @@ public class TowerManagerFactory {
 	
 	/**
 	 * Method currentManagerFactory.
-	 * @return TowerManagerFactory
-	 */
+	
+	 * @return TowerManagerFactory */
 	public static TowerManagerFactory currentManagerFactory() {
 		
 		if (currentManagerFactory == null){
@@ -64,7 +65,8 @@ public class TowerManagerFactory {
 	/**
 	 * Constructor
 	 * 
-	 * Declare all kinds of tower type names, find the XML data file path by type names, then create TowerManagers by both of them. 
+	 * Declare all kinds of tower type names, find the XML data file path by type names, 
+	 * then create TowerManagers by both of them. 
 	 * 
 	 */
 	
@@ -85,8 +87,8 @@ public class TowerManagerFactory {
 	 * This method is used to get a certain type of TowerManager by its type name.
 	 * 
 	 * @param typeName
-	
-	 * @return Return a TowerManager object */
+	 * @return Return a TowerManager object 
+	 */
 	
 	public TowerManager getManager(String typeName) {
 		return managers.get(typeName);

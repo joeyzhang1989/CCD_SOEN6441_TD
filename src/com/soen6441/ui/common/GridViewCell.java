@@ -13,6 +13,7 @@ import com.soen6441.ui.scene.MainScene;
  * @author JeanRaymondDaher
  * @author Zhe Zhao
  *
+ * @version $Revision: 1.0 $
  */
 
 public class GridViewCell extends View {
@@ -56,8 +57,8 @@ public class GridViewCell extends View {
 	
 	/**
 	 * Method getGridView.
-	 * @return GridView 
-	 */
+	
+	 * @return GridView  */
 	public GridView getGridView() {
 		return gridView;
 	}
@@ -70,18 +71,34 @@ public class GridViewCell extends View {
 		this.gridView = gridView;
 	}
 
+	/**
+	 * Method getPoint.
+	 * @return GridPoint
+	 */
 	public GridPoint getPoint() {
 		return point;
 	}
 
+	/**
+	 * Method setPoint.
+	 * @param point GridPoint
+	 */
 	public void setPoint(GridPoint point) {
 		this.point = point;
 	}	
 
+	/**
+	 * Method isSelected.
+	 * @return boolean
+	 */
 	public boolean isSelected() {
 		return selected;
 	}
 
+	/**
+	 * Method setSelected.
+	 * @param selected boolean
+	 */
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}

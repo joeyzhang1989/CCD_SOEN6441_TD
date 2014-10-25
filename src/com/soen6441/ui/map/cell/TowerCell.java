@@ -9,6 +9,8 @@ import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.map.MapItemCell;
 
 /**
+ * @author chenglong
+ * @version $Revision: 1.0 $
  */
 public class TowerCell extends MapItemCell {
 	
@@ -16,6 +18,10 @@ public class TowerCell extends MapItemCell {
 	 * Mark - Displaying - Methods
 	 */
 	
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	@Override
 	public void paint(Graphics g) {
 		
@@ -23,6 +29,12 @@ public class TowerCell extends MapItemCell {
 		super.paint(g);
 	}
 	
+	/**
+	 * Method update.
+	 * @param o Observable
+	 * @param arg Object
+	 * @see java.util.Observer#update(Observable, Object)
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
@@ -36,6 +48,10 @@ public class TowerCell extends MapItemCell {
 	 * Mark - Convenience - Methods
 	 */
 	
+	/**
+	 * Method getItemTower.
+	 * @return Tower
+	 */
 	public Tower getItemTower(){
 		return (Tower)this.getItem();
 	}

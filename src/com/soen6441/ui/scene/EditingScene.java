@@ -32,6 +32,7 @@ import com.soen6441.ui.parallel.View;
  * @author Mengyao Wang
  * @author Chenglong Zhang
  *
+ * @version $Revision: 1.0 $
  */
 
 public class EditingScene extends View implements GridViewSelectionListener {
@@ -179,6 +180,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	/**
 	 * This method responds to selections on the screen, when selected a cell
 	 * should display its valid information
+	 * @see com.soen6441.ui.common.GridViewSelectionListener#gridViewDidSelect()
 	 */
 	@Override
 	public void gridViewDidSelect() {
@@ -197,6 +199,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * also let the user add a start, end and road point.
 	 * 
 	 * @author JeanRaymondDaher
+	 * @version $Revision: 1.0 $
 	 */
 	private class InspectableScenery implements IInspectable {
 		
@@ -216,23 +219,43 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			this.buildRoad = new Command("Build Road", "");
 		}
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 			String title = "Scenery";
 			return title;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 			return "Scenery editing";
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			return "This is an empty cell where u can add a start, end or normal-road point";
 			// TODO Auto-generated method stub
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
@@ -242,6 +265,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return commands;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 			if (command == buildRoad) {
@@ -272,17 +300,27 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * also let the destroy this cell.
 	 * 
 	 * @author JeanRaymondDaher
+	 * @version $Revision: 1.0 $
 	 */
 	private class InspectableRoad implements IInspectable {
 
 		private Command destroyCell;
 		private MapItem item;
 
+		/**
+		 * Constructor for InspectableRoad.
+		 * @param temp MapItem
+		 */
 		public InspectableRoad(MapItem temp) {
 			this.destroyCell = new Command("Delete", "");
 			this.item = temp;
 		}
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 			String title;
@@ -295,16 +333,31 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return title;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 			return "Road editing";
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			return "This is a road cell that you can destroy";
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
@@ -312,6 +365,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return commands;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 			if (command == destroyCell) {
@@ -336,10 +394,10 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	/**
 	 * This method will check that the path is valid from Start to End.
 	 * 
-	 * @see PathManager 
+	
+	
 	 * @return boolean
-	 * 				  True or False depending on validation
-	 */
+	 * 				  True or False depending on validation * @see PathManager  */
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
 
@@ -364,10 +422,18 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	/*
 	 * Mark - Storage - Getters & Setters
 	 */
+	/**
+	 * Method getWorkingFile.
+	 * @return File
+	 */
 	public File getWorkingFile() {
 		return workingFile;
 	}
 
+	/**
+	 * Method setWorkingFile.
+	 * @param workingFile File
+	 */
 	public void setWorkingFile(File workingFile) {
 		this.workingFile = workingFile;
 	}

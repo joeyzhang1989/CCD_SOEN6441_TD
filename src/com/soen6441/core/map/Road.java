@@ -7,12 +7,15 @@ package com.soen6441.core.map;
  * 
  * @author Zhe Zhao
  * @author Mohammad Ali
+ * @version $Revision: 1.0 $
  */
 
 public class Road extends MapItem {
 	
 	public static String OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE = "ObservableEvent_PropertyTypeDidChange";
 	
+	/**
+	 */
 	public enum Type{
 		NORMAL, START, END
 	}
@@ -24,15 +27,27 @@ public class Road extends MapItem {
 		this.type = Type.NORMAL;
 	}
 	
+	/**
+	 * Constructor for Road.
+	 * @param type Type
+	 */
 	public Road(Type type) {
 		super();
 		this.type = type;
 	}
 	
+	/**
+	 * Method getType.
+	 * @return Type
+	 */
 	public Type getType() {
 		return type;
 	}
 
+	/**
+	 * Method setType.
+	 * @param type Type
+	 */
 	public void setType(Type type) {
 		this.type = type;
 
@@ -40,6 +55,10 @@ public class Road extends MapItem {
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE);
 	}
 	
+	/**
+	 * Method getName.
+	 * @return String
+	 */
 	@Override
 	public String getName() {
 		switch (type) {
@@ -54,6 +73,10 @@ public class Road extends MapItem {
 		}
 	}
  
+	/**
+	 * Method getCellImageName.
+	 * @return String
+	 */
 	@Override
 	public String getCellImageName() {
 

@@ -14,6 +14,7 @@ import com.soen6441.ui.common.GridViewCell;
  * @author JeanRaymondDaher
  * @author Chenglong Zhang
  * 
+ * @version $Revision: 1.0 $
  */
 public class MapView extends GridView {
 
@@ -31,8 +32,8 @@ public class MapView extends GridView {
 	
 	/**
 	 * Method getMap.
-	 * @return GridMap
-	 */
+	
+	 * @return GridMap */
 	public GridMap getMap() {
 		return map;
 	}
@@ -62,6 +63,10 @@ public class MapView extends GridView {
 		}
 	}
 	
+	/**
+	 * Method setSelectedCell.
+	 * @param cell GridViewCell
+	 */
 	@Override
 	public void setSelectedCell(GridViewCell cell) {
 		GridPoint gridPoint = cell.getPoint();
