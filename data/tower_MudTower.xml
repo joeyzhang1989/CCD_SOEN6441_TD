@@ -13,7 +13,7 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_2_1.png</cellImageName>
-			</MudTower>
+				<towerName>Mud Tower</towerName></MudTower>
 			<MudTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -24,6 +24,7 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
 				<cellImageName>tower_cell_2_2.png</cellImageName>
+				<towerName>Mud Tower</towerName>
 			</MudTower>
 			<MudTower>
 				<level>3</level>
@@ -35,6 +36,7 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
 				<cellImageName>tower_cell_2_3.png</cellImageName>
+				<towerName>Mud Tower</towerName>
 			</MudTower>
 		</leveledTowers>
 	</TowerManager>

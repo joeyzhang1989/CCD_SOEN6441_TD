@@ -103,6 +103,8 @@ public class TowerManager {
     		
     		tower.setCellImageName(element.element("cellImageName").getText());
     		
+    		tower.setName(element.element("towerName").getText());
+    		
     		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;

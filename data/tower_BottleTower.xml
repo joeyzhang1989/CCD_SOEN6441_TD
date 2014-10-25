@@ -11,7 +11,7 @@
 				<range>190</range>
 				<cdTime>600</cdTime>
 				<cellImageName>tower_cell_1_1.png</cellImageName>
-			</BottleTower>
+				<towerName>Bottle Tower</towerName></BottleTower>
 			<BottleTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -20,6 +20,7 @@
 				<range>240</range>
 				<cdTime>400</cdTime>
 				<cellImageName>tower_cell_1_2.png</cellImageName>
+				<towerName>Bottle Tower</towerName>
 			</BottleTower>
 			<BottleTower>
 				<level>3</level>
@@ -29,6 +30,7 @@
 				<range>300</range>
 				<cdTime>250</cdTime>
 				<cellImageName>tower_cell_1_3.png</cellImageName>
+				<towerName>Bottle Tower</towerName>
 			</BottleTower>
 		</leveledTowers>
 	</TowerManager>
