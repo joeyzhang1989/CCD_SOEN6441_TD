@@ -55,8 +55,4 @@ public abstract class PathValidator {
 	public void setErrorMassage(String errorMessage){
 		this.errorMessage = errorMessage;
 	}
-		
-	
-	
-	
 }
