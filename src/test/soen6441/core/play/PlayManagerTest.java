@@ -15,6 +15,13 @@ import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.play.Play;
 import com.soen6441.core.play.PlayManager;
 
+/**
+ * PlayManagerTest class validates the correct implementation of class PlayManager.
+ * 
+ * @author Mohammad Ali
+ */
+
+
 public class PlayManagerTest {
  
 	static File testFile;
