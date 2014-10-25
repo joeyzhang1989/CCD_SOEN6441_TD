@@ -53,13 +53,13 @@ public class TowerManagerFactory {
 	/**
 	 * The array is used to store type names.
 	 */
-	public static List<String> typeNames;
+	public  List<String> typeNames;
 	
 	
 	/**
 	 * The map is used to store TowerManager objects and its names.
 	 */
-	private static Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
+	private  Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
 	
 	
 	/**
@@ -92,6 +92,10 @@ public class TowerManagerFactory {
 	
 	public TowerManager getManager(String typeName) {
 		return managers.get(typeName);
+	}
+
+	public List<String> getTypeNames() {
+		return typeNames;
 	}
 
 }
