@@ -31,8 +31,8 @@ public class MapItemCell extends GridViewCell implements Observer{
 	
 	/**
 	 * Method getItem.
-	
- * @return MapItem	*/
+	 * @return MapItem	
+	 */
 	public MapItem getItem() {
 		return item;
 	}
@@ -69,15 +69,12 @@ public class MapItemCell extends GridViewCell implements Observer{
 		}
 	}
 	
-<<<<<<< HEAD
 	
 	
-=======
 	/**
 	 * Method setSelected.
 	 * @param selected boolean
 	 */
->>>>>>> FETCH_HEAD
 	@Override
 	public void setSelected(boolean selected) {
 		super.setSelected(selected);

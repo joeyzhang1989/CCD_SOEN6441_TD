@@ -102,17 +102,10 @@ public class GridView extends View {
 		this.cells=new GridViewCell[this.numberOfRows][numberOfColumns];
 	}
 
-<<<<<<< HEAD
-=======
-	/*
-	 * Getters & Setters for unitWidth and unitHeight
-	 */
-
 	/**
 	 * Method getUnitWidth.
 	 * @return int
 	 */
->>>>>>> FETCH_HEAD
 	public int getUnitWidth() {
 		return unitWidth;
 	}
@@ -165,15 +158,7 @@ public class GridView extends View {
 	/**
 	 * Method removeCell.
 	 * 
-<<<<<<< HEAD
-	 * @param cell GridViewCell Loop through all the cells and remove the appropriate cell.
 	 * @param cell The cell that needs to be removed
-=======
-	 * @param cell
-	 *            GridViewCell Loop through all the cells and remove the
-	 *            appropriate cell.
-	
->>>>>>> FETCH_HEAD
 	 */
 	public void removeCell(GridViewCell cell) {
 		int row = cell.getPoint().getRow();
@@ -244,6 +229,7 @@ public class GridView extends View {
 	public GridViewSelectionListener getSelectionListener() {
 		return selectionListener;
 	}
+	
 	/**
 	 * Method setSelectionListener.
 	 * @param selectionListener GridViewSelectionListener
