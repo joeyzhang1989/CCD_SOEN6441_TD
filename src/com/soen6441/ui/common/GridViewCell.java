@@ -6,11 +6,14 @@ import com.soen6441.ui.parallel.View;
 import com.soen6441.ui.scene.MainScene;
 
 /**
- * This class defines a unit of the GridView. 
+ * This class defines a unit of the GridView, a cell on the GridView. 
+ * 
+ * @see GridView
  * 
  * @author JeanRaymondDaher
  * @author Zhe Zhao
- * @see GridView
+ *
+ * @version $Revision: 1.0 $
  */
 
 public class GridViewCell extends View {
@@ -54,8 +57,8 @@ public class GridViewCell extends View {
 	
 	/**
 	 * Method getGridView.
-	 * @return GridView
-	 */
+	
+	 * @return GridView  */
 	public GridView getGridView() {
 		return gridView;
 	}
@@ -68,18 +71,34 @@ public class GridViewCell extends View {
 		this.gridView = gridView;
 	}
 
+	/**
+	 * Method getPoint.
+	 * @return GridPoint
+	 */
 	public GridPoint getPoint() {
 		return point;
 	}
 
+	/**
+	 * Method setPoint.
+	 * @param point GridPoint
+	 */
 	public void setPoint(GridPoint point) {
 		this.point = point;
 	}	
 
+	/**
+	 * Method isSelected.
+	 * @return boolean
+	 */
 	public boolean isSelected() {
 		return selected;
 	}
 
+	/**
+	 * Method setSelected.
+	 * @param selected boolean
+	 */
 	public void setSelected(boolean selected) {
 		this.selected = selected;
 	}

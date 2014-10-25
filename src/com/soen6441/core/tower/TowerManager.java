@@ -20,6 +20,7 @@ import com.soen6441.core.effect.AffectableValue;
  * 
  * @author Haiyang Sun
  *
+ * @version $Revision: 1.0 $
  */
 
 public class TowerManager {
@@ -103,6 +104,8 @@ public class TowerManager {
     		
     		tower.setCellImageName(element.element("cellImageName").getText());
     		
+    		tower.setName(element.element("towerName").getText());
+    		
     		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;
@@ -152,34 +155,66 @@ public class TowerManager {
 				
 	}
 
+	/**
+	 * Method getTowerType.
+	 * @return String
+	 */
 	public String getTowerType() {
 		return towerType;
 	}
 
+	/**
+	 * Method setTowerType.
+	 * @param towerType String
+	 */
 	public void setTowerType(String towerType) {
 		this.towerType = towerType;
 	}
 
+	/**
+	 * Method getFilePath.
+	 * @return String
+	 */
 	public String getFilePath() {
 		return filePath;
 	}
 
+	/**
+	 * Method setFilePath.
+	 * @param filePath String
+	 */
 	public void setFilePath(String filePath) {
 		this.filePath = filePath;
 	}
 
+	/**
+	 * Method getInitialPrice.
+	 * @return int
+	 */
 	public int getInitialPrice() {
 		return initialPrice;
 	}
 
+	/**
+	 * Method setInitialPrice.
+	 * @param initialPrice int
+	 */
 	public void setInitialPrice(int initialPrice) {
 		this.initialPrice = initialPrice;
 	}
 
+	/**
+	 * Method getLeveledTowers.
+	 * @return List<Tower>
+	 */
 	public List<Tower> getLeveledTowers() {
 		return leveledTowers;
 	}
 
+	/**
+	 * Method setLeveledTowers.
+	 * @param leveledTowers List<Tower>
+	 */
 	public void setLeveledTowers(List<Tower> leveledTowers) {
 		this.leveledTowers = leveledTowers;
 	}	

@@ -10,6 +10,8 @@ import com.soen6441.core.map.Road;
 /**
  * The class StartPointValidator is a subclass of PathValidator.
  * It overrides the method Validate() of its parent class and check the number of StartPoints in the Map.
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 
 public class StartPointValidator extends PathValidator {
@@ -19,8 +21,8 @@ public class StartPointValidator extends PathValidator {
 	 * This method Validate() overrides the method Validate() of parent class PathValidator.
 	 * It checks the Map for start points and validates the Map.
 	 * 
-	 * @return boolean A boolean values that represent whether # of startPoints are valid.
-	 */
+	 * @return boolean A boolean values that represent whether # of startPoints are valid. 
+     */
 	
 	@Override
 	public boolean validate() {
@@ -43,11 +45,11 @@ public class StartPointValidator extends PathValidator {
 		
 		if (numberOfStartPoint == 0) {
 			result=false;
-			this.setErrorMassage("There is No start Point In the Map");
+			this.setErrorMassage("There is no start point in the map");
 		
 		} else if(numberOfStartPoint > 1 ) {
 			 result=false;
-			 this.setErrorMassage("There can't be more than 1 start Point in the Map");
+			 this.setErrorMassage("There can't be more than one start point in the map");
 		}
 		
 		return result;

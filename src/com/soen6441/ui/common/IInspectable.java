@@ -7,33 +7,35 @@ import java.util.List;
  * This is the interface inspectable. 
  * Every object that implements inspectable will have options 
  * displayed on the right side, as explained in Inspector view.
+ * 
+ * @see InspectorView
+ * 
  * @author Chenglong Zhang
  * @author JeanRaymondDaher
- * @see InspectorView
  * @version $Revision: 1.0 $
  */
 public interface IInspectable{
 
 	/**
 	 * Method title.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String title();
 	/**
 	 * Method subtitle.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String subtitle();
 	//public Image image;
 	/**
 	 * Method description.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String description();
 	/**
 	 * Method commands.
-	 * @return List<Command>
-	 */
+	
+	 * @return List<Command> */
 	public List<Command> commands();
 	
 	/**

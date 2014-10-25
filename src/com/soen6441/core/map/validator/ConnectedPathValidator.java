@@ -28,8 +28,6 @@ public class ConnectedPathValidator extends PathValidator {
 	@Override
 	public boolean validate() {
 		
-		boolean result = true;
-		
 		List<MapItem> mapItems = this.getMap().getAllItems();
 		List<Road> roadItems = new ArrayList<Road>();
 		
@@ -37,7 +35,6 @@ public class ConnectedPathValidator extends PathValidator {
 		 * Below we are seperating the road items from the list of all items.
 		 * All orad items will be saved int roadItems List for further Validation.
 		 */
-		
 		
 		for (int i=0; i < mapItems.size();i++) {
 		    MapItem  aItem = mapItems.get(i);
@@ -52,29 +49,38 @@ public class ConnectedPathValidator extends PathValidator {
 		 * helper method NumberOfNeighbours().
 		 */
 		
-		for (int i=0; i < roadItems.size();i++) {
-			    int totalNeighbours = numberOfNeighbours(roadItems.get(i));
-			    
-			    if(roadItems.get(i).getType() == Road.Type.NORMAL && totalNeighbours != 2 ) {
-			    	
-			    	result = false;
-			    	this.setErrorMassage("There Map is either Disconnected  or Have more than one Path");
-			   
-			    } else if(roadItems.get(i).getType() == Road.Type.START && totalNeighbours != 1 ) {
-			    	
-			    	result = false;
-			    	this.setErrorMassage("There Map has multiple Paths which are not Allowed");
-			    	
-			    } else if(roadItems.get(i).getType() == Road.Type.END && totalNeighbours != 1 ) {
-			    	
-			    	result = false;
-			    	this.setErrorMassage("There Map has multiple Paths which are not Allowed");
-			    	
-			    }
-				
+		for (Road road : roadItems) {
+		    int totalNeighbours = numberOfNeighbours(road);
+		    Road.Type type = road.getType();
+		    
+		    if(type == Road.Type.NORMAL) {
+		    	if(totalNeighbours > 2) {
+		    		this.setErrorMassage("Branches are not allowed");
+		    		return false;
+		    	} else if (totalNeighbours < 2) {
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
+		    	}
+		    } else if(type == Road.Type.START) {
+		    	if(totalNeighbours > 1) {
+		    		this.setErrorMassage("Start point should have one neigbour");
+		    		return false;
+		    	} else if (totalNeighbours < 1) {
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
+		    	}
+		    } else if(type == Road.Type.END) {
+		    	if(totalNeighbours > 1) {
+		    		this.setErrorMassage("End point should have one neighbour");
+		    		return false;
+		    	} else if (totalNeighbours < 1) {
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
+		    	}
+		    }
 		}
 		
-		return result;
+		return true;
 	}
 	
 	

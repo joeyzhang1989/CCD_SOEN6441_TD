@@ -6,8 +6,10 @@ package com.soen6441.core.effect;
  * 
  * @see AffectableValue
  *
- * @author chenglong
+ * @author Zhe Zhao
+ * @author Chenglong Zhang
  * 
+ * @version $Revision: 1.0 $
  */
 public class Effect {
 	
@@ -70,15 +72,15 @@ public class Effect {
 	/**
 	 * Method getType.
 	 * @return String
-	 */
+     */
 	public String getType() {
 		return type;
 	}
 	
 	/**
 	 * Method getOn.
-	 * @return IAffectable
-	 */
+	 * @return IAffectable  
+ 	 */
 	public IAffectable getOn() {
 		return on;
 	}

@@ -3,6 +3,8 @@ package demo.soen6441.core.reflection;
 import com.soen6441.core.tower.Tower;
 
 /**
+ * @author chenglong
+ * @version $Revision: 1.0 $
  */
 public class ReflectionDemo {
 

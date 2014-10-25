@@ -3,6 +3,7 @@ package com.soen6441.ui.scene;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,7 +12,6 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.Type;
 import com.soen6441.core.play.Play;
-import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
@@ -31,12 +31,16 @@ import com.soen6441.ui.parallel.View;
  * @author JeanRaymondDaher
  * @author Mengyao Wang
  * @author Chenglong Zhang
- * @since 0.1
  *
+ * @version $Revision: 1.0 $
  */
 
 public class EditingScene extends View implements GridViewSelectionListener {
 
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
 	private Button controlButton;// validate button to make sure map is valid
 	private Label infoLabel;
 	private TextField money;
@@ -60,14 +64,13 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	protected void initSubviews() {
 		super.initSubviews();
 
-		// upper view containing the money label,infolabel label,controlbutton
-		// button.
+		// Upper view containing the money label,infolabel label,controlbutton button
 		View upperView = new View();
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
 		// upperView.setBackground(Color.gray);
-		this.setBackground(new Color(0xDDDDDD));// set the overall background
-												// color
+
+		this.setBackground(new Color(0xDDDDDD));// set the overall background color
 
 		// Validate button
 		this.controlButton = new Button();
@@ -75,9 +78,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.controlButton.setTitle("Validate");
 		this.controlButton.setSize(120, 40);
 		// InfoLabel : valid or not
-		String valid = "Not valid";
 		this.infoLabel = new Label();
-		this.infoLabel.setText("Validation : " + valid);
+		this.infoLabel.setText("Validation : Please Validate Map");
 		this.infoLabel.setSize(500, 40);
 		this.infoLabel.setLocation(135, 10);
 		// initial money Label
@@ -88,7 +90,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		// actual money
 		this.money = new TextField();
 		this.money.setText("1000");
-		// THIS SHOULD BE SET TO PLAY.GETCOINS()
 		this.money.setSize(80, 40);
 		this.money.setLocation(700, 10);
 
@@ -102,7 +103,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		View lowerView = new View();
 		lowerView.setLocation(0, 550);
 		lowerView.setSize(800, 40);
-		;
 		// lowerView.setBackground(Color.blue);
 
 		// back button
@@ -131,6 +131,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.mapView.setLocation(width, height);
 		this.add(mapView);
 		this.mapView.setSelectionListener(this);
+
 		// Inspectorview
 		this.inspectorView = new InspectorView();
 		this.inspectorView.setLocation(620, 60);
@@ -140,14 +141,31 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 	}
 
-	// 1 show click options on inspector for every cell
-	// 2
-
+	/**
+	 * This method will respond to buttons pressed on the screen :
+	 * Save,Validate,Back
+	 */
 	@Override
 	protected void initEvents() {
 
-		backButton.addActionListener(new ActionListener() {
+		this.saveButton.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (validateMap()) {
+					save();
+				}
+			}
+		});
+		this.controlButton.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				validateMap();
+
+			}
+		});
+		this.backButton.addActionListener(new ActionListener() {
 			@Override
 			/**
 			 * *perform the function that click the backbutton to go to editingscene
@@ -155,57 +173,89 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			public void actionPerformed(ActionEvent e) {
 				EditingScene.this.viewFlow.pop();
 			}
+
 		});
 	}
 
+	/**
+	 * This method responds to selections on the screen, when selected a cell
+	 * should display its valid information
+	 * @see com.soen6441.ui.common.GridViewSelectionListener#gridViewDidSelect()
+	 */
 	@Override
 	public void gridViewDidSelect() {
-
-		// System.out.println("...");
 		MapItem item = play.getMap().getSelectedItem();
 		if (item == null) {
 			this.inspectorView.setOn(new InspectableScenery());
 			this.inspectorView.update();
 		} else if (item instanceof Road) {
-			String name = (String) item.getName();
-			this.inspectorView.setOn(new InspectableRoad());
-			this.inspectorView.update();
-		} else if (item instanceof Tower) {
-			this.inspectorView.setOn(new InspectableTower());
+			this.inspectorView.setOn(new InspectableRoad(item));
 			this.inspectorView.update();
 		}
-
 	}
 
+	/**
+	 * This class is used to display the information of a scenery cell, it will
+	 * also let the user add a start, end and road point.
+	 * 
+	 * @author JeanRaymondDaher
+	 * @version $Revision: 1.0 $
+	 */
 	private class InspectableScenery implements IInspectable {
-
+		
+		/*
+		 * Mark - Basic - Properties
+		 */
 		private Command buildStartPoint;
 		private Command buildEndPoint;
 		private Command buildRoad;
 
+		/*
+		 * Constructor
+		 */
 		public InspectableScenery() {
 			this.buildStartPoint = new Command("Build Start Point", "");
 			this.buildEndPoint = new Command("Build End Point", "");
 			this.buildRoad = new Command("Build Road", "");
 		}
 
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
-			String title = "Scenery Cell";
+			String title = "Scenery";
 			return title;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
-			return "Welcome to your scenery editing scene";
+			return "Scenery editing";
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			return "This is an empty cell where u can add a start, end or normal-road point";
 			// TODO Auto-generated method stub
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
@@ -215,6 +265,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return commands;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
 			if (command == buildRoad) {
@@ -240,29 +295,69 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 	}
 
+	/**
+	 * This class is used to display the information of a road cell, it will
+	 * also let the destroy this cell.
+	 * 
+	 * @author JeanRaymondDaher
+	 * @version $Revision: 1.0 $
+	 */
 	private class InspectableRoad implements IInspectable {
 
 		private Command destroyCell;
-		
-		public InspectableRoad() {
-			this.destroyCell=new Command("Destroy Cell","");
+		private MapItem item;
+
+		/**
+		 * Constructor for InspectableRoad.
+		 * @param temp MapItem
+		 */
+		public InspectableRoad(MapItem temp) {
+			this.destroyCell = new Command("Delete", "");
+			this.item = temp;
 		}
+
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
-			String title = "Road";
+			String title;
+			if (this.item.getName() != "Road") {
+				title = "Road =>" + this.item.getName();
+			} else {
+				title = "Road";
+			}
+
 			return title;
 		}
 
+		/**
+		 * Method subtitle.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
-			return "Welcome to your road editing scene";
+			return "Road editing";
 		}
 
+		/**
+		 * Method description.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			return "This is a road cell that you can destroy";
 		}
 
+		/**
+		 * Method commands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#commands()
+		 */
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
@@ -270,9 +365,14 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return commands;
 		}
 
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
+		 */
 		@Override
 		public void execute(Command command) {
-			if(command == destroyCell) {
+			if (command == destroyCell) {
 				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
 				GridMap gridMap = play.getMap();
 				gridMap.removeItem(gridMap.getSelectedItem());
@@ -281,37 +381,61 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		}
 	}
 
-	private class InspectableTower implements IInspectable {
+	/*
+	 * Mark - Storage - Properties
+	 */
 
-		@Override
-		public String title() {
-			String title = "Tower";
-			return title;
+	private File workingFile;
+
+	/*
+	 * Mark - Storage - Methods
+	 */
+
+	/**
+	 * This method will check that the path is valid from Start to End.
+	 * 
+	
+	
+	 * @return boolean
+	 * 				  True or False depending on validation * @see PathManager  */
+	private boolean validateMap() {
+		GridMap gridMap = this.play.getMap();
+
+		if (gridMap.getPathManager().validate()) {
+			infoLabel.setText("Validation : Path Is Valid");
+			return true;
+		} else {
+			infoLabel.setText("Validation : "
+					+ gridMap.getPathManager().getErrorMessage());
+			return false;
 		}
 
-		@Override
-		public String subtitle() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	}
+	/**
+	 * This method will save the game to a file.
+	 * 
+	 */
+	private void save() {
+		System.out.println("saving");
+	}
 
-		@Override
-		public String description() {
-			// TODO Auto-generated method stub
-			return null;
-		}
+	/*
+	 * Mark - Storage - Getters & Setters
+	 */
+	/**
+	 * Method getWorkingFile.
+	 * @return File
+	 */
+	public File getWorkingFile() {
+		return workingFile;
+	}
 
-		@Override
-		public List<Command> commands() {
-			// TODO Auto-generated method stub
-			return null;
-		}
-
-		@Override
-		public void execute(Command command) {
-			// TODO Auto-generated method stub
-
-		}
+	/**
+	 * Method setWorkingFile.
+	 * @param workingFile File
+	 */
+	public void setWorkingFile(File workingFile) {
+		this.workingFile = workingFile;
 	}
 
 }

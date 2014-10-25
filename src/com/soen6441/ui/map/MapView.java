@@ -8,16 +8,20 @@ import com.soen6441.ui.common.GridView;
 import com.soen6441.ui.common.GridViewCell;
 
 /**
- * This class defines the view of the map
+ * This class defines the view of the map.
  * 
  * @author Zhe Zhao
- * @author jean raymond daher
+ * @author JeanRaymondDaher
  * @author Chenglong Zhang
- * @since 0.1
  * 
+ * @version $Revision: 1.0 $
  */
 public class MapView extends GridView {
 
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
 	private GridMap map;
 	private static final int _UNIT_LENGTH = 40;
 	
@@ -28,8 +32,8 @@ public class MapView extends GridView {
 	
 	/**
 	 * Method getMap.
-	 * @return GridMap
-	 */
+	
+	 * @return GridMap */
 	public GridMap getMap() {
 		return map;
 	}
@@ -59,6 +63,10 @@ public class MapView extends GridView {
 		}
 	}
 	
+	/**
+	 * Method setSelectedCell.
+	 * @param cell GridViewCell
+	 */
 	@Override
 	public void setSelectedCell(GridViewCell cell) {
 		GridPoint gridPoint = cell.getPoint();

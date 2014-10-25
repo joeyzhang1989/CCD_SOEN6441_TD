@@ -7,6 +7,7 @@ package com.soen6441.core.tower;
  * @see Tower
  * 
  * @author Haiyang Sun
+ * @version $Revision: 1.0 $
  */
 public class BottleTower extends Tower {
 	

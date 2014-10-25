@@ -7,11 +7,27 @@ import com.soen6441.ui.map.cell.RoadCell;
 import com.soen6441.ui.map.cell.SceneryCell;
 import com.soen6441.ui.map.cell.TowerCell;
 
+/**
+ * 
+ * 
+ * @author chenglong
+ * @version $Revision: 1.0 $
+ */
+
 public class MapItemCellFactory {
+	/**
+	 * Method createScenaryCell.
+	 * @return MapItemCell
+	 */
 	public static MapItemCell createScenaryCell(){
 		return cellFromItem(null);
 	}
 	
+	/**
+	 * Method cellFromItem.
+	 * @param item MapItem
+	 * @return MapItemCell
+	 */
 	public static MapItemCell cellFromItem(MapItem item){
 		MapItemCell cell = null;
 		if(item == null) {

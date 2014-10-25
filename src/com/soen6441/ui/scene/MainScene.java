@@ -32,6 +32,7 @@ import com.soen6441.ui.parallel.Window;
  * @author Mengyao Wang
  * @author Chenglong Zhang
  * @see
+ * @version $Revision: 1.0 $
  */
 
 public class MainScene extends View {
@@ -162,6 +163,10 @@ public class MainScene extends View {
 	 * Method main.
 	 * 
 	 * @param args String[] perform the main interface at beginning
+	 */
+	/**
+	 * Method main.
+	 * @param args String[]
 	 */
 	public static void main(String[] args) {
 		ViewFlow viewFlow = new ViewFlow();
