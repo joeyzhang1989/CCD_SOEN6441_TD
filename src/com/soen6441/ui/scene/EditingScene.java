@@ -168,7 +168,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.backButton.addActionListener(new ActionListener() {
 			@Override
 			/**
-			 * *perform the function that click the backbutton to go to editingscene
+			 * perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
 				EditingScene.this.viewFlow.pop();
@@ -394,10 +394,10 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	/**
 	 * This method will check that the path is valid from Start to End.
 	 * 
-	
-	
 	 * @return boolean
-	 * 				  True or False depending on validation * @see PathManager  */
+	 * True or False depending on validation 
+	 * @see PathManager  
+	 */
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
 
