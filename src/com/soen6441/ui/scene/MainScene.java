@@ -20,6 +20,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
@@ -108,19 +109,18 @@ public class MainScene extends View {
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
 				fileChooser.setFileFilter(filter);
 			
-				playButton.addActionListener(this);
+				int option = fileChooser.showOpenDialog(MainScene.this);
 
-				if (e.getSource() == playButton) {
-					int returnMap = fileChooser.showOpenDialog(MainScene.this);
+				if (option == JFileChooser.APPROVE_OPTION) {
+					File file = fileChooser.getSelectedFile();
+					
+					PlayManager playManager = new PlayManager();
+					playManager.read(file);
 
-					if (returnMap == JFileChooser.APPROVE_OPTION) {
-						File file = fileChooser.getSelectedFile();
-
-						PlayingScene playingScene = new PlayingScene();
-						MainScene.this.viewFlow.push(playingScene);
-					}
-
+					PlayingScene playingScene = new PlayingScene();
+					MainScene.this.viewFlow.push(playingScene);
 				}
+
 			}
 		});
 
