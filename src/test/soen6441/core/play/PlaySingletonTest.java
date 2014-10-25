@@ -2,7 +2,6 @@ package test.soen6441.core.play;
 
 import static org.junit.Assert.*;
 
-import org.junit.Before;
 import org.junit.Test;
 
 import com.soen6441.core.play.Play;
