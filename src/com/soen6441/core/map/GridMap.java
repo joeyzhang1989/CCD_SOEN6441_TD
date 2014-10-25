@@ -32,6 +32,12 @@ public class GridMap {
 	/*
 	 * Mark - Grided Item Management - Methods
 	 */
+	/**
+	 * @param item		The item
+	 */
+	public void setItem(MapItem item){ 
+		items[item.getLocation().getGridedY()][item.getLocation().getGridedX()] = item;
+	}
 	
 	/**
 	 * Set a grided map item on to the map.
@@ -43,7 +49,7 @@ public class GridMap {
 	 */
 	public void setItem(MapItem item, MapPoint location){
 		item.setLocation(location);
-		items[location.getGridedY()][location.getGridedX()] = item;
+		setItem(item);
 	}
 	
 	/**

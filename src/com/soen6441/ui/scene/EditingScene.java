@@ -12,6 +12,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.Type;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
@@ -101,7 +102,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		// Lower view containing the back and save buttons
 		View lowerView = new View();
-		lowerView.setLocation(0, 550);
+		lowerView.setLocation(0, 540);
 		lowerView.setSize(800, 40);
 		// lowerView.setBackground(Color.blue);
 
@@ -109,12 +110,12 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.saveButton = new Button();
 		this.saveButton.setTitle("SAVE");
 		this.saveButton.setSize(60, 20);
-		this.saveButton.setLocation(730, 0);
+		this.saveButton.setLocation(730, 10);
 		// save button
 		this.backButton = new Button();
 		this.backButton.setTitle("BACK");
 		this.backButton.setSize(60, 20);
-		this.backButton.setLocation(10, 0);
+		this.backButton.setLocation(10, 10);
 
 		lowerView.add(this.saveButton);
 		lowerView.add(this.backButton);
@@ -171,6 +172,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			 * perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
+//				Play.destroy();
 				EditingScene.this.viewFlow.pop();
 			}
 
@@ -385,7 +387,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - Storage - Properties
 	 */
 
-	private File workingFile;
+	private File workingFile = new File("maps/x.tdm.xml");
 
 	/*
 	 * Mark - Storage - Methods
@@ -416,12 +418,15 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * 
 	 */
 	private void save() {
-		System.out.println("saving");
+		PlayManager playManager = new PlayManager();
+		playManager.save(workingFile, play);
+		infoLabel.setText("The map file has been saved.");
 	}
 
 	/*
 	 * Mark - Storage - Getters & Setters
 	 */
+	
 	/**
 	 * Method getWorkingFile.
 	 * @return File

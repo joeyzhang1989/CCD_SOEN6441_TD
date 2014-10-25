@@ -15,7 +15,7 @@ import com.soen6441.core.map.Road;
  */
 
 
-public class EndPointValidator extends PathValidator{
+public class EndPointQuantityValidator extends PathValidator{
 
 	/**
 	 * This method Validate() overrides the method Validate() of parent class PathValidator.
