@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
@@ -18,6 +19,8 @@ import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
+import com.soen6441.ui.map.MapItemCell;
+import com.soen6441.ui.map.MapItemCellFactory;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -40,10 +43,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	private Play play;
 	
-	/**
-	 * 
-	 * these properties are defined in the ui.parallel package that inherited from javax.swing
-	 */
 	//bannerView properties
 	private Button controlButton;
 	private Label infoLabel;
@@ -169,10 +168,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
 		
-		// send the notifications to the inspectorView
-		inspectorView.setOn(new InspectableDemo());
-		inspectorView.update();
-		
 	}	
 	
 
@@ -236,109 +231,27 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	@Override
 	public void gridViewDidSelect() {
-		System.out.println("...");
-		MapItem mi = play.getMap().getSelectedItem();
-		//MapItemCellFactory.cellFromItem(mi);
-		if (mi == null){
+		MapItem mapItem = play.getMap().getSelectedItem();
+		
+		if (mapItem == null){
 			inspectorView.setOn(new InspectableScenery());
 			inspectorView.update();
-		} else if (mi instanceof Road){
-			Road road = (Road)mi;
+			
+		} else if (mapItem instanceof Road){
+			Road road = (Road)mapItem;
 			inspectorView.setOn(new InspectableRoad(road));
 			inspectorView.update();
-		}
-		else if (mi instanceof Tower){
+			
+		} else if (mapItem instanceof Tower){
 			inspectorView.setOn(new InspectableTower());
 			inspectorView.update();
 		}
-	  }
+	}
 		
 	
 	/*
 	 * Inner Classes
 	 */
-	
-	/**
-	 * inner class that implements the IInspectable interface to 
-	 * add the inspectorView into the PlayingScene .
-	 * update the inspector view due to the operations 
-	 * 
-	 * @author Chenglong Zhang 
-	 * @version $Revision: 1.0 $
-	 */
-	
-	private class InspectableDemo implements IInspectable {
-		private Command buildBottleTower;
-		private Command buildMudTower;
-		private Command tempToTestObserver;
-		
-		public InspectableDemo() {
-			buildBottleTower = new Command("Build Bottle Tower", "100$");
-			buildMudTower = new Command("Build Mud Tower", "100$");
-			tempToTestObserver = new Command("Observer Test", "");
-		}
-
-		/**
-		 * Method title.
-		
-		
-		 * @return String * @see com.soen6441.ui.common.IInspectable#title() */
-		@Override
-		public String title() {
-			return "Scenery";
-		}
-
-		/**
-		 * Method subtitle.
-		 * @return String * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
-		@Override
-		public String subtitle() {
-			return "An Empty Space";
-		}
-
-		/**
-		 * Method description.
-		 * @return String * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
-		@Override
-		public String description() {
-			return "You can build anything on it";
-		}
-
-		/**
-		 * Method commands.
-		
-		
-		 * @return List<Command> * @see com.soen6441.ui.common.IInspectable#commands() */
-		@Override
-		public List<Command> commands() {
-			List<Command> commands = new ArrayList<Command>();
-			commands.add(buildBottleTower);
-			commands.add(buildMudTower);
-			commands.add(tempToTestObserver);
-			return commands;
-		}
-
-		/**
-		 * Method execute.
-		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
-		@Override
-		public void execute(Command command) {
-			if(command == buildBottleTower){
-				System.out.println("Going to build a bottle tower");
-			} else if(command == buildMudTower){
-				System.out.println("Going to build a mud tower");
-			} else if(command == tempToTestObserver){
-				play.earnCoins(25);
-				play.setLife(1000);
-			}
-			
-		}		
-	}	
-	
 	
 	/**
 	 * 
@@ -357,13 +270,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 * Method title.
 		 * @see com.soen6441.ui.common.IInspectable#title()
 		 */
-		private Command Upgrade;
-		private Command Refund;
+		private Command upgradeCommand;
+		private Command refundCommand;
 
 		
 		public InspectableTower() {
-			Upgrade = new Command("Upgrade Tower", "50$");
-			Refund = new Command("Refund Tower", "100$");
+			upgradeCommand = new Command("Upgrade Tower", "50$");
+			refundCommand = new Command("Refund Tower", "100$");
 			
 		}
 		/**
@@ -407,8 +320,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
-			commands.add(Upgrade);
-			commands.add(Refund);
+			commands.add(upgradeCommand);
+			commands.add(refundCommand);
 			return commands;
 		}
 
@@ -419,9 +332,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-			if(command == Upgrade){
+			if(command == upgradeCommand){
 				System.out.println("Upgrade");
-			} else if(command == Refund){
+			} else if(command == refundCommand){
 				System.out.println("Refund");
 			} 
 		}		
@@ -520,15 +433,21 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	private class InspectableScenery implements IInspectable
 	{
-		private Command BottleTower;
-		private Command MudTower;
+		private List<Command> buildCommands;
 		private TowerManagerFactory towerManagerFactory;
-		private TowerManager towerManger;
-		private Tower tower;
+
 		public InspectableScenery() {
-			BottleTower = new Command("Build BottleTower", "50$");
-			MudTower = new Command("Build MudTower", "100$");
+			buildCommands = new ArrayList<Command>();
+			
 			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
+			List<String> typeNames = towerManagerFactory.getTypeNames();
+			for (String typeName : typeNames) {
+				TowerManager towerManager = towerManagerFactory.getManager(typeName);
+				Command command = new Command();
+				command.setTitle("Build " + towerManager.createTower().getName());
+				command.setSubtitle(towerManager.getInitialPrice() + "$");
+				buildCommands.add(command);
+			}
 		}
 
 		/**
@@ -538,8 +457,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String title() {
-		
-			return "Selected";
+			return "Scenary";
 		}
 
 		/**
@@ -570,11 +488,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public List<Command> commands() {
-			
-			List<Command> commands = new ArrayList<Command>();
-			commands.add(BottleTower);
-			commands.add(MudTower);
-			return commands;
+			return buildCommands;
 		}
 
 		/**
@@ -584,14 +498,26 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-			if(command == BottleTower){
-				towerManger = towerManagerFactory.getManager("BottleTower");
-				tower = towerManger.createTower();
-			} else if(command == MudTower){
-				towerManger = towerManagerFactory.getManager("MudTower");
-				tower = towerManger.createTower();
-			} 
-		
+			int index = buildCommands.indexOf(command);
+			String typeName = towerManagerFactory.getTypeNames().get(index);
+			TowerManager towerManager = towerManagerFactory.getManager(typeName);
+			int price = towerManager.getInitialPrice();
+			if (play.getCoins() >= price) {
+				play.spendCoins(price);
+				
+				// build the model
+				Tower tower = towerManager.createTower();
+				
+				// build the view
+				MapItemCell cell = MapItemCellFactory.cellFromItem(tower);
+				
+				// link the model
+				GridMap gridMap = mapView.getMap();
+				gridMap.setItem(tower, gridMap.getSelectedPoint());
+				
+				// link the view
+				mapView.replaceCell(mapView.getSelectedCell(), cell);
+			}
 		}
 	}
 }

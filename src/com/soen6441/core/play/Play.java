@@ -156,7 +156,7 @@ public class Play extends Observable {
 	 * 
 	 * @see #getCoins() */
 	public void spendCoins(int coins){
-		this.coins -= coins;
+		this.setCoins(this.getCoins() - coins);
 	}
 	
 	/*
