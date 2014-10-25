@@ -14,7 +14,7 @@ import com.soen6441.core.map.Road;
  * @version $Revision: 1.0 $
  */
 
-public class StartPointValidator extends PathValidator {
+public class StartPointQuantityValidator extends PathValidator {
 	
 	
 	/**

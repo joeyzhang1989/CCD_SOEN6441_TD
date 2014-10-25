@@ -16,7 +16,7 @@ import com.soen6441.core.map.Road;
  * @author Mohammad Ali
  */
 
-public class ConnectedPathValidator extends PathValidator {
+public class ConnectionValidator extends PathValidator {
 
 	/**
 	 * This method Validate() overrides the method Validate() of parent class PathValidator.
@@ -53,15 +53,7 @@ public class ConnectedPathValidator extends PathValidator {
 		    int totalNeighbours = numberOfNeighbours(road);
 		    Road.Type type = road.getType();
 		    
-		    if(type == Road.Type.NORMAL) {
-		    	if(totalNeighbours > 2) {
-		    		this.setErrorMassage("Branches are not allowed");
-		    		return false;
-		    	} else if (totalNeighbours < 2) {
-		    		this.setErrorMassage("The Road is not connected");
-		    		return false;
-		    	}
-		    } else if(type == Road.Type.START) {
+		    if(type == Road.Type.START) {
 		    	if(totalNeighbours > 1) {
 		    		this.setErrorMassage("Start point should have one neigbour");
 		    		return false;
@@ -77,7 +69,15 @@ public class ConnectedPathValidator extends PathValidator {
 		    		this.setErrorMassage("The Road is not connected");
 		    		return false;
 		    	}
-		    }
+		    } else if(type == Road.Type.NORMAL) {
+		    	if(totalNeighbours > 2) {
+		    		this.setErrorMassage("Branches are not allowed");
+		    		return false;
+		    	} else if (totalNeighbours < 2) {
+		    		this.setErrorMassage("The Road is not connected");
+		    		return false;
+		    	}
+		    } 
 		}
 		
 		return true;
