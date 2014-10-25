@@ -11,6 +11,7 @@ import com.soen6441.ui.parallel.*;
  * 
  * @author Mengyao Wang
  * @author Chenglong Zhang
+ * @version $Revision: 1.0 $
  */
 
 public class NewMapScene extends View{

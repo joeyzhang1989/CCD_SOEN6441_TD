@@ -69,6 +69,7 @@ import com.soen6441.ui.scene.PlayingScene;
  * @author Zhe Zhao
  *
  * 
+ * @version $Revision: 1.0 $
  */
 
 public class Play extends Observable {
@@ -84,8 +85,8 @@ public class Play extends Observable {
 	
 	/**
 	 * Use this method to get the shared instance
-	 * @return Play
-	 */
+	 * @return Play 
+     */
 	public static Play currentPlay(){
 		if (currentPlay == null){
 			currentPlay = new Play();
@@ -152,7 +153,6 @@ public class Play extends Observable {
 	 * 
 	 * @param coins
 	 * 
-	
 	 * 
 	 * @see #getCoins() */
 	public void spendCoins(int coins){
@@ -173,7 +173,7 @@ public class Play extends Observable {
 	/**
 	 * Method getMap.
 	 * @return GridMap
-	 */
+     */
 	public GridMap getMap() {
 		return map;
 	}
@@ -188,8 +188,8 @@ public class Play extends Observable {
 
 	/**
 	 * Method getLife.
-	 * @return int
-	 */
+	 * @return int 
+     */
 	public int getLife() {
 		return life;
 	}
@@ -207,8 +207,8 @@ public class Play extends Observable {
 
 	/**
 	 * Method getCoins.
-	 * @return int
-	 */
+	 * @return int 
+     */
 	public int getCoins() {
 		return coins;
 	}

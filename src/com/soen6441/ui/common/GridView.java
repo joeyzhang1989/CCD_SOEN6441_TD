@@ -11,6 +11,7 @@ import com.soen6441.ui.parallel.View;
  * 
  * @author JeanRaymondDaher
  * 
+ * @version $Revision: 1.0 $
  */
 
 public class GridView extends View {
@@ -23,6 +24,11 @@ public class GridView extends View {
 		this(10, 10);
 	}
 	
+	/**
+	 * Constructor for GridView.
+	 * @param row int
+	 * @param column int
+	 */
 	public GridView(int row, int column) {
 		this.numberOfColumns = column;
 		this.numberOfRows = row;
@@ -48,9 +54,9 @@ public class GridView extends View {
 	/**
 	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width AND
 	 * the suggested height by taking the number of rows and multiplying it by the cell's height
+	
 	 * @return Dimension 
-	 * 			  		Object containing (width and height)
-	 */
+	 * 			  		Object containing (width and height) */
 	
 	public Dimension suggestedSize() {
 		int width=this.numberOfColumns*this.unitWidth;
@@ -62,36 +68,75 @@ public class GridView extends View {
 	 * Mark - Basic - Getters & Setters
 	 */
 	
+	/**
+	 * Method getNumberOfRows.
+	 * @return int
+	 */
 	public int getNumberOfRows() {
 		return numberOfRows;
 	}
 
+	/**
+	 * Method setNumberOfRows.
+	 * @param numberOfRows int
+	 */
 	public void setNumberOfRows(int numberOfRows) {
 		this.numberOfRows = numberOfRows;
 		this.cells=new GridViewCell[numberOfRows][this.numberOfColumns];
 	}
 
+	/**
+	 * Method getNumberOfColumns.
+	 * @return int
+	 */
 	public int getNumberOfColumns() {
 		return numberOfColumns;
 	}
 
+	/**
+	 * Method setNumberOfColumns.
+	 * @param numberOfColumns int
+	 */
 	public void setNumberOfColumns(int numberOfColumns) {
 		this.numberOfColumns = numberOfColumns;
 		this.cells=new GridViewCell[this.numberOfRows][numberOfColumns];
 	}
 
+<<<<<<< HEAD
+=======
+	/*
+	 * Getters & Setters for unitWidth and unitHeight
+	 */
+
+	/**
+	 * Method getUnitWidth.
+	 * @return int
+	 */
+>>>>>>> FETCH_HEAD
 	public int getUnitWidth() {
 		return unitWidth;
 	}
 
+	/**
+	 * Method setUnitWidth.
+	 * @param unitWidth int
+	 */
 	public void setUnitWidth(int unitWidth) {
 		this.unitWidth = unitWidth;
 	}
 
+	/**
+	 * Method getUnitHeight.
+	 * @return int
+	 */
 	public int getUnitHeight() {
 		return unitHeight;
 	}
 
+	/**
+	 * Method setUnitHeight.
+	 * @param unitHeight int
+	 */
 	public void setUnitHeight(int unitHeight) {
 		this.unitHeight = unitHeight;
 	}
@@ -120,8 +165,15 @@ public class GridView extends View {
 	/**
 	 * Method removeCell.
 	 * 
+<<<<<<< HEAD
 	 * @param cell GridViewCell Loop through all the cells and remove the appropriate cell.
 	 * @param cell The cell that needs to be removed
+=======
+	 * @param cell
+	 *            GridViewCell Loop through all the cells and remove the
+	 *            appropriate cell.
+	
+>>>>>>> FETCH_HEAD
 	 */
 	public void removeCell(GridViewCell cell) {
 		int row = cell.getPoint().getRow();
@@ -157,10 +209,18 @@ public class GridView extends View {
 	 * Mark - Selection - Getters & Setters
 	 */
 
+	/**
+	 * Method getSelectedCell.
+	 * @return GridViewCell
+	 */
 	public GridViewCell getSelectedCell() {
 		return selectedCell;
 	}
 
+	/**
+	 * Method setSelectedCell.
+	 * @param selectedCell GridViewCell
+	 */
 	public void setSelectedCell(GridViewCell selectedCell) {
 
 		if (this.selectedCell != selectedCell) {
@@ -177,9 +237,17 @@ public class GridView extends View {
 		}
 	}
 
+	/**
+	 * Method getSelectionListener.
+	 * @return GridViewSelectionListener
+	 */
 	public GridViewSelectionListener getSelectionListener() {
 		return selectionListener;
 	}
+	/**
+	 * Method setSelectionListener.
+	 * @param selectionListener GridViewSelectionListener
+	 */
 	public void setSelectionListener(GridViewSelectionListener selectionListener) {
 		this.selectionListener = selectionListener;
 	}

@@ -8,6 +8,7 @@ import java.util.List;
  * 
  * @author Zhe Zhao
  *
+ * @version $Revision: 1.0 $
  */
 public class GridMap {
 	
@@ -49,9 +50,7 @@ public class GridMap {
 	 * Get a grided map item on the map
 	 * 
 	 * @param location An grided location you want to check
-	
-	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary. 
-	 */
+	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary.  */
 	public MapItem getItem(MapPoint location){
 		int x = location.getGridedX();
 		int y = location.getGridedY();
@@ -71,15 +70,18 @@ public class GridMap {
 	 * 
 	 * @param item An grided item which you want to remove.
 	 * 
-	
 	 * 
-	 * @see #getItem(MapPoint) 
-	 */
+	 * @see #getItem(MapPoint)  
+     */
 	public void removeItem(MapItem item){
 		MapPoint location = item.getLocation();
 		items[location.getGridedY()][location.getGridedX()] = null;
 	}
 	
+	/**
+	 * Method getAllItems.
+	 * @return List<MapItem>
+	 */
 	public List<MapItem> getAllItems() {
 		List<MapItem> itemList = new ArrayList<MapItem>();
 		for (int x = 0; x < width; x ++){
@@ -100,7 +102,7 @@ public class GridMap {
 	/**
 	 * Method getWidth.
 	 * @return int
-	 */
+     */
 	public int getWidth() {
 		return width;
 	}
@@ -116,8 +118,8 @@ public class GridMap {
 
 	/**
 	 * Method getHeight.
-	 * @return int
-	 */
+	 * @return int 
+     */
 	public int getHeight() {
 		return height;
 	}
@@ -145,6 +147,10 @@ public class GridMap {
 	 * Mark - Selection - Method
 	 */
 	
+	/**
+	 * Method getSelectedItem.
+	 * @return MapItem
+	 */
 	public MapItem getSelectedItem() {
 		return this.getItem(selectedPoint);
 	}
@@ -153,10 +159,18 @@ public class GridMap {
 	 * Mark - Selection - Getters & Setters
 	 */
 	
+	/**
+	 * Method getSelectedPoint.
+	 * @return MapPoint
+	 */
 	public MapPoint getSelectedPoint() {
 		return selectedPoint;
 	}
 
+	/**
+	 * Method setSelectedPoint.
+	 * @param selectedPoint MapPoint
+	 */
 	public void setSelectedPoint(MapPoint selectedPoint) {
 		this.selectedPoint = selectedPoint;
 	}
@@ -182,9 +196,7 @@ public class GridMap {
 	 * If there is no branches in the game, it will give you only one path
 	 * 
 	 * @param point The location
-	
-	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it. 
-	 */
+	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it.  */
 	public List<MapPath> pathFrom(MapPoint point){
 		List<MapPath> resultPaths = new ArrayList<MapPath>();
 		for(MapPath path : paths){
@@ -202,8 +214,8 @@ public class GridMap {
 
 	/**
 	 * Method getStartPoints.
-	 * @return List<MapPoint>
-	 */
+	 * @return List<MapPoint> 
+     */
 	public List<MapPoint> getStartPoints() {
 		return startPoints;
 	}
@@ -218,8 +230,8 @@ public class GridMap {
 
 	/**
 	 * Method getEndPoints.
-	 * @return List<MapPoint>
-	 */
+	 * @return List<MapPoint> 
+     */
 	public List<MapPoint> getEndPoints() {
 		return endPoints;
 	}
@@ -234,8 +246,8 @@ public class GridMap {
 
 	/**
 	 * Method getPaths.
-	 * @return List<MapPath>
-	 */
+	 * @return List<MapPath> 
+     */
 	public List<MapPath> getPaths() {
 		return paths;
 	}
@@ -248,6 +260,10 @@ public class GridMap {
 		this.paths = paths;
 	}
 
+	/**
+	 * Method getPathManager.
+	 * @return PathManager
+	 */
 	public PathManager getPathManager() {
 		return pathManager;
 	}

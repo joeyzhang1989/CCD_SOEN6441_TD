@@ -4,6 +4,7 @@ package com.soen6441.ui.common;
  * Its a value object, which will be used to set on a button
  * 
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Command {
 	private String title;
@@ -33,8 +34,8 @@ public class Command {
 	 */
 	/**
 	 * Method getTitle.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getTitle() {
 		return title;
 	}
@@ -48,8 +49,8 @@ public class Command {
 	}
 	/**
 	 * Method getSubtitle.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getSubtitle() {
 		return subtitle;
 	}

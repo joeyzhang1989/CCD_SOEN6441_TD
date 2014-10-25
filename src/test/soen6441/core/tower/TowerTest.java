@@ -12,6 +12,7 @@ import com.soen6441.core.tower.TowerManagerFactory;
  * This test responses to test methods related to Tower Class
  * @author Haiyang Sun
  *
+ * @version $Revision: 1.0 $
  */
 
 public class TowerTest {

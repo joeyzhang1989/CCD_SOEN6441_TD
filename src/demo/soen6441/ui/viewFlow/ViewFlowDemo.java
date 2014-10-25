@@ -5,6 +5,8 @@ import com.soen6441.ui.parallel.ViewFlow;
 import com.soen6441.ui.parallel.Window;
 
 /**
+ * @author chenglong
+ * @version $Revision: 1.0 $
  */
 public class ViewFlowDemo extends View {
 	

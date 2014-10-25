@@ -8,6 +8,7 @@ import java.util.List;
  * 
  * @author Zhe Zhao
  * @author Mohammad Ali
+ * @version $Revision: 1.0 $
  */
 
 public class MapPath  {
@@ -37,8 +38,8 @@ public class MapPath  {
 
 	/**
 	 * Method getLocations.
-	 * @return List<MapPoint>
-	 */
+	 * @return List<MapPoint> 
+     */
 	public List<MapPoint> getLocations() {
 		return locations;
 	}
