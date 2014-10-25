@@ -169,4 +169,9 @@ public class MapPoint {
 			return false;
 		return true;
 	}
+	
+	@Override
+	public String toString() {
+		return "MapPoint. x:" + x + ", y:" + y;
+	}
 }
