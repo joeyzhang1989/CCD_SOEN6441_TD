@@ -40,10 +40,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	private Play play;
 	
-	/**
-	 * 
-	 * these properties are defined in the ui.parallel package that inherited from javax.swing
-	 */
 	//bannerView properties
 	private Button controlButton;
 	private Label infoLabel;
@@ -169,10 +165,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
 		
-		// send the notifications to the inspectorView
-		inspectorView.setOn(new InspectableDemo());
-		inspectorView.update();
-		
 	}	
 	
 
@@ -259,88 +251,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	
 	/**
-	 * inner class that implements the IInspectable interface to 
-	 * add the inspectorView into the PlayingScene .
-	 * update the inspector view due to the operations 
-	 * 
-	 * @author Chenglong Zhang 
-	 * @version $Revision: 1.0 $
-	 */
-	
-	private class InspectableDemo implements IInspectable {
-		private Command buildBottleTower;
-		private Command buildMudTower;
-		private Command tempToTestObserver;
-		
-		public InspectableDemo() {
-			buildBottleTower = new Command("Build Bottle Tower", "100$");
-			buildMudTower = new Command("Build Mud Tower", "100$");
-			tempToTestObserver = new Command("Observer Test", "");
-		}
-
-		/**
-		 * Method title.
-		
-		
-		 * @return String * @see com.soen6441.ui.common.IInspectable#title() */
-		@Override
-		public String title() {
-			return "Scenery";
-		}
-
-		/**
-		 * Method subtitle.
-		 * @return String * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
-		@Override
-		public String subtitle() {
-			return "An Empty Space";
-		}
-
-		/**
-		 * Method description.
-		 * @return String * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
-		@Override
-		public String description() {
-			return "You can build anything on it";
-		}
-
-		/**
-		 * Method commands.
-		
-		
-		 * @return List<Command> * @see com.soen6441.ui.common.IInspectable#commands() */
-		@Override
-		public List<Command> commands() {
-			List<Command> commands = new ArrayList<Command>();
-			commands.add(buildBottleTower);
-			commands.add(buildMudTower);
-			commands.add(tempToTestObserver);
-			return commands;
-		}
-
-		/**
-		 * Method execute.
-		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
-		@Override
-		public void execute(Command command) {
-			if(command == buildBottleTower){
-				System.out.println("Going to build a bottle tower");
-			} else if(command == buildMudTower){
-				System.out.println("Going to build a mud tower");
-			} else if(command == tempToTestObserver){
-				play.earnCoins(25);
-				play.setLife(1000);
-			}
-			
-		}		
-	}	
-	
-	
-	/**
 	 * 
 	 * inner class that implements the IInspectable interface to capture 
 	 * the event of mouse to change the value of the label, buttons etc.
@@ -357,13 +267,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 * Method title.
 		 * @see com.soen6441.ui.common.IInspectable#title()
 		 */
-		private Command Upgrade;
-		private Command Refund;
+		private Command upgradeCommand;
+		private Command refundCommand;
 
 		
 		public InspectableTower() {
-			Upgrade = new Command("Upgrade Tower", "50$");
-			Refund = new Command("Refund Tower", "100$");
+			upgradeCommand = new Command("Upgrade Tower", "50$");
+			refundCommand = new Command("Refund Tower", "100$");
 			
 		}
 		/**
@@ -407,8 +317,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
-			commands.add(Upgrade);
-			commands.add(Refund);
+			commands.add(upgradeCommand);
+			commands.add(refundCommand);
 			return commands;
 		}
 
@@ -419,9 +329,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-			if(command == Upgrade){
+			if(command == upgradeCommand){
 				System.out.println("Upgrade");
-			} else if(command == Refund){
+			} else if(command == refundCommand){
 				System.out.println("Refund");
 			} 
 		}		
@@ -520,15 +430,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	private class InspectableScenery implements IInspectable
 	{
-		private Command BottleTower;
-		private Command MudTower;
+		private List<Command> buildCommands;
 		private TowerManagerFactory towerManagerFactory;
-		private TowerManager towerManger;
-		private Tower tower;
+
 		public InspectableScenery() {
-			BottleTower = new Command("Build BottleTower", "50$");
-			MudTower = new Command("Build MudTower", "100$");
 			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
+//			List<String> types = towerManagerFactory
 		}
 
 		/**
@@ -572,8 +479,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		public List<Command> commands() {
 			
 			List<Command> commands = new ArrayList<Command>();
-			commands.add(BottleTower);
-			commands.add(MudTower);
+//			commands.add(bottleTowerCommand);
+//			commands.add(mudTowerCommand);
 			return commands;
 		}
 
@@ -584,14 +491,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public void execute(Command command) {
-			if(command == BottleTower){
-				towerManger = towerManagerFactory.getManager("BottleTower");
-				tower = towerManger.createTower();
-			} else if(command == MudTower){
-				towerManger = towerManagerFactory.getManager("MudTower");
-				tower = towerManger.createTower();
-			} 
-		
+//			if(command == bottleTowerCommand){
+////				towerManger = towerManagerFactory.getManager("BottleTower");
+//			} else if(command == mudTowerCommand){
+////				towerManger = towerManagerFactory.getManager("MudTower");
+//			} 
 		}
 	}
 }
