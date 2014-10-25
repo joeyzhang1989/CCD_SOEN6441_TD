@@ -101,6 +101,11 @@ public class TowerManager {
     		AffectableValue cdTime = new AffectableValue(Double.parseDouble(element.element("cdTime").getText()));
     		tower.setCdTime(cdTime);
     		
+    		tower.setCellImageName(element.element("cellImageName").getText());
+    		
+    		tower.setName(element.element("towerName").getText());
+    		
+    		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;
     			leveledTowers.add(towerResult);
@@ -147,6 +152,38 @@ public class TowerManager {
 			
 		}
 				
+	}
+
+	public String getTowerType() {
+		return towerType;
+	}
+
+	public void setTowerType(String towerType) {
+		this.towerType = towerType;
+	}
+
+	public String getFilePath() {
+		return filePath;
+	}
+
+	public void setFilePath(String filePath) {
+		this.filePath = filePath;
+	}
+
+	public int getInitialPrice() {
+		return initialPrice;
+	}
+
+	public void setInitialPrice(int initialPrice) {
+		this.initialPrice = initialPrice;
+	}
+
+	public List<Tower> getLeveledTowers() {
+		return leveledTowers;
+	}
+
+	public void setLeveledTowers(List<Tower> leveledTowers) {
+		this.leveledTowers = leveledTowers;
 	}	
 	
 }

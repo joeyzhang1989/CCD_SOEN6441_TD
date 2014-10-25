@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<TowerManager>
-	<initialPrice>120</initialPrice>
+		<initialPrice>120</initialPrice>
 		<leveledTowers>
 			<MudTower>
 				<level>1</level>
@@ -12,7 +12,8 @@
 				<cdTime>1200</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
-			</MudTower>
+				<cellImageName>tower_cell_2_1.png</cellImageName>
+				<towerName>Mud Tower</towerName></MudTower>
 			<MudTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -22,6 +23,8 @@
 				<cdTime>1050</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
+				<cellImageName>tower_cell_2_2.png</cellImageName>
+				<towerName>Mud Tower</towerName>
 			</MudTower>
 			<MudTower>
 				<level>3</level>
@@ -32,6 +35,8 @@
 				<cdTime>900</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
+				<cellImageName>tower_cell_2_3.png</cellImageName>
+				<towerName>Mud Tower</towerName>
 			</MudTower>
 		</leveledTowers>
 	</TowerManager>

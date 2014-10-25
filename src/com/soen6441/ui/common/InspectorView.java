@@ -3,10 +3,13 @@ package com.soen6441.ui.common;
 
 
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.swing.JTextArea;
 
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.ImageView;
@@ -33,7 +36,7 @@ public class InspectorView extends View {
 	private Label titleLabel;
 	private Label subtitleLabel;
 	private ImageView imageView;
-	private Label descriptionLabel;
+	private JTextArea descriptionTextArea;
 	private List<Button> commandButtons;
 	
 	private IInspectable on;
@@ -66,18 +69,20 @@ public class InspectorView extends View {
 		this.add(subtitleLabel);
 		this.subtitleLabel = subtitleLabel;
 		
-		Label descriptionLabel = new Label();
-		descriptionLabel.setSize(160, 100);
-		descriptionLabel.setLocation(10, 160);
-		this.add(descriptionLabel);
-		this.descriptionLabel = descriptionLabel;
+		JTextArea descriptionTextArea = new JTextArea();
+		descriptionTextArea.setSize(160, 100);
+		descriptionTextArea.setLineWrap(true);
+		descriptionTextArea.setBackground(new Color(0xEEEEEE));
+		descriptionTextArea.setLocation(10, 160);
+		this.add(descriptionTextArea);
+		this.descriptionTextArea = descriptionTextArea;
 	
 	}
 
 	public void update() {
 		titleLabel.setText(on.title());
 		subtitleLabel.setText(on.subtitle());
-		descriptionLabel.setText(on.description());
+		descriptionTextArea.setText(on.description());
 		
 		//remove old buttons
 		for (Button button:commandButtons){

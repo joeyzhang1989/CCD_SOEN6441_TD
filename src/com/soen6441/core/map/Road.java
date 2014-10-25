@@ -40,5 +40,34 @@ public class Road extends MapItem {
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE);
 	}
 	
+	@Override
+	public String getName() {
+		switch (type) {
+		case NORMAL:
+			return "Road";
+		case START:
+			return "Entrance";
+		case END:
+			return "Exit";
+		default:
+			return null;
+		}
+	}
+ 
+	@Override
+	public String getCellImageName() {
+
+		switch (type) {
+		case NORMAL:
+			return "road_cell_normal.png";
+		case START:
+			return "road_cell_start.png";
+		case END:
+			return "road_cell_end.png";
+		default:
+			return null;
+		}
+	}
+	
 	
 }

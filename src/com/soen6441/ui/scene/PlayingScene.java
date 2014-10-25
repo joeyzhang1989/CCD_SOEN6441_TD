@@ -60,7 +60,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	//bottomView
 	private Button backButton;
-	private Button saveButton;
 	
 	@Override
 	protected void init() {
@@ -166,7 +165,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		this.add(inspectorView);
 		
 		// send the notifications to the inspectorView
-		inspectorView.setOn(new InspectableScenary());
+		inspectorView.setOn(new InspectableDemo());
 		inspectorView.update();
 		
 	}	
@@ -223,18 +222,18 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	public void gridViewDidSelect() {
 		System.out.println("...");
-		MapItem mi = play.getMap().selectedItem();
+		MapItem mi = play.getMap().getSelectedItem();
 		//MapItemCellFactory.cellFromItem(mi);
 		if (mi == null){
-			inspectorView.setOn(new SelectScenery());
+			inspectorView.setOn(new InspectableScenery());
 			inspectorView.update();
 		} else if (mi instanceof Road){
 			Road road = (Road)mi;
-			inspectorView.setOn(new SelectRoad(road));
+			inspectorView.setOn(new InspectableRoad(road));
 			inspectorView.update();
 		}
 		else if (mi instanceof Tower){
-			inspectorView.setOn(new SelectTower());
+			inspectorView.setOn(new InspectableTower());
 			inspectorView.update();
 		}
 	  }
@@ -253,13 +252,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @version $Revision: 1.0 $
 	 */
 	
-	private class InspectableScenary implements IInspectable
-	{
+	private class InspectableDemo implements IInspectable {
 		private Command buildBottleTower;
 		private Command buildMudTower;
 		private Command tempToTestObserver;
 		
-		public InspectableScenary() {
+		public InspectableDemo() {
 			buildBottleTower = new Command("Build Bottle Tower", "100$");
 			buildMudTower = new Command("Build Mud Tower", "100$");
 			tempToTestObserver = new Command("Observer Test", "");
@@ -339,7 +337,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @version $Revision: 1.0 $
 	 */
 	
-	private class SelectTower implements IInspectable
+	private class InspectableTower implements IInspectable
 	{
 		 
 		/**
@@ -351,7 +349,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		private Command Refund;
 
 		
-		public SelectTower() {
+		public InspectableTower() {
 			Upgrade = new Command("Upgrade Tower", "50$");
 			Refund = new Command("Refund Tower", "100$");
 			
@@ -423,11 +421,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
-	private class SelectRoad implements IInspectable
+	private class InspectableRoad implements IInspectable
 	{
 		private Road road;
 		
-		public SelectRoad(Road road){
+		public InspectableRoad(Road road){
 			this.road = road;
 		}
 		/**
@@ -437,16 +435,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String title() {
-			Road.Type type = road.getType();
-	
-			if (type == Road.Type.NORMAL){
-				return "NORMALROAD";
-			}else if (type ==Road.Type.START){
-				return "STARTPOINT";
-			}else if (type == Road.Type.END){
-				return "ENDPOINT";
-			}
-			return null;
+			return road.getName();
 		}
 		
 
@@ -508,14 +497,14 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @author Chenglong Zhang 
 	 * @version $Revision: 1.0 $
 	 */
-	private class SelectScenery implements IInspectable
+	private class InspectableScenery implements IInspectable
 	{
 		private Command BottleTower;
 		private Command MudTower;
 		private TowerManagerFactory towerManagerFactory;
 		private TowerManager towerManger;
 		private Tower tower;
-		public SelectScenery() {
+		public InspectableScenery() {
 			BottleTower = new Command("Build BottleTower", "50$");
 			MudTower = new Command("Build MudTower", "100$");
 			towerManagerFactory = TowerManagerFactory.currentManagerFactory();

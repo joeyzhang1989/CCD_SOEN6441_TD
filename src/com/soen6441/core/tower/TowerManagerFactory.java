@@ -26,7 +26,7 @@ public class TowerManagerFactory {
 	 * Singleton
 	 */
 	
-	public static TowerManagerFactory currentManagerFactory;
+	private static TowerManagerFactory currentManagerFactory;
 	
 	/**
 	 * Method currentManagerFactory.
@@ -80,8 +80,6 @@ public class TowerManagerFactory {
 		}
 		
 	}
-	
-	
 	
 	/**
 	 * This method is used to get a certain type of TowerManager by its type name.

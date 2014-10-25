@@ -27,9 +27,6 @@ import com.soen6441.core.map.MapPoint;
  */
 public class PlayManager {
 
-	String mapFilePath="./maps/"; 
-	
-	
 	/**
 	 * The method save will save the gamePlay in the specified file
 	 * 
@@ -39,9 +36,6 @@ public class PlayManager {
 
 	public void save (File file ,Play play){
 	
-	
-		
-		String fileName=file.toString();
 		/*
 		 * getting the required information from PLay object to save in the file.
 		 * */
@@ -83,9 +77,7 @@ public class PlayManager {
 		Element height = map1.addElement( "height" );
 		Element startPoints1 = map1.addElement( "startPoints" );
 		Element endPoints1 = map1.addElement( "endPoints" );
-		Element paths = map1.addElement( "paths" );
-		Element road = paths.addElement( "road" );
-	      
+		Element paths = map1.addElement( "Path" );
 		
 		/*
 		 * Saving the data read from Play object into XML Map file.
@@ -116,18 +108,24 @@ public class PlayManager {
 	      
 	     //adding path in document
 	      
-	      for(int i=0;i<pathToPoint.size();i++){
-		      Element loc=road.addElement("locations");
-		      			loc.addElement("xValue").setText(String.valueOf(pathToPoint.get(i).getGridedX()));;
-		      			loc.addElement("yValue").setText(String.valueOf(pathToPoint.get(i).getGridedY()));;
-		     
-		     }
-		      
+	     for(int i = 0; i < path.size();i++ ) {
+	    	 List<MapPoint> pathLoc = path.get(i).getLocations();
+	    	 Element loc1 = paths .addElement("paths");
+	    	 for ( int j=0; j < pathLoc.size();j++) {
+	    		
+	    		Element loc2 = loc1.addElement("locations");
+	    		loc2.addElement("xValue").setText(String.valueOf(pathLoc.get(j).getGridedX()));; 
+	    		loc2.addElement("yValue").setText(String.valueOf(pathLoc.get(j).getGridedY()));; 
+	    		
+	    		}
+	     }
 	      
-	  // lets write to a file
+	      
+	     
+	        // lets write to a file
 	        XMLWriter writer = null;
 			try {
-				writer = new XMLWriter(new FileWriter( mapFilePath+fileName ) );
+				writer = new XMLWriter(new FileWriter( file ) );
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -146,10 +144,6 @@ public class PlayManager {
 			}
 
 		
-		
-		
-		
-		
 	}
 	
 	
@@ -161,7 +155,7 @@ public class PlayManager {
 	 * @param file The name of the File form which to read 
 	 * @return Play
 	 */
-	public Play read(File file){
+	public  Play read(File file){
 		
 		
 		int totalCoins;
@@ -169,17 +163,14 @@ public class PlayManager {
 		int mapHeight;
 		ArrayList<MapPoint> startPoints = new ArrayList<MapPoint>();
 		ArrayList<MapPoint> endPoints = new ArrayList<MapPoint>();
-		ArrayList<MapPoint> path = new ArrayList<MapPoint>();
 		ArrayList<MapPath> multiplePaths = new ArrayList<MapPath>();
 		
-		
-		File mapFile=new File(mapFilePath+file);
 		
 		
 		SAXReader reader = new SAXReader();
 		Document document = null;
 		try {
-			document = reader.read(mapFile);
+			document = reader.read(file);
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
@@ -218,23 +209,36 @@ public class PlayManager {
 			 }
 		  
 		
+		
 		//reading paths
 		@SuppressWarnings("unchecked")
-		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/paths/road/locations" );
-			for (Iterator<Node> iter = list2.iterator(); iter.hasNext(); ) {
-				  Node n=(Node)iter.next();
-				  MapPoint rPoint=new MapPoint(Double.parseDouble(n.valueOf("xValue")), Double.parseDouble(n.valueOf("yValue")));
-				  path.add(rPoint);
+		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/Path/paths" );
+		
+			for(int i=0; i < list2.size();i++ ) {
+				Node n=(Node) list2.get(i);
+				
+				@SuppressWarnings("unchecked")
+				List<Node> list3 = n.selectNodes("locations") ;
+				
+				MapPath p=new MapPath();
+				MapPoint rPoint=null;
+				
+				for(int j=0;j < list3.size();j++ ) {
+					Node m = (Node) list3.get(j);
+					rPoint = new MapPoint(Double.parseDouble(m.valueOf("xValue")), Double.parseDouble(m.valueOf("yValue")));
+				    p.addLocation(rPoint);
+				}
+				 
+				multiplePaths.add(p);
 			}
-		  
+			
+			
+		
 		/*
 		 * Creating a GridMap Object in order to create an Play object after.
-		 * In order to create a GridMap object we need a MapPath object which
-		 * in turn Need an MapPoint Object
-		 * */
-		MapPath locations=new MapPath();
-		locations.setLocations(path);
-		multiplePaths.add(locations);
+		 * In order to create a GridMap object we need a MapPath object
+		 */
+	
 		
 		
 		GridMap newGridMap=new GridMap();
@@ -252,4 +256,10 @@ public class PlayManager {
 		return play;
 	}
 
+	public static void main(String[] args) {
+		Play play = Play.currentPlay();
+		play.buildDemo();
+		File file = new File("maps/a.xml");
+		new PlayManager().save(file, play);
+	}
 }

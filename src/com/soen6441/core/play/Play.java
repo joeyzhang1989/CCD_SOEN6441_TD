@@ -9,7 +9,9 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
-import com.soen6441.core.tower.BottleTower;
+import com.soen6441.core.tower.Tower;
+import com.soen6441.core.tower.TowerManager;
+import com.soen6441.core.tower.TowerManagerFactory;
 import com.soen6441.ui.scene.PlayingScene;
 
 /**
@@ -237,9 +239,15 @@ public class Play extends Observable {
 		map.setHeight(4);
 		
 		MapPoint p5 = new MapPoint(2, 2);
-		BottleTower tower = new BottleTower();
-		tower.setLevel(1);
-		map.setItem(tower, p5);
+		TowerManager manager1 = TowerManagerFactory.currentManagerFactory().getManager("BottleTower");
+		Tower t1 = manager1.createTower();
+		map.setItem(t1, p5);
+		
+		MapPoint p6 = new MapPoint(5, 0);
+		TowerManager manager2 = TowerManagerFactory.currentManagerFactory().getManager("MudTower");
+		Tower t2 = manager2.createTower();
+		/*manager2.upgrade(t2); */t2.upgrade();
+		map.setItem(t2, p6);
 		
 		MapPoint p1 = new MapPoint(1, 1);
 		MapPoint p2 = new MapPoint(2, 1);

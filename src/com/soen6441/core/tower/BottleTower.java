@@ -9,6 +9,7 @@ package com.soen6441.core.tower;
  * @author Haiyang Sun
  */
 public class BottleTower extends Tower {
+	
 	/**
 	 * Copy properties from one BottleTower object to another.
 	

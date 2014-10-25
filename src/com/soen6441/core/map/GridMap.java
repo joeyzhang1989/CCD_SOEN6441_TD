@@ -17,6 +17,7 @@ public class GridMap {
 	
 	public GridMap() {
 		this.pathManager = new PathManager();
+		this.pathManager.setMap(this);
 	}
 	
 	/*
@@ -144,7 +145,7 @@ public class GridMap {
 	 * Mark - Selection - Method
 	 */
 	
-	public MapItem selectedItem() {
+	public MapItem getSelectedItem() {
 		return this.getItem(selectedPoint);
 	}
 

@@ -9,24 +9,29 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.ui.common.GridViewCell;
 
 /**
- * This class defines a unit of the mapView.
+ * This class defines a unit of the mapView, our model where our grid resigns.
  * 
- * @author JeanRaymondDaher 
- * @since 0.1
  * @see GridViewCell MapView
  * 
+ * @author JeanRaymondDaher 
+ *
  */
 
 public class MapItemCell extends GridViewCell implements Observer{
 
+	/*
+	 * Mark - Basic - Properties
+	 */
 	private MapItem item;
+	
+	/*
+	 * Getters & Setters
+	 */
 	
 	/**
 	 * Method getItem.
 	 * @return MapItem
-	/*
-	 * Getters & Setters
-	 */
+	*/
 	public MapItem getItem() {
 		return item;
 	}
@@ -44,6 +49,10 @@ public class MapItemCell extends GridViewCell implements Observer{
 			this.item.addObserver(this);
 		}
 	}
+	
+	/*
+	 * Mark - Methods - Observer 
+	 */
 	
 	@Override
 	public void paint(Graphics g) {
