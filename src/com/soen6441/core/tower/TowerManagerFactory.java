@@ -24,7 +24,7 @@ import java.util.Map;
 public class TowerManagerFactory {
 	
 	/*
-	 * Singleton
+	 * Mark - Singleton
 	 */
 	
 	private static TowerManagerFactory currentManagerFactory;
@@ -41,18 +41,6 @@ public class TowerManagerFactory {
 		return currentManagerFactory;
 		
 	}
-	
-	/**
-	 * The array is used to store type names.
-	 */
-	public  List<String> typeNames;
-	
-	
-	/**
-	 * The map is used to store TowerManager objects and its names.
-	 */
-	private  Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
-	
 	
 	/**
 	 * Constructor
@@ -74,6 +62,25 @@ public class TowerManagerFactory {
 		}
 		
 	}
+
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
+	/**
+	 * The array is used to store type names.
+	 */
+	public  List<String> typeNames;
+	
+	
+	/**
+	 * The map is used to store TowerManager objects and its names.
+	 */
+	private  Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
+	
+	/* 
+	 * Mark - Basic - Methods
+	 */
 	
 	/**
 	 * This method is used to get a certain type of TowerManager by its type name.
