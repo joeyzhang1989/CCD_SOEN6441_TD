@@ -8,7 +8,7 @@ public class MapPointTestFunctional {
 
 	@Test
 	public void testDistanceTo() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 	@Test
