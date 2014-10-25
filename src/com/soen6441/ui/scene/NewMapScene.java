@@ -91,6 +91,21 @@ public class NewMapScene extends View {
 
 		}
 		
+		hi = heightTextField.getText();
+		try {
+			width = Integer.valueOf(hi);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this,
+					"The range of the height is 4-12");
+			return;
+		}
+
+		if (width < 4 || width > 12) {
+			JOptionPane.showMessageDialog(this,
+					"The range of the height is 4-12");
+			return;
+
+		}
 		EditingScene editingScene = new EditingScene();
 		NewMapScene.this.viewFlow.push(editingScene);
 
