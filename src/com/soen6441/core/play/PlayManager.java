@@ -43,13 +43,13 @@ public class PlayManager {
 		 * 
 		 */
 		
-		int totalCoins=play.getCoins();
-		GridMap newGridMap=play.getMap();
-		int mapWidth=newGridMap.getWidth();
-		int mapHeight=newGridMap.getHeight();
-		List<MapPoint> startPoints = newGridMap.getStartPoints();
-		List<MapPoint> endPoints = newGridMap.getEndPoints();
-		List<MapPath> path = newGridMap.getPaths();
+		int coins = play.getCoins();
+		GridMap map = play.getMap();
+		int width = map.getWidth();
+		int height = map.getHeight();
+		List<MapPoint> startPoints = map.getStartPoints();
+		List<MapPoint> endPoints = map.getEndPoints();
+		List<MapPath> path = map.getPaths();
         
 		
 	   /*
@@ -58,90 +58,75 @@ public class PlayManager {
 	    */
 		
 		Document document = DocumentHelper.createDocument();
-		Element root = document.addElement( "xml" );
-		Element Play = root.addElement( "Play" );
-		Element Coins = Play.addElement( "coins" );
-		Element map = Play.addElement( "map" );
-		Element map1 = map.addElement( "Map" );
-		Element width = map1.addElement( "width" );
-		Element height = map1.addElement( "height" );
-		Element startPoints1 = map1.addElement( "startPoints" );
-		Element endPoints1 = map1.addElement( "endPoints" );
-		Element paths = map1.addElement( "paths" );
+		Element rootElement = document.addElement( "xml" );
+		Element playElement = rootElement.addElement( "Play" );
+		Element coinsElement = playElement.addElement( "coins" );
+		Element mapElement = playElement.addElement( "map" );
+		Element mapObjectElement = mapElement.addElement( "Map" );
+		Element widthElement = mapObjectElement.addElement( "width" );
+		Element heightElement = mapObjectElement.addElement( "height" );
+		Element startPointsElement = mapObjectElement.addElement( "startPoints" );
+		Element endPointsElement = mapObjectElement.addElement( "endPoints" );
+		Element pathsElement = mapObjectElement.addElement( "paths" );
 		
 		/*
 		 * Saving the data read from Play object into XML Map file.
 		 */
 	        
-	      Coins.addText(String.valueOf(totalCoins));
-	      width.addText(String.valueOf(mapWidth));
-	      height.addText(String.valueOf(mapHeight));
+		coinsElement.addText(String.valueOf(coins));
+	    widthElement.addText(String.valueOf(width));
+	    heightElement.addText(String.valueOf(height));
 	      
+	    //adding startPoints in document
+	    for(int i= 0; i < startPoints.size();i++) {
+	    	Element pointElement = startPointsElement.addElement("MapPoint");
+	    	String xValue = String.valueOf(startPoints.get(i).getGridedX());
+	    	String yValue = String.valueOf(startPoints.get(i).getGridedY());
 	      
-	      //adding startPoints in document
-	      for(int i= 0; i < startPoints.size();i++) {
-	    	  Element sPoint = startPoints1.addElement("MapPoint");
-	          String xValue = String.valueOf(startPoints.get(i).getGridedX());
-	          String yValue = String.valueOf(startPoints.get(i).getGridedY());
+	    	pointElement.addAttribute("x", xValue);
+	    	pointElement.addAttribute("y", yValue);
+	    }
 	      
-	          sPoint.addAttribute("x", xValue);
-	          sPoint.addAttribute("y", yValue);
-	     }
-	      
-	      
-	      
-	      //adding endPoints in documents
-	      for(int i= 0; i < endPoints.size();i++) {
-	    	  Element ePoint = endPoints1.addElement("MapPoint");
-	    	  String xValue = String.valueOf(endPoints.get(i).getGridedX());
-	    	  String yValue = String.valueOf(endPoints.get(i).getGridedY());
+	    //adding endPoints in documents
+	    for(int i= 0; i < endPoints.size();i++) {
+	    	Element pointElement = endPointsElement.addElement("MapPoint");
+	    	String xValue = String.valueOf(endPoints.get(i).getGridedX());
+	    	String yValue = String.valueOf(endPoints.get(i).getGridedY());
 	      	
-	    	  ePoint.addAttribute("x", xValue);
-	          ePoint.addAttribute("y", yValue);
+	    	pointElement.addAttribute("x", xValue);
+	    	pointElement.addAttribute("y", yValue);
 	     
-	      }	
+	    }	
 	      
-	      
-	       //adding path in document
-	      for(int i = 0; i < path.size();i++ ) {
+	    //adding path in document
+	    for(int i = 0; i < path.size();i++ ) {
 	    	 
-	    	  List<MapPoint> pathLoc = path.get(i).getLocations();
-	    	  Element loc1 = paths .addElement("Path");
-	    	  Element loc2 = loc1.addElement("locations");
-	    	  for ( int j= 0; j < pathLoc.size();j++) {
-	    		  Element pPoint = loc2.addElement("MapPoint");
-	    		  String xValue = String.valueOf(pathLoc.get(j).getGridedX()); 
-	    		  String yValue = String.valueOf(pathLoc.get(j).getGridedY()); 
+	    	List<MapPoint> locations = path.get(i).getLocations();
+	    	Element pathObjectElement = pathsElement.addElement("Path");
+	    	Element locationsElement = pathObjectElement.addElement("locations");
+	    	for ( int j= 0; j < locations.size();j++) {
+	    		Element pointElement = locationsElement.addElement("MapPoint");
+	    		String xValue = String.valueOf(locations.get(j).getGridedX()); 
+	    		String yValue = String.valueOf(locations.get(j).getGridedY()); 
 	      			
-	    		  pPoint.addAttribute("x", xValue);
-	    		  pPoint.addAttribute("y", yValue);
+	    		pointElement.addAttribute("x", xValue);
+	    		pointElement.addAttribute("y", yValue);
 	    		
-	    		}
-	      	}
+	    	}
+	    }
 	      
-	      
-	        // lets write to a file
-	        XMLWriter writer = null;
-			try {
-				writer = new XMLWriter(new FileWriter( file ) );
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        try {
-				writer.write( document );
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	        try {
-				writer.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-	 
-	 }
+	    // lets write to a file
+		XMLWriter writer = null;
+		try {
+			writer = new XMLWriter(new FileWriter( file ) );
+			writer.write( document );
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (writer != null) { try { writer.close(); } catch (Exception e) {}}
+		}
+	}
 	
 	
 	/**
@@ -155,12 +140,12 @@ public class PlayManager {
 	 public Play read(File file){
 			
 			
-		int totalCoins;
-		int mapWidth;
-		int mapHeight;
+		int coins;
+		int width;
+		int height;
 		ArrayList<MapPoint> startPoints = new ArrayList<MapPoint>();
 		ArrayList<MapPoint> endPoints = new ArrayList<MapPoint>();
-		ArrayList<MapPath> multiplePaths = new ArrayList<MapPath>();
+		ArrayList<MapPath> paths = new ArrayList<MapPath>();
 				
 			
 			
@@ -174,75 +159,75 @@ public class PlayManager {
 			 
 		
 		// reading the number of coins stored in map F
-		Node  numberOfCoins = document.selectSingleNode("//xml/Play/coins");
-		totalCoins=Integer.parseInt(numberOfCoins.getText());  
+		Node  coinsNode = document.selectSingleNode("//xml/Play/coins");
+		coins=Integer.parseInt(coinsNode.getText());  
 				 
 		
 		// reading width
-		Node  mWidth = document.selectSingleNode("//xml/Play/map/Map/width");
-		mapWidth=Integer.parseInt(mWidth.getText());  
+		Node  widthNode = document.selectSingleNode("//xml/Play/map/Map/width");
+		width=Integer.parseInt(widthNode.getText());  
 		  
 		
 		//reading height
-		Node  mHeight = document.selectSingleNode("//xml/Play/map/Map/height");
-		mapHeight=Integer.parseInt(mHeight.getText());
+		Node  heightNode = document.selectSingleNode("//xml/Play/map/Map/height");
+		height=Integer.parseInt(heightNode.getText());
 			  
 			  
 		//reading startPoints
 		@SuppressWarnings("unchecked")
-		List<Node> list = document.selectNodes( "//xml/Play/map/Map/startPoints/MapPoint");
-		for (Iterator<Node> iter = list.iterator(); iter.hasNext(); ) {
-			Node n = (Node) iter.next();
-			Element element = (Element) n;
+		List<Node> startPointNodes = document.selectNodes( "//xml/Play/map/Map/startPoints/MapPoint");
+		for (Iterator<Node> iter = startPointNodes.iterator(); iter.hasNext(); ) {
+			Node pointNode = (Node) iter.next();
+			Element pointElement = (Element) pointNode;
 			
-			String xValue = element.attributeValue("x");
-			String yValue = element.attributeValue("y");
+			String xValue = pointElement.attributeValue("x");
+			String yValue = pointElement.attributeValue("y");
 			  
-			MapPoint sPoint = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));				  
+			MapPoint point = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));				  
 		
-			startPoints.add(sPoint);
+			startPoints.add(point);
 		 }
 					  
 					
 					  
 		//reading endPoint
 		@SuppressWarnings("unchecked")
-		List<Node> list1 = document.selectNodes( "//xml/Play/map/Map/endPoints/MapPoint");
-		for (Iterator<Node> iter = list1.iterator(); iter.hasNext(); ) {
-			Node n = (Node) iter.next();
-			Element element = (Element) n;
+		List<Node> endPointNodes = document.selectNodes( "//xml/Play/map/Map/endPoints/MapPoint");
+		for (Iterator<Node> iter = endPointNodes.iterator(); iter.hasNext(); ) {
+			Node pointNode = (Node) iter.next();
+			Element pointElement = (Element) pointNode;
 			
-			String xValue = element.attributeValue("x");
-			String yValue = element.attributeValue("y");
+			String xValue = pointElement.attributeValue("x");
+			String yValue = pointElement.attributeValue("y");
 					  
-			MapPoint ePoint = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));				  
+			MapPoint point = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));				  
 			
-			endPoints.add(ePoint);
+			endPoints.add(point);
 		}
 				  
 					
 					
 		//reading paths
 		@SuppressWarnings("unchecked")
-		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/paths/Path/locations" );
-		for (Iterator<Node> iter = list2.iterator(); iter.hasNext(); ) {
-			Node n = (Node) iter.next();
+		List<Node> locationsNodes = document.selectNodes( "//xml/Play/map/Map/paths/Path/locations" );
+		for (Iterator<Node> iter = locationsNodes.iterator(); iter.hasNext(); ) {
+			Node locationsNode = (Node) iter.next();
 			@SuppressWarnings("unchecked")
-			List<Node> list3 = n.selectNodes("MapPoint") ;
+			List<Node> pointNodes = locationsNode.selectNodes("MapPoint") ;
 			
-			MapPath p=new MapPath();
-			MapPoint rPoint=null;
-			for (Iterator<Node> iter2 = list3.iterator(); iter2.hasNext(); ) {
-				Node m = (Node) iter2.next();
-				Element element = (Element) m;
+			MapPath path=new MapPath();
+			MapPoint point=null;
+			for (Iterator<Node> iter2 = pointNodes.iterator(); iter2.hasNext(); ) {
+				Node pointNode = (Node) iter2.next();
+				Element pointElement = (Element) pointNode;
 				
-				String xValue = element.attributeValue("x");
-				String yValue = element.attributeValue("y");
+				String xValue = pointElement.attributeValue("x");
+				String yValue = pointElement.attributeValue("y");
 				
-				rPoint = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));	
-				p.addLocation(rPoint);
+				point = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));	
+				path.addLocation(point);
 			}
-			multiplePaths.add(p);
+			paths.add(path);
 		}
 					
 					
@@ -254,17 +239,17 @@ public class PlayManager {
 		
 		
 		
-		GridMap newGridMap=new GridMap();
-		newGridMap.setHeight(mapHeight);
-		newGridMap.setWidth(mapWidth);
-		newGridMap.setStartPoints(startPoints);
-		newGridMap.setEndPoints(endPoints);
-		newGridMap.setPaths(multiplePaths);
+		GridMap map=new GridMap();
+		map.setHeight(height);
+		map.setWidth(width);
+		map.setStartPoints(startPoints);
+		map.setEndPoints(endPoints);
+		map.setPaths(paths);
 		
 		//Finally creating a Play Object to return
 		Play play = Play.currentPlay();
-		play.setCoins(totalCoins);
-		play.setMap(newGridMap);
+		play.setCoins(coins);
+		play.setMap(map);
 		
 		return play;
     }   
