@@ -125,15 +125,31 @@ public class MainScene extends View {
 		});
 
 		editButton.addActionListener(new ActionListener() {
-
 			@Override
 			/*
 			 * perform the function that click the editbutton to go to
 			 * editingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
-				EditingScene editingScene = new EditingScene();
-				MainScene.this.viewFlow.push(editingScene);
+				/*
+				 * Open a window to select maps.
+				 */
+
+				JFileChooser fileChooser = new JFileChooser(new File("maps/"));
+				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+				fileChooser.setFileFilter(filter);
+				int option = fileChooser.showOpenDialog(MainScene.this);
+				if (option == JFileChooser.APPROVE_OPTION) {
+					File file = fileChooser.getSelectedFile();
+					
+					PlayManager playManager = new PlayManager();
+					playManager.read(file);
+					
+					EditingScene editingScene = new EditingScene();
+					MainScene.this.viewFlow.push(editingScene);
+				}
+
+			
 			}
 		});
 
