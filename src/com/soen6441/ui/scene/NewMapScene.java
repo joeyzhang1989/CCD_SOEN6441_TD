@@ -105,7 +105,6 @@ public class NewMapScene extends View {
 		NewMapScene.this.viewFlow.push(editingScene);
 
 	}
-
 	@Override
 	protected void initEvents() {
 		nextButton.addActionListener(new ActionListener() {

@@ -101,7 +101,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		// Lower view containing the back and save buttons
 		View lowerView = new View();
-		lowerView.setLocation(0, 550);
+		lowerView.setLocation(0, 540);
 		lowerView.setSize(800, 40);
 		// lowerView.setBackground(Color.blue);
 
@@ -109,12 +109,12 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.saveButton = new Button();
 		this.saveButton.setTitle("SAVE");
 		this.saveButton.setSize(60, 20);
-		this.saveButton.setLocation(730, 0);
+		this.saveButton.setLocation(730, 10);
 		// save button
 		this.backButton = new Button();
 		this.backButton.setTitle("BACK");
 		this.backButton.setSize(60, 20);
-		this.backButton.setLocation(10, 0);
+		this.backButton.setLocation(10, 10);
 
 		lowerView.add(this.saveButton);
 		lowerView.add(this.backButton);
@@ -168,9 +168,10 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.backButton.addActionListener(new ActionListener() {
 			@Override
 			/**
-			 * *perform the function that click the backbutton to go to editingscene
+			 * perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
+//				Play.destroy();
 				EditingScene.this.viewFlow.pop();
 			}
 
@@ -394,10 +395,10 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	/**
 	 * This method will check that the path is valid from Start to End.
 	 * 
-	
-	
 	 * @return boolean
-	 * 				  True or False depending on validation * @see PathManager  */
+	 * True or False depending on validation 
+	 * @see PathManager  
+	 */
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
 

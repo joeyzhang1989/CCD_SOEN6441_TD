@@ -45,18 +45,17 @@ public class GridView extends View {
 	private int unitWidth;
 	private int unitHeight;
 
-	private GridViewCell[][] cells;
-
 	/*
 	 * Mark - Basic - Methods
 	 */
 	
 	/**
-	 * This method will return the suggested width by taking the number of columns and multiplying it by the cell's width AND
+	 * This method will return the suggested width by taking the number of columns 
+	 * and multiplying it by the cell's width AND
 	 * the suggested height by taking the number of rows and multiplying it by the cell's height
-	
 	 * @return Dimension 
-	 * 			  		Object containing (width and height) */
+	 * 	Object containing (width and height) 
+	 */
 	
 	public Dimension suggestedSize() {
 		int width=this.numberOfColumns*this.unitWidth;
@@ -67,7 +66,7 @@ public class GridView extends View {
 	/*
 	 * Mark - Basic - Getters & Setters
 	 */
-	
+
 	/**
 	 * Method getNumberOfRows.
 	 * @return int
@@ -135,14 +134,22 @@ public class GridView extends View {
 	}
 
 	/*
-	 * Methods for managing GridViewCell: adding, removing and replacing a cell.
+	 * Mark - Cell Management - Properties
 	 */
 
+	private GridViewCell[][] cells;
+	
+	/*
+	 * Mark - Cell Management - Methods
+	 */
+	
 	/**
 	 * Add a cell to the cells[row][column].
 	 * 
-	 * @param cell Defines the cell that needs to be added
-	 * @param point Defines the location where the cell should reside
+	 * @param cell
+	 * Defines the cell that needs to be added
+	 * @param point
+	 * Defines the location where the cell should reside
 	 */
 	public void addCell(GridViewCell cell, GridPoint point) {
 		int row = point.getRow();
@@ -158,7 +165,7 @@ public class GridView extends View {
 	/**
 	 * Method removeCell.
 	 * 
-	 * @param cell The cell that needs to be removed
+	 * @param cell The cell needs to be removed
 	 */
 	public void removeCell(GridViewCell cell) {
 		int row = cell.getPoint().getRow();
@@ -174,7 +181,6 @@ public class GridView extends View {
 	 * @param newCell The new cell that needs to be added
 	 */
 	public void replaceCell(GridViewCell cell, GridViewCell newCell) {
-	
 		this.removeCell(cell);
 		this.addCell(newCell, cell.getPoint());
 		
@@ -229,7 +235,6 @@ public class GridView extends View {
 	public GridViewSelectionListener getSelectionListener() {
 		return selectionListener;
 	}
-	
 	/**
 	 * Method setSelectionListener.
 	 * @param selectionListener GridViewSelectionListener

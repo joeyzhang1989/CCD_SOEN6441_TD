@@ -57,8 +57,8 @@ public class GridViewCell extends View {
 	
 	/**
 	 * Method getGridView.
-	
-	 * @return GridView  */
+	 * @return GridView  
+	 */
 	public GridView getGridView() {
 		return gridView;
 	}

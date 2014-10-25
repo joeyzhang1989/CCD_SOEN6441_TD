@@ -9,7 +9,7 @@ import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.map.MapItemCell;
 
 /**
- * @author chenglong
+ * @author Zhe Zhao
  * @version $Revision: 1.0 $
  */
 public class TowerCell extends MapItemCell {
