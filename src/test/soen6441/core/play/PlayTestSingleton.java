@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import com.soen6441.core.play.Play;
 
-public class PlaySingletonTest {
+public class PlayTestSingleton {
 
 	Play play1 = Play.currentPlay();
 	

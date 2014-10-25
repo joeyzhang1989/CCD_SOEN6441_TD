@@ -11,9 +11,9 @@ import org.junit.runners.Suite.SuiteClasses;
  * @author Mohammad Ali 
  */
 @RunWith(Suite.class)
-@SuiteClasses({ PlaySingletonTest.class,
+@SuiteClasses({ PlayTestSingleton.class,
 				PlayManagerTest.class,
 				PlayTest.class})
-public class PlaySuite {
+public class SuitePlay {
 
 }
