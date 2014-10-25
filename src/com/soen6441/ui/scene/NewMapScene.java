@@ -20,8 +20,10 @@ import com.soen6441.ui.parallel.*;
 public class NewMapScene extends View {
 	private TextField widthTextField;
 	private TextField heightTextField;
+	private TextField nameTextField;
 	private Label widthTextLabel;
 	private Label heightTextLabel;
+	private Label nameTextLabel;
 	private Button nextButton;
 	private Button backButton;
 
@@ -44,7 +46,7 @@ public class NewMapScene extends View {
 		heightTextLabel = new Label();
 		heightTextLabel.setText("Height");
 		heightTextLabel.setSize(200, 40);
-		heightTextLabel.setLocation(220, 200);
+		heightTextLabel.setLocation(220, (int)widthTextLabel.getLocation().getY() + 50);
 		this.add(heightTextLabel);
 
 		this.heightTextField = new TextField();
@@ -52,10 +54,22 @@ public class NewMapScene extends View {
 		this.heightTextField.setSize(200, 40);
 		this.heightTextField.setLocation(300, 200);
 		this.add(heightTextField);
+		
+		nameTextLabel = new Label();
+		nameTextLabel.setText("Height");
+		nameTextLabel.setSize(200, 40);
+		nameTextLabel.setLocation(220, (int)heightTextLabel.getLocation().getY() + 50);
+		this.add(nameTextLabel);
+		
+		this.nameTextField = new TextField();
+		this.nameTextField.setText("");
+		this.nameTextField.setSize(200, 40);
+		this.nameTextField.setLocation(300, (int)heightTextField.getLocation().getY() + 50);
+		this.add(nameTextField);
 
 		nextButton = new Button();
 		nextButton.setTitle("Next");
-		nextButton.setLocation(300, 250);
+		nextButton.setLocation(300, (int)nameTextField.getLocation().getY() + 50);
 		nextButton.setSize(200, 40);
 		this.add(nextButton);
 
@@ -101,8 +115,8 @@ public class NewMapScene extends View {
 			return;
 
 		}
-		EditingScene editingScene = new EditingScene();
-		NewMapScene.this.viewFlow.push(editingScene);
+//		EditingScene editingScene = new EditingScene();
+//		NewMapScene.this.viewFlow.push(editingScene);
 
 	}
 	@Override
