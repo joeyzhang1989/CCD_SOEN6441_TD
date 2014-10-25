@@ -7,6 +7,7 @@ package com.soen6441.core.map;
  * 
  * @author Zhe Zhao
  * @author Mohammad Ali
+ * @version $Revision: 1.0 $
  */
 
 public class MapPoint {
@@ -18,6 +19,11 @@ public class MapPoint {
 		super();
 	}
 	
+	/**
+	 * Constructor for MapPoint.
+	 * @param x double
+	 * @param y double
+	 */
 	public MapPoint(double x, double y) {
 		super();
 		this.x = x;
@@ -33,7 +39,7 @@ public class MapPoint {
 	/**
 	 * Method getGridedX.
 	 * @return int
-	 */
+     */
 	public int getGridedX(){
 		
 	  return (int)this.x;
@@ -52,8 +58,8 @@ public class MapPoint {
 	
 	/**
 	 * Method getGridedY.
-	 * @return int
-	 */
+	 * @return int 
+     */
 	public int getGridedY(){
 			
 	   return (int)this.y;
@@ -89,8 +95,8 @@ public class MapPoint {
 	
 	/**
 	 * Method getX.
-	 * @return double
-	 */
+	 * @return double 
+     */
 	public double getX() {
 		return x;
 	}
@@ -108,7 +114,7 @@ public class MapPoint {
 	/**
 	 * Method getY.
 	 * @return double
-	 */
+     */
 	public double getY() {
 		return y;
 	}
@@ -130,7 +136,7 @@ public class MapPoint {
 	 * Method equals.
 	 * @param obj Object
 	 * @return boolean
-	 */
+     */
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)

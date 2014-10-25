@@ -4,6 +4,7 @@ import org.dom4j.Element;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public interface IArchive {
 	/**
@@ -13,7 +14,7 @@ public interface IArchive {
 	public void decode(Element element);
 	/**
 	 * Method encode.
-	 * @return Element
-	 */
+	
+	 * @return Element */
 	public Element encode();
 }

@@ -24,6 +24,8 @@ import com.soen6441.core.map.MapPoint;
  * The class PalyManager will handle the task of saving the gamePlay in XML file and reading the XML file to generate gamePlay;
  * 
  * @author Mohammad Ali
+ * @author Chenglong Zhang
+ * @version $Revision: 1.0 $
  */
 public class PlayManager {
 
@@ -153,8 +155,8 @@ public class PlayManager {
 	 * Requires jaxen 1.1-beta-6.jar located in Dom4j lib folder.
 	 * 
 	 * @param file The name of the File form which to read 
-	 * @return Play
-	 */
+	 * @return Play 
+     */
 	public  Play read(File file){
 		
 		
@@ -256,6 +258,10 @@ public class PlayManager {
 		return play;
 	}
 
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		Play play = Play.currentPlay();
 		play.buildDemo();

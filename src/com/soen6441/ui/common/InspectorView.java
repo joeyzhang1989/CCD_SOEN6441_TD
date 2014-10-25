@@ -26,6 +26,7 @@ import com.soen6441.ui.parallel.View;
  * @author Chenglong Zhang
  * 
  * @see IInspectable
+ * @version $Revision: 1.0 $
  */
 public class InspectorView extends View {
 
@@ -121,8 +122,8 @@ public class InspectorView extends View {
 	
 	/**
 	 * Method getOn.
-	 * @return IInspectable
-	 */
+	
+	 * @return IInspectable */
 	public IInspectable getOn() {
 		return on;
 	}

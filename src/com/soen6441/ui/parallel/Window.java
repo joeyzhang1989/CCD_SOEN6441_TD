@@ -6,6 +6,7 @@ import javax.swing.JFrame;
 
 /**
  *@author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Window extends JFrame {
 	private static final long serialVersionUID = -1894544342715903093L;

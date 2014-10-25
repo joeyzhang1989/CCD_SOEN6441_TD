@@ -12,6 +12,7 @@ import com.soen6441.core.tower.TowerManagerFactory;
  * This test responses to test method related to TowerManager class, which are createTower and upgradeTower.
  * @author Haiyang Sun
  *
+ * @version $Revision: 1.0 $
  */
 
 public class TowerManagerTest {

@@ -9,6 +9,7 @@ import javax.swing.JButton;
  *
  * @author Zhe Zhao
  *
+ * @version $Revision: 1.0 $
  */
 public class Button extends JButton {
 	private static final long serialVersionUID = -3246005973006189406L;
@@ -48,8 +49,8 @@ public class Button extends JButton {
 	
 	 * 
 	 * @deprecated since <unknown>
-	 * @return String
-	 * @see #getTitle() */
+	
+	 * @return String * @see #getTitle() */
 	@Override
 	public String getText() {
 		if (subtitle == null){
@@ -61,8 +62,8 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>title</code>
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getTitle() {
 		return title;
 	}
@@ -78,8 +79,8 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>subtitle</code>
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getSubtitle() {
 		return subtitle;
 	}

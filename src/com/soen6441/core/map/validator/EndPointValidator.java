@@ -10,6 +10,8 @@ import com.soen6441.core.map.Road;
  * The class EndPointValidator is a subclass of PathValidator.
  * It overrides the method Validate() of its parent class and check the number of EndPoints in the Map.
  * 
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 
 
@@ -19,8 +21,8 @@ public class EndPointValidator extends PathValidator{
 	 * This method Validate() overrides the method Validate() of parent class PathValidator.
 	 * It checks the Map for end points and validates the Map.
 	 * 
-	 * @return boolean A boolean values that represent whether # of EndPoints are valid.
-	 */
+	 * @return boolean A boolean values that represent whether # of EndPoints are valid. 
+     */
 	
 	@Override
 	public boolean validate() {

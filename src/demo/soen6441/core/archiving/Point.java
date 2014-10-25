@@ -8,6 +8,7 @@ import com.soen6441.core.IArchive;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Point implements IArchive {
 	
@@ -42,6 +43,8 @@ public class Point implements IArchive {
 	 */
 
 	/**
+	 * @author chenglong
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		public static final String Class = "Point";
@@ -52,8 +55,8 @@ public class Point implements IArchive {
 	/**
 	 * Method decode.
 	 * @param element Element
-	 * @see com.soen6441.core.IArchive#decode(Element)
-	 */
+	
+	 * @see com.soen6441.core.IArchive#decode(Element) */
 	@Override
 	public void decode(Element element) {
 		x = Integer.parseInt(element.attributeValue(NameForArchiving.X));
@@ -62,9 +65,9 @@ public class Point implements IArchive {
 	
 	/**
 	 * Method encode.
-	 * @return Element
-	 * @see com.soen6441.core.IArchive#encode()
-	 */
+	
+	
+	 * @return Element * @see com.soen6441.core.IArchive#encode() */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class); 
@@ -79,8 +82,8 @@ public class Point implements IArchive {
 
 	/**
 	 * Method getX.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getX() {
 		return x;
 	}
@@ -93,8 +96,8 @@ public class Point implements IArchive {
 	}
 	/**
 	 * Method getY.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getY() {
 		return y;
 	}
@@ -108,8 +111,8 @@ public class Point implements IArchive {
 
 	/**
 	 * Method toString.
-	 * @return String
-	 */
+	
+	 * @return String */
 	@Override
 	public String toString() {
 		return "{" + "x: " + x + ", " + "y: " + y + "}";

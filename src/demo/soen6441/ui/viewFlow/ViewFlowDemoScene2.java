@@ -8,6 +8,8 @@ import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
 
 /**
+ * @author chenglong
+ * @version $Revision: 1.0 $
  */
 public class ViewFlowDemoScene2 extends View {
 	
