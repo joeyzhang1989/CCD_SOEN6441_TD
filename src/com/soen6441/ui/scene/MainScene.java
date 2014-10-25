@@ -17,6 +17,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.filechooser.FileSystemView;
 
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -101,7 +102,13 @@ public class MainScene extends View {
 				/*
 				 * Open a window to select maps.
 				 */
-				JFileChooser fileChooser = new JFileChooser();
+//				File file = null;
+//				String path = null;
+				JFileChooser fileChooser = new JFileChooser(new File("maps/"));
+//				FileSystemView fsv = FileSystemView.getFileSystemView();
+//				fileChooser.setCurrentDirectory(fsv.getHomeDirectory());
+				
+				
 				
 				playButton.addActionListener(this);
 
@@ -166,14 +173,14 @@ public class MainScene extends View {
 	 */
 	/**
 	 * Method main.
-	 * @param args String[]
+	 * 
+	 * @param args
+	 *            String[]
 	 */
 	public static void main(String[] args) {
 		ViewFlow viewFlow = new ViewFlow();
 		viewFlow.push(new MainScene());
 		new Window(viewFlow);
 	}
-
-	
 
 }
