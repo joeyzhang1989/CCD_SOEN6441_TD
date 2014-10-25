@@ -16,7 +16,7 @@ import com.soen6441.ui.parallel.View;
 public class GridView extends View {
 
 	/*
-	 * Constructor
+	 * Mark - Constructors
 	 */
 	
 	public GridView(){
@@ -59,7 +59,7 @@ public class GridView extends View {
 	}
 
 	/*
-	 * Getters & Setters for numberOfRows and numberOfColumns
+	 * Mark - Basic - Getters & Setters
 	 */
 	
 	public int getNumberOfRows() {
@@ -79,10 +79,6 @@ public class GridView extends View {
 		this.numberOfColumns = numberOfColumns;
 		this.cells=new GridViewCell[this.numberOfRows][numberOfColumns];
 	}
-
-	/*
-	 * Getters & Setters for unitWidth and unitHeight
-	 */
 
 	public int getUnitWidth() {
 		return unitWidth;
@@ -107,70 +103,47 @@ public class GridView extends View {
 	/**
 	 * Add a cell to the cells[row][column].
 	 * 
-	 * @param cell
-	 *            Defines the cell that needs to be added
-	 * @param point
-	 *            Defines the location where the cell should reside
+	 * @param cell Defines the cell that needs to be added
+	 * @param point Defines the location where the cell should reside
 	 */
 	public void addCell(GridViewCell cell, GridPoint point) {
 		int row = point.getRow();
 		int column = point.getColumn();
-		if (this.cells[row][column] == null) {
-			this.cells[row][column] = cell;
-			cell.setPoint(point);
-			cell.setGridView(this);
-			
-			cell.setLocation(column * unitWidth, row * unitHeight);
-			this.add(cell);
-		} else {
-			System.out.println("cannot add - cell already present");
-		}
+		
+		this.cells[row][column] = cell;
+		cell.setPoint(point);
+		cell.setGridView(this);
+		cell.setLocation(column * unitWidth, row * unitHeight);
+		this.add(cell);
 	}
 
 	/**
 	 * Method removeCell.
 	 * 
-	 * @param cell
-	 *            GridViewCell Loop through all the cells and remove the
-	 *            appropriate cell.
-	 * @param cell
-	 *            The cell that needs to be removed
+	 * @param cell GridViewCell Loop through all the cells and remove the appropriate cell.
+	 * @param cell The cell that needs to be removed
 	 */
 	public void removeCell(GridViewCell cell) {
 		int row = cell.getPoint().getRow();
 		int column = cell.getPoint().getColumn();
 		this.remove(cells[row][column]);
+		cells[row][column] = null;
 	}
 
 	/**
 	 * Loop through all the cells and replace the appropriate cell.
 	 * 
-	 * @param cell
-	 *            The cell that needs to be replaced
-	 * @param newCell
-	 *            The new cell that needs to be added
+	 * @param cell The cell that needs to be replaced
+	 * @param newCell The new cell that needs to be added
 	 */
 	public void replaceCell(GridViewCell cell, GridViewCell newCell) {
 	
-		newCell.setSize(cell.getSize());
-		newCell.setLocation(cell.getLocation());
-		newCell.setPoint(cell.getPoint());
-		newCell.setGridView(this);
-		
-		int row=cell.getPoint().getRow();
-		int column=cell.getPoint().getColumn();
-		this.remove(cells[row][column]);
-		
-		this.add(newCell);
+		this.removeCell(cell);
+		this.addCell(newCell, cell.getPoint());
 		
 		if (cell == this.selectedCell) {
 			setSelectedCell(newCell);
 		}
-		
-//		newCell.repaint();
-//		this.repaint(newCell.getVisibleRect());
-		this.validate();
-		this.repaint();
 	}
 
 	/*

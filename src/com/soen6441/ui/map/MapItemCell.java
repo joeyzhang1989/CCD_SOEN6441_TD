@@ -64,6 +64,8 @@ public class MapItemCell extends GridViewCell implements Observer{
 		}
 	}
 	
+	
+	
 	@Override
 	public void setSelected(boolean selected) {
 		super.setSelected(selected);
