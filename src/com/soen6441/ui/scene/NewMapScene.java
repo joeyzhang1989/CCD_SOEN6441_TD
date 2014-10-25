@@ -73,6 +73,23 @@ public class NewMapScene extends View {
 	}
 
 	private void next() {
+		int width;
+		java.lang.String wi, hi;
+		wi = widthTextField.getText();
+		try {
+			width = Integer.valueOf(wi);
+		} catch (Exception e) {
+			JOptionPane.showMessageDialog(this,
+					"The range of the width is 4-15");
+			return;
+		}
+
+		if (width < 4 || width > 15) {
+			JOptionPane.showMessageDialog(this,
+					"The range of the width is 4-15");
+			return;
+
+		}
 		
 		EditingScene editingScene = new EditingScene();
 		NewMapScene.this.viewFlow.push(editingScene);
@@ -91,7 +108,7 @@ public class NewMapScene extends View {
 				next();
 			}
 		});
-		
+
 		backButton.addActionListener(new ActionListener() {
 
 			@Override
