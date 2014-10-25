@@ -43,14 +43,6 @@ public class TowerManagerFactory {
 	}
 	
 	/**
-	 * Use this method to set the shared instance to null
-	 */
-	public static void destroy(){
-		currentManagerFactory = null;
-	}
-	
-	
-	/**
 	 * The array is used to store type names.
 	 */
 	public  List<String> typeNames;
