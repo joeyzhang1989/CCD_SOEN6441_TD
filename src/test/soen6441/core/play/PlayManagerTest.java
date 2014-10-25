@@ -39,7 +39,6 @@ public class PlayManagerTest {
 	@AfterClass
 	public static void tearDown() {
 		
-		//Play.destroy();
 		try {
 			if (testFile.exists()){
 				testFile.delete();
