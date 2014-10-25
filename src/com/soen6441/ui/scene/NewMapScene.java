@@ -4,11 +4,6 @@ import java.awt.TextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import java.util.regex.Pattern;
-import java.util.Scanner;
-
 import javax.swing.JOptionPane;
 
 import com.soen6441.ui.parallel.*;
