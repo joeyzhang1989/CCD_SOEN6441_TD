@@ -31,8 +31,8 @@ public class MapItemCell extends GridViewCell implements Observer{
 	
 	/**
 	 * Method getItem.
-	
- * @return MapItem	*/
+	 * @return MapItem	
+	 */
 	public MapItem getItem() {
 		return item;
 	}
@@ -68,6 +68,8 @@ public class MapItemCell extends GridViewCell implements Observer{
 			g.drawRect(1, 1, 38, 38);
 		}
 	}
+	
+	
 	
 	/**
 	 * Method setSelected.
