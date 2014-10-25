@@ -36,22 +36,26 @@ public class PlayManager {
 	 * @param play A play object
 	 */
 
-	public void save (File file ,Play play){
-	
+	 public static void save (File file ,Play play) {
+		
 		/*
-		 * getting the required information from PLay object to save in the file.
-		 * */
+		 * Getting the required information from PLay object to save in the file.
+		 * 
+		 */
+		
 		int totalCoins=play.getCoins();
 		GridMap newGridMap=play.getMap();
 		int mapWidth=newGridMap.getWidth();
 		int mapHeight=newGridMap.getHeight();
-		List<MapPoint> startPoints =newGridMap.getStartPoints();
+		List<MapPoint> startPoints = newGridMap.getStartPoints();
 		List<MapPoint> endPoints = newGridMap.getEndPoints();
 		List<MapPath> path = newGridMap.getPaths();
         
-		/*
-	    * creating the General structure of the xml file
-	    * */
+		
+	   /*
+	    * Creating the General structure of the xml file
+	    * 
+	    */
 		
 		Document document = DocumentHelper.createDocument();
 		Element root = document.addElement( "xml" );
@@ -63,7 +67,7 @@ public class PlayManager {
 		Element height = map1.addElement( "height" );
 		Element startPoints1 = map1.addElement( "startPoints" );
 		Element endPoints1 = map1.addElement( "endPoints" );
-		Element paths = map1.addElement( "Path" );
+		Element paths = map1.addElement( "paths" );
 		
 		/*
 		 * Saving the data read from Play object into XML Map file.
@@ -73,41 +77,49 @@ public class PlayManager {
 	      width.addText(String.valueOf(mapWidth));
 	      height.addText(String.valueOf(mapHeight));
 	      
+	      
 	      //adding startPoints in document
-	      for(int i=0;i<startPoints.size();i++){
-	      Element startPnt=startPoints1.addElement("startPoint");
-	      			startPnt.addElement("xValue").setText(String.valueOf(startPoints.get(i).getGridedX()));;
-	      			startPnt.addElement("yValue").setText(String.valueOf(startPoints.get(i).getGridedY()));;
-	     
+	      for(int i= 0; i < startPoints.size();i++) {
+	    	  Element sPoint = startPoints1.addElement("MapPoint");
+	          String xValue = String.valueOf(startPoints.get(i).getGridedX());
+	          String yValue = String.valueOf(startPoints.get(i).getGridedY());
+	      
+	          sPoint.addAttribute("x", xValue);
+	          sPoint.addAttribute("y", yValue);
 	     }
 	      
 	      
 	      
-	    //adding endPoints in documents
-	      for(int i=0;i<endPoints.size();i++){
-	      Element endPnt=endPoints1.addElement("endPoint");
-	      			endPnt.addElement("xValue").setText(String.valueOf(endPoints.get(i).getGridedX()));;
-	      			endPnt.addElement("yValue").setText(String.valueOf(endPoints.get(i).getGridedY()));;
+	      //adding endPoints in documents
+	      for(int i= 0; i < endPoints.size();i++) {
+	    	  Element ePoint = endPoints1.addElement("MapPoint");
+	    	  String xValue = String.valueOf(endPoints.get(i).getGridedX());
+	    	  String yValue = String.valueOf(endPoints.get(i).getGridedY());
+	      	
+	    	  ePoint.addAttribute("x", xValue);
+	          ePoint.addAttribute("y", yValue);
 	     
-	     }
+	      }	
 	      
 	      
-	     //adding path in document
-	      
-	     for(int i = 0; i < path.size();i++ ) {
-	    	 List<MapPoint> pathLoc = path.get(i).getLocations();
-	    	 Element loc1 = paths .addElement("paths");
-	    	 for ( int j=0; j < pathLoc.size();j++) {
-	    		
-	    		Element loc2 = loc1.addElement("locations");
-	    		loc2.addElement("xValue").setText(String.valueOf(pathLoc.get(j).getGridedX()));; 
-	    		loc2.addElement("yValue").setText(String.valueOf(pathLoc.get(j).getGridedY()));; 
+	       //adding path in document
+	      for(int i = 0; i < path.size();i++ ) {
+	    	 
+	    	  List<MapPoint> pathLoc = path.get(i).getLocations();
+	    	  Element loc1 = paths .addElement("Path");
+	    	  Element loc2 = loc1.addElement("locations");
+	    	  for ( int j= 0; j < pathLoc.size();j++) {
+	    		  Element pPoint = loc2.addElement("MapPoint");
+	    		  String xValue = String.valueOf(pathLoc.get(j).getGridedX()); 
+	    		  String yValue = String.valueOf(pathLoc.get(j).getGridedY()); 
+	      			
+	    		  pPoint.addAttribute("x", xValue);
+	    		  pPoint.addAttribute("y", yValue);
 	    		
 	    		}
-	     }
+	      	}
 	      
 	      
-	     
 	        // lets write to a file
 	        XMLWriter writer = null;
 			try {
@@ -128,9 +140,8 @@ public class PlayManager {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-
-		
-	}
+	 
+	 }
 	
 	
 	/**
