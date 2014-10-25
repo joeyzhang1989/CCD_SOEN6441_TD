@@ -38,6 +38,7 @@ public class MapItemCellFactory {
 			cell = new TowerCell();
 		}
 		cell.setItem(item);
+		cell.setSize(40, 40);
 		return cell;
 	}
 }
