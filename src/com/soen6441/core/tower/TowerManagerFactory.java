@@ -76,7 +76,7 @@ public class TowerManagerFactory {
 		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
 		
 		for(int i=0; i<typeNames.size(); i++) {
-			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i)+".xml");
+			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i).toLowerCase()+".xml");
 			managers.put("1", towerManager);
 			managers.put(typeNames.get(i), towerManager);
 		}
