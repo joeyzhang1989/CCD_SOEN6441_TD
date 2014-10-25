@@ -49,23 +49,7 @@ public class PlayManager {
 		List<MapPoint> endPoints = newGridMap.getEndPoints();
 		List<MapPath> path = newGridMap.getPaths();
         
-		
-		List<MapPoint> pathToPoint = new ArrayList<MapPoint>();
-		
 		/*
-		 * Below I'm converting a list of MapPath into list of MapPoints for storage.
-		 * we have a list Path of type MapPath.for each of MapPath in that list we will get a list of MapPoint by
-		 * calling getLocations() of class MapPath. then after we will add all MapPoints into a new List pathToPoint. 
-		 */
-		
-		for(int i=0;i<path.size();i++){
-			for(int j=0;j<path.get(i).getLocations().size();j++)
-				pathToPoint.add(path.get(i).getLocations().get(j));
-			
-		}
-		
-		
-	   /*
 	    * creating the General structure of the xml file
 	    * */
 		
