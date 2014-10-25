@@ -25,16 +25,20 @@ public class MapPath  {
 	 * 
 	 * @param point		A MapPoint object
 	 * @param amount	The distance from the MapPoint object represented by a double
+	 * @return 			The distance to travel on the Map 
+	 */
 	
-	 * @return 			The distance to travel on the Map */
-	
-	 public double goAlong(MapPoint point , double amount){
-		
-		double valueToReturn=0.1;//dummy value to return before the full implementation of the method. 
-		
-		return valueToReturn;
+	public double goAlong(MapPoint point , double amount){
+		return 0;
 	}
-
+	
+	public MapPoint getFirstLocation(){
+		return locations.get(0);
+	}
+	 
+	public MapPoint getLastLocation(){
+		return locations.get(locations.size() - 1);
+	}
 
 	/**
 	 * Method getLocations.
