@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JOptionPane;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
@@ -272,11 +274,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		private Command upgradeCommand;
 		private Command refundCommand;
-
+		private TowerManagerFactory towerManagerFactory;
 		
 		public InspectableTower() {
 			upgradeCommand = new Command("Upgrade Tower", "50$");
 			refundCommand = new Command("Refund Tower", "100$");
+			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
 			
 		}
 		/**
@@ -394,7 +397,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String description() {
 		
-			return null;
+			return "this is a road";
 		}
 
 		/**
@@ -518,6 +521,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				// link the view
 				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			}
+			else if (play.getCoins() < price) {
+				JOptionPane.showMessageDialog(null, "My Goodness, you do not have money to build tower!!");
+		    }
 		}
 	}
 }
