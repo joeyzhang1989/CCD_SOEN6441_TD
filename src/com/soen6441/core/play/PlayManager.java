@@ -36,7 +36,7 @@ public class PlayManager {
 	 * @param play A play object
 	 */
 
-	 public static void save (File file ,Play play) {
+	 public void save (File file ,Play play) {
 		
 		/*
 		 * Getting the required information from PLay object to save in the file.
@@ -152,18 +152,18 @@ public class PlayManager {
 	 * @param file The name of the File form which to read 
 	 * @return Play 
      */
-	public  Play read(File file){
-		
-		
+	 public Play read(File file){
+			
+			
 		int totalCoins;
 		int mapWidth;
 		int mapHeight;
 		ArrayList<MapPoint> startPoints = new ArrayList<MapPoint>();
 		ArrayList<MapPoint> endPoints = new ArrayList<MapPoint>();
 		ArrayList<MapPath> multiplePaths = new ArrayList<MapPath>();
-		
-		
-		
+				
+			
+			
 		SAXReader reader = new SAXReader();
 		Document document = null;
 		try {
@@ -171,71 +171,87 @@ public class PlayManager {
 		} catch (DocumentException e) {
 			e.printStackTrace();
 		}
-		 
+			 
+		
 		// reading the number of coins stored in map F
 		Node  numberOfCoins = document.selectSingleNode("//xml/Play/coins");
 		totalCoins=Integer.parseInt(numberOfCoins.getText());  
 				 
+		
 		// reading width
 		Node  mWidth = document.selectSingleNode("//xml/Play/map/Map/width");
 		mapWidth=Integer.parseInt(mWidth.getText());  
 		  
+		
 		//reading height
 		Node  mHeight = document.selectSingleNode("//xml/Play/map/Map/height");
 		mapHeight=Integer.parseInt(mHeight.getText());
-		  
-  
+			  
+			  
 		//reading startPoints
 		@SuppressWarnings("unchecked")
-		List<Node> list = document.selectNodes( "//xml/Play/map/Map/startPoints/startPoint");
-			for (Iterator<Node> iter = list.iterator(); iter.hasNext(); ) {
-				  Node n=(Node)iter.next();
-				  MapPoint sPoint=new MapPoint(Double.parseDouble(n.valueOf("xValue")), Double.parseDouble(n.valueOf("yValue")));
-				  startPoints.add(sPoint);
-			 }
-		  
+		List<Node> list = document.selectNodes( "//xml/Play/map/Map/startPoints/MapPoint");
+		for (Iterator<Node> iter = list.iterator(); iter.hasNext(); ) {
+			Node n = (Node) iter.next();
+			Element element = (Element) n;
+			
+			String xValue = element.attributeValue("x");
+			String yValue = element.attributeValue("y");
+			  
+			MapPoint sPoint = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));				  
 		
-		  
+			startPoints.add(sPoint);
+		 }
+					  
+					
+					  
 		//reading endPoint
 		@SuppressWarnings("unchecked")
-		List<Node> list1 = document.selectNodes("//xml/Play/map/Map/endPoints/endPoint" );
-		   for (Iterator<Node> iter = list1.iterator(); iter.hasNext(); ) {
-				  Node n=(Node)iter.next();
-				  MapPoint ePoint=new MapPoint(Double.parseDouble(n.valueOf("xValue")), Double.parseDouble(n.valueOf("yValue")));
-				  endPoints.add(ePoint);
-			 }
-		  
-		
-		
+		List<Node> list1 = document.selectNodes( "//xml/Play/map/Map/endPoints/MapPoint");
+		for (Iterator<Node> iter = list1.iterator(); iter.hasNext(); ) {
+			Node n = (Node) iter.next();
+			Element element = (Element) n;
+			
+			String xValue = element.attributeValue("x");
+			String yValue = element.attributeValue("y");
+					  
+			MapPoint ePoint = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));				  
+			
+			endPoints.add(ePoint);
+		}
+				  
+					
+					
 		//reading paths
 		@SuppressWarnings("unchecked")
-		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/Path/paths" );
-		
-			for(int i=0; i < list2.size();i++ ) {
-				Node n=(Node) list2.get(i);
+		List<Node> list2 = document.selectNodes( "//xml/Play/map/Map/paths/Path/locations" );
+		for (Iterator<Node> iter = list2.iterator(); iter.hasNext(); ) {
+			Node n = (Node) iter.next();
+			@SuppressWarnings("unchecked")
+			List<Node> list3 = n.selectNodes("MapPoint") ;
+			
+			MapPath p=new MapPath();
+			MapPoint rPoint=null;
+			for (Iterator<Node> iter2 = list3.iterator(); iter2.hasNext(); ) {
+				Node m = (Node) iter2.next();
+				Element element = (Element) m;
 				
-				@SuppressWarnings("unchecked")
-				List<Node> list3 = n.selectNodes("locations") ;
+				String xValue = element.attributeValue("x");
+				String yValue = element.attributeValue("y");
 				
-				MapPath p=new MapPath();
-				MapPoint rPoint=null;
-				
-				for(int j=0;j < list3.size();j++ ) {
-					Node m = (Node) list3.get(j);
-					rPoint = new MapPoint(Double.parseDouble(m.valueOf("xValue")), Double.parseDouble(m.valueOf("yValue")));
-				    p.addLocation(rPoint);
-				}
-				 
-				multiplePaths.add(p);
+				rPoint = new MapPoint(Double.parseDouble(xValue), Double.parseDouble(yValue));	
+				p.addLocation(rPoint);
 			}
-			
-			
-		
+			multiplePaths.add(p);
+		}
+					
+					
+					
 		/*
 		 * Creating a GridMap Object in order to create an Play object after.
 		 * In order to create a GridMap object we need a MapPath object
 		 */
-	
+		
 		
 		
 		GridMap newGridMap=new GridMap();
@@ -251,8 +267,8 @@ public class PlayManager {
 		play.setMap(newGridMap);
 		
 		return play;
-	}
-
+    }   
+	 
 	/**
 	 * Method main.
 	 * @param args String[]
