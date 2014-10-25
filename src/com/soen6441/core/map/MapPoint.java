@@ -138,10 +138,32 @@ public class MapPoint {
 		return distance;
 	}
 	
-	public MapPoint translatedBy(MapPoint point){
+	public MapPoint add(MapPoint point){
 		MapPoint result = new MapPoint();
 		result.x = this.x + point.x;
 		result.y = this.y + point.y;
+		return result;
+	}
+	
+	public MapPoint substract(MapPoint point){
+		MapPoint result = new MapPoint();
+		result.x = this.x - point.x;
+		result.y = this.y - point.y;
+		return result;
+	}
+	
+	public MapPoint normalize(){
+		
+		// make positive to 1, make negative to -1, keep 0 to 0
+		double newX = 0;
+		double newY = 0;
+		if (x != 0) newX = x / Math.abs(x);
+		if (y != 0) newY = y / Math.abs(y);
+
+		MapPoint result = new MapPoint();
+		result.setX(newX);
+		result.setY(newY);
+		
 		return result;
 	}
 	

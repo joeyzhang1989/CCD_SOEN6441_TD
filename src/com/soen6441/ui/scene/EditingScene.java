@@ -12,6 +12,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.Type;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
@@ -386,7 +387,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - Storage - Properties
 	 */
 
-	private File workingFile;
+	private File workingFile = new File("maps/x.tdm.xml");
 
 	/*
 	 * Mark - Storage - Methods
@@ -417,12 +418,15 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * 
 	 */
 	private void save() {
-		System.out.println("saving");
+		PlayManager playManager = new PlayManager();
+		playManager.save(workingFile, play);
+		infoLabel.setText("The map file has been saved.");
 	}
 
 	/*
 	 * Mark - Storage - Getters & Setters
 	 */
+	
 	/**
 	 * Method getWorkingFile.
 	 * @return File
