@@ -11,10 +11,11 @@ package com.soen6441.core.map;
  */
 
 public class MapPoint {
-
-	private double x;
-	private double y;
-
+	
+	/*
+	 * Mark - Constructors
+	 */
+	
 	public MapPoint() {
 		super();
 	}
@@ -30,11 +31,17 @@ public class MapPoint {
 		this.y = y;
 	}
 
+
 	/*
-	 * getGridedX() and getGridedY() getters to get the valuer of x and y as an Int
-	 * setGridedX() and setGridedY() setters to set the value of  x and y from an int to a double.
+	 * Mark - Basic - Properties
 	 */
+
+	private double x;
+	private double y;
 	
+	/*
+	 * Mark - Basic - Methods
+	 */
 	
 	/**
 	 * Method getGridedX.
@@ -75,22 +82,8 @@ public class MapPoint {
 	   this.y = y;
 	}
 	
-	
-	/**
-	 * The method distanceTo will calculate the distance of the calling Object from a certain MapPoint
-	 * 
-	 * @param point  A MapPoint Object
-	
-	 * * @return  distance to the MapPoinit */
-	
-	public double distanceTo(MapPoint point){
-		
-		double distance=1.0;//dummy value. must be removed after actual implementation
-		return distance;
-	}
-	
 	/*
-	 * Getter and Setters
+	 * Mark - Basic - Getters & Setters
 	 */
 	
 	/**
@@ -129,7 +122,31 @@ public class MapPoint {
 	}
 	
 	/*
-	 * Object - Equals
+	 * Mark - Functional - Methods
+	 */
+	
+	/**
+	 * The method distanceTo will calculate the distance of the calling Object from a certain MapPoint
+	 * 
+	 * @param point  A MapPoint Object
+	
+	 * * @return  distance to the MapPoinit */
+	
+	public double distanceTo(MapPoint point){
+		
+		double distance=1.0;//dummy value. must be removed after actual implementation
+		return distance;
+	}
+	
+	public MapPoint translatedBy(MapPoint point){
+		MapPoint result = new MapPoint();
+		result.x = this.x + point.x;
+		result.y = this.y + point.y;
+		return result;
+	}
+	
+	/*
+	 * Mark - Object
 	 */
 
 	/**
