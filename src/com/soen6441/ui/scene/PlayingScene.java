@@ -14,7 +14,6 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
-import com.soen6441.core.tower.BottleTower;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
@@ -306,7 +305,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String subtitle() {
 			
-			return null;
+			return "Level " + tower.getLevel();
+			
 		}
 
 		/**
@@ -328,8 +328,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
+			if (tower.getLevel() < 3) {
 			commands.add(upgradeCommand);
 			commands.add(refundCommand);
+			} else {
+			commands.add(refundCommand);
+			}
 			return commands;
 		}
 
@@ -341,10 +345,23 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public void execute(Command command) {
 			if(command == upgradeCommand){
-				System.out.println("Refund");
-			}
-			else if (command == refundCommand){
-				System.out.println("Refund");
+				int price = play.getCoins();
+				if (price >= tower.getUpgradePrice()) {
+					play.spendCoins(tower.getUpgradePrice());
+					tower.upgrade();
+					inspectorView.update();
+				}	
+			} else if (command == refundCommand) {
+				play.earnCoins(tower.getSellPrice());
+				
+				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
+				
+				// link the model and remove the mapItem
+				GridMap gridMap = mapView.getMap();
+				gridMap.removeItem(tower);
+				
+				// link the view and replace the tower with scenery cell
+				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			} 
 		}	
 	}	
