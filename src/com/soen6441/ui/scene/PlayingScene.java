@@ -300,7 +300,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String title() {
 			
-			return "Tower LV. " + tower.getLevel();
+			return tower.getName() + " Lv." + tower.getLevel();
 		}
 
 		/**

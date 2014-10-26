@@ -7,6 +7,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
@@ -47,12 +48,13 @@ public class MainScene extends View {
 		// add a label in the mainscene;
 		Label label = new Label();
 		// set the information of the label;
-		label.setText("Tower Defense");
+		label.setText("X-TD");
 
 		// The setFont is the method that is used to set the style of label.
 
-		label.setFont(new Font("Cooper Std Black", 1, 60));
-		label.setForeground(Color.orange);
+		label.setFontSize(100);
+		label.setForeground(Color.DARK_GRAY);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setLocation(160, 100);
 		label.setSize(500, 250);
 		this.add(label);
