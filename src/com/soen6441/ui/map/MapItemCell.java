@@ -61,11 +61,16 @@ public class MapItemCell extends GridViewCell implements Observer{
 	 */
 	@Override
 	public void paint(Graphics g) {
+		g.setColor(new Color(0xFFFFFF));
+		g.fillRect(0, 0, this.getWidth(), this.getHeight());
+	}
+	
+	protected void paintSelection(Graphics g) {
 		g.setColor(new Color(0xF8F8F8));
-		g.drawRect(0, 0, 40, 40);
+		g.drawRect(0, 0, this.getWidth(), this.getHeight());
 		if (this.isSelected()) {
 			g.setColor(new Color(0xAAAAAA));
-			g.drawRect(1, 1, 38, 38);
+			g.drawRect(1, 1, this.getWidth() - 2, this.getHeight() - 2);
 		}
 	}
 	

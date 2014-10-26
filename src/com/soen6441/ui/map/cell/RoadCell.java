@@ -24,8 +24,9 @@ public class RoadCell extends MapItemCell{
 	 */
 	@Override
 	public void paint(Graphics g) {
-		g.drawImage(new ImageIcon("images/" + getItem().getCellImageName()).getImage(), 0, 0, null);
 		super.paint(g);
+		g.drawImage(new ImageIcon("images/" + getItem().getCellImageName()).getImage(), 0, 0, null);
+		super.paintSelection(g);
 	}
 	
 	/**
