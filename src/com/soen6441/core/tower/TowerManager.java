@@ -131,7 +131,19 @@ public class TowerManager {
     			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));
     			towerResult.setSlowDuration(new AffectableValue(Double.parseDouble(element.element("slowDuration").getText())));
     			leveledTowers.add(towerResult);
-    		}	
+    		}
+    		
+    		if (this.towerType == "SunTower") {
+    			SunTower towerResult = (SunTower)tower;
+    			leveledTowers.add(towerResult);
+    		}
+    		
+    		if (this.towerType == "MoonTower") {
+    			MoonTower towerResult = (MoonTower)tower;
+    			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));
+    			towerResult.setSlowDuration(new AffectableValue(Double.parseDouble(element.element("slowDuration").getText())));
+    			leveledTowers.add(towerResult);
+    		}
            	
         }
         

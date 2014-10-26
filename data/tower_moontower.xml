@@ -3,7 +3,7 @@
 	<TowerManager>
 		<initialPrice>120</initialPrice>
 		<leveledTowers>
-			<MudTower>
+			<MoonTower>
 				<level>1</level>
 				<upgradePrice>220</upgradePrice>
 				<sellPrice>96</sellPrice>
@@ -12,10 +12,10 @@
 				<cdTime>1200</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
-				<cellImageName>tower_cell_2_1.png</cellImageName>
-				<towerName>Ice Tower</towerName>
-				<description>Ice Tower attacks single target with slow-down affect.</description></MudTower>
-			<MudTower>
+				<cellImageName>tower_cell_4_1.png</cellImageName>
+				<towerName>Moon Tower</towerName>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description></MoonTower>
+			<MoonTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
 				<sellPrice>272</sellPrice>
@@ -24,11 +24,11 @@
 				<cdTime>1050</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
-				<cellImageName>tower_cell_2_2.png</cellImageName>
-				<towerName>Ice Tower</towerName>
-				<description>Ice Tower attacks single target with slow-down affect.</description>
-			</MudTower>
-			<MudTower>
+				<cellImageName>tower_cell_4_2.png</cellImageName>
+				<towerName>Moon Tower</towerName>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+			</MoonTower>
+			<MoonTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>480</sellPrice>
@@ -37,10 +37,10 @@
 				<cdTime>900</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
-				<cellImageName>tower_cell_2_3.png</cellImageName>
-				<towerName>Ice Tower</towerName>
-				<description>Ice Tower attacks single target with slow-down affect.</description>
-			</MudTower>
+				<cellImageName>tower_cell_4_3.png</cellImageName>
+				<towerName>Moon Tower</towerName>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+			</MoonTower>
 		</leveledTowers>
 	</TowerManager>
 </xml>

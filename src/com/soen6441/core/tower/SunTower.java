@@ -2,7 +2,7 @@ package com.soen6441.core.tower;
 
 /**
  * This class is a specific type of tower, SunTower.
- * A SunTower is a AOE tower attacks all Targets which in its range.
+ * A SunTower is an AOE tower attacks all Targets within its range.
  * 
  * @see Tower
  * 

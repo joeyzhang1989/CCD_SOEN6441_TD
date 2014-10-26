@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<TowerManager>
+		<initialPrice>100</initialPrice>
+		<leveledTowers>
+			<SunTower>
+				<level>1</level>
+				<upgradePrice>180</upgradePrice>
+				<sellPrice>80</sellPrice>
+				<damage>60</damage>
+				<range>190</range>
+				<cdTime>600</cdTime>
+				<cellImageName>tower_cell_3_1.png</cellImageName>
+				<towerName>Sun Tower</towerName>
+				<description>AOE tower attacks all target with in its range.</description></SunTower>
+			<SunTower>
+				<level>2</level>
+				<upgradePrice>260</upgradePrice>
+				<sellPrice>224</sellPrice>
+				<damage>80</damage>
+				<range>240</range>
+				<cdTime>400</cdTime>
+				<cellImageName>tower_cell_3_2.png</cellImageName>
+				<towerName>Sun Tower</towerName>
+				<description>AOE tower attacks all target with in its range.</description>
+			</SunTower>
+			<SunTower>
+				<level>3</level>
+				<upgradePrice>0</upgradePrice>
+				<sellPrice>432</sellPrice>
+				<damage>100</damage>
+				<range>300</range>
+				<cdTime>250</cdTime>
+				<cellImageName>tower_cell_3_3.png</cellImageName>
+				<towerName>Sun Tower</towerName>
+				<description>AOE tower attacks all target with in its range.</description>
+			</SunTower>
+		</leveledTowers>
+	</TowerManager>
+</xml>

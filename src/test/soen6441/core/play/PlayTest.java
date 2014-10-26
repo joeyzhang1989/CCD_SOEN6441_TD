@@ -10,6 +10,7 @@ import com.soen6441.core.play.Play;
 public class PlayTest {
 	
 	Play play = Play.currentPlay();
+	
 	@Before
 	public void setUpOriginalCoins() {
 		play.setCoins(1000);
