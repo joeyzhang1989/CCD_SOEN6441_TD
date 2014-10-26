@@ -409,7 +409,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String subtitle() {
 		
-			return null;
+			return "This is a road";
 		}
 
 		/**
@@ -420,7 +420,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String description() {
 		
-			return "this is a road";
+			return null;
 		}
 
 		/**
