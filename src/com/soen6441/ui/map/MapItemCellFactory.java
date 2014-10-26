@@ -37,6 +37,7 @@ public class MapItemCellFactory {
 			cell = new RoadCell();
 		} else if (item instanceof Tower) {
 			cell = new TowerCell();
+			item.addObserver(cell);
 		}
 		cell.setItem(item);
 		cell.setSize(40, 40);
