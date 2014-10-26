@@ -168,10 +168,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		mapView = new MapView();
 		mapView.setMap(play.getMap());
 	    mapView.setSize(this.mapView.suggestedSize());
-		x = (600 - this.mapView.suggestedSize().height) / 2;
-		y = (800 - 180 - this.mapView.suggestedSize().width) / 2;
+	    x = (800 - 180 - this.mapView.suggestedSize().width) / 2;
+		y = (600 - this.mapView.suggestedSize().height) / 2;
 		mapView.setLocation(x, y);
-		add(mapView);
+		this.add(mapView);
 		
 		//inspectorView
 		inspectorView  = new InspectorView();
