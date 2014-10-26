@@ -6,7 +6,7 @@ public class Test {
 		TowerManager tm = TowerManagerFactory.currentManagerFactory().getManager("MudTower");
 		Tower tower = (MudTower)tm.createTower();
 		
-		System.out.println(tower.getdetailInformation());
+		System.out.println(tower.getDetailInformation());
 		System.out.println(tower.getDescription());
 	}
 }
