@@ -1,6 +1,6 @@
-package test.soen6441.core.map;
+package test.soen6441.ui.common;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -9,14 +9,14 @@ import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
 import com.soen6441.ui.common.GridViewCell;
 
-public class GridViewTest {
+public class GridViewTestCellManagement {
 
 	private GridView one;
 	private GridViewCell cellA, cellB, cellC;
 	private GridPoint gp1, gp2;
 
 	@Before
-	public void Before() {
+	public void setUp() {
 		one = new GridView(5, 5);
 		cellA = new GridViewCell();
 		cellB = new GridViewCell();
@@ -25,9 +25,7 @@ public class GridViewTest {
 		gp2 = new GridPoint(4, 4);
 	}
 
-	@Test
-	public void testLogic() {
-
+	private void oldTest(){
 		this.one.addCell(cellA, gp1);
 		assertEquals(one.getCell(0, 0), cellA);
 		this.one.removeCell(cellA);
@@ -39,6 +37,26 @@ public class GridViewTest {
 		
 		assertEquals(one.getNumberOfColumns(),5);
 		assertEquals(one.getNumberOfRows(),5);
-		
 	}
+	
+	@Test
+	public void testAddCell() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testGetCell() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testRemoveCell() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testReplaceCell() {
+		fail("Not yet implemented");
+	}
+
 }
