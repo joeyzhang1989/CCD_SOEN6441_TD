@@ -314,7 +314,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String description() {
 			
-			return null;
+			return tower.getDetailInformation();
 		}
 
 		/**
