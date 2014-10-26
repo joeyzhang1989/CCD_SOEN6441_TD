@@ -2,24 +2,39 @@ package test.soen6441.ui.common;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.Test;
+
+import com.soen6441.ui.common.GridView;
 
 public class GridViewTestDisplay {
 
+	private GridView temp = new GridView(5, 5);
+	
+
+	@Before
+	public void setUp() {
+		this.temp.setUnitHeight(5);
+		this.temp.setUnitWidth(5);
+	}
+	
 	@Test
 	public void testSuggestedSize() {
-		fail("Not yet implemented");
+		assertEquals(temp.suggestedSize().height, 5*5);
+		assertEquals(temp.suggestedSize().width, 5*5);
 	}
 
-	// to test if set unit width to lets say 10, then if i add a cell , will the location be right.
+	// to test if set unit width to lets say 10, then if i add a cell , will the
+	// location be right.
 	@Test
-	public void testSetUnitWidth() {
-		fail("Not yet implemented");
+	public void testSetUnitWidth() 
+	{
+		assertEquals(5,this.temp.getUnitWidth());
 	}
 
 	@Test
 	public void testSetUnitHeight() {
-		fail("Not yet implemented");
+		assertEquals(5,this.temp.getUnitHeight());
 	}
 
 }
