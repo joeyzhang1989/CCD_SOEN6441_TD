@@ -304,6 +304,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String subtitle() {
+			
 			return "Level " + tower.getLevel();
 			
 		}
@@ -327,8 +328,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
+			if (tower.getLevel() < 3) {
 			commands.add(upgradeCommand);
 			commands.add(refundCommand);
+			} else {
+			commands.add(refundCommand);
+			}
 			return commands;
 		}
 
