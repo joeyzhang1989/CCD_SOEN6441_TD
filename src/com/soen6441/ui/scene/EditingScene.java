@@ -131,12 +131,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.mapView = new MapView();
 		this.mapView.setMap(play.getMap());
 		this.mapView.setSize(this.mapView.suggestedSize());
-		int height = (600 - this.mapView.suggestedSize().height) / 2;
-		int width = (800 - 180 - this.mapView.suggestedSize().width) / 2;
+		int centralizedYLocation = (600 - this.mapView.suggestedSize().height) / 2;
+		int centralizedXLocation = (800 - 180 - this.mapView.suggestedSize().width) / 2;
 		// 180 is the size of the inspector View
-		this.mapView.setLocation(width, height);
+		this.mapView.setLocation(centralizedXLocation, centralizedYLocation);
 		this.add(mapView);
-		this.mapView.setSelectionListener(this);
 
 		// Inspectorview
 		this.inspectorView = new InspectorView();
@@ -154,6 +153,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	@Override
 	protected void initEvents() {
 
+		this.mapView.setSelectionListener(this);
+		
 		this.saveButton.addActionListener(new ActionListener() {
 
 			@Override
