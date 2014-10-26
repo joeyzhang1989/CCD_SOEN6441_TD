@@ -146,6 +146,16 @@ public class NewMapScene extends View {
 		
 		return true;
 	}
+	
+	private boolean validateFileName() {
+		String nameString = nameTextField.getText();
+		File file = new File("maps" + nameString +".tdm.xml");
+		if(file.exists()){
+			JOptionPane.showMessageDialog(this, "This name of file is exist.");
+			return false;
+		}
+		return true;
+	}
 	@Override
 	protected void initEvents() {
 		nextButton.addActionListener(new ActionListener() {
