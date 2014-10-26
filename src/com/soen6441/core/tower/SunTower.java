@@ -1,30 +1,30 @@
 package com.soen6441.core.tower;
 
 /**
- * This class is a specific type of tower, BottleTower.
- * A BottleTower attacks a single target.
+ * This class is a specific type of tower, SunTower.
+ * A SunTower is an AOE tower attacks all Targets within its range.
  * 
  * @see Tower
  * 
  * @author Haiyang Sun
  * @version $Revision: 1.0 $
  */
-public class BottleTower extends Tower {
+public class SunTower extends Tower {
 	
 	/**
-	 * Copy properties from one BottleTower object to another.
+	 * Copy properties from one SunTower object to another.
 	 * 
 	 * @param tower
 	 * @see Tower#copyTo(Tower) 
 	 */
 	@Override
 	public void copyTo(Tower tower){
-		BottleTower bottleTower = (BottleTower)tower;
-		super.copyTo(bottleTower);
+		SunTower sunTower = (SunTower)tower;
+		super.copyTo(sunTower);
 	}
 	
 	/**
-	 * Return detail information of a BottleTower object.
+	 * Return detail information of a SunTower object.
 	 */
 	@Override
 	public String getDetailInformation() {

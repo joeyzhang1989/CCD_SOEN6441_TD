@@ -111,6 +111,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		money.setText("Money");
 		money.setSize(120, 40);
 		money.setLocation(400, 10);
+		//money.setText(""+play.getCoins());
 		bannerView.add(money);   
 		
 	

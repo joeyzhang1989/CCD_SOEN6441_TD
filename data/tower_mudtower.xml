@@ -13,8 +13,8 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_2_1.png</cellImageName>
-				<towerName>Mud Tower</towerName>
-				<description>Mud Tower attacks single target with slow-down affect.</description></MudTower>
+				<towerName>Ice Tower</towerName>
+				<description>Ice Tower attacks single target with slow-down affect.</description></MudTower>
 			<MudTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -25,8 +25,8 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
 				<cellImageName>tower_cell_2_2.png</cellImageName>
-				<towerName>Mud Tower</towerName>
-				<description>Mud Tower attacks single target with slow-down affect.</description>
+				<towerName>Ice Tower</towerName>
+				<description>Ice Tower attacks single target with slow-down affect.</description>
 			</MudTower>
 			<MudTower>
 				<level>3</level>
@@ -38,8 +38,8 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
 				<cellImageName>tower_cell_2_3.png</cellImageName>
-				<towerName>Mud Tower</towerName>
-				<description>Mud Tower attacks single target with slow-down affect.</description>
+				<towerName>Ice Tower</towerName>
+				<description>Ice Tower attacks single target with slow-down affect.</description>
 			</MudTower>
 		</leveledTowers>
 	</TowerManager>

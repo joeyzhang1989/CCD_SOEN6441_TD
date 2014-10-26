@@ -31,8 +31,9 @@ public class TowerManagerFactory {
 	
 	/**
 	 * Method currentManagerFactory.
-	
-	 * @return TowerManagerFactory */
+	 * 
+	 * @return TowerManagerFactory 
+	 */
 	public static TowerManagerFactory currentManagerFactory() {
 		
 		if (currentManagerFactory == null){
@@ -43,17 +44,13 @@ public class TowerManagerFactory {
 	}
 	
 	/**
-	 * Constructor
-	 * 
+	 * Constructor.
 	 * Declare all kinds of tower type names, find the XML data file path by type names, 
 	 * then create TowerManagers by both of them. 
-	 * 
 	 */
-	
-	private TowerManagerFactory()
-	{
+	private TowerManagerFactory() {
 		
-		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower"));
+		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","MudTower","SunTower","MoonTower"));
 		
 		for(int i=0; i<typeNames.size(); i++) {
 			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i).toLowerCase()+".xml");
