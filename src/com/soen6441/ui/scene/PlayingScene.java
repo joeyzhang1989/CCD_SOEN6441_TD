@@ -61,7 +61,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	//bottomView
 	private Button backButton;
-	
+	private Button saveButton;
 	/**
 	 * override the method init in the super class View
 	 * to initialize the initial View in the Playscene and
@@ -148,6 +148,15 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.setSize(60, 20);
 		backButton.setLocation(10, 10);
 		bottomView.add(backButton);
+		
+		// implement function for future build
+		/*save  button 
+		saveButton = new Button();
+		saveButton.setTitle("Save");
+		saveButton.setSize(60, 20);
+		saveButton.setLocation(720, 10);
+		bottomView.add(saveButton);
+		*/
 		
 		//mapView
 		int x;
@@ -492,7 +501,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String subtitle() {
-			return null;
+			return "This is a empty space, you can build tower on it";
 		}
 
 		/**

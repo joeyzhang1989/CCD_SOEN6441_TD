@@ -169,12 +169,10 @@ public class GridView extends View {
 	 * 			 The Row of the cell that is returned
 	 * @param column
 	 * 			 The Column of the cell that is returned
-	 * 
 	 * @return Cell
 	 * 			 The Cell object returned
 	 */
-	public GridViewCell getCell(int row,int column)
-	{
+	public GridViewCell getCell(int row, int column) {
 		return this.cells[row][column];
 	}
 	
