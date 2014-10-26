@@ -8,6 +8,7 @@ import javax.swing.ImageIcon;
 
 import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.map.MapItemCell;
+import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * @author Zhe Zhao
@@ -26,7 +27,7 @@ public class TowerCell extends MapItemCell {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(new ImageIcon("images/" + getItemTower().getCellImageName()).getImage(), 0, 0, null);
+		g.drawImage(ImageAssets.imageNamed(getItemTower().getCellImageName()), 0, 0, null);
 		super.paintSelection(g);
 	}
 	
