@@ -89,28 +89,34 @@ public class NewMapScene extends View {
 	}
 
 	private void next() {
-		if(validateInput()){
-			
-			String widthString = widthTextField.getText();
-			String heightString = heightTextField.getText();
-			
-			int width = Integer.valueOf(widthString);
-			int height = Integer.valueOf(heightString);
-			
-			Play play = Play.currentPlay();
-			GridMap gridMap = new GridMap();
-			gridMap.setWidth(width);
-			gridMap.setHeight(height);
-			play.setMap(gridMap);
-			
-			String nameString = nameTextField.getText();
-			File file = new File("maps/" + nameString + ".tdm.xml");
-			
-			EditingScene editingScene = new EditingScene();
-			editingScene.setWorkingFile(file);
-			
-			this.viewFlow.push(editingScene);
+		if(!validateInput()){
+			return;
 		}
+		
+		if(!validateFileName()){
+			return;
+		}
+		
+		String widthString = widthTextField.getText();
+		String heightString = heightTextField.getText();
+		
+		int width = Integer.valueOf(widthString);
+		int height = Integer.valueOf(heightString);
+		
+		Play play = Play.currentPlay();
+		GridMap gridMap = new GridMap();
+		gridMap.setWidth(width);
+		gridMap.setHeight(height);
+		play.setMap(gridMap);
+		
+		String nameString = nameTextField.getText();
+		File file = new File("maps/" + nameString + ".tdm.xml");
+		
+		EditingScene editingScene = new EditingScene();
+		editingScene.setWorkingFile(file);
+		
+		this.viewFlow.push(editingScene);
+	
 
 	}
 	
@@ -144,6 +150,16 @@ public class NewMapScene extends View {
 			return false;
 		}
 		
+		return true;
+	}
+	
+	private boolean validateFileName() {
+		String nameString = nameTextField.getText();
+		File file = new File("maps/" + nameString +".tdm.xml");
+		if(file.exists()){
+			JOptionPane.showMessageDialog(this, "This name of file is exist.");
+			return false;
+		}
 		return true;
 	}
 	@Override
