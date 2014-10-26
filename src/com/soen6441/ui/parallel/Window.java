@@ -18,15 +18,15 @@ public class Window extends JFrame {
 	 * @param contentView View
 	 */
 	public Window(View contentView) {
+		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		this.contentView = contentView;
 
 		this.setResizable(false);
 		this.setSize(800, 600);
 		this.setLayout(null);
-//		this.setUndecorated(true);
 		
 		this.add(contentView);
-		this.repaint();
 		this.setVisible(true);
 	}
 	

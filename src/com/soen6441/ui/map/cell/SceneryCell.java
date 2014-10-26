@@ -3,6 +3,8 @@ package com.soen6441.ui.map.cell;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import javax.swing.ImageIcon;
+
 import com.soen6441.ui.map.MapItemCell;
 
 /**
@@ -12,8 +14,7 @@ import com.soen6441.ui.map.MapItemCell;
 public class SceneryCell extends MapItemCell {
 	@Override
 	public void paint(Graphics g) {
-		g.setColor(new Color(0xFFFFFF));
-		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		super.paint(g);
+		super.paintSelection(g);
 	}
 }
