@@ -4,9 +4,7 @@ import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.JOptionPane;
-
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.play.Play;
 import com.soen6441.ui.parallel.*;
@@ -114,7 +112,6 @@ public class NewMapScene extends View {
 		
 		this.viewFlow.push(editingScene);
 	
-
 	}
 	
 	private boolean validateInput() {
@@ -122,6 +119,7 @@ public class NewMapScene extends View {
 		int height;
 		String widthString, heightString;
 		widthString = widthTextField.getText();
+		
 		try {
 			width = Integer.valueOf(widthString);
 		} catch (Exception e) {
@@ -135,6 +133,7 @@ public class NewMapScene extends View {
 		}
 		
 		heightString = heightTextField.getText();
+		
 		try {
 			height = Integer.valueOf(heightString);
 		} catch (Exception e) {
@@ -146,7 +145,6 @@ public class NewMapScene extends View {
 			JOptionPane.showMessageDialog(this, "The range of the height is 4-12.");
 			return false;
 		}
-		
 		return true;
 	}
 	

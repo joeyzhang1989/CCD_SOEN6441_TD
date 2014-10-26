@@ -76,7 +76,22 @@ public class MainScene extends View {
 		this.add(newMapButton);
 
 	}
+	
+	private void readFile(){
+		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+		fileChooser.setFileFilter(filter);
+	
+		int option = fileChooser.showOpenDialog(MainScene.this);
 
+		if (option == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();
+			
+			PlayManager playManager = new PlayManager();
+			playManager.read(file);
+		}
+	}
+	
 	@Override
 	protected void initEvents() {
 		playButton.addActionListener(new ActionListener() {
@@ -91,21 +106,11 @@ public class MainScene extends View {
 				 * Open a window to select maps.
 				 */
 
-				JFileChooser fileChooser = new JFileChooser(new File("maps/"));
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
-				fileChooser.setFileFilter(filter);
-			
-				int option = fileChooser.showOpenDialog(MainScene.this);
+				readFile();
 
-				if (option == JFileChooser.APPROVE_OPTION) {
-					File file = fileChooser.getSelectedFile();
-					
-					PlayManager playManager = new PlayManager();
-					playManager.read(file);
-
-					PlayingScene playingScene = new PlayingScene();
-					MainScene.this.viewFlow.push(playingScene);
-				}
+				PlayingScene playingScene = new PlayingScene();
+				MainScene.this.viewFlow.push(playingScene);
+				
 
 			}
 		});
@@ -119,21 +124,11 @@ public class MainScene extends View {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				JFileChooser fileChooser = new JFileChooser(new File("maps/"));
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
-				fileChooser.setFileFilter(filter);
-				int option = fileChooser.showOpenDialog(MainScene.this);
-				if (option == JFileChooser.APPROVE_OPTION) {
-					File file = fileChooser.getSelectedFile();
+				readFile();
 					
-					PlayManager playManager = new PlayManager();
-					playManager.read(file);
-					
-					EditingScene editingScene = new EditingScene();
-					MainScene.this.viewFlow.push(editingScene);
-				}
-
-			
+				EditingScene editingScene = new EditingScene();
+				MainScene.this.viewFlow.push(editingScene);
+				
 			}
 		});
 
