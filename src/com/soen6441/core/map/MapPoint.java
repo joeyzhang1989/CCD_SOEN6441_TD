@@ -1,5 +1,8 @@
 package com.soen6441.core.map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * The class MapPoint will define a point on the map by its x and y coordinates.
  * It will also provide  a getter and setter for the MapPoint Object.
@@ -125,13 +128,6 @@ public class MapPoint {
 	 * Mark - Functional - Methods
 	 */
 	
-	/**
-	 * The method distanceTo will calculate the distance of the calling Object from a certain MapPoint
-	 * 
-	 * @param point  A MapPoint Object
-	
-	 * * @return  distance to the MapPoinit */
-	
 	public double distanceTo(MapPoint point){
 		double dx = point.x - this.x;
 		double dy = point.y - this.y;
@@ -165,6 +161,19 @@ public class MapPoint {
 		result.setY(newY);
 		
 		return result;
+	}
+	
+	/*
+	 * Mark - Direction Templates - Methods
+	 */
+	
+	public static List<MapPoint> crossDirections(){
+		List<MapPoint> directions = new ArrayList<MapPoint>();
+		directions.add(new MapPoint(1, 0));
+		directions.add(new MapPoint(0, 1));
+		directions.add(new MapPoint(-1, 0));
+		directions.add(new MapPoint(0, -1));
+		return directions;
 	}
 	
 	/*

@@ -14,16 +14,16 @@ package com.soen6441.core.map;
 
 public abstract class PathValidator {
 
+	/*
+	 * Mark - Context - Properties
+	 */
+	
 	private GridMap map;
-	private String errorMessage; 
 	
-	/**
-	 * Method validate will check whether a map is valid.
-	 * @return boolean */
+	/*
+	 * Mark - Context - Getters & Setters
+	 */
 	
-	abstract public boolean validate();
-		
-		
 	/**
 	 * Method getMap.
 	 * @return GridMap
@@ -39,6 +39,26 @@ public abstract class PathValidator {
 	public void setMap(GridMap map) {
 		this.map = map;
 	}
+	
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
+	private String errorMessage; 
+	
+	/*
+	 * Mark - Basic - Methods
+	 */
+	
+	/**
+	 * Method validate will check whether a map is valid.
+	 * @return boolean */
+	
+	abstract public boolean validate();
+		
+	/*
+	 * Mark - Basic - Getters & Setters
+	 */
 
 	/**
 	 * Method getErrorMessage.

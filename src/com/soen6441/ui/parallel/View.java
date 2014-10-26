@@ -41,10 +41,8 @@ import javax.swing.JPanel;
 
 public class View extends JPanel {
 	
-	
-	
 	/* 	
-	 * Constructors 
+	 * Mark - Constructors 
 	 */
 	
 	/**
@@ -81,7 +79,10 @@ public class View extends JPanel {
 	private View(LayoutManager layout) {
 		super(layout);
 	}
-
+	
+	/* 	
+	 * Mark - Initialization - Methods
+	 */
 	
 	/**
 	 * Initialization
@@ -93,8 +94,8 @@ public class View extends JPanel {
 		initEvents();
 	}
 	
-	/*
-	 * Methods
+	/* 	
+	 * Mark - Initialization - Life Cycle
 	 */
 	
 	protected void init(){
@@ -119,6 +120,10 @@ public class View extends JPanel {
 		
 	}
 	
+	/*
+	 * Mark - View Management - Methods
+	 */
+	
 	/**
 	 * Method add.
 	 * @param comp Component
@@ -141,20 +146,15 @@ public class View extends JPanel {
 		this.repaint();
 	}
 	
-//	@Override
-//	public boolean isOptimizedDrawingEnabled() {
-//		return false;
-//	}
-	
 	/*
-	 * Property - View Flow
+	 * Mark - View Flow - Properties
 	 */
 	
 	protected ViewFlow viewFlow;
 
 	
 	/*
-	 * Getters & Setters - View Flow
+	 *  Mark - View Flow - Getters & Setters
 	 */
 	
 	/**

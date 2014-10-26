@@ -18,7 +18,5 @@ public class Game {
 		ViewFlow viewFlow = new ViewFlow();
 		new Window(viewFlow);
 		viewFlow.push(new MainScene());
-		
-//		Play.currentPlay().buildDemo();
 	}
 }

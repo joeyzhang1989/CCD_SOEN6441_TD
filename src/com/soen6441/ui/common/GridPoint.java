@@ -3,13 +3,6 @@ package com.soen6441.ui.common;
 /**
  */
 public class GridPoint {
-	
-	/*
-	 * Mark - Properties
-	 */
-	
-	private int row;
-	private int column;
 
 	/*
 	 * Mark - Constructors
@@ -18,6 +11,7 @@ public class GridPoint {
 	public GridPoint() {
 		super();
 	}
+	
 	/**
 	 * Constructor for GridPoint.
 	 * @param row int
@@ -28,9 +22,17 @@ public class GridPoint {
 		this.row = row;
 		this.column = column;
 	}
+	
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
+	private int row;
+	private int column;
+
 
 	/*
-	 * Mark - Getters & Setters
+	 * Mark - Basic - Getters & Setters
 	 */
 	
 	/**

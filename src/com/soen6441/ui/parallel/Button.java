@@ -13,12 +13,16 @@ import javax.swing.JButton;
  */
 public class Button extends JButton {
 	private static final long serialVersionUID = -3246005973006189406L;
+
+	/*
+	 * Mark - Basic - Properties
+	 */
 	
 	private String title;
 	private String subtitle;
 	
 	/*
-	 * Methods
+	 * Mark - Basic - Methods
 	 */
 	
 	private void updateText(){
@@ -26,36 +30,9 @@ public class Button extends JButton {
 	}
 	
 	/*
-	 * Getters & Setters
+	 * Mark - Basic - Getters & Setters
 	 */
-	
-	/**
-	 * This method should be no longer called. Use <code>setTitle</code> instead.
-	 *  
-	 * 
-	 * @param text String
-	 * @see #setTitle(String) 
-	 */
-	@Override
-	public void setText(String text) {
-		this.setTitle(text);
-	}
-	
-	/**
-	 * This method should be no longer called. Use <code>getTitle</code> instead.
-	 *  
-	 * 
-	 * @deprecated since <unknown>
-	 * @return String * @see #getTitle() 
-	 */
-	@Override
-	public String getText() {
-		if (subtitle == null){
-			return title;
-		} else {
-			return title + " " + subtitle;
-		}
-	}
+
 	
 	/**
 	 * Getter for property <code>title</code>
@@ -91,6 +68,38 @@ public class Button extends JButton {
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
 		updateText();
+	}
+	
+	/*
+	 * Mark - Overlap - Methods
+	 */
+	
+	/**
+	 * This method should be no longer called. Use <code>setTitle</code> instead.
+	 *  
+	 * 
+	 * @param text String
+	 * @see #setTitle(String) 
+	 */
+	@Override
+	public void setText(String text) {
+		this.setTitle(text);
+	}
+	
+	/**
+	 * This method should be no longer called. Use <code>getTitle</code> instead.
+	 *  
+	 * 
+	 * @deprecated since <unknown>
+	 * @return String * @see #getTitle() 
+	 */
+	@Override
+	public String getText() {
+		if (subtitle == null){
+			return title;
+		} else {
+			return title + " " + subtitle;
+		}
 	}
 
 	

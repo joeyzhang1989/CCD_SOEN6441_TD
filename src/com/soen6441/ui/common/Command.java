@@ -7,11 +7,9 @@ package com.soen6441.ui.common;
  * @version $Revision: 1.0 $
  */
 public class Command {
-	private String title;
-	private String subtitle;
 	
 	/*
-	 * Constructors
+	 * Mark - Constructors
 	 */
 	
 	public Command() {
@@ -30,8 +28,16 @@ public class Command {
 	}
 	
 	/*
-	 * Getters and Setters
+	 * Mark - Basic - Properties
 	 */
+	
+	private String title;
+	private String subtitle;
+	
+	/*
+	 * Mark - Method - Getters & Setters
+	 */
+	
 	/**
 	 * Method getTitle.
 	 * @return String 
