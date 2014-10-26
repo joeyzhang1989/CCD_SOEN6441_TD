@@ -95,11 +95,11 @@ public class MainScene extends View {
 	protected void initEvents() {
 		playButton.addActionListener(new ActionListener() {
 
-			@Override
 			/*
 			 * perform the function that click the playbutton to go to
 			 * playingscene
 			 */
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				/*
 				 * Open a window to select maps.
@@ -125,15 +125,13 @@ public class MainScene extends View {
 		});
 
 		editButton.addActionListener(new ActionListener() {
-			@Override
+			
 			/*
 			 * perform the function that click the editbutton to go to
 			 * editingscene
 			 */
+			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*
-				 * Open a window to select maps.
-				 */
 
 				JFileChooser fileChooser = new JFileChooser(new File("maps/"));
 				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
@@ -155,11 +153,11 @@ public class MainScene extends View {
 
 		newMapButton.addActionListener(new ActionListener() {
 
-			@Override
 			/*
 			 * perform the function that click the newmapbutton to go to
 			 * newmapscene
 			 */
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				NewMapScene newMapScene = new NewMapScene();
 				MainScene.this.viewFlow.push(newMapScene);
@@ -179,21 +177,4 @@ public class MainScene extends View {
 		frame.pack();
 		frame.setVisible(true);
 	}
-
-	/*
-	 * Method main.
-	 * 
-	 * @param args String[] perform the main interface at beginning
-	 */
-	/**
-	 * Method main.
-	 * 
-	 * @param args String[]
-	 */
-	public static void main(String[] args) {
-		ViewFlow viewFlow = new ViewFlow();
-		viewFlow.push(new MainScene());
-		new Window(viewFlow);
-	}
-
 }
