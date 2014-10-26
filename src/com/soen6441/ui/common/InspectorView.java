@@ -1,8 +1,5 @@
 package com.soen6441.ui.common;
 
-
-
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
