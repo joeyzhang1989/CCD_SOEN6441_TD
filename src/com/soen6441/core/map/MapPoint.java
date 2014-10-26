@@ -153,8 +153,11 @@ public class MapPoint {
 		// make positive to 1, make negative to -1, keep 0 to 0
 		double newX = 0;
 		double newY = 0;
-		if (x != 0) newX = x / Math.abs(x);
-		if (y != 0) newY = y / Math.abs(y);
+		
+		if (x > 0) newX = 1;
+		if (x < 0) newX = -1;
+		if (y > 0) newY = 1;
+		if (y < 0) newY = -1;
 
 		MapPoint result = new MapPoint();
 		result.setX(newX);
