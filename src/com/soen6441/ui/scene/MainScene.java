@@ -7,8 +7,12 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
+import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
+
+
+import javax.swing.plaf.FileChooserUI;
 
 import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.parallel.Button;
@@ -44,12 +48,13 @@ public class MainScene extends View {
 		// add a label in the mainscene;
 		Label label = new Label();
 		// set the information of the label;
-		label.setText("Tower Defense");
+		label.setText("X-TD");
 
 		// The setFont is the method that is used to set the style of label.
 
-		label.setFont(new Font("Cooper Std Black", 1, 60));
-		label.setForeground(Color.orange);
+		label.setFontSize(100);
+		label.setForeground(Color.DARK_GRAY);
+		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setLocation(160, 100);
 		label.setSize(500, 250);
 		this.add(label);
@@ -77,7 +82,7 @@ public class MainScene extends View {
 
 	}
 	
-	private void readFile(){
+	private File openFile(){
 		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
 		fileChooser.setFileFilter(filter);
@@ -85,59 +90,52 @@ public class MainScene extends View {
 		int option = fileChooser.showOpenDialog(MainScene.this);
 
 		if (option == JFileChooser.APPROVE_OPTION) {
-			File file = fileChooser.getSelectedFile();
-			
-			PlayManager playManager = new PlayManager();
-			playManager.read(file);
+			File file = fileChooser.getSelectedFile();	
+			return file;
+		} else {
+			return null;
 		}
+
 	}
 	
 	@Override
 	protected void initEvents() {
 		playButton.addActionListener(new ActionListener() {
-
-			/*
-			 * perform the function that click the playbutton to go to
-			 * playingscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*
-				 * Open a window to select maps.
-				 */
-
-				readFile();
-
-				PlayingScene playingScene = new PlayingScene();
-				MainScene.this.viewFlow.push(playingScene);
 				
+				File file = openFile();
+				
+				if ( file != null ) {
+					PlayManager playManager = new PlayManager();
+					playManager.read(file);
 
+					PlayingScene playingScene = new PlayingScene();
+					MainScene.this.viewFlow.push(playingScene);
+				}
 			}
 		});
 
 		editButton.addActionListener(new ActionListener() {
-			
-			/*
-			 * perform the function that click the editbutton to go to
-			 * editingscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				readFile();
+				File file = openFile();
+				
+				if ( file != null ) {
+				
+					PlayManager playManager = new PlayManager();
+					playManager.read(file);
 					
-				EditingScene editingScene = new EditingScene();
-				MainScene.this.viewFlow.push(editingScene);
+					EditingScene editingScene = new EditingScene();
+					editingScene.setWorkingFile(file);
+					MainScene.this.viewFlow.push(editingScene);
+				}
 				
 			}
 		});
 
 		newMapButton.addActionListener(new ActionListener() {
-
-			/*
-			 * perform the function that click the newmapbutton to go to
-			 * newmapscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				NewMapScene newMapScene = new NewMapScene();

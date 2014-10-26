@@ -1,5 +1,6 @@
 package com.soen6441.ui.parallel;
 
+import java.awt.Font;
 import java.awt.Graphics;
 
 import javax.swing.JButton;
@@ -14,6 +15,24 @@ import javax.swing.JButton;
 public class Button extends JButton {
 	private static final long serialVersionUID = -3246005973006189406L;
 
+	public Button() {
+		super();
+		this.initFont();
+	}
+
+	public Button(String text) {
+		super(text);
+		this.initFont();
+	}
+
+	private void initFont() {
+		this.setFont(new Font("Verdana", 0, 14));
+	}
+
+	public void setFontSize(int fontSize){
+		this.setFont(new Font("Verdana", 0, fontSize));
+	}
+	
 	/*
 	 * Mark - Basic - Properties
 	 */

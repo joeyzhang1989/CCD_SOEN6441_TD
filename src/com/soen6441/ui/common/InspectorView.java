@@ -9,11 +9,9 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JTextArea;
-
 import com.soen6441.ui.parallel.Button;
-import com.soen6441.ui.parallel.ImageView;
 import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.TextView;
 import com.soen6441.ui.parallel.View;
 
 // not finish 
@@ -43,7 +41,7 @@ public class InspectorView extends View {
 	private Label titleLabel;
 	private Label subtitleLabel;
 //	private ImageView imageView;
-	private JTextArea descriptionTextArea;
+	private TextView descriptionTextArea;
 	private List<Button> commandButtons;
 	
 	/*
@@ -62,24 +60,27 @@ public class InspectorView extends View {
 		super.initSubviews();
 		
 		Label titleLabel = new Label();
+		titleLabel.setFontSize(16);
 		titleLabel.setSize(160, 20);
 		titleLabel.setLocation(10, 10);
 		this.add(titleLabel);
 		this.titleLabel = titleLabel;
 		
 		Label subtitleLabel = new Label();
+		subtitleLabel.setFontSize(12);
 		subtitleLabel.setSize(160, 20);
-		subtitleLabel.setLocation(10, titleLabel.getY() + titleLabel.getHeight() + 10);
+		subtitleLabel.setLocation(10, titleLabel.getY() + titleLabel.getHeight() + 0);
 		this.add(subtitleLabel);
 		this.subtitleLabel = subtitleLabel;
 		
-		JTextArea descriptionTextArea = new JTextArea();
-		descriptionTextArea.setSize(160, 100);
-		descriptionTextArea.setLineWrap(true);
-		descriptionTextArea.setBackground(new Color(0xEEEEEE));
-		descriptionTextArea.setLocation(10, 160);
-		this.add(descriptionTextArea);
-		this.descriptionTextArea = descriptionTextArea;
+		TextView descriptionTextView = new TextView();
+		descriptionTextView.setFontSize(12);
+		descriptionTextView.setSize(160, 100);
+		descriptionTextView.setLocation(10, 160);
+		descriptionTextView.setBackground(new Color(0xEEEEEE));
+        
+		this.add(descriptionTextView);
+		this.descriptionTextArea = descriptionTextView;
 	}
 
 	public void update() {
@@ -100,6 +101,7 @@ public class InspectorView extends View {
 				Command command = commands.get(i);
 				
 				Button button = new Button();
+				button.setFontSize(12);
 				button.setTitle(command.getTitle());
 				button.setSubtitle(command.getSubtitle());
 				button.setSize(160, 40);
