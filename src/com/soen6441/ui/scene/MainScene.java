@@ -99,11 +99,6 @@ public class MainScene extends View {
 	@Override
 	protected void initEvents() {
 		playButton.addActionListener(new ActionListener() {
-
-			/*
-			 * perform the function that click the playbutton to go to
-			 * playingscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
@@ -120,10 +115,6 @@ public class MainScene extends View {
 		});
 
 		editButton.addActionListener(new ActionListener() {
-			/*
-			 * perform the function that click the editbutton to go to
-			 * editingscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
@@ -135,6 +126,7 @@ public class MainScene extends View {
 					playManager.read(file);
 					
 					EditingScene editingScene = new EditingScene();
+					editingScene.setWorkingFile(file);
 					MainScene.this.viewFlow.push(editingScene);
 				}
 				
@@ -142,11 +134,6 @@ public class MainScene extends View {
 		});
 
 		newMapButton.addActionListener(new ActionListener() {
-
-			/*
-			 * perform the function that click the newmapbutton to go to
-			 * newmapscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				NewMapScene newMapScene = new NewMapScene();
