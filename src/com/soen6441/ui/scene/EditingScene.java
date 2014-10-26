@@ -92,6 +92,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.money = new TextField();
 		//this.money.setText("1000");
 		this.money.setText(play.getCoins()+"");
+	
+		
 		this.money.setSize(80, 40);
 		this.money.setLocation(700, 10);
 
@@ -419,6 +421,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * 
 	 */
 	private void save() {
+
+		play.setCoins(Integer.parseInt(this.money.getText())); 
 		PlayManager playManager = new PlayManager();
 		playManager.save(workingFile, play);
 		infoLabel.setText("The map file has been saved.");
