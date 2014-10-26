@@ -55,7 +55,7 @@ public class ConnectionValidator extends PathValidator {
 		    
 		    if(type == Road.Type.START) {
 		    	if(totalNeighbours > 1) {
-		    		this.setErrorMassage("Start point should have one neigbour");
+		    		this.setErrorMassage("Start point should have one neighbour");
 		    		return false;
 		    	} else if (totalNeighbours < 1) {
 		    		this.setErrorMassage("The Road is not connected");
@@ -89,44 +89,27 @@ public class ConnectionValidator extends PathValidator {
 	 * For a Map with one entry and exit point and only one path bwtween entry and exit. Every road object must has 
 	 * exactly two neighbours unless it is Entry or Exit Point in which case It must have only ont connected neighbour,
 	 * 
-	 * @param aRoad  A Road Object
+	 * @param road  A Road Object
 	 * @return numberOfNeighbours 
 	 */
 	
-	public int numberOfNeighbours(Road aRoad) {
+	public int numberOfNeighbours(Road road) {
 		
-		int numOFNeighbours=0;
-		
-		int sPointX = aRoad.getLocation().getGridedX();
-		int sPointY = aRoad.getLocation().getGridedY();
-		
-		//neighbour MapPoints
-		MapPoint lookLeft = new MapPoint(sPointX-1,sPointY);
-		MapPoint lookRight = new MapPoint(sPointX+1,sPointY);
-		MapPoint lookUp = new MapPoint(sPointX,sPointY+1);
-		MapPoint lookDown = new MapPoint(sPointX,sPointY-1);
-		
-		MapPoint[] neighbours = new MapPoint[4];
-		
-		neighbours[0] = lookLeft;
-		neighbours[1] = lookRight;
-		neighbours[2] = lookUp;
-		neighbours[3] = lookDown;
+		List<MapPoint> directions = MapPoint.crossDirections();
 		
 		/*
 		 * Check the neighbours of the given mapPoints and return the one that is part of path.
 		 * Limitation: Only work on a single Path.If multiple paths have to be supported we then the method 
 		 * must return a list of MapPoints rather than a single MapPoint.
 		 */
-		
-		for(int i=0; i < neighbours.length; i++) {
-			MapItem currentItem = this.getMap().getItem(neighbours[i]);
-			if(currentItem != null && currentItem instanceof Road) {
-				numOFNeighbours +=1;
+		int number = 0;
+		for (MapPoint direction : directions) {
+			MapPoint checkPoint = road.getLocation().add(direction);
+			MapItem item = this.getMap().getItem(checkPoint);
+			if(item != null && item instanceof Road) {
+				number += 1;
 			}
 		}
-
-		return numOFNeighbours;
+		return number;
 	}
-	
 }

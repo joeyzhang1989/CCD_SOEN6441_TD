@@ -25,9 +25,8 @@ public class MapView extends GridView {
 	private GridMap map;
 	private static final int _UNIT_LENGTH = 40;
 	
-	
 	/*
-	 * Getters & Setters
+	 * Mark - Basic - Getters & Setters
 	 */
 	
 	/**
@@ -47,6 +46,10 @@ public class MapView extends GridView {
 		initialSetup();
 	}
 	
+	/*
+	 * Mark - Setup - Methods
+	 */
+	
 	private void initialSetup(){
 		this.setUnitWidth(_UNIT_LENGTH);
 		this.setUnitHeight(_UNIT_LENGTH);
@@ -62,6 +65,10 @@ public class MapView extends GridView {
 			}
 		}
 	}
+
+	/*
+	 * Mark - Selection - Methods
+	 */
 	
 	/**
 	 * Method setSelectedCell.

@@ -12,13 +12,65 @@ import java.util.List;
  */
 
 public class MapPath  {
-
-	private List<MapPoint> locations;
 	
+	/*
+	 * Mark - Constructors
+	 */
+
 	public MapPath() {
 		locations = new ArrayList<MapPoint>();
 	}
 	
+
+	/*
+	 * Mark - Location - Properties
+	 */
+	
+	private List<MapPoint> locations;
+	
+	/*
+	 * Mark - Location - Methods
+	 */
+	
+	public MapPoint getFirstLocation(){
+		return locations.get(0);
+	}
+	 
+	public MapPoint getLastLocation(){
+		return locations.get(locations.size() - 1);
+	}
+	
+	/**
+	 * Method addLocation.
+	 * @param location MapPoint
+	 */
+	public void addLocation(MapPoint location){
+		this.locations.add(location);
+	}
+	
+	/*
+	 * Mark - Location - Getters & Setters
+	 */
+
+	/**
+	 * Method getLocations.
+	 * @return List<MapPoint> 
+     */
+	public List<MapPoint> getLocations() {
+		return locations;
+	}
+
+	/**
+	 * Method setLocations.
+	 * @param locations List<MapPoint>
+	 */
+	public void setLocations(List<MapPoint> locations) {
+		this.locations = locations;
+	}
+
+	/*
+	 * Mark - Functional - Methods
+	 */
 	
 	/**
 	 *The method goAlong will calculate the distance to travel on the path on Map.
@@ -32,36 +84,4 @@ public class MapPath  {
 		return 0;
 	}
 	
-	public MapPoint getFirstLocation(){
-		return locations.get(0);
-	}
-	 
-	public MapPoint getLastLocation(){
-		return locations.get(locations.size() - 1);
-	}
-
-	/**
-	 * Method getLocations.
-	 * @return List<MapPoint> 
-     */
-	public List<MapPoint> getLocations() {
-		return locations;
-	}
-
-
-	/**
-	 * Method setLocations.
-	 * @param locations List<MapPoint>
-	 */
-	public void setLocations(List<MapPoint> locations) {
-		this.locations = locations;
-	}
-	
-	/**
-	 * Method addLocation.
-	 * @param location MapPoint
-	 */
-	public void addLocation(MapPoint location){
-		this.locations.add(location);
-	}
 }

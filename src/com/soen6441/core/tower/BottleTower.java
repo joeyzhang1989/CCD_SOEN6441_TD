@@ -15,7 +15,9 @@ public class BottleTower extends Tower {
 	 * Copy properties from one BottleTower object to another.
 	
 	 * @param bottleTower
-	 * @see Tower#copyTo(Tower) */
+	 * @see Tower#copyTo(Tower) 
+	 */
+	
 	@Override
 	public void copyTo(Tower tower){
 		BottleTower bottleTower = (BottleTower)tower;

@@ -19,40 +19,15 @@ import com.soen6441.ui.scene.MainScene;
 public class GridViewCell extends View {
 	
 	/*
-	 * Mark - Properties
+	 * Mark - Basic - Properties
 	 */
 
 	private GridView gridView;
 	private GridPoint point;
-	private boolean selected;
 	
 
-	@Override
-	protected void initEvents() {
-		super.initEvents();
-		this.addMouseListener(new MouseListener() {
-			@Override
-			public void mouseReleased(MouseEvent e) {}
-			
-			@Override
-			public void mousePressed(MouseEvent e) {}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				GridViewCell cell = GridViewCell.this;
-				cell.gridView.setSelectedCell(cell);
-			}
-		});
-	}
-
 	/*
-	 * Mark - Getters & Setters
+	 * Mark - Basic - Getters & Setters
 	 */
 	
 	/**
@@ -78,7 +53,7 @@ public class GridViewCell extends View {
 	public GridPoint getPoint() {
 		return point;
 	}
-
+	
 	/**
 	 * Method setPoint.
 	 * @param point GridPoint
@@ -87,6 +62,45 @@ public class GridViewCell extends View {
 		this.point = point;
 	}	
 
+	/*
+	 * Mark - Event Handle - Methods
+	 */
+
+	@Override
+	protected void initEvents() {
+		super.initEvents();
+		this.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseReleased(MouseEvent e) {}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				GridViewCell cell = GridViewCell.this;
+				cell.gridView.setSelectedCell(cell);
+			}
+		});
+	}
+	
+	/*
+	 * Mark - Selection - Properties
+	 */
+
+	private boolean selected;
+	
+
+	/*
+	 * Mark - Selection - Getters & Setters
+	 */
+	
 	/**
 	 * Method isSelected.
 	 * @return boolean

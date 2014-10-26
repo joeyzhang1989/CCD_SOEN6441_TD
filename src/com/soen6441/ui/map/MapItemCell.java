@@ -26,7 +26,7 @@ public class MapItemCell extends GridViewCell implements Observer{
 	private MapItem item;
 	
 	/*
-	 * Getters & Setters
+	 * Mark - Basic - Getters & Setters
 	 */
 	
 	/**
@@ -52,7 +52,21 @@ public class MapItemCell extends GridViewCell implements Observer{
 	}
 	
 	/*
-	 * Mark - Methods - Observer 
+	 * Mark - Selection - Methods
+	 */
+	
+	/**
+	 * Method setSelected.
+	 * @param selected boolean
+	 */
+	@Override
+	public void setSelected(boolean selected) {
+		super.setSelected(selected);
+		this.repaint();
+	}
+	
+	/*
+	 * Mark - Paint - Methods
 	 */
 	
 	/**
@@ -74,15 +88,9 @@ public class MapItemCell extends GridViewCell implements Observer{
 		}
 	}
 	
-	/**
-	 * Method setSelected.
-	 * @param selected boolean
+	/*
+	 * Mark - Observer - Methods
 	 */
-	@Override
-	public void setSelected(boolean selected) {
-		super.setSelected(selected);
-		this.repaint();
-	}
 	
 	/**
 	 * Method update.

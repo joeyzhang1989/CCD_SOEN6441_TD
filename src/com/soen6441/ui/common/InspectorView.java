@@ -29,22 +29,25 @@ import com.soen6441.ui.parallel.View;
  * @version $Revision: 1.0 $
  */
 public class InspectorView extends View {
-
+	
 	/*
-	 * Properties
+	 * Mark - Command - Properties
+	 */
+
+	private List<Command> commands;
+	
+	/*
+	 * Mark - Views - Properties
 	 */
 	
 	private Label titleLabel;
 	private Label subtitleLabel;
-	private ImageView imageView;
+//	private ImageView imageView;
 	private JTextArea descriptionTextArea;
 	private List<Button> commandButtons;
 	
-	private IInspectable on;
-	private List<Command> commands;
-	
 	/*
-	 * View Life-Cycle
+	 * Mark - Views - Life Cycle 
 	 */
 	
 	@Override
@@ -77,7 +80,6 @@ public class InspectorView extends View {
 		descriptionTextArea.setLocation(10, 160);
 		this.add(descriptionTextArea);
 		this.descriptionTextArea = descriptionTextArea;
-	
 	}
 
 	public void update() {
@@ -117,7 +119,13 @@ public class InspectorView extends View {
 	}
 	
 	/*
-	 * Getters & Setters
+	 * Mark - On - Properties
+	 */
+	
+	private IInspectable on;
+	
+	/*
+	 * Mark - On - Getters & Setters
 	 */
 	
 	/**

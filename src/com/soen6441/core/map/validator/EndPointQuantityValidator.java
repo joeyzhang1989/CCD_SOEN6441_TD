@@ -7,50 +7,51 @@ import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
 
 /**
- * The class EndPointValidator is a subclass of PathValidator.
- * It overrides the method Validate() of its parent class and check the number of EndPoints in the Map.
+ * The class EndPointValidator is a subclass of PathValidator. It overrides the
+ * method Validate() of its parent class and check the number of EndPoints in
+ * the Map.
  * 
  * @author Zhe Zhao
  * @version $Revision: 1.0 $
  */
 
-
-public class EndPointQuantityValidator extends PathValidator{
+public class EndPointQuantityValidator extends PathValidator {
 
 	/**
-	 * This method Validate() overrides the method Validate() of parent class PathValidator.
+	 * This method Validate() overrides the method Validate() of parent class PathValidator. 
 	 * It checks the Map for end points and validates the Map.
 	 * 
-	 * @return boolean A boolean values that represent whether # of EndPoints are valid. 
-     */
-	
+	 * @return boolean A boolean values that represent whether # of EndPoints
+	 *         are valid.
+	 */
+
 	@Override
 	public boolean validate() {
-		boolean result=true;
-		
+		boolean result = true;
+
 		int numberOfEndPoints = 0;
 		List<MapItem> mapItems = this.getMap().getAllItems();
-		
-		for (int i=0; i < mapItems.size();i++){
+
+		for (int i = 0; i < mapItems.size(); i++) {
 			MapItem mapItem = mapItems.get(i);
-			if (mapItem instanceof Road){
+			if (mapItem instanceof Road) {
 				Road road = (Road) mapItem;
-				if(road.getType() == Road.Type.END){
+				if (road.getType() == Road.Type.END) {
 					numberOfEndPoints += 1;
 				}
 			}
 		}
-		
+
 		if (numberOfEndPoints == 0) {
-			result=false;
+			result = false;
 			this.setErrorMassage("There is no end point in the map");
-			
+
 		} else if (numberOfEndPoints > 1) {
-			result=false;
+			result = false;
 			this.setErrorMassage("There can't be more than one end point in the map");
 		}
-		
-		return result;	
+
+		return result;
 	}
 
 }
