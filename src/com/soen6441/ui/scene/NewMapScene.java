@@ -4,9 +4,15 @@ import java.awt.TextField;
 import java.awt.event.KeyAdapter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
 import javax.swing.JOptionPane;
 
+import com.soen6441.core.map.GridMap;
+import com.soen6441.core.play.Play;
 import com.soen6441.ui.parallel.*;
+
+import demo.soen6441.core.singleton.PlayDemo;
 
 /**
  * This class is used to create the weight and height of a new map, and with two
@@ -26,6 +32,7 @@ public class NewMapScene extends View {
 	private Label nameTextLabel;
 	private Button nextButton;
 	private Button backButton;
+	
 
 	@Override
 	protected void initSubviews() {
@@ -56,7 +63,7 @@ public class NewMapScene extends View {
 		this.add(heightTextField);
 		
 		nameTextLabel = new Label();
-		nameTextLabel.setText("Height");
+		nameTextLabel.setText("Name");
 		nameTextLabel.setSize(200, 40);
 		nameTextLabel.setLocation(220, (int)heightTextLabel.getLocation().getY() + 50);
 		this.add(nameTextLabel);
@@ -82,6 +89,32 @@ public class NewMapScene extends View {
 	}
 
 	private void next() {
+		if(validateInput()){
+			
+			String widthString = widthTextField.getText();
+			String heightString = heightTextField.getText();
+			
+			int width = Integer.valueOf(widthString);
+			int height = Integer.valueOf(heightString);
+			
+			Play play = Play.currentPlay();
+			GridMap gridMap = new GridMap();
+			gridMap.setWidth(width);
+			gridMap.setHeight(height);
+			play.setMap(gridMap);
+			
+			String nameString = nameTextField.getText();
+			File file = new File("maps/" + nameString + ".tdm.xml");
+			
+			EditingScene editingScene = new EditingScene();
+			editingScene.setWorkingFile(file);
+			
+			this.viewFlow.push(editingScene);
+		}
+
+	}
+	
+	private boolean validateInput() {
 		int width;
 		int height;
 		String widthString, heightString;
@@ -89,30 +122,29 @@ public class NewMapScene extends View {
 		try {
 			width = Integer.valueOf(widthString);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, "The range of the width is 4-15");
-			return;
+			JOptionPane.showMessageDialog(this, "The range of the width is 4-15.");
+			return false;
 		}
 
 		if (width < 4 || width > 15) {
-			JOptionPane.showMessageDialog(this, "The range of the width is 4-15");
-			return;
+			JOptionPane.showMessageDialog(this, "The range of the width is 4-15.");
+			return false;
 		}
 		
 		heightString = heightTextField.getText();
 		try {
 			height = Integer.valueOf(heightString);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this, "The range of the height is 4-12");
-			return;
+			JOptionPane.showMessageDialog(this, "The range of the height is 4-12.");
+			return false;
 		}
 
 		if (height < 4 || height > 12) {
-			JOptionPane.showMessageDialog(this, "The range of the height is 4-12");
-			return;
+			JOptionPane.showMessageDialog(this, "The range of the height is 4-12.");
+			return false;
 		}
-//		EditingScene editingScene = new EditingScene();
-//		NewMapScene.this.viewFlow.push(editingScene);
-
+		
+		return true;
 	}
 	@Override
 	protected void initEvents() {
