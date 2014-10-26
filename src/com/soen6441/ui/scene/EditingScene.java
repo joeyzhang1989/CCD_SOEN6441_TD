@@ -90,7 +90,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		initialMoney.setLocation(600, 10);
 		// actual money
 		this.money = new TextField();
-		this.money.setText("1000");
+		//this.money.setText("1000");
+		this.money.setText(play.getCoins()+"");
 		this.money.setSize(80, 40);
 		this.money.setLocation(700, 10);
 
