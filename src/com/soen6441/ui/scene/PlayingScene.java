@@ -348,6 +348,15 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				}	
 			} else if (command == refundCommand) {
 				play.earnCoins(tower.getSellPrice());
+				
+				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
+				
+				// link the model
+				GridMap gridMap = mapView.getMap();
+				gridMap.removeItem(tower);
+				
+				// link the view
+				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			} 
 		}	
 	}	
