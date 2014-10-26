@@ -1,15 +1,16 @@
 package test.soen6441.ui.common;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.fail;
 
-import org.junit.Before;
 import org.junit.Test;
 
-import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
-import com.soen6441.ui.common.GridViewCell;
 
 public class GridViewTestSelection {
+	
+	private GridView temp= new GridView();
+	
+	
 	
 	@Test
 	public void testGetSelectedCell() {

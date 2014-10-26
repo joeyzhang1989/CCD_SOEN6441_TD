@@ -423,7 +423,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * 
 	 */
 	private void save() {
-
 		play.setCoins(Integer.parseInt(this.money.getText())); 
 		PlayManager playManager = new PlayManager();
 		playManager.save(workingFile, play);
