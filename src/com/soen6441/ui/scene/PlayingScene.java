@@ -328,7 +328,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
-			if (tower.getLevel() < 3) {
+			if (tower.canUpgrade()) {
 			commands.add(upgradeCommand);
 			commands.add(refundCommand);
 			} else {
