@@ -279,12 +279,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		
 		
 		public InspectableTower(Tower tower) {
+		
 			this.tower = tower;
-			
-			upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
-			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
-			
-			
 		}
 		/**
 		 * Method title.
@@ -329,11 +325,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
 			if (tower.canUpgrade()) {
-			commands.add(upgradeCommand);
-			commands.add(refundCommand);
-			} else {
-			commands.add(refundCommand);
-			}
+				upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
+				commands.add (upgradeCommand);
+			} 
+			
+			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
+			commands.add (refundCommand);
+			
 			return commands;
 		}
 
