@@ -1,7 +1,6 @@
 package com.soen6441.ui.scene;
 
 import java.awt.TextField;
-import java.awt.event.KeyAdapter;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -11,8 +10,6 @@ import javax.swing.JOptionPane;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.play.Play;
 import com.soen6441.ui.parallel.*;
-
-import demo.soen6441.core.singleton.PlayDemo;
 
 /**
  * This class is used to create the weight and height of a new map, and with two
