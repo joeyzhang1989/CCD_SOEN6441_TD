@@ -1,27 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xml>
-	<Play>
-		<coins>1000</coins>
-		<map>
-			<Map>
-				<width>6</width>
-				<height>4</height>
-				<startPoints>
-					<MapPoint x="1" y="1" />
-				</startPoints>
-				<endPoints>
-					<MapPoint x="4" y="3" />
-				</endPoints>
-				<paths>
-					<Path>
-						<locations>
-							<MapPoint x="1" y="1" />
-							<MapPoint x="4" y="1" />
-							<MapPoint x="4" y="3" />
-						</locations>
-					</Path>
-				</paths>
-			</Map>
-		</map>
-	</Play>
-</xml>
+<xml><Play><coins>1000</coins><map><Map><width>6</width><height>4</height><startPoints><MapPoint x="1" y="1"/></startPoints><endPoints><MapPoint x="4" y="1"/></endPoints><paths><Path><locations><MapPoint x="1" y="1"/><MapPoint x="4" y="1"/></locations></Path></paths></Map></map></Play></xml>
