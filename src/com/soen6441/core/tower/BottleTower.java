@@ -21,5 +21,10 @@ public class BottleTower extends Tower {
 		super.copyTo(bottleTower);
 	}
 	
+	@Override
+	public String getdetailInformation() {
+		String result = super.getdetailInformation();
+		return result;
+	}
 
 }
