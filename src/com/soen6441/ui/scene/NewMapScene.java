@@ -77,8 +77,8 @@ public class NewMapScene extends View {
 
 		backButton = new Button();
 		backButton.setTitle("BACK");
-		backButton.setSize(100, 20);
-		backButton.setLocation(10, 550);
+		backButton.setSize(60, 20);
+		backButton.setLocation(10, 540);
 		this.add(backButton);
 
 	}
