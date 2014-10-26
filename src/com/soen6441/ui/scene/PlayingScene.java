@@ -341,7 +341,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public void execute(Command command) {
 			if(command == upgradeCommand){
-				System.out.println("Refund");
+				int price = play.getCoins();
+				if (price >= tower.getUpgradePrice()) {
+					play.spendCoins(tower.getUpgradePrice());
+					tower.upgrade();
+					inspectorView.update();
+				}	
 			}
 			else if (command == refundCommand){
 				System.out.println("Refund");
