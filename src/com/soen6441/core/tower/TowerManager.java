@@ -106,6 +106,8 @@ public class TowerManager {
     		
     		tower.setName(element.element("towerName").getText());
     		
+    		tower.setDescription(element.element("description").getText());
+    		
     		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;
