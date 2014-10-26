@@ -14,7 +14,6 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
-import com.soen6441.core.tower.BottleTower;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
@@ -305,8 +304,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String subtitle() {
+			return "Level " + tower.getLevel();
 			
-			return null;
 		}
 
 		/**
