@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<TowerManager>
-		<initialPrice>100</initialPrice>
+		<initialPrice>180</initialPrice>
 		<leveledTowers>
 			<SunTower>
 				<level>1</level>
-				<upgradePrice>180</upgradePrice>
-				<sellPrice>80</sellPrice>
+				<upgradePrice>260</upgradePrice>
+				<sellPrice>124</sellPrice>
 				<damage>60</damage>
 				<range>190</range>
 				<cdTime>600</cdTime>
@@ -15,8 +15,8 @@
 				<description>AOE tower attacks all target with in its range.</description></SunTower>
 			<SunTower>
 				<level>2</level>
-				<upgradePrice>260</upgradePrice>
-				<sellPrice>224</sellPrice>
+				<upgradePrice>320</upgradePrice>
+				<sellPrice>312</sellPrice>
 				<damage>80</damage>
 				<range>240</range>
 				<cdTime>400</cdTime>
@@ -27,7 +27,7 @@
 			<SunTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
-				<sellPrice>432</sellPrice>
+				<sellPrice>524</sellPrice>
 				<damage>100</damage>
 				<range>300</range>
 				<cdTime>250</cdTime>

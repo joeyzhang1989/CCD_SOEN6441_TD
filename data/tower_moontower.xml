@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<TowerManager>
-		<initialPrice>120</initialPrice>
+		<initialPrice>180</initialPrice>
 		<leveledTowers>
 			<MoonTower>
 				<level>1</level>
-				<upgradePrice>220</upgradePrice>
-				<sellPrice>96</sellPrice>
+				<upgradePrice>260</upgradePrice>
+				<sellPrice>124</sellPrice>
 				<damage>30</damage>
 				<range>140</range>
 				<cdTime>1200</cdTime>
@@ -17,8 +17,8 @@
 				<description>Moon Tower is an AOE tower with deceleration affect.</description></MoonTower>
 			<MoonTower>
 				<level>2</level>
-				<upgradePrice>260</upgradePrice>
-				<sellPrice>272</sellPrice>
+				<upgradePrice>320</upgradePrice>
+				<sellPrice>312</sellPrice>
 				<damage>50</damage>
 				<range>140</range>
 				<cdTime>1050</cdTime>
@@ -31,7 +31,7 @@
 			<MoonTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
-				<sellPrice>480</sellPrice>
+				<sellPrice>524</sellPrice>
 				<damage>80</damage>
 				<range>160</range>
 				<cdTime>900</cdTime>
