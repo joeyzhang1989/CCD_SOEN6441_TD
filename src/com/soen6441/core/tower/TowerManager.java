@@ -154,6 +154,14 @@ public class TowerManager {
 		}
 				
 	}
+	
+	public boolean canUpgrade(Tower tower) {
+		
+		if (tower.level >= leveledTowers.size()) {
+			return false;
+		}
+		return true;
+	}
 
 	/**
 	 * Method getTowerType.
