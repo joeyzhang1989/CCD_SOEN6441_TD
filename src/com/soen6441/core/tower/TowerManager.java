@@ -106,6 +106,8 @@ public class TowerManager {
     		
     		tower.setName(element.element("towerName").getText());
     		
+    		tower.setDescription(element.element("description").getText());
+    		
     		
     		if (this.towerType == "BottleTower") {
     			BottleTower towerResult = (BottleTower)tower;
@@ -153,6 +155,23 @@ public class TowerManager {
 			
 		}
 				
+	}
+	
+	/**
+	 * Check whether the tower is in its highest level, if it is, return false, else return true;
+	 * To use this method should call from tower
+	 * 
+	 * @see Tower#canUpgrade()
+	 * 
+	 * @param tower an existing tower
+	 * @return boolean
+	 */
+	protected boolean canUpgrade(Tower tower) {
+		
+		if (tower.level >= leveledTowers.size()) {
+			return false;
+		}
+		return true;
 	}
 
 	/**

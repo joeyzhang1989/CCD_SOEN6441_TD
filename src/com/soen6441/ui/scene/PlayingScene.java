@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JOptionPane;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
@@ -243,7 +245,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			inspectorView.update();
 			
 		} else if (mapItem instanceof Tower){
-			inspectorView.setOn(new InspectableTower());
+			Tower tower = (Tower) mapItem;
+			inspectorView.setOn(new InspectableTower(tower));
 			inspectorView.update();
 		}
 	}
@@ -272,12 +275,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		private Command upgradeCommand;
 		private Command refundCommand;
-
+		private Tower tower;
 		
-		public InspectableTower() {
-			upgradeCommand = new Command("Upgrade Tower", "50$");
-			refundCommand = new Command("Refund Tower", "100$");
-			
+		
+		public InspectableTower(Tower tower) {
+		
+			this.tower = tower;
 		}
 		/**
 		 * Method title.
@@ -298,7 +301,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String subtitle() {
 			
-			return null;
+			return "Level " + tower.getLevel();
+			
 		}
 
 		/**
@@ -320,8 +324,14 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
-			commands.add(upgradeCommand);
-			commands.add(refundCommand);
+			if (tower.canUpgrade()) {
+				upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
+				commands.add (upgradeCommand);
+			} 
+			
+			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
+			commands.add (refundCommand);
+			
 			return commands;
 		}
 
@@ -333,11 +343,25 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public void execute(Command command) {
 			if(command == upgradeCommand){
-				System.out.println("Upgrade");
-			} else if(command == refundCommand){
-				System.out.println("Refund");
+				int price = play.getCoins();
+				if (price >= tower.getUpgradePrice()) {
+					play.spendCoins(tower.getUpgradePrice());
+					tower.upgrade();
+					inspectorView.update();
+				}	
+			} else if (command == refundCommand) {
+				play.earnCoins(tower.getSellPrice());
+				
+				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
+				
+				// link the model and remove the mapItem
+				GridMap gridMap = mapView.getMap();
+				gridMap.removeItem(tower);
+				
+				// link the view and replace the tower with scenery cell
+				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			} 
-		}		
+		}	
 	}	
 
 
@@ -383,7 +407,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String subtitle() {
 		
-			return null;
+			return "This is a road";
 		}
 
 		/**

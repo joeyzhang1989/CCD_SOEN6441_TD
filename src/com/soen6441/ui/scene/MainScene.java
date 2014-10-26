@@ -1,31 +1,19 @@
 package com.soen6441.ui.scene;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
-import javax.swing.JButton;
 import javax.swing.JFileChooser;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
-import javax.swing.SwingUtilities;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.filechooser.FileSystemView;
+
 
 import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
-import com.soen6441.ui.parallel.ViewFlow;
-import com.soen6441.ui.parallel.Window;
 
 /**
  * 
@@ -62,9 +50,7 @@ public class MainScene extends View {
 
 		label.setFont(new Font("Cooper Std Black", 1, 60));
 		label.setForeground(Color.orange);
-		// set the location of the label
 		label.setLocation(160, 100);
-		// set the size of the label
 		label.setSize(500, 250);
 		this.add(label);
 
@@ -90,60 +76,69 @@ public class MainScene extends View {
 		this.add(newMapButton);
 
 	}
+	
+	private void readFile(){
+		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+		fileChooser.setFileFilter(filter);
+	
+		int option = fileChooser.showOpenDialog(MainScene.this);
 
+		if (option == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();
+			
+			PlayManager playManager = new PlayManager();
+			playManager.read(file);
+		}
+	}
+	
 	@Override
 	protected void initEvents() {
 		playButton.addActionListener(new ActionListener() {
 
-			@Override
 			/*
 			 * perform the function that click the playbutton to go to
 			 * playingscene
 			 */
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				/*
 				 * Open a window to select maps.
 				 */
 
-				JFileChooser fileChooser = new JFileChooser(new File("maps/"));
-				FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
-				fileChooser.setFileFilter(filter);
-			
-				int option = fileChooser.showOpenDialog(MainScene.this);
+				readFile();
 
-				if (option == JFileChooser.APPROVE_OPTION) {
-					File file = fileChooser.getSelectedFile();
-					
-					PlayManager playManager = new PlayManager();
-					playManager.read(file);
-
-					PlayingScene playingScene = new PlayingScene();
-					MainScene.this.viewFlow.push(playingScene);
-				}
+				PlayingScene playingScene = new PlayingScene();
+				MainScene.this.viewFlow.push(playingScene);
+				
 
 			}
 		});
 
 		editButton.addActionListener(new ActionListener() {
-
-			@Override
+			
 			/*
 			 * perform the function that click the editbutton to go to
 			 * editingscene
 			 */
+			@Override
 			public void actionPerformed(ActionEvent e) {
+
+				readFile();
+					
 				EditingScene editingScene = new EditingScene();
 				MainScene.this.viewFlow.push(editingScene);
+				
 			}
 		});
 
 		newMapButton.addActionListener(new ActionListener() {
 
-			@Override
 			/*
 			 * perform the function that click the newmapbutton to go to
 			 * newmapscene
 			 */
+			@Override
 			public void actionPerformed(ActionEvent e) {
 				NewMapScene newMapScene = new NewMapScene();
 				MainScene.this.viewFlow.push(newMapScene);
@@ -151,33 +146,5 @@ public class MainScene extends View {
 		});
 	}
 
-	private static void showGui() {
-		// Create and set up the window.
-		JFrame frame = new JFrame("FileChooser");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// Add content to the window.
-		frame.add(new MainScene());
-
-		// Display the window.
-		frame.pack();
-		frame.setVisible(true);
-	}
-
-	/*
-	 * Method main.
-	 * 
-	 * @param args String[] perform the main interface at beginning
-	 */
-	/**
-	 * Method main.
-	 * 
-	 * @param args String[]
-	 */
-	public static void main(String[] args) {
-		ViewFlow viewFlow = new ViewFlow();
-		viewFlow.push(new MainScene());
-		new Window(viewFlow);
-	}
-
+	
 }
