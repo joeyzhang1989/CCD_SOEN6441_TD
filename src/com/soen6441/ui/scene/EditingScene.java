@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
@@ -426,6 +428,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		PlayManager playManager = new PlayManager();
 		playManager.save(workingFile, play);
 		infoLabel.setText("The map file has been saved.");
+		JOptionPane.showMessageDialog(this, "Save Successfull");
 	}
 
 	/*
