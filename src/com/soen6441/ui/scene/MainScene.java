@@ -62,9 +62,7 @@ public class MainScene extends View {
 
 		label.setFont(new Font("Cooper Std Black", 1, 60));
 		label.setForeground(Color.orange);
-		// set the location of the label
 		label.setLocation(160, 100);
-		// set the size of the label
 		label.setSize(500, 250);
 		this.add(label);
 
@@ -165,16 +163,5 @@ public class MainScene extends View {
 		});
 	}
 
-	private static void showGui() {
-		// Create and set up the window.
-		JFrame frame = new JFrame("FileChooser");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-		// Add content to the window.
-		frame.add(new MainScene());
-
-		// Display the window.
-		frame.pack();
-		frame.setVisible(true);
-	}
+	
 }
