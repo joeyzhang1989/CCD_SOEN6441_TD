@@ -346,9 +346,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 					tower.upgrade();
 					inspectorView.update();
 				}	
-			}
-			else if (command == refundCommand){
-				System.out.println("Refund");
+			} else if (command == refundCommand) {
+				play.earnCoins(tower.getSellPrice());
 			} 
 		}	
 	}	
