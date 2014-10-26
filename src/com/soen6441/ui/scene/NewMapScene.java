@@ -83,37 +83,32 @@ public class NewMapScene extends View {
 
 	private void next() {
 		int width;
-		java.lang.String wi, hi;
-		wi = widthTextField.getText();
+		int height;
+		String widthString, heightString;
+		widthString = widthTextField.getText();
 		try {
-			width = Integer.valueOf(wi);
+			width = Integer.valueOf(widthString);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this,
-					"The range of the width is 4-15");
+			JOptionPane.showMessageDialog(this, "The range of the width is 4-15");
 			return;
 		}
 
 		if (width < 4 || width > 15) {
-			JOptionPane.showMessageDialog(this,
-					"The range of the width is 4-15");
+			JOptionPane.showMessageDialog(this, "The range of the width is 4-15");
 			return;
-
 		}
 		
-		hi = heightTextField.getText();
+		heightString = heightTextField.getText();
 		try {
-			width = Integer.valueOf(hi);
+			height = Integer.valueOf(heightString);
 		} catch (Exception e) {
-			JOptionPane.showMessageDialog(this,
-					"The range of the height is 4-12");
+			JOptionPane.showMessageDialog(this, "The range of the height is 4-12");
 			return;
 		}
 
-		if (width < 4 || width > 12) {
-			JOptionPane.showMessageDialog(this,
-					"The range of the height is 4-12");
+		if (height < 4 || height > 12) {
+			JOptionPane.showMessageDialog(this, "The range of the height is 4-12");
 			return;
-
 		}
 //		EditingScene editingScene = new EditingScene();
 //		NewMapScene.this.viewFlow.push(editingScene);
