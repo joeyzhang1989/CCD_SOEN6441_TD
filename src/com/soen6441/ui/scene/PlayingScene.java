@@ -405,10 +405,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		public String title() {
 			return road.getName();
 		}
-		
-
-		
-		
+	
 		/**
 		 * Method subtitle.
 		 * @return String 
@@ -491,7 +488,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String title() {
-			return "Scenary";
+			return "Scenery";
 		}
 
 		/**
@@ -501,7 +498,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		@Override
 		public String subtitle() {
-			return "This is a empty space, you can build tower on it";
+			return "This is a empty space.";
 		}
 
 		/**
@@ -512,7 +509,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String description() {
 		
-			return null;
+			return "You can select any type of tower to build on this cell.";
 		}
 
 		/**
