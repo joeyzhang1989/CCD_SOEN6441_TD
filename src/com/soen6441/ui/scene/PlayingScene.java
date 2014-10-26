@@ -14,6 +14,7 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.tower.BottleTower;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
@@ -245,7 +246,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			inspectorView.update();
 			
 		} else if (mapItem instanceof Tower){
-			inspectorView.setOn(new InspectableTower());
+			Tower tower = (Tower) mapItem;
+			inspectorView.setOn(new InspectableTower(tower));
 			inspectorView.update();
 		}
 	}
@@ -274,12 +276,15 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 */
 		private Command upgradeCommand;
 		private Command refundCommand;
-		private TowerManagerFactory towerManagerFactory;
+		private Tower tower;
 		
-		public InspectableTower() {
-			upgradeCommand = new Command("Upgrade Tower", "50$");
-			refundCommand = new Command("Refund Tower", "100$");
-			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
+		
+		public InspectableTower(Tower tower) {
+			this.tower = tower;
+			
+			upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
+			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
+			
 			
 		}
 		/**
@@ -522,9 +527,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				// link the view
 				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			}
-			else if (play.getCoins() < price) {
-				JOptionPane.showMessageDialog(null, "My Goodness, you do not have money to build tower!!");
-		    }
 		}
 	}
 }
