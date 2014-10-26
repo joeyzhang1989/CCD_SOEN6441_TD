@@ -28,7 +28,7 @@ public class MapPointTestFunctional {
 	@Test
 	public void testDistanceTo() {
 		double distance = p1.distanceTo(p2);
-		assertEquals((int) distance, 8);
+		assertSame(distance, 8.0);
 	}
 
 	@Test
