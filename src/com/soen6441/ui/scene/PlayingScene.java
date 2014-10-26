@@ -351,11 +351,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				
 				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
 				
-				// link the model
+				// link the model and remove the mapItem
 				GridMap gridMap = mapView.getMap();
 				gridMap.removeItem(tower);
 				
-				// link the view
+				// link the view and replace the tower with scenery cell
 				mapView.replaceCell(mapView.getSelectedCell(), cell);
 			} 
 		}	
