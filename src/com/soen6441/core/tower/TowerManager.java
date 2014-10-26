@@ -155,7 +155,16 @@ public class TowerManager {
 				
 	}
 	
-	public boolean canUpgrade(Tower tower) {
+	/**
+	 * Check whether the tower is in its highest level, if it is, return false, else return true;
+	 * To use this method should call from tower
+	 * 
+	 * @see Tower#canUpgrade()
+	 * 
+	 * @param tower an existing tower
+	 * @return boolean
+	 */
+	protected boolean canUpgrade(Tower tower) {
 		
 		if (tower.level >= leveledTowers.size()) {
 			return false;
