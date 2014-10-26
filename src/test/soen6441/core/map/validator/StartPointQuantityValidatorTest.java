@@ -76,7 +76,7 @@ public class StartPointQuantityValidatorTest {
 		validator.setMap(map);
 		
 		assertFalse(validator.validate());	// StartPointQuantityValidator must return False.
-		assertEquals(validator.getErrorMessage(),"There can't be more than one start point in the map");
+		assertEquals(validator.getErrorMessage(),StartPointQuantityValidator.MULTIPLE_STARTPOINT_ERROR);
 		validator.setErrorMassage(null);	//Set the error Message to null for followong tests
 	}
 	
@@ -105,6 +105,6 @@ public class StartPointQuantityValidatorTest {
 		map.removeItem(map.getItem(p1));
 		
 		assertFalse(validator.validate());	// StartPointQuantityValidator must return False.
-		assertEquals(validator.getErrorMessage(),"There is no start point in the map");
+		assertEquals(validator.getErrorMessage(),StartPointQuantityValidator.MISSING_STARTPOINT_ERROR);
 	}
 }
