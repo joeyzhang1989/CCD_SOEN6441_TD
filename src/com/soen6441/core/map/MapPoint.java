@@ -133,9 +133,9 @@ public class MapPoint {
 	 * * @return  distance to the MapPoinit */
 	
 	public double distanceTo(MapPoint point){
-		
-		double distance=1.0;//dummy value. must be removed after actual implementation
-		return distance;
+		double dx = point.x - this.x;
+		double dy = point.y - this.y;
+		return Math.pow(dx * dx + dy * dy, 0.5);
 	}
 	
 	public MapPoint add(MapPoint point){
