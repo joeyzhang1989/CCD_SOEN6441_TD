@@ -11,6 +11,7 @@ public class GridViewTestDisplay {
 		fail("Not yet implemented");
 	}
 
+	// to test if set unit width to lets say 10, then if i add a cell , will the location be right.
 	@Test
 	public void testSetUnitWidth() {
 		fail("Not yet implemented");
