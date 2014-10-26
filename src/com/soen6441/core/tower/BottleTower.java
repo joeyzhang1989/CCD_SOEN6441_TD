@@ -22,8 +22,8 @@ public class BottleTower extends Tower {
 	}
 	
 	@Override
-	public String getdetailInformation() {
-		String result = super.getdetailInformation();
+	public String getDetailInformation() {
+		String result = super.getDetailInformation();
 		return result;
 	}
 
