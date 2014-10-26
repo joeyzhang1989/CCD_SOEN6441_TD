@@ -10,9 +10,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
 
-/**
- */
-public class GridMapTest {
+public class GridMapTestItemManagement {
 	
 	private static GridMap sharedGridMap;
 	private static Road aRoadOnSharedGridMap;
@@ -29,7 +27,12 @@ public class GridMapTest {
 	}
 
 	@Test
-	public void setItemTest() {
+	public void testSetItemMapItem() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSetItemMapItemMapPoint() {
 		
 		// location setup test
 		Road road = new Road();
@@ -37,9 +40,9 @@ public class GridMapTest {
 		sharedGridMap.setItem(road, location);
 		assertSame(road.getLocation(), location);
 	}
-	
+
 	@Test
-	public void getItemTest(){
+	public void testGetItem() {
 		MapItem item;
 		// get a current item
 		item = sharedGridMap.getItem(new MapPoint(3, 3));
@@ -56,16 +59,20 @@ public class GridMapTest {
 		item = sharedGridMap.getItem(new MapPoint(-1, -1));
 		assertNull(item);
 	}
-	
-	@Test 
-	public void removeItem(){
+
+	@Test
+	public void testRemoveItem() {
 		sharedGridMap.removeItem(aRoadOnSharedGridMap);
 
 		MapItem item;
 		// get a removed item
 		item = sharedGridMap.getItem(new MapPoint(3, 3));
 		assertNull(item);
-		
+	}
+
+	@Test
+	public void testGetAllItems() {
+		fail("Not yet implemented");
 	}
 
 }
