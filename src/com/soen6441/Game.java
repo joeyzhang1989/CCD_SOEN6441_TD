@@ -9,6 +9,7 @@ import com.soen6441.ui.scene.MainScene;
  * @author Zhe Zhao
  * @version $Revision: 1.0 $
  */
+
 public class Game {
 	/**
 	 * Method main.

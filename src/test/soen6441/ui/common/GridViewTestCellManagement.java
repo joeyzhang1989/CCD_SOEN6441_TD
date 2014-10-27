@@ -11,9 +11,10 @@ import com.soen6441.ui.common.GridViewCell;
 
 /**
  * This is the test class for GridViewCells inserted into the GridView. Making
- * sure we are adding , removing and replacing correctly.
+ * sure we are adding , removing , replacing and getting.
  * 
  * @author JeanRaymondDaher
+ * @version $Revision: 1.0 $
  */
 
 public class GridViewTestCellManagement {

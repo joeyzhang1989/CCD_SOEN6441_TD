@@ -4,8 +4,8 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
@@ -28,25 +28,22 @@ import com.soen6441.core.map.validator.EndPointQuantityValidator;
 @FixMethodOrder(MethodSorters.JVM)
 public class EndPointQuantityValidatorTest {
 
-	static PathValidator validator;
-	static GridMap map;
-	static MapPoint p1 ;
-	static MapPoint p2 ;
-	static Road r1 ;
-	static Road r2 ;
+    PathValidator validator;
+	GridMap map;
 	
 	/*
 	 * Method setUp() will run Once before this Test Class starts and will create the Objects required for
 	 * all the Tests in this class.
 	 */
 	 
-	@BeforeClass
-	public static void setUp() {
+	@Before
+	public void setUp() {
 		validator = new EndPointQuantityValidator();
 		map = new GridMap();
 		
 		map.setWidth(6);
 		map.setHeight(4);
+		validator.setMap(map);
 	}
 	
 	/*
@@ -54,14 +51,11 @@ public class EndPointQuantityValidatorTest {
 	 * the objects, so that the garbage collector can collect them. 
 	 */
 	
-	@AfterClass
-	public static void TearDown() {
+	@After
+	public void TearDown() {
 		validator = null;
 		map = null;
-		p1 = null;
-		p2 = null;
-		r1 = null;
-		r2 = null;
+		
 	}
 	
 	
@@ -72,10 +66,10 @@ public class EndPointQuantityValidatorTest {
 	
 	@Test
 	public void testMultipleEndPoints() {
-		p1 = new MapPoint(1, 1);
-		p2 = new MapPoint(3, 3);
-		r1 = new Road(Road.Type.END);
-		r2 = new Road(Road.Type.END);
+		MapPoint p1 = new MapPoint(1, 1);
+		MapPoint p2 = new MapPoint(3, 3);
+		Road r1 = new Road(Road.Type.END);
+		Road r2 = new Road(Road.Type.END);
 		map.setItem(r1, p1);
 		map.setItem(r2, p2);
 		validator.setMap(map);
@@ -94,7 +88,10 @@ public class EndPointQuantityValidatorTest {
 	
 	@Test
 	public void testOnlyOneEndPoint() {
-		map.removeItem(map.getItem(p2));	// remove one end Point from the map
+		MapPoint p1 = new MapPoint(1, 1);
+		Road r1 = new Road(Road.Type.END);
+		map.setItem(r1, p1);
+		validator.setMap(map);
 		
 		assertTrue(validator.validate());	// EndPointQuantityValidator must return True.
 		assertEquals(validator.getErrorMessage(),null);		// error msg must be null.
@@ -108,7 +105,6 @@ public class EndPointQuantityValidatorTest {
 	
 	@Test
 	public void testEndPointMissing() {
-		map.removeItem(map.getItem(p1));
 		
 		assertFalse(validator.validate());	// EndPointQuantityValidator must return False as no EndPoint on map now.
 		assertEquals(validator.getErrorMessage(),EndPointQuantityValidator.MISSING_ENDPOINT_ERROR);

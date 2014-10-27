@@ -50,11 +50,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - View - Properties
 	 */
 	
-	private Button controlButton;// validate button to make sure map is valid
-	private Label infoLabel;
+	private Button controlButton; //validate button to make sure map is valid
+	private Label infoLabel; 
 	private TextField money;
 
-	private MapView mapView;// the map of the game where the grid resides
+	private MapView mapView; //the map of the game where the grid resides
 	private InspectorView inspectorView;
 
 	private Button backButton;
@@ -74,7 +74,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 	protected void initSubviews() {
 		super.initSubviews();
-
+	
 		// Upper view containing the money label,infolabel label,controlbutton button
 		View upperView = new View();
 		upperView.setLocation(0, 0);
@@ -100,10 +100,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		initialMoney.setLocation(600, 10);
 		// actual money
 		this.money = new TextField();
-		//this.money.setText("1000");
 		this.money.setText(play.getCoins()+"");
-	
-		
 		this.money.setSize(80, 40);
 		this.money.setLocation(700, 10);
 
@@ -151,7 +148,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.inspectorView.setSize(180, 480);
 		this.inspectorView.setBackground(new Color(0xEEEEEE));
 		this.add(inspectorView);
-
 	}
 
 	/**
@@ -160,11 +156,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 	@Override
 	protected void initEvents() {
-
 		this.mapView.setSelectionListener(this);
-		
 		this.saveButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				if (validateMap()) {
@@ -173,18 +166,13 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			}
 		});
 		this.controlButton.addActionListener(new ActionListener() {
-
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				validateMap();
-
 			}
 		});
 		this.backButton.addActionListener(new ActionListener() {
 			@Override
-			/**
-			 * perform the function that click the backbutton to go to editingscene
-			 */
 			public void actionPerformed(ActionEvent e) {
 				Play.destroy();
 				EditingScene.this.viewFlow.pop();
@@ -417,7 +405,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
-
 		if (gridMap.getPathManager().validate()) {
 			infoLabel.setText("Validation : Path Is Valid");
 			return true;
