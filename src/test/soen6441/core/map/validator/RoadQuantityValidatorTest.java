@@ -29,11 +29,10 @@ public class RoadQuantityValidatorTest {
 	 PathValidator validator;
 	 GridMap map;
 	
-	 /*
+	/**
 	 * Method setUp() will run Once before this Test Class starts and will create the Objects required for
 	 * all the Tests in this class.
 	 */
-	 
 	@Before
 	public void setUp() {
 		validator = new RoadQuantityValidator();
@@ -57,23 +56,22 @@ public class RoadQuantityValidatorTest {
 		validator.setMap(map);
 	
 	}
-	/*
-	 * Method TearDown() will run Once after this Test Class finsih running and will delete the references to 
+	
+	/**
+	 * Method tearDown() will run Once after this Test Class finsih running and will delete the references to 
 	 * the objects, so that the garbage collector can collect them. 
 	 */
-	
 	@After
-	public void TearDown() {
+	public void tearDown() {
 		validator = null;
 		map = null;
 		
 	}
 	
-	/*
+	/**
      * testRoadExist() will test RoadQuantityValidator when there is atleast one road item on the map.
      * 
      */
-	
 	@Test
 	public void testRoadExist() {
 	
@@ -81,11 +79,10 @@ public class RoadQuantityValidatorTest {
 		assertEquals(validator.getErrorMessage(),null);		// error msg must be null.
 	}
 	
-	/*
+	/**
      * testRoadMissing() will test RoadQuantityValidator when there is no road item on the map.
      * 
      */
-	
 	@Test
 	public void testRoadMissing() {
 		GridMap map = this.validator.getMap();

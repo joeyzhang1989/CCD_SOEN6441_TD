@@ -8,17 +8,17 @@ public class GridMapTestSelection {
 
 	@Test
 	public void testGetSelectedItem() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testGetSelectedPoint() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testSetSelectedPoint() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 }

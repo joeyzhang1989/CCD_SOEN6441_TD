@@ -28,14 +28,13 @@ import com.soen6441.core.map.validator.EndPointQuantityValidator;
 @FixMethodOrder(MethodSorters.JVM)
 public class EndPointQuantityValidatorTest {
 
-    PathValidator validator;
+    private PathValidator validator;
 	GridMap map;
 	
-	/*
+	/**
 	 * Method setUp() will run Once before this Test Class starts and will create the Objects required for
 	 * all the Tests in this class.
 	 */
-	 
 	@Before
 	public void setUp() {
 		validator = new EndPointQuantityValidator();
@@ -46,24 +45,21 @@ public class EndPointQuantityValidatorTest {
 		validator.setMap(map);
 	}
 	
-	/*
-	 * Method TearDown() will run Once after this Test Class finsih running and will delete the references to 
+	/**
+	 * Method tearDown() will run Once after this Test Class finsih running and will delete the references to 
 	 * the objects, so that the garbage collector can collect them. 
 	 */
-	
 	@After
-	public void TearDown() {
+	public void tearDown() {
 		validator = null;
 		map = null;
 		
 	}
 	
 	
-	/*
+	/**
      * testMultipleEndPoints() will test EndPointQuantityValidator when there are more than one EndPoint on the map.
-     * 
      */
-	
 	@Test
 	public void testMultipleEndPoints() {
 		MapPoint p1 = new MapPoint(1, 1);
@@ -81,11 +77,9 @@ public class EndPointQuantityValidatorTest {
 	}
 	
 	
-	/*
+	/**
      * testOnlyOneEndPoint() will test EndPointQuantityValidator when there is only one endPoint on the map.
-     * 
      */
-	
 	@Test
 	public void testOnlyOneEndPoint() {
 		MapPoint p1 = new MapPoint(1, 1);
@@ -98,11 +92,10 @@ public class EndPointQuantityValidatorTest {
 	}
    
 	
-	/*
+	/**
      * testEndPointMissing() will test EndPointQuantityValidator when there is no EndPoint on the map.
      * 
      */
-	
 	@Test
 	public void testEndPointMissing() {
 		
