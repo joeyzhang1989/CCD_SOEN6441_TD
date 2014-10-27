@@ -18,6 +18,13 @@ import com.soen6441.core.map.Road;
 
 public class ConnectionValidator extends PathValidator {
 
+	public static final String BROKEN_PATH_ERROR = "The Road is not connected";
+	public static final String MULTIPLE_BRANCH_ERROR = "Branches are not allowed";
+	public static final String STARTPOINT_BRANCH_ERROR = "Start point should have only one neighbour" ;
+	public static final String ENDPOINT_BRANCH_ERROR = "End point should have only one neighbour";
+	
+	
+	
 	/**
 	 * This method Validate() overrides the method Validate() of parent class PathValidator.
 	 * It checks whether a path exist between startPoint and EndPoint.
@@ -55,26 +62,26 @@ public class ConnectionValidator extends PathValidator {
 		    
 		    if(type == Road.Type.START) {
 		    	if(totalNeighbours > 1) {
-		    		this.setErrorMassage("Start point should have one neighbour");
+		    		this.setErrorMassage(STARTPOINT_BRANCH_ERROR);
 		    		return false;
 		    	} else if (totalNeighbours < 1) {
-		    		this.setErrorMassage("The Road is not connected");
+		    		this.setErrorMassage(BROKEN_PATH_ERROR);
 		    		return false;
 		    	}
 		    } else if(type == Road.Type.END) {
 		    	if(totalNeighbours > 1) {
-		    		this.setErrorMassage("End point should have one neighbour");
+		    		this.setErrorMassage(ENDPOINT_BRANCH_ERROR);
 		    		return false;
 		    	} else if (totalNeighbours < 1) {
-		    		this.setErrorMassage("The Road is not connected");
+		    		this.setErrorMassage(BROKEN_PATH_ERROR);
 		    		return false;
 		    	}
 		    } else if(type == Road.Type.NORMAL) {
 		    	if(totalNeighbours > 2) {
-		    		this.setErrorMassage("Branches are not allowed");
+		    		this.setErrorMassage(MULTIPLE_BRANCH_ERROR);
 		    		return false;
 		    	} else if (totalNeighbours < 2) {
-		    		this.setErrorMassage("The Road is not connected");
+		    		this.setErrorMassage(BROKEN_PATH_ERROR);
 		    		return false;
 		    	}
 		    } 

@@ -95,7 +95,7 @@ public class ConnectionValidatorTest {
 		map.removeItem(map.getItem(new MapPoint(3,1)));	// breaking the path
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as path is broken.
-		assertEquals(validator.getErrorMessage(),"The Road is not connected");
+		assertEquals(validator.getErrorMessage(),ConnectionValidator.BROKEN_PATH_ERROR);
 	}
 	
 	/*
@@ -112,7 +112,7 @@ public class ConnectionValidatorTest {
 		map.setItem(r1, p1);
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as StartPoint has more than one neighbour.
-		assertEquals(validator.getErrorMessage(),"Start point should have one neighbour");
+		assertEquals(validator.getErrorMessage(),ConnectionValidator.STARTPOINT_BRANCH_ERROR);
 	}
 	
 	/*
@@ -129,7 +129,7 @@ public class ConnectionValidatorTest {
 		map.setItem(r1, p1);
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as EndPoint has more than one neighbour.
-		assertEquals(validator.getErrorMessage(),"End point should have one neighbour");
+		assertEquals(validator.getErrorMessage(),ConnectionValidator.ENDPOINT_BRANCH_ERROR);
 	}
 	
 	/*
@@ -146,7 +146,7 @@ public class ConnectionValidatorTest {
 		map.setItem(r1, p1);
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as EndPoint has more than one neighbour.
-		assertEquals(validator.getErrorMessage(),"Branches are not allowed");
+		assertEquals(validator.getErrorMessage(),ConnectionValidator.MULTIPLE_BRANCH_ERROR);
 	}
 	
 }
