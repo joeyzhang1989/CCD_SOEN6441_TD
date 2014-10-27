@@ -26,14 +26,12 @@ import com.soen6441.core.map.validator.ConnectionValidator;
 @FixMethodOrder(MethodSorters.JVM)
 public class ConnectionValidatorTest {
 
-	PathValidator validator ;
-	GridMap map;
+	private PathValidator validator ;
 	
-	/*
+	/**
 	 * Method setUp() will run Once before this Test Class starts and will create the Objects required for
 	 * all the Tests in this class.
 	 */
-	 
 	@Before
 	public void setUp() {
 		validator = new ConnectionValidator();
@@ -60,23 +58,19 @@ public class ConnectionValidatorTest {
 		
 	}
 	
-	/*
-	 * Method TearDown() will run Once after this Test Class finsih running and will delete the references to 
+	/**
+	 * Method {@link #tearDown()} will run Once after this Test Class finsih running and will delete the references to 
 	 * the objects, so that the garbage collector can collect them. 
 	 */
-	
 	@After
-	public void TearDown() {
+	public void tearDown() {
 		validator = null;
-		map = null;
 		
 	}
 	
-	/*
-     * testValidConnection() will test ConnectionValidator when the startPoint and EndPont are connected.
-     * 
+	/**
+     * {@link #testValidConnection()} will test ConnectionValidator when the startPoint and EndPont are connected.
      */
-	
 	@Test
 	public void testValidConnection() {
 		
@@ -84,11 +78,9 @@ public class ConnectionValidatorTest {
 		assertEquals(validator.getErrorMessage(),null);
 	}
 	
-	/*
-     * testBrokenConnection() will test ConnectionValidator when the startPoint and EndPont are connected.
-     * 
+	/**
+     * {@link #testBrokenConnection()} will test ConnectionValidator when the startPoint and EndPont are connected.
      */
-	
 	@Test
 	public void testBrokenConnection() {
 		GridMap map=this.validator.getMap();
@@ -98,11 +90,9 @@ public class ConnectionValidatorTest {
 		assertEquals(validator.getErrorMessage(),ConnectionValidator.BROKEN_PATH_ERROR);
 	}
 	
-	/*
-     * testPathsFromStartPoint () will test ConnectionValidator when there is more than one branch at startPoint.
-     * 
+	/**
+     * {@link #testPathsFromStartPoint ()} will test ConnectionValidator when there is more than one branch at startPoint.
      */
-	
 	@Test
 	public void testPathsFromStartPoint () {
 		GridMap map=this.validator.getMap();
@@ -115,11 +105,9 @@ public class ConnectionValidatorTest {
 		assertEquals(validator.getErrorMessage(),ConnectionValidator.STARTPOINT_BRANCH_ERROR);
 	}
 	
-	/*
+	/**
      * testPathsFromEndPoint () will test ConnectionValidator when there is more than one branch at endPoint.
-     * 
      */
-	
 	@Test
 	public void testPathsFromEndPoint() {
 		GridMap map=this.validator.getMap();
@@ -132,11 +120,9 @@ public class ConnectionValidatorTest {
 		assertEquals(validator.getErrorMessage(),ConnectionValidator.ENDPOINT_BRANCH_ERROR);
 	}
 	
-	/*
+	/**
      * testRoadBranches() will test ConnectionValidator when there is more than one path in the map.
-     * 
      */
-	
 	@Test
 	public void testRoadBranches() {
 		GridMap map=this.validator.getMap();

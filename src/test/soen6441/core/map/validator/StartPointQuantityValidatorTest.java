@@ -27,14 +27,13 @@ import com.soen6441.core.map.validator.StartPointQuantityValidator;
 @FixMethodOrder(MethodSorters.JVM)
 public class StartPointQuantityValidatorTest {
 
-	PathValidator validator;
-	GridMap map;
+	private PathValidator validator;
+	private GridMap map;
 	
-	/*
+	/**
 	 * Method setUp() will run Once before this Test Class starts and will create the Objects required for
 	 * all the Tests in this class.
 	 */
-	 
 	@Before
 	public void setUp() {
 		validator = new StartPointQuantityValidator();
@@ -48,24 +47,21 @@ public class StartPointQuantityValidatorTest {
 	}
 	
 	
-	/*
-	 * Method TearDown() will run Once after this Test Class finsih running and will delete the references to 
+	/**
+	 * Method tearDown() will run Once after this Test Class finsih running and will delete the references to 
 	 * the objects, so that the garbage collector can collect them. 
 	 */
-	
 	@After
-	public void TearDown() {
+	public void tearDown() {
 		validator = null;
 		map = null;
-	
 	}
 	
 	
-	/*
+	/**
      * testMultipleStartPoints() will test StartPointQuantityValidator when there are more than one startPoint on the map.
      * 
      */
-	
 	@Test
 	public void testMultipleStartPoints() {
 		MapPoint p1 = new MapPoint(1, 1);
@@ -82,11 +78,10 @@ public class StartPointQuantityValidatorTest {
 	}
 	
 	
-	/*
+	/**
      * testOnlyOneStartPoint() will test StartPointQuantityValidator when there is only one startPoint on the map.
      * 
      */
-	
 	@Test
 	public void testOnlyOneStartPoint() {
 		MapPoint p1 = new MapPoint(1, 1);
@@ -99,11 +94,10 @@ public class StartPointQuantityValidatorTest {
 	}
 
 	 
-	/*
+	/**
      * testStartPointMissing() will test StartPointQuantityValidator when there is no startPoint on the map.
      * 
      */
-	
 	@Test
 	public void testStartPointMissing() {
 		

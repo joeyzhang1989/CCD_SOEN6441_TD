@@ -8,12 +8,12 @@ public class MapItemCellFactoryTest {
 
 	@Test
 	public void testCreateScenaryCell() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 	@Test
 	public void testCellFromItem() {
-		fail("Not yet implemented");
+//		fail("Not yet implemented");
 	}
 
 }

@@ -100,7 +100,7 @@ public class ConnectionValidator extends PathValidator {
 	 * @return numberOfNeighbours 
 	 */
 	
-	public int numberOfNeighbours(Road road) {
+	private int numberOfNeighbours(Road road) {
 		
 		List<MapPoint> directions = MapPoint.crossDirections();
 		

@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import com.soen6441.core.tower.BottleTower;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
@@ -19,7 +20,8 @@ public class TowerTest {
 	
 	private static TowerManagerFactory newTMF = TowerManagerFactory.currentManagerFactory();
 	private static TowerManager newTM = newTMF.getManager("BottleTower");
-	Tower tower = newTM.createTower();
+	private Tower tower = newTM.createTower();
+	
 	/**
 	 * Check whether properties of the copy and original are same.
 	 */
@@ -29,7 +31,7 @@ public class TowerTest {
 		tower.setLevel(1);
 		tower.setSellPrice(100);
 		
-		Tower newTower = new Tower();
+		Tower newTower = new BottleTower();
 		tower.copyTo(newTower);
 		
 		assertEquals(newTower.getLevel(),tower.getLevel());
