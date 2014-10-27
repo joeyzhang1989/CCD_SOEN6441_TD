@@ -1,4 +1,11 @@
 package test.soen6441.ui.common;
+/**
+ * This is the test class for GridViewCells display. Making
+ * sure suggested size for GridView is computed and unit height, width setters.
+ * 
+ * @author JeanRaymondDaher
+ * @version $Revision: 1.0 $
+ */
 
 import static org.junit.Assert.*;
 

@@ -1,9 +1,5 @@
 package com.soen6441.core.map;
 
-
-
-
-
 /**
  * This class will check whether the map is valid or not.In addition, this class
  * will provide methods to generate paths on the map  
