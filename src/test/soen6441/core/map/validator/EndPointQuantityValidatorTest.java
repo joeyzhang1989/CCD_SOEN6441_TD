@@ -81,7 +81,7 @@ public class EndPointQuantityValidatorTest {
 		validator.setMap(map);
 		
 		assertFalse(validator.validate());	// EndPointQuantityValidator must return False.
-		assertEquals(validator.getErrorMessage(),"There can't be more than one end point in the map");
+		assertEquals(validator.getErrorMessage(),EndPointQuantityValidator.MULTIPLE_ENDPOINT_ERROR);
 		validator.setErrorMassage(null);	//Set the error Message to null for followong tests
 		
 	}
@@ -111,6 +111,6 @@ public class EndPointQuantityValidatorTest {
 		map.removeItem(map.getItem(p1));
 		
 		assertFalse(validator.validate());	// EndPointQuantityValidator must return False as no EndPoint on map now.
-		assertEquals(validator.getErrorMessage(),"There is no end point in the map");
+		assertEquals(validator.getErrorMessage(),EndPointQuantityValidator.MISSING_ENDPOINT_ERROR);
 	}
 }

@@ -17,6 +17,9 @@ import com.soen6441.core.map.Road;
 
 public class EndPointQuantityValidator extends PathValidator {
 
+	public static final String MISSING_ENDPOINT_ERROR = "There is no end point in the map";
+	public static final String MULTIPLE_ENDPOINT_ERROR = "There can't be more than one end point in the map";
+	
 	/**
 	 * This method Validate() overrides the method Validate() of parent class PathValidator. 
 	 * It checks the Map for end points and validates the Map.
@@ -44,11 +47,11 @@ public class EndPointQuantityValidator extends PathValidator {
 
 		if (numberOfEndPoints == 0) {
 			result = false;
-			this.setErrorMassage("There is no end point in the map");
+			this.setErrorMassage(MISSING_ENDPOINT_ERROR);
 
 		} else if (numberOfEndPoints > 1) {
 			result = false;
-			this.setErrorMassage("There can't be more than one end point in the map");
+			this.setErrorMassage(MULTIPLE_ENDPOINT_ERROR);
 		}
 
 		return result;
