@@ -9,6 +9,8 @@ import org.junit.runners.Suite.SuiteClasses;
 		EndPointQuantityValidatorTest.class, 
 		RoadQuantityValidatorTest.class,
 		StartPointQuantityValidatorTest.class })
+
+
 public class SuiteValidator {
 
 }
