@@ -10,6 +10,8 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
 
+/**
+ */
 public class GridMapTestSelection {
 	
 	private GridMap map;

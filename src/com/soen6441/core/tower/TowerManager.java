@@ -43,8 +43,8 @@ public class TowerManager {
 	 * 
 	 * @param towerType The string use to defines a special type of tower.
 	 * @param filePath The string use to define a file path of TowerManager.
-	 * @see #analyse()
-	 */
+	 * @see #analyse() 
+     */
 	public TowerManager(String towerType, String filePath) {
 		
 		this.towerType = towerType;
@@ -56,8 +56,8 @@ public class TowerManager {
 	 * This method use reflection to generate a particular type of tower object.
 	 * 
 	 * @param typeName The string use to defines a special type of tower.
-	 * @return tower A child class of Tower object.
-	 */
+	 * @return tower A child class of Tower object. 
+     */
 	private Tower generateTower(String typeName) {
 		Tower tower = null;
 		try {
@@ -153,9 +153,9 @@ public class TowerManager {
 	 * Create a specific Tower object.
 	 * This method uses copyTo method of tower class.
 	 * 
-	 * @return Tower
-	 * @see Tower#copyTo(Tower)
-	 */
+	 * @return Tower 
+     * @see Tower#copyTo(Tower) 
+     */
 	public Tower createTower() {
 		
 		Tower tower = leveledTowers.get(0);
@@ -170,8 +170,8 @@ public class TowerManager {
 	 * This method uses copyTo method of tower class.
 	 * 
 	 * @param tower a Tower object
-	 * @see Tower#copyTo(Tower)
-	 */
+	 * @see Tower#copyTo(Tower) 
+     */
 	public void upgrade(Tower tower) {
 		
 		if (tower.level < leveledTowers.size()) {
@@ -185,9 +185,9 @@ public class TowerManager {
 	 * To use this method should call from tower
 	 * 
 	 * @param tower an existing tower
-	 * @return boolean
-	 * @see Tower#canUpgrade()
-	 */
+	 * @return boolean 
+     * @see Tower#canUpgrade() 
+     */
 	protected boolean canUpgrade(Tower tower) {
 		
 		if (tower.level >= leveledTowers.size()) {
@@ -198,8 +198,8 @@ public class TowerManager {
 
 	/**
 	 * Method getTowerType.
-	 * @return String
-	 */
+	
+	 * @return String */
 	public String getTowerType() {
 		return towerType;
 	}
@@ -214,8 +214,8 @@ public class TowerManager {
 
 	/**
 	 * Method getFilePath.
-	 * @return String
-	 */
+	 * @return String 
+     */
 	public String getFilePath() {
 		return filePath;
 	}
@@ -230,8 +230,8 @@ public class TowerManager {
 
 	/**
 	 * Method getInitialPrice.
-	 * @return int
-	 */
+	 * @return int 
+     */
 	public int getInitialPrice() {
 		return initialPrice;
 	}
@@ -246,8 +246,8 @@ public class TowerManager {
 
 	/**
 	 * Method getLeveledTowers.
-	 * @return List<Tower>
-	 */
+	
+	 * @return List<Tower> */
 	public List<Tower> getLeveledTowers() {
 		return leveledTowers;
 	}

@@ -159,6 +159,10 @@ public class NewMapScene extends View {
 	/*
 	 * Mark - creation - method
 	 */
+	/**
+	 * Method validateInput.
+	 * @return boolean
+	 */
 	private boolean validateInput() {
 		int width;
 		int height;
@@ -193,6 +197,10 @@ public class NewMapScene extends View {
 		return true;
 	}
 	
+	/**
+	 * Method validateFileName.
+	 * @return boolean
+	 */
 	private boolean validateFileName() {
 		String nameString = nameTextField.getText();
 		File file = new File("maps/" + nameString +".tdm.xml");

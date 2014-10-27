@@ -71,7 +71,7 @@ public class Effect {
 	
 	/**
 	 * Method getType.
-	 * @return String
+     * @return String 
      */
 	public String getType() {
 		return type;
@@ -79,8 +79,8 @@ public class Effect {
 	
 	/**
 	 * Method getOn.
-	 * @return IAffectable  
- 	 */
+ 	 * @return IAffectable  
+     */
 	public IAffectable getOn() {
 		return on;
 	}

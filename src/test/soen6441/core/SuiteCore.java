@@ -10,6 +10,8 @@ import test.soen6441.core.play.SuitePlay;
 import test.soen6441.core.tower.SuiteTower;
 
 /**
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 @RunWith(Suite.class)
 @SuiteClasses({

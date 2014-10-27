@@ -9,6 +9,7 @@ import org.junit.runners.Suite.SuiteClasses;
  * PlaySuite runs all Junits test cases of package "Play" as a suite.
  * 
  * @author Mohammad Ali 
+ * @version $Revision: 1.0 $
  */
 @RunWith(Suite.class)
 @SuiteClasses({ PlayTestSingleton.class,

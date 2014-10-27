@@ -127,8 +127,8 @@ public class View extends JPanel {
 	/**
 	 * Method add.
 	 * @param comp Component
-	 * @return Component 
-	 */
+	 * @return Component  
+     */
 	@Override
 	public Component add(Component comp) {
 		Component result = super.add(comp, 0);
@@ -158,9 +158,9 @@ public class View extends JPanel {
 	 */
 	
 	/**
-	 * Method getViewFlow.
-	 * @return ViewFlow 
-	 */
+	 * Method getViewFlow.	
+	 * @return ViewFlow  
+     */
 	public ViewFlow getViewFlow() {
 		return viewFlow;
 	}

@@ -31,7 +31,7 @@ public class MapItemCell extends GridViewCell implements Observer{
 	
 	/**
 	 * Method getItem.
-     * @return MapItem	
+     * @return MapItem	 
      */
 	public MapItem getItem() {
 		return item;
@@ -79,6 +79,10 @@ public class MapItemCell extends GridViewCell implements Observer{
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 	}
 	
+	/**
+	 * Method paintSelection.
+	 * @param g Graphics
+	 */
 	protected void paintSelection(Graphics g) {
 		g.setColor(new Color(0xF8F8F8));
 		g.drawRect(0, 0, this.getWidth(), this.getHeight());
@@ -95,9 +99,9 @@ public class MapItemCell extends GridViewCell implements Observer{
 	/**
 	 * Method update.
 	 * @param o Observable
-	 * @param arg Object
-	 * @see java.util.Observer#update(Observable, Object)
-	 */
+	 * @param arg Object	
+	 * @see java.util.Observer#update(Observable, Object) 
+     */
 	@Override
 	public void update(Observable o, Object arg) {
 		

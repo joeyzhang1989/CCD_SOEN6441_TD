@@ -15,8 +15,8 @@ public class BottleTower extends Tower {
 	 * Copy properties from one BottleTower object to another.
 	 * 
 	 * @param tower
-	 * @see Tower#copyTo(Tower) 
-	 */
+	 * @see Tower#copyTo(Tower)  
+     */
 	@Override
 	public void copyTo(Tower tower){
 		BottleTower bottleTower = (BottleTower)tower;
@@ -25,6 +25,7 @@ public class BottleTower extends Tower {
 	
 	/**
 	 * Return detail information of a BottleTower object.
+	 * @return String
 	 */
 	@Override
 	public String getDetailInformation() {

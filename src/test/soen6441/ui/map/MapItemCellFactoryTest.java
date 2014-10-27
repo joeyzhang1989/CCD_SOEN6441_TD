@@ -13,6 +13,8 @@ import com.soen6441.ui.map.cell.RoadCell;
 import com.soen6441.ui.map.cell.SceneryCell;
 import com.soen6441.ui.map.cell.TowerCell;
 
+/**
+ */
 public class MapItemCellFactoryTest {
 
 	@Test

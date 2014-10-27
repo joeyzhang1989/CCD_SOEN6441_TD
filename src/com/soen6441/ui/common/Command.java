@@ -40,8 +40,8 @@ public class Command {
 	
 	/**
 	 * Method getTitle.
-	 * @return String 
-	 */
+	 * @return String  
+     */
 	public String getTitle() {
 		return title;
 	}
@@ -55,8 +55,8 @@ public class Command {
 	}
 	/**
 	 * Method getSubtitle.
-	 * @return String 
-	 */
+	 * @return String  
+     */
 	public String getSubtitle() {
 		return subtitle;
 	}

@@ -54,7 +54,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * @param o Observable
 	 * @param arg Object
 	 * @see java.util.Observer#update(Observable, Object)
-	 */
+     */
 	@Override
 	public void update(Observable o, Object arg) {
 		if (o == play) {
@@ -295,10 +295,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		}
 
 		/**
-		 * Method title.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#title() 
-		 */
+		 * Method title.			
+		 * @return String  
+         * @see com.soen6441.ui.common.IInspectable#title() 
+         */
 		@Override
 		public String title() {
 			return "Scenery";
@@ -306,9 +306,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method subtitle.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
+		 * @return String  
+         * @see com.soen6441.ui.common.IInspectable#subtitle()  
+         */
 		@Override
 		public String subtitle() {
 			return "This is a empty space.";
@@ -316,9 +316,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
+		 * @return String  
+         * @see com.soen6441.ui.common.IInspectable#description() 
+         */ 
+
 		@Override
 		public String description() {
 		
@@ -327,9 +328,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method commands.
-		 * @return List<Command> 
-		 * @see com.soen6441.ui.common.IInspectable#commands() 
-		 */
+		 * @return List<Command>  
+         *@see com.soen6441.ui.common.IInspectable#commands() 
+         */
 		@Override
 		public List<Command> commands() {
 			return buildCommands;
@@ -339,7 +340,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 * Method execute.
 		 * @param command Command
 		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
+         */
 		@Override
 		public void execute(Command command) {
 			int index = buildCommands.indexOf(command);
@@ -392,15 +393,19 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		private Tower tower;
 		
 		
+		/**
+		 * Constructor for InspectableTower.
+		 * @param tower Tower
+		 */
 		public InspectableTower(Tower tower) {
 		
 			this.tower = tower;
 		}
 		/**
 		 * Method title.
-		 * @return String
-		 * @see com.soen6441.ui.common.IInspectable#title()
-		 */
+		 * @return String 
+         * @see com.soen6441.ui.common.IInspectable#title() 
+         */
 		@Override
 		public String title() {
 			
@@ -409,9 +414,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method subtitle.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
+		
+		
+		 * @return String  * @see com.soen6441.ui.common.IInspectable#subtitle()  */
 		@Override
 		public String subtitle() {
 			
@@ -421,9 +426,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
+		 * @return String  
+         * @see com.soen6441.ui.common.IInspectable#description()  
+         */
 		@Override
 		public String description() {
 			
@@ -432,9 +437,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method commands.
-		 * @return List<Command> 
-		 * @see com.soen6441.ui.common.IInspectable#commands() 
-		 */
+		 * @return List<Command>  
+         * @see com.soen6441.ui.common.IInspectable#commands()  
+         */
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
@@ -452,8 +457,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		/**
 		 * Method execute.
 		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)  
+         */
 		@Override
 		public void execute(Command command) {
 			if(command == upgradeCommand){
@@ -506,9 +511,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		}
 		/**
 		 * Method title. check the selected road type to update the inspectorView Title
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#title() 
-		 */
+		
+		
+		 * @return String  * @see com.soen6441.ui.common.IInspectable#title()  */
 		@Override
 		public String title() {
 			return road.getName();
@@ -516,9 +521,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 		/**
 		 * Method subtitle.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
+		 * @return String  
+         * @see com.soen6441.ui.common.IInspectable#subtitle()  
+         */
 		@Override
 		public String subtitle() {
 		
@@ -527,9 +532,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
+		
+		
+		 * @return String  * @see com.soen6441.ui.common.IInspectable#description()  */
 		@Override
 		public String description() {
 		
@@ -538,9 +543,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method commands.
-		 * @return List<Command> 
-		 * @see com.soen6441.ui.common.IInspectable#commands() 
-		 */
+		 * @return List<Command>  
+         * @see com.soen6441.ui.common.IInspectable#commands() 
+         */
 		@Override
 		public List<Command> commands() {
 		
@@ -551,7 +556,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		 * Method execute.
 		 * @param command Command
 		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
+         */
 		@Override
 		public void execute(Command command) {
 		

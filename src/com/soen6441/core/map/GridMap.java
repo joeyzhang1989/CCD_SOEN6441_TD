@@ -77,7 +77,7 @@ public class GridMap {
 	 * @param item An grided item which you want to remove.
 	 * 
 	 * 
-	 * @see #getItem(MapPoint)  
+     * @see #getItem(MapPoint)   
      */
 	public void removeItem(MapItem item){
 		MapPoint location = item.getLocation();
@@ -86,8 +86,8 @@ public class GridMap {
 	
 	/**
 	 * Method getAllItems.
-	 * @return List<MapItem>
-	 */
+	 * @return List<MapItem> 
+     */
 	public List<MapItem> getAllItems() {
 		List<MapItem> itemList = new ArrayList<MapItem>();
 		for (int x = 0; x < width; x ++){
@@ -107,7 +107,7 @@ public class GridMap {
 
 	/**
 	 * Method getWidth.
-	 * @return int
+     * @return int 
      */
 	public int getWidth() {
 		return width;
@@ -124,7 +124,7 @@ public class GridMap {
 
 	/**
 	 * Method getHeight.
-	 * @return int 
+     * @return int  
      */
 	public int getHeight() {
 		return height;
@@ -155,8 +155,8 @@ public class GridMap {
 	
 	/**
 	 * Method getSelectedItem.
-	 * @return MapItem
-	 */
+	 * @return MapItem 
+     */
 	public MapItem getSelectedItem() {
 		return this.getItem(selectedPoint);
 	}
@@ -167,8 +167,8 @@ public class GridMap {
 	
 	/**
 	 * Method getSelectedPoint.
-	 * @return MapPoint
-	 */
+	
+	 * @return MapPoint */
 	public MapPoint getSelectedPoint() {
 		return selectedPoint;
 	}
@@ -220,7 +220,7 @@ public class GridMap {
 
 	/**
 	 * Method getStartPoints.
-	 * @return List<MapPoint> 
+     * @return List<MapPoint>  
      */
 	public List<MapPoint> getStartPoints() {
 		return startPoints;
@@ -236,7 +236,7 @@ public class GridMap {
 
 	/**
 	 * Method getEndPoints.
-	 * @return List<MapPoint> 
+     * @return List<MapPoint> 
      */
 	public List<MapPoint> getEndPoints() {
 		return endPoints;
@@ -252,7 +252,7 @@ public class GridMap {
 
 	/**
 	 * Method getPaths.
-	 * @return List<MapPath> 
+     * @return List<MapPath>  
      */
 	public List<MapPath> getPaths() {
 		return paths;
@@ -268,8 +268,8 @@ public class GridMap {
 
 	/**
 	 * Method getPathManager.
-	 * @return PathManager
-	 */
+	 * @return PathManager 
+     */
 	public PathManager getPathManager() {
 		return pathManager;
 	}

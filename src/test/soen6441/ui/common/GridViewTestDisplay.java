@@ -14,6 +14,8 @@ import org.junit.Test;
 
 import com.soen6441.ui.common.GridView;
 
+/**
+ */
 public class GridViewTestDisplay {
 
 	private GridView temp = new GridView(5, 5);

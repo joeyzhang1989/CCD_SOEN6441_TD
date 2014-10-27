@@ -15,8 +15,8 @@ public class SunTower extends Tower {
 	 * Copy properties from one SunTower object to another.
 	 * 
 	 * @param tower
-	 * @see Tower#copyTo(Tower) 
-	 */
+	 * @see Tower#copyTo(Tower)  
+     */
 	@Override
 	public void copyTo(Tower tower){
 		SunTower sunTower = (SunTower)tower;
@@ -25,6 +25,7 @@ public class SunTower extends Tower {
 	
 	/**
 	 * Return detail information of a SunTower object.
+	 * @return String
 	 */
 	@Override
 	public String getDetailInformation() {

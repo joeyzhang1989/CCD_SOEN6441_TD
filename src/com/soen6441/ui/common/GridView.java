@@ -54,8 +54,8 @@ public class GridView extends View {
 	 * and multiplying it by the cell's width AND
 	 * the suggested height by taking the number of rows and multiplying it by the cell's height
 	 * @return Dimension 
-	 * 	Object containing (width and height) 
-	 */
+	 * 	Object containing (width and height)  
+     */
 	
 	public Dimension suggestedSize() {
 		int width=this.numberOfColumns*this.unitWidth;
@@ -68,9 +68,9 @@ public class GridView extends View {
 	 */
 
 	/**
-	 * Method getNumberOfRows.
-	 * @return int
-	 */
+	 * Method getNumberOfRows.	
+	 * @return int 
+     */
 	public int getNumberOfRows() {
 		return numberOfRows;
 	}
@@ -85,9 +85,9 @@ public class GridView extends View {
 	}
 
 	/**
-	 * Method getNumberOfColumns.
-	 * @return int
-	 */
+	 * Method getNumberOfColumns.	
+	 * @return int 
+     */
 	public int getNumberOfColumns() {
 		return numberOfColumns;
 	}
@@ -102,9 +102,9 @@ public class GridView extends View {
 	}
 
 	/**
-	 * Method getUnitWidth.
-	 * @return int
-	 */
+	 * Method getUnitWidth.	
+	 * @return int 
+     */
 	public int getUnitWidth() {
 		return unitWidth;
 	}
@@ -119,8 +119,8 @@ public class GridView extends View {
 
 	/**
 	 * Method getUnitHeight.
-	 * @return int
-	 */
+	
+	 * @return int */
 	public int getUnitHeight() {
 		return unitHeight;
 	}
@@ -166,12 +166,12 @@ public class GridView extends View {
 	 * Returns the cell in the current location
 	 * 
 	 * @param row
-	 * 			 The Row of the cell that is returned
+	 *  The Row of the cell that is returned
 	 * @param column
-	 * 			 The Column of the cell that is returned
+	 * 	The Column of the cell that is returned
+	
 	 * @return Cell
-	 * 			 The Cell object returned
-	 */
+	 *  The Cell object returned */
 	public GridViewCell getCell(int row, int column) {
 		return this.cells[row][column];
 	}
@@ -216,8 +216,8 @@ public class GridView extends View {
 
 	/**
 	 * Method getSelectedCell.
-	 * @return GridViewCell
-	 */
+	
+	 * @return GridViewCell */
 	public GridViewCell getSelectedCell() {
 		return selectedCell;
 	}
@@ -244,8 +244,8 @@ public class GridView extends View {
 
 	/**
 	 * Method getSelectionListener.
-	 * @return GridViewSelectionListener
-	 */
+	
+	 * @return GridViewSelectionListener */
 	public GridViewSelectionListener getSelectionListener() {
 		return selectionListener;
 	}

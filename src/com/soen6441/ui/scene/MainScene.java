@@ -130,6 +130,10 @@ public class MainScene extends View {
 	}
 
 
+	/**
+	 * Method openFile.
+	 * @return File
+	 */
 	private File openFile(){
 		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");

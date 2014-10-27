@@ -26,8 +26,8 @@ public class StartPointQuantityValidator extends PathValidator {
 	 * PathValidator. It checks the Map for start points and validates the Map.
 	 * 
 	 * @return boolean A boolean values that represent whether # of startPoints
-	 *         are valid.
-	 */
+	 *         are valid. 
+     */
 
 	@Override
 	public boolean validate() {

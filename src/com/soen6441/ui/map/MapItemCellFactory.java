@@ -18,17 +18,17 @@ import com.soen6441.ui.map.cell.TowerCell;
 public class MapItemCellFactory {
 	/**
 	 * Method createScenaryCell.
-	 * @return MapItemCell
-	 */
+	 * @return MapItemCell 
+     */
 	public static MapItemCell createScenaryCell(){
 		return cellFromItem(null);
 	}
 	
 	/**
 	 * Method cellFromItem.
-	 * @param item MapItem
-	 * @return MapItemCell
-	 */
+	 * @param item MapItem	
+	 * @return MapItemCell 
+     */
 	public static MapItemCell cellFromItem(MapItem item){
 		MapItemCell cell = null;
 		if(item == null) {

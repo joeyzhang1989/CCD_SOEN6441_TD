@@ -23,7 +23,7 @@ public abstract class PathValidator {
 	/**
 	 * Method getMap.
 	 * @return GridMap
-	 */
+     */
 	public GridMap getMap() {
 		return map;
 	}
@@ -58,8 +58,8 @@ public abstract class PathValidator {
 
 	/**
 	 * Method getErrorMessage.
-	 * @return String
-	 */
+	 * @return String 
+     */
 	public String getErrorMessage(){
 		return errorMessage;
 	}

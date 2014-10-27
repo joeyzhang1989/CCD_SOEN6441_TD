@@ -9,6 +9,7 @@ import com.soen6441.core.map.MapPoint;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class MapPointTestFunctional {
 	

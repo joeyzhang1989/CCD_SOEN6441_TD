@@ -48,7 +48,7 @@ public class MapPoint {
 	
 	/**
 	 * Method getGridedX.
-	 * @return int
+     * @return int
      */
 	public int getGridedX(){
 		
@@ -68,7 +68,7 @@ public class MapPoint {
 	
 	/**
 	 * Method getGridedY.
-	 * @return int 
+     * @return int  
      */
 	public int getGridedY(){
 			
@@ -91,7 +91,7 @@ public class MapPoint {
 	
 	/**
 	 * Method getX.
-	 * @return double 
+     * @return double  
      */
 	public double getX() {
 		return x;
@@ -109,7 +109,7 @@ public class MapPoint {
 
 	/**
 	 * Method getY.
-	 * @return double
+     * @return double 
      */
 	public double getY() {
 		return y;
@@ -128,12 +128,22 @@ public class MapPoint {
 	 * Mark - Functional - Methods
 	 */
 	
+	/**
+	 * Method distanceTo.
+	 * @param point MapPoint
+	 * @return double
+	 */
 	public double distanceTo(MapPoint point){
 		double dx = point.x - this.x;
 		double dy = point.y - this.y;
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 	
+	/**
+	 * Method add.
+	 * @param point MapPoint
+	 * @return MapPoint
+	 */
 	public MapPoint add(MapPoint point){
 		MapPoint result = new MapPoint();
 		result.x = this.x + point.x;
@@ -141,6 +151,11 @@ public class MapPoint {
 		return result;
 	}
 	
+	/**
+	 * Method substract.
+	 * @param point MapPoint
+	 * @return MapPoint
+	 */
 	public MapPoint substract(MapPoint point){
 		MapPoint result = new MapPoint();
 		result.x = this.x - point.x;
@@ -148,6 +163,10 @@ public class MapPoint {
 		return result;
 	}
 	
+	/**
+	 * Method normalize.
+	 * @return MapPoint
+	 */
 	public MapPoint normalize(){
 		
 		// make positive to 1, make negative to -1, keep 0 to 0
@@ -170,6 +189,10 @@ public class MapPoint {
 	 * Mark - Direction Templates - Methods
 	 */
 	
+	/**
+	 * Method crossDirections.
+	 * @return List<MapPoint>
+	 */
 	public static List<MapPoint> crossDirections(){
 		List<MapPoint> directions = new ArrayList<MapPoint>();
 		directions.add(new MapPoint(1, 0));
@@ -186,7 +209,7 @@ public class MapPoint {
 	/**
 	 * Method equals.
 	 * @param obj Object
-	 * @return boolean
+     * @return boolean 
      */
 	@Override
 	public boolean equals(Object obj) {
@@ -204,6 +227,10 @@ public class MapPoint {
 		return true;
 	}
 	
+	/**
+	 * Method toString.
+	 * @return String
+	 */
 	@Override
 	public String toString() {
 		return "MapPoint. x:" + x + ", y:" + y;
