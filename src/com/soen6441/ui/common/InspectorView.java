@@ -72,7 +72,7 @@ public class InspectorView extends View {
 		
 		TextView descriptionTextView = new TextView();
 		descriptionTextView.setFontSize(12);
-		descriptionTextView.setSize(160, 100);
+		descriptionTextView.setSize(160, 200);
 		descriptionTextView.setLocation(10, 160);
 		descriptionTextView.setBackground(new Color(0xEEEEEE));
         
