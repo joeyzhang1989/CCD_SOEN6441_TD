@@ -14,6 +14,8 @@ import com.soen6441.core.map.Road;
 
 public class RoadQuantityValidator extends PathValidator {
 
+	public static final String MISSING_ROAD_ERROR = "There must be at least one road Item connecting startPoint and endPoint";
+	
 	/**
 	 * This method Validate() overrides the method Validate() of parent class
 	 * PathValidator. It checks the length of the path and will make sure that
@@ -41,7 +43,7 @@ public class RoadQuantityValidator extends PathValidator {
 
 		if (quantity < 1) {
 			result = false;
-			this.setErrorMassage("There must be at least one road");
+			this.setErrorMassage(MISSING_ROAD_ERROR);
 		}
 
 		return result;
