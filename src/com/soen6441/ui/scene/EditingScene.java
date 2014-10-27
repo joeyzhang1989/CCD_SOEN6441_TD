@@ -174,10 +174,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.backButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-<<<<<<< Updated upstream
 				Play.destroy();
-=======
->>>>>>> Stashed changes
 				EditingScene.this.viewFlow.pop();
 			}
 
@@ -338,17 +335,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		 */
 		@Override
 		public String title() {
-<<<<<<< Updated upstream
 			return road.getName();
-=======
-			String title;
-			if (this.item.getName() != "Road") {
-				title = "Road =>" + this.item.getName();
-			} else {
-				title = "Road";
-			}
-			return title;
->>>>>>> Stashed changes
 		}
 
 		/**
