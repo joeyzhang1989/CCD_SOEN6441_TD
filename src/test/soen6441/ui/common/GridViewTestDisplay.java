@@ -36,12 +36,12 @@ public class GridViewTestDisplay {
 	@Test
 	public void testSetUnitWidth() 
 	{
-		assertEquals(5,this.temp.getUnitWidth());
+		assertEquals(5, this.temp.getUnitWidth());
 	}
 
 	@Test
 	public void testSetUnitHeight() {
-		assertEquals(5,this.temp.getUnitHeight());
+		assertEquals(5, this.temp.getUnitHeight());
 	}
 
 }
