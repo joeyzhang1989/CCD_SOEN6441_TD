@@ -7,9 +7,9 @@
 				<level>1</level>
 				<upgradePrice>260</upgradePrice>
 				<sellPrice>124</sellPrice>
-				<damage>30</damage>
-				<range>140</range>
-				<cdTime>1200</cdTime>
+				<damage>20</damage>
+				<range>130</range>
+				<cdTime>900</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_4_1.png</cellImageName>
@@ -19,9 +19,9 @@
 				<level>2</level>
 				<upgradePrice>320</upgradePrice>
 				<sellPrice>312</sellPrice>
-				<damage>50</damage>
-				<range>140</range>
-				<cdTime>1050</cdTime>
+				<damage>40</damage>
+				<range>150</range>
+				<cdTime>850</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
 				<cellImageName>tower_cell_4_2.png</cellImageName>
@@ -32,9 +32,9 @@
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>524</sellPrice>
-				<damage>80</damage>
-				<range>160</range>
-				<cdTime>900</cdTime>
+				<damage>75</damage>
+				<range>180</range>
+				<cdTime>800</cdTime>
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
 				<cellImageName>tower_cell_4_3.png</cellImageName>
