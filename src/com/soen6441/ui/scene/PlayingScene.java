@@ -8,8 +8,6 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
-import javax.swing.JOptionPane;
-
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
@@ -27,8 +25,6 @@ import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
-import com.soen6441.ui.parallel.ViewFlow;
-import com.soen6441.ui.parallel.Window;
 
 /**
  * 
@@ -43,9 +39,39 @@ import com.soen6441.ui.parallel.Window;
  */
 public class PlayingScene extends View implements Observer, GridViewSelectionListener{
 	
+	/*
+	 * Mark - Context - Properties
+	 */
+	
 	private Play play;
 	
-	//bannerView properties
+	/*
+	 * Mark - Context - Observer
+	 */
+	
+	/**
+	 * Method update.
+	 * @param o Observable
+	 * @param arg Object
+	 * @see java.util.Observer#update(Observable, Object)
+	 */
+	@Override
+	public void update(Observable o, Object arg) {
+		if (o == play) {
+			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE){
+				coinsLabel.setText(Integer.toString(play.getCoins()));
+			}
+			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE){
+				lifelabel.setText(Integer.toString(play.getLife()));
+			}
+		}
+	}
+	
+	/*
+	 * Mark - View - Properties
+	 */
+	
+	//bannerView 
 	private Button controlButton;
 	private Label infoLabel;
 	private Label money;
@@ -61,7 +87,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	//bottomView
 	private Button backButton;
-	private Button saveButton;
+	
+	/*
+	 * Mark - View - Life Cycle
+	 */
+	
 	/**
 	 * override the method init in the super class View
 	 * to initialize the initial View in the Playscene and
@@ -149,18 +179,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.setLocation(10, 10);
 		bottomView.add(backButton);
 		
-		// implement function for future build
-		/*save  button 
-		saveButton = new Button();
-		saveButton.setTitle("Save");
-		saveButton.setSize(60, 20);
-		saveButton.setLocation(720, 10);
-		bottomView.add(saveButton);
-		*/
-		
 		//mapView
-		int x;
-		int y;
 		/* 
 		 * get the map information from the mapView and set the 
 		 * map to the center of GridmapView
@@ -168,8 +187,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		mapView = new MapView();
 		mapView.setMap(play.getMap());
 	    mapView.setSize(this.mapView.suggestedSize());
-	    x = (800 - 180 - this.mapView.suggestedSize().width) / 2;
-		y = (600 - this.mapView.suggestedSize().height) / 2;
+	    int x = (800 - 180 - this.mapView.suggestedSize().width) / 2;
+		int y = (600 - this.mapView.suggestedSize().height) / 2;
 		mapView.setLocation(x, y);
 		this.add(mapView);
 		
@@ -181,7 +200,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		this.add(inspectorView);
 		
 	}	
-	
 
 	@Override
 	protected void initEvents() {
@@ -192,7 +210,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		controlButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.out.println("action");
+				
 			}
 		});
 		
@@ -203,8 +221,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				 PlayingScene.this.viewFlow.pop();
+
 				 play.deleteObserver(PlayingScene.this);
+				 Play.destroy();
+				 
+				 PlayingScene.this.viewFlow.pop();
 				
 			}
 		});
@@ -213,29 +234,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	}
 	
 	/*
-	 * Observer
+	 * Mark - Inspection - Methods
 	 */
-	
-
-	/**
-	 * Method update.
-	 * @param o Observable
-	 * @param arg Object
-	 * @see java.util.Observer#update(Observable, Object)
-	 */
-	@Override
-	public void update(Observable o, Object arg) {
-		if (o == play) {
-			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE){
-				coinsLabel.setText(Integer.toString(play.getCoins()));
-			}
-			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE){
-				lifelabel.setText(Integer.toString(play.getLife()));
-			}
-		}
-	}
-	
-
 
 	/**
 	 * Method gridViewDidSelect.
@@ -263,196 +263,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		
 	
 	/*
-	 * Inner Classes
+	 * Mark - Inspection - Classes - Scenery
 	 */
 	
-	/**
-	 * 
-	 * inner class that implements the IInspectable interface to capture 
-	 * the event of mouse to change the value of the label, buttons etc.
-	 * selecting tower scene the inspector view should update 
-	 * 
-	 * @author Chenglong Zhang 
-	 * @version $Revision: 1.0 $
-	 */
-	
-	private class InspectableTower implements IInspectable
-	{
-		 
-		/**
-		 * Method title.
-		 * @see com.soen6441.ui.common.IInspectable#title()
-		 */
-		private Command upgradeCommand;
-		private Command refundCommand;
-		private Tower tower;
-		
-		
-		public InspectableTower(Tower tower) {
-		
-			this.tower = tower;
-		}
-		/**
-		 * Method title.
-		 * @return String
-		 * @see com.soen6441.ui.common.IInspectable#title()
-		 */
-		@Override
-		public String title() {
-			
-			return tower.getName() + " Lv." + tower.getLevel();
-		}
-
-		/**
-		 * Method subtitle.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
-		@Override
-		public String subtitle() {
-			
-			return tower.getDescription();
-			
-		}
-
-		/**
-		 * Method description.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
-		@Override
-		public String description() {
-			
-			return tower.getDetailInformation();
-		}
-
-		/**
-		 * Method commands.
-		 * @return List<Command> 
-		 * @see com.soen6441.ui.common.IInspectable#commands() 
-		 */
-		@Override
-		public List<Command> commands() {
-			List<Command> commands = new ArrayList<Command>();
-			if (tower.canUpgrade()) {
-				upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
-				commands.add (upgradeCommand);
-			} 
-			
-			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
-			commands.add (refundCommand);
-			
-			return commands;
-		}
-
-		/**
-		 * Method execute.
-		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
-		@Override
-		public void execute(Command command) {
-			if(command == upgradeCommand){
-				int price = play.getCoins();
-				if (price >= tower.getUpgradePrice()) {
-					play.spendCoins(tower.getUpgradePrice());
-					tower.upgrade();
-					inspectorView.update();
-				}	
-			} else if (command == refundCommand) {
-				play.earnCoins(tower.getSellPrice());
-				
-				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
-				
-				// link the model and remove the mapItem
-				GridMap gridMap = mapView.getMap();
-				gridMap.removeItem(tower);
-				
-				// link the view and replace the tower with scenery cell
-				mapView.replaceCell(mapView.getSelectedCell(), cell);
-			} 
-		}	
-	}	
-
-
-
-	/**
-	 *
-	 * inner class that implements the IInspectable interface to capture 
-	 * the event of mouse to change the value of the label, buttons etc.
-	 * selecting a road scene that the inspector view should update 
-	 * 
-	 * @author Chenglong Zhang 
-	 * @version $Revision: 1.0 $
-	 */
-	private class InspectableRoad implements IInspectable
-	{
-		private Road road;
-		
-		/**
-		 * Constructor for InspectableRoad.
-		 * @param road Road
-		 */
-		public InspectableRoad(Road road){
-			this.road = road;
-		}
-		/**
-		 * Method title. check the selected road type to update the inspectorView Title
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#title() 
-		 */
-		@Override
-		public String title() {
-			return road.getName();
-		}
-	
-		/**
-		 * Method subtitle.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
-		 */
-		@Override
-		public String subtitle() {
-		
-			return "This is a road";
-		}
-
-		/**
-		 * Method description.
-		 * @return String 
-		 * @see com.soen6441.ui.common.IInspectable#description() 
-		 */
-		@Override
-		public String description() {
-		
-			return null;
-		}
-
-		/**
-		 * Method commands.
-		 * @return List<Command> 
-		 * @see com.soen6441.ui.common.IInspectable#commands() 
-		 */
-		@Override
-		public List<Command> commands() {
-		
-			return null;
-		}
-
-		/**
-		 * Method execute.
-		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
-		 */
-		@Override
-		public void execute(Command command) {
-		
-		
-		}
-	
-	}
-
-
 	/**
 	 *
 	 * inner class that implements the IInspectable interface to capture 
@@ -551,4 +364,200 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			}
 		}
 	}
+	
+
+	/*
+	 * Mark - Inspection - Classes - Tower
+	 */
+	
+	/**
+	 * 
+	 * inner class that implements the IInspectable interface to capture 
+	 * the event of mouse to change the value of the label, buttons etc.
+	 * selecting tower scene the inspector view should update 
+	 * 
+	 * @author Chenglong Zhang 
+	 * @version $Revision: 1.0 $
+	 */
+	
+	private class InspectableTower implements IInspectable
+	{
+		 
+		/**
+		 * Method title.
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
+		private Command upgradeCommand;
+		private Command refundCommand;
+		private Tower tower;
+		
+		
+		public InspectableTower(Tower tower) {
+		
+			this.tower = tower;
+		}
+		/**
+		 * Method title.
+		 * @return String
+		 * @see com.soen6441.ui.common.IInspectable#title()
+		 */
+		@Override
+		public String title() {
+			
+			return tower.getName();
+		}
+
+		/**
+		 * Method subtitle.
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
+		 */
+		@Override
+		public String subtitle() {
+			
+			return  "Level " + tower.getLevel();
+			
+		}
+
+		/**
+		 * Method description.
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#description() 
+		 */
+		@Override
+		public String description() {
+			
+			return tower.getDescription() + "\n" + tower.getDetailInformation();
+		}
+
+		/**
+		 * Method commands.
+		 * @return List<Command> 
+		 * @see com.soen6441.ui.common.IInspectable#commands() 
+		 */
+		@Override
+		public List<Command> commands() {
+			List<Command> commands = new ArrayList<Command>();
+			if (tower.canUpgrade()) {
+				upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
+				commands.add (upgradeCommand);
+			} 
+			
+			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
+			commands.add (refundCommand);
+			
+			return commands;
+		}
+
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
+		 */
+		@Override
+		public void execute(Command command) {
+			if(command == upgradeCommand){
+				int price = play.getCoins();
+				if (price >= tower.getUpgradePrice()) {
+					play.spendCoins(tower.getUpgradePrice());
+					tower.upgrade();
+					inspectorView.update();
+				}	
+			} else if (command == refundCommand) {
+				play.earnCoins(tower.getSellPrice());
+				
+				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
+				
+				// link the model and remove the mapItem
+				GridMap gridMap = mapView.getMap();
+				gridMap.removeItem(tower);
+				
+				// link the view and replace the tower with scenery cell
+				mapView.replaceCell(mapView.getSelectedCell(), cell);
+			} 
+		}	
+	}	
+
+
+	/*
+	 * Mark - Inspection - Classes - Road
+	 */
+
+
+	/**
+	 *
+	 * inner class that implements the IInspectable interface to capture 
+	 * the event of mouse to change the value of the label, buttons etc.
+	 * selecting a road scene that the inspector view should update 
+	 * 
+	 * @author Chenglong Zhang 
+	 * @version $Revision: 1.0 $
+	 */
+	private class InspectableRoad implements IInspectable
+	{
+		private Road road;
+		
+		/**
+		 * Constructor for InspectableRoad.
+		 * @param road Road
+		 */
+		public InspectableRoad(Road road){
+			this.road = road;
+		}
+		/**
+		 * Method title. check the selected road type to update the inspectorView Title
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#title() 
+		 */
+		@Override
+		public String title() {
+			return road.getName();
+		}
+	
+		/**
+		 * Method subtitle.
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
+		 */
+		@Override
+		public String subtitle() {
+		
+			return "This is a road";
+		}
+
+		/**
+		 * Method description.
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#description() 
+		 */
+		@Override
+		public String description() {
+		
+			return null;
+		}
+
+		/**
+		 * Method commands.
+		 * @return List<Command> 
+		 * @see com.soen6441.ui.common.IInspectable#commands() 
+		 */
+		@Override
+		public List<Command> commands() {
+		
+			return null;
+		}
+
+		/**
+		 * Method execute.
+		 * @param command Command
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
+		 */
+		@Override
+		public void execute(Command command) {
+		
+		
+		}
+	
+	}
+
 }
