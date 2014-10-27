@@ -5,8 +5,9 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 @RunWith(Suite.class)
-@SuiteClasses({ GridMapTest.class, MapPathTest.class, MapPointTest.class,
-		MapPointTestFunctional.class, PathManagerTest.class })
+@SuiteClasses({ GridMapTestItemManagement.class, GridMapTestSelection.class,
+		MapPathTest.class, MapPointTest.class, MapPointTestFunctional.class,
+		PathManagerTest.class })
 public class SuiteMap {
 
 }

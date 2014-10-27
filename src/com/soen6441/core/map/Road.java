@@ -84,9 +84,9 @@ public class Road extends MapItem {
 		case NORMAL:
 			return "Road";
 		case START:
-			return "Entrance";
+			return "Entry Point";
 		case END:
-			return "Exit";
+			return "Exit Point";
 		default:
 			return null;
 		}

@@ -31,6 +31,10 @@ import com.soen6441.ui.parallel.View;
  */
 
 public class MainScene extends View {
+	
+	/*
+	 * Mark - View - Properties
+	 */
 
 	private Button playButton;
 
@@ -38,8 +42,9 @@ public class MainScene extends View {
 
 	private Button newMapButton;
 
+
 	/*
-	 * override the method initSubviews in the super class View
+	 * Mark - View - Life Cycle
 	 */
 
 	@Override
@@ -82,30 +87,10 @@ public class MainScene extends View {
 
 	}
 	
-	private File openFile(){
-		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
-		fileChooser.setFileFilter(filter);
-	
-		int option = fileChooser.showOpenDialog(MainScene.this);
-
-		if (option == JFileChooser.APPROVE_OPTION) {
-			File file = fileChooser.getSelectedFile();	
-			return file;
-		} else {
-			return null;
-		}
-
-	}
 	
 	@Override
 	protected void initEvents() {
 		playButton.addActionListener(new ActionListener() {
-
-			/*
-			 * perform the function that click the playbutton to go to
-			 * playingscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
@@ -122,33 +107,23 @@ public class MainScene extends View {
 		});
 
 		editButton.addActionListener(new ActionListener() {
-			/*
-			 * perform the function that click the editbutton to go to
-			 * editingscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
 				File file = openFile();
 				
 				if ( file != null ) {
-				
 					PlayManager playManager = new PlayManager();
 					playManager.read(file);
 					
 					EditingScene editingScene = new EditingScene();
+					editingScene.setWorkingFile(file);
 					MainScene.this.viewFlow.push(editingScene);
 				}
-				
 			}
 		});
 
 		newMapButton.addActionListener(new ActionListener() {
-
-			/*
-			 * perform the function that click the newmapbutton to go to
-			 * newmapscene
-			 */
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				NewMapScene newMapScene = new NewMapScene();
@@ -157,5 +132,20 @@ public class MainScene extends View {
 		});
 	}
 
+
+	private File openFile(){
+		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+		fileChooser.setFileFilter(filter);
+	
+		int option = fileChooser.showOpenDialog(MainScene.this);
+
+		if (option == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();	
+			return file;
+		} else {
+			return null;
+		}
+	}
 	
 }

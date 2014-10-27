@@ -17,6 +17,10 @@ import com.soen6441.core.map.Road;
 
 public class StartPointQuantityValidator extends PathValidator {
 
+	public static final String MISSING_STARTPOINT_ERROR = "There is no start point in the map";
+	public static final String MULTIPLE_STARTPOINT_ERROR = "There can't be more than one start point in the map";
+	
+	
 	/**
 	 * This method Validate() overrides the method Validate() of parent class
 	 * PathValidator. It checks the Map for start points and validates the Map.
@@ -45,11 +49,11 @@ public class StartPointQuantityValidator extends PathValidator {
 
 		if (numberOfStartPoint == 0) {
 			result = false;
-			this.setErrorMassage("There is no start point in the map");
+			this.setErrorMassage(MISSING_STARTPOINT_ERROR);
 
 		} else if (numberOfStartPoint > 1) {
 			result = false;
-			this.setErrorMassage("There can't be more than one start point in the map");
+			this.setErrorMassage(MULTIPLE_STARTPOINT_ERROR);
 		}
 
 		return result;

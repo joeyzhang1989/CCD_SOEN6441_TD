@@ -40,7 +40,6 @@ public class TowerCell extends MapItemCell {
 	@Override
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
-		System.out.println("update");
 		if (arg == Tower.OBSERVABLE_EVENT_PROPERTY_LEVEL_DID_CHANGE){
 			this.repaint();
 		}

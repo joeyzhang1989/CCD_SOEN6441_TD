@@ -7,6 +7,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
@@ -37,9 +39,15 @@ import com.soen6441.ui.parallel.View;
  */
 
 public class EditingScene extends View implements GridViewSelectionListener {
+	
+	/*
+	 * Mark - Context - Properties
+	 */
+
+	private Play play;
 
 	/*
-	 * Mark - Basic - Properties
+	 * Mark - View - Properties
 	 */
 	
 	private Button controlButton;// validate button to make sure map is valid
@@ -52,8 +60,10 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	private Button backButton;
 	private Button saveButton;
 
-	private Play play;
-
+	/*
+	 * Mark - View - Life Cycle
+	 */
+	
 	protected void init() {
 		play = Play.currentPlay();
 		super.init();
@@ -129,12 +139,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.mapView = new MapView();
 		this.mapView.setMap(play.getMap());
 		this.mapView.setSize(this.mapView.suggestedSize());
-		int height = (600 - this.mapView.suggestedSize().height) / 2;
-		int width = (800 - 180 - this.mapView.suggestedSize().width) / 2;
+		int centralizedYLocation = (600 - this.mapView.suggestedSize().height) / 2;
+		int centralizedXLocation = (800 - 180 - this.mapView.suggestedSize().width) / 2;
 		// 180 is the size of the inspector View
-		this.mapView.setLocation(width, height);
+		this.mapView.setLocation(centralizedXLocation, centralizedYLocation);
 		this.add(mapView);
-		this.mapView.setSelectionListener(this);
 
 		// Inspectorview
 		this.inspectorView = new InspectorView();
@@ -152,6 +161,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	@Override
 	protected void initEvents() {
 
+		this.mapView.setSelectionListener(this);
+		
 		this.saveButton.addActionListener(new ActionListener() {
 
 			@Override
@@ -175,12 +186,16 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			 * perform the function that click the backbutton to go to editingscene
 			 */
 			public void actionPerformed(ActionEvent e) {
-//				Play.destroy();
+				Play.destroy();
 				EditingScene.this.viewFlow.pop();
 			}
 
 		});
 	}
+	
+	/*
+	 * Mark - Inspection - Methods
+	 */
 
 	/**
 	 * This method responds to selections on the screen, when selected a cell
@@ -194,11 +209,17 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			this.inspectorView.setOn(new InspectableScenery());
 			this.inspectorView.update();
 		} else if (item instanceof Road) {
-			this.inspectorView.setOn(new InspectableRoad(item));
+			Road road = (Road) item;
+			this.inspectorView.setOn(new InspectableRoad(road));
 			this.inspectorView.update();
 		}
 	}
 
+
+	/*
+	 * Mark - Inspection - Classes - Scenery
+	 */
+	
 	/**
 	 * This class is used to display the information of a scenery cell, it will
 	 * also let the user add a start, end and road point.
@@ -207,17 +228,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * @version $Revision: 1.0 $
 	 */
 	private class InspectableScenery implements IInspectable {
-		
-		/*
-		 * Mark - Basic - Properties
-		 */
+
 		private Command buildStartPoint;
 		private Command buildEndPoint;
 		private Command buildRoad;
 
-		/*
-		 * Constructor
-		 */
 		public InspectableScenery() {
 			this.buildStartPoint = new Command("Build Start Point", "");
 			this.buildEndPoint = new Command("Build End Point", "");
@@ -242,7 +257,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		 */
 		@Override
 		public String subtitle() {
-			return "Scenery editing";
+			return "This is a empty space.";
 		}
 
 		/**
@@ -252,8 +267,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		 */
 		@Override
 		public String description() {
-			return "This is an empty cell where u can add a start, end or normal-road point";
-			// TODO Auto-generated method stub
+			return "This is an empty space where u can add a start, end or normal-road point";
 		}
 
 		/**
@@ -299,6 +313,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		}
 
 	}
+	
+
+	/*
+	 * Mark - Inspection - Classes - Road
+	 */
 
 	/**
 	 * This class is used to display the information of a road cell, it will
@@ -310,15 +329,15 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	private class InspectableRoad implements IInspectable {
 
 		private Command destroyCell;
-		private MapItem item;
+		private Road road;
 
 		/**
 		 * Constructor for InspectableRoad.
-		 * @param temp MapItem
+		 * @param road MapItem
 		 */
-		public InspectableRoad(MapItem temp) {
+		public InspectableRoad(Road road) {
 			this.destroyCell = new Command("Delete", "");
-			this.item = temp;
+			this.road = road;
 		}
 
 		/**
@@ -328,14 +347,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		 */
 		@Override
 		public String title() {
-			String title;
-			if (this.item.getName() != "Road") {
-				title = "Road =>" + this.item.getName();
-			} else {
-				title = "Road";
-			}
-
-			return title;
+			return road.getName();
 		}
 
 		/**
@@ -421,11 +433,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * 
 	 */
 	private void save() {
-
 		play.setCoins(Integer.parseInt(this.money.getText())); 
 		PlayManager playManager = new PlayManager();
 		playManager.save(workingFile, play);
 		infoLabel.setText("The map file has been saved.");
+		JOptionPane.showMessageDialog(this, "Save Successfull");
 	}
 
 	/*

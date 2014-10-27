@@ -131,7 +131,7 @@ public class MapPoint {
 	public double distanceTo(MapPoint point){
 		double dx = point.x - this.x;
 		double dy = point.y - this.y;
-		return Math.pow(dx * dx + dy * dy, 0.5);
+		return Math.sqrt(dx * dx + dy * dy);
 	}
 	
 	public MapPoint add(MapPoint point){
