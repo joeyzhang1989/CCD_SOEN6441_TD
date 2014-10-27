@@ -80,6 +80,9 @@ public class InspectorView extends View {
 		this.descriptionTextArea = descriptionTextView;
 	}
 
+	/**
+	 * To refersh the inspector view.
+	 */
 	public void update() {
 		titleLabel.setText(on.title());
 		subtitleLabel.setText(on.subtitle());
@@ -121,6 +124,9 @@ public class InspectorView extends View {
 	 * Mark - On - Properties
 	 */
 	
+	/**
+	 * The thing which the inspectorView inspecting on.
+	 */
 	private IInspectable on;
 	
 	/*
@@ -134,8 +140,9 @@ public class InspectorView extends View {
 	public IInspectable getOn() {
 		return on;
 	}
+	
 	/**
-	 * Method setOn.
+	 * To set the thing be inspected.
 	 * @param on IInspectable
 	 */
 	public void setOn(IInspectable on) {
