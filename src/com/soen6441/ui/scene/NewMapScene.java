@@ -19,6 +19,11 @@ import com.soen6441.ui.parallel.*;
  */
 
 public class NewMapScene extends View {
+
+	/*
+	 * Mark - View - Properties
+	 */
+	
 	private TextField widthTextField;
 	private TextField heightTextField;
 	private TextField nameTextField;
@@ -28,7 +33,10 @@ public class NewMapScene extends View {
 	private Button nextButton;
 	private Button backButton;
 	
-
+	/*
+	 * Mark - View - Life Cycle
+	 */
+	
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
@@ -83,6 +91,38 @@ public class NewMapScene extends View {
 
 	}
 
+	@Override
+	protected void initEvents() {
+		nextButton.addActionListener(new ActionListener() {
+
+			@Override
+			/*
+			 * perform the function that click the nextbutton to go to mainscene
+			 */
+			public void actionPerformed(ActionEvent e) {
+				next();
+			}
+		});
+
+		backButton.addActionListener(new ActionListener() {
+
+			@Override
+			/*
+			 * perform the function that click the backbutton to go to
+			 * editingscene
+			 */
+			public void actionPerformed(ActionEvent e) {
+				NewMapScene.this.viewFlow.pop();
+			}
+		});
+
+	}
+	
+
+	/*
+	 * Mark - Creation - Methods
+	 */
+	
 	private void next() {
 		if(!validateInput()){
 			return;
@@ -156,31 +196,5 @@ public class NewMapScene extends View {
 			return false;
 		}
 		return true;
-	}
-	@Override
-	protected void initEvents() {
-		nextButton.addActionListener(new ActionListener() {
-
-			@Override
-			/*
-			 * perform the function that click the nextbutton to go to mainscene
-			 */
-			public void actionPerformed(ActionEvent e) {
-				next();
-			}
-		});
-
-		backButton.addActionListener(new ActionListener() {
-
-			@Override
-			/*
-			 * perform the function that click the backbutton to go to
-			 * editingscene
-			 */
-			public void actionPerformed(ActionEvent e) {
-				NewMapScene.this.viewFlow.pop();
-			}
-		});
-
 	}
 }
