@@ -10,6 +10,7 @@ import com.soen6441.core.map.Road;
  * The class PathLengthValidator will validate the length of the path.
  * 
  * @author Mohammad Ali
+ * @version $Revision: 1.0 $
  */
 
 public class RoadQuantityValidator extends PathValidator {
@@ -23,7 +24,7 @@ public class RoadQuantityValidator extends PathValidator {
 	 * 
 	 * @return boolean A boolean values that represent whether the length of the
 	 *         path is valid.
-	 */
+     */
 	@Override
 	public boolean validate() {
 		boolean result = true;

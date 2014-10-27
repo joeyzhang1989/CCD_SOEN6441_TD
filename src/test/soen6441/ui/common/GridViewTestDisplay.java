@@ -14,6 +14,8 @@ import org.junit.Test;
 
 import com.soen6441.ui.common.GridView;
 
+/**
+ */
 public class GridViewTestDisplay {
 
 	private GridView temp = new GridView(5, 5);
@@ -36,12 +38,12 @@ public class GridViewTestDisplay {
 	@Test
 	public void testSetUnitWidth() 
 	{
-		assertEquals(5,this.temp.getUnitWidth());
+		assertEquals(5, this.temp.getUnitWidth());
 	}
 
 	@Test
 	public void testSetUnitHeight() {
-		assertEquals(5,this.temp.getUnitHeight());
+		assertEquals(5, this.temp.getUnitHeight());
 	}
 
 }

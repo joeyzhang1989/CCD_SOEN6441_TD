@@ -17,6 +17,10 @@ public class Label extends JLabel {
 		this.initFont();
 	}
 
+	/**
+	 * Constructor for Label.
+	 * @param text String
+	 */
 	public Label(String text) {
 		super(text);
 		this.initFont();
@@ -26,6 +30,10 @@ public class Label extends JLabel {
 		this.setFont(new Font("Verdana", 0, 14));
 	}
 	
+	/**
+	 * Method setFontSize.
+	 * @param fontSize int
+	 */
 	public void setFontSize(int fontSize){
 		this.setFont(new Font("Verdana", 0, fontSize));
 	}

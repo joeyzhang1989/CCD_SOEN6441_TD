@@ -32,8 +32,8 @@ public class TowerManagerFactory {
 	/**
 	 * Method currentManagerFactory.
 	 * 
-	 * @return TowerManagerFactory 
-	 */
+	 * @return TowerManagerFactory  
+     */ 
 	public static TowerManagerFactory currentManagerFactory() {
 		
 		if (currentManagerFactory == null){
@@ -84,12 +84,16 @@ public class TowerManagerFactory {
 	 * 
 	 * @param typeName
 	 * @return Return a TowerManager object 
-	 */
+     */
 	
 	public TowerManager getManager(String typeName) {
 		return managers.get(typeName);
 	}
 
+	/**
+	 * Method getTypeNames.
+	 * @return List<String>
+	 */
 	public List<String> getTypeNames() {
 		return typeNames;
 	}

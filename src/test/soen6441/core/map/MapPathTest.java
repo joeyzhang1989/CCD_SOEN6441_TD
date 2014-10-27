@@ -8,6 +8,8 @@ import org.junit.Test;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
 
+/**
+ */
 public class MapPathTest {
 	
 	MapPath path;

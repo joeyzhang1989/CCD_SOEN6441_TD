@@ -19,6 +19,7 @@ import com.soen6441.core.play.PlayManager;
  * PlayManagerTest class validates the correct implementation of class PlayManager.
  * 
  * @author Mohammad Ali
+ * @version $Revision: 1.0 $
  */
 
 

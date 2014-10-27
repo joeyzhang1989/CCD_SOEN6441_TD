@@ -1,6 +1,8 @@
 package com.soen6441.ui.common;
 
 /**
+ * @author 
+ * @version $Revision: 1.0 $
  */
 public class GridPoint {
 
@@ -37,8 +39,8 @@ public class GridPoint {
 	
 	/**
 	 * Method getRow.
-	 * @return int
-	 */
+	 * @return int 
+     */
 	public int getRow() {
 		return row;
 	}
@@ -50,9 +52,9 @@ public class GridPoint {
 		this.row = row;
 	}
 	/**
-	 * Method getColumn.
-	 * @return int
-	 */
+	 * Method getColumn.	
+	 * @return int 
+     */
 	public int getColumn() {
 		return column;
 	}

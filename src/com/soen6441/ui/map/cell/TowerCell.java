@@ -35,8 +35,8 @@ public class TowerCell extends MapItemCell {
 	 * Method update.
 	 * @param o Observable
 	 * @param arg Object
-	 * @see java.util.Observer#update(Observable, Object)
-	 */
+	 * @see java.util.Observer#update(Observable, Object) 
+     */
 	@Override
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
@@ -50,9 +50,9 @@ public class TowerCell extends MapItemCell {
 	 */
 	
 	/**
-	 * Method getItemTower.
+	 * Method getItemTower.	
 	 * @return Tower
-	 */
+     */
 	public Tower getItemTower(){
 		return (Tower)this.getItem();
 	}

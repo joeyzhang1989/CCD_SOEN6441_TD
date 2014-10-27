@@ -32,10 +32,18 @@ public class MapPath  {
 	 * Mark - Location - Methods
 	 */
 	
+	/**
+	 * Method getFirstLocation.
+	 * @return MapPoint
+	 */
 	public MapPoint getFirstLocation(){
 		return locations.get(0);
 	}
 	 
+	/**
+	 * Method getLastLocation.
+	 * @return MapPoint
+	 */
 	public MapPoint getLastLocation(){
 		return locations.get(locations.size() - 1);
 	}
@@ -54,7 +62,7 @@ public class MapPath  {
 
 	/**
 	 * Method getLocations.
-	 * @return List<MapPoint> 
+     * @return List<MapPoint>  
      */
 	public List<MapPoint> getLocations() {
 		return locations;
@@ -77,8 +85,8 @@ public class MapPath  {
 	 * 
 	 * @param point		A MapPoint object
 	 * @param amount	The distance from the MapPoint object represented by a double
-	 * @return 			The distance to travel on the Map 
-	 */
+	 * @return 			The distance to travel on the Map  
+     */
 	
 	public double goAlong(MapPoint point , double amount){
 		return 0;

@@ -14,7 +14,9 @@ import com.soen6441.ui.parallel.*;
  * buttons that the abilities are go to next page or back to last page.
  * 
  * @author Mengyao Wang
+ * 
  * @author Chenglong Zhang
+ * 
  * @version $Revision: 1.0 $
  */
 
@@ -154,6 +156,13 @@ public class NewMapScene extends View {
 	
 	}
 	
+	/*
+	 * Mark - creation - method
+	 */
+	/**
+	 * Method validateInput.
+	 * @return boolean
+	 */
 	private boolean validateInput() {
 		int width;
 		int height;
@@ -188,6 +197,10 @@ public class NewMapScene extends View {
 		return true;
 	}
 	
+	/**
+	 * Method validateFileName.
+	 * @return boolean
+	 */
 	private boolean validateFileName() {
 		String nameString = nameTextField.getText();
 		File file = new File("maps/" + nameString +".tdm.xml");

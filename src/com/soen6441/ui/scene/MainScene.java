@@ -1,7 +1,6 @@
 package com.soen6441.ui.scene;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -11,8 +10,6 @@ import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 
-
-import javax.swing.plaf.FileChooserUI;
 
 import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.parallel.Button;
@@ -133,6 +130,10 @@ public class MainScene extends View {
 	}
 
 
+	/**
+	 * Method openFile.
+	 * @return File
+	 */
 	private File openFile(){
 		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");

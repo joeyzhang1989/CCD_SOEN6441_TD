@@ -34,8 +34,8 @@ public class RoadCell extends MapItemCell{
 	 * Method update.
 	 * @param o Observable
 	 * @param arg Object
-	 * @see java.util.Observer#update(Observable, Object)
-	 */
+	 * @see java.util.Observer#update(Observable, Object) 
+     */
 	@Override
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
@@ -49,9 +49,9 @@ public class RoadCell extends MapItemCell{
 	 */
 	
 	/**
-	 * Method getItemRoad.
-	 * @return Road
-	 */
+	 * Method getItemRoad.	
+	 * @return Road 
+     */
 	public Road getItemRoad(){
 		return (Road)this.getItem();
 	}

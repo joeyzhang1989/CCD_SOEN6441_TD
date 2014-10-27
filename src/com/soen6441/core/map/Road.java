@@ -53,8 +53,8 @@ public class Road extends MapItem {
 	
 	/**
 	 * Method getType.
-	 * @return Type
-	 */
+	 * @return Type 
+     */
 	public Type getType() {
 		return type;
 	}
@@ -76,8 +76,8 @@ public class Road extends MapItem {
 	
 	/**
 	 * Method getName.
-	 * @return String
-	 */
+	 * @return String 
+     */
 	@Override
 	public String getName() {
 		switch (type) {
@@ -95,7 +95,7 @@ public class Road extends MapItem {
 	/**
 	 * Method getCellImageName.
 	 * @return String
-	 */
+     */
 	@Override
 	public String getCellImageName() {
 

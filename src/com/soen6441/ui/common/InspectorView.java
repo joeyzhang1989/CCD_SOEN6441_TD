@@ -135,8 +135,8 @@ public class InspectorView extends View {
 	
 	/**
 	 * Method getOn.
-	 * @return IInspectable 
-	 */
+	 * @return IInspectable  
+     */
 	public IInspectable getOn() {
 		return on;
 	}

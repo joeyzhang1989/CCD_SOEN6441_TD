@@ -14,6 +14,7 @@ import com.soen6441.core.map.Road;
  * path between startPoint and EndPoint.
  * 
  * @author Mohammad Ali
+ * @version $Revision: 1.0 $
  */
 
 public class ConnectionValidator extends PathValidator {
@@ -29,8 +30,8 @@ public class ConnectionValidator extends PathValidator {
 	 * This method Validate() overrides the method Validate() of parent class PathValidator.
 	 * It checks whether a path exist between startPoint and EndPoint.
 	 * 
-	 * @return boolean A boolean values that represent whether a Path exist between startPoint and EndPoint.
-	 */
+	 * @return boolean A boolean values that represent whether a Path exist between startPoint and EndPoint. 
+     */
 	
 	@Override
 	public boolean validate() {
@@ -97,8 +98,8 @@ public class ConnectionValidator extends PathValidator {
 	 * exactly two neighbours unless it is Entry or Exit Point in which case It must have only ont connected neighbour,
 	 * 
 	 * @param road  A Road Object
-	 * @return numberOfNeighbours 
-	 */
+	 * @return numberOfNeighbours  
+     */
 	
 	private int numberOfNeighbours(Road road) {
 		

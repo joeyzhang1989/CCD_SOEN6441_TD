@@ -32,8 +32,8 @@ public class GridViewCell extends View {
 	
 	/**
 	 * Method getGridView.
-	 * @return GridView  
-	 */
+	 * @return GridView   
+     */
 	public GridView getGridView() {
 		return gridView;
 	}
@@ -47,9 +47,9 @@ public class GridViewCell extends View {
 	}
 
 	/**
-	 * Method getPoint.
-	 * @return GridPoint
-	 */
+	 * Method getPoint.	
+	 * @return GridPoint 
+     */
 	public GridPoint getPoint() {
 		return point;
 	}
@@ -102,9 +102,9 @@ public class GridViewCell extends View {
 	 */
 	
 	/**
-	 * Method isSelected.
-	 * @return boolean
-	 */
+	 * Method isSelected.	
+	 * @return boolean 
+     */
 	public boolean isSelected() {
 		return selected;
 	}

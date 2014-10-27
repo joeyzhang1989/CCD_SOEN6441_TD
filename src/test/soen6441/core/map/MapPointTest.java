@@ -7,6 +7,8 @@ import org.junit.Test;
 
 import com.soen6441.core.map.MapPoint;
 
+/**
+ */
 public class MapPointTest {
 	
 	MapPoint p1;
