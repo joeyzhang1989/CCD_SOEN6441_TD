@@ -56,7 +56,9 @@ public class GridMap {
 	 * Get a grided map item on the map
 	 * 
 	 * @param location An grided location you want to check
-	 * @return Return the item if there is, or return null if there isn't, or return null if the location is out of the boundary.  */
+	 * @return Return the item if there is, or return null if there isn't, 
+	 * or return null if the location is out of the boundary.  
+	 */
 	public MapItem getItem(MapPoint location){
 		int x = location.getGridedX();
 		int y = location.getGridedY();
@@ -167,8 +169,8 @@ public class GridMap {
 	
 	/**
 	 * Method getSelectedPoint.
-	
-	 * @return MapPoint */
+	 * @return MapPoint
+	 */
 	public MapPoint getSelectedPoint() {
 		return selectedPoint;
 	}
@@ -202,7 +204,9 @@ public class GridMap {
 	 * If there is no branches in the game, it will give you only one path
 	 * 
 	 * @param point The location
-	 * @return It will return all the paths which start from the point. If there is no path start from the point, it will return an list object but no object in it.  */
+	 * @return It will return all the paths which start from the point. 
+	 * If there is no path start from the point, it will return an list object but no object in it.  
+	 */
 	public List<MapPath> pathFrom(MapPoint point){
 		List<MapPath> resultPaths = new ArrayList<MapPath>();
 		for(MapPath path : paths){

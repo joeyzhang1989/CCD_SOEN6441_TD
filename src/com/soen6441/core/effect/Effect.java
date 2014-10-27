@@ -48,11 +48,11 @@ public class Effect {
 	 * Use <code>getType</code> before calling this method.
 	 * 
 	 * @param effect Another effect, which should be same type as this one.
-	
+	 * @return <code>true</code> if this effect is stronger, 
+	 * 			<code>false</code> if the effect in the para is stronger or they are imcomparable. 
 	 * 
-	
-	 * 
-	 * @return <code>true</code> if this effect is stronger, <code>false</code> if the effect in the para is stronger or they are imcomparable. * @see #getType() */
+	 * @see #getType() 
+	 */
 	public boolean strongerThan(Effect effect){
 		return false;
 	}

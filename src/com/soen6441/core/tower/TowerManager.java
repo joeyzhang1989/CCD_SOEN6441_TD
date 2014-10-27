@@ -198,8 +198,8 @@ public class TowerManager {
 
 	/**
 	 * Method getTowerType.
-	
-	 * @return String */
+	 * @return String 
+	 */
 	public String getTowerType() {
 		return towerType;
 	}
@@ -246,8 +246,8 @@ public class TowerManager {
 
 	/**
 	 * Method getLeveledTowers.
-	
-	 * @return List<Tower> */
+	 * @return List<Tower> 
+	 */
 	public List<Tower> getLeveledTowers() {
 		return leveledTowers;
 	}
