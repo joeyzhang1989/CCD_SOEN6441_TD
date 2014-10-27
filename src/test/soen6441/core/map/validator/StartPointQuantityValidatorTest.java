@@ -6,7 +6,9 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPoint;
@@ -21,6 +23,8 @@ import com.soen6441.core.map.validator.StartPointQuantityValidator;
  * @author Mohammad Ali
  */
 
+
+@FixMethodOrder(MethodSorters.JVM)
 public class StartPointQuantityValidatorTest {
 
 	static PathValidator validator;
@@ -46,7 +50,7 @@ public class StartPointQuantityValidatorTest {
 	
 	/*
 	 * Method TearDown() will run Once after this Test Class finsih running and will delete the references to 
-	 * the objects, so taht garbage collector can collect them. 
+	 * the objects, so that the garbage collector can collect them. 
 	 */
 	
 	@AfterClass
@@ -68,7 +72,7 @@ public class StartPointQuantityValidatorTest {
 	@Test
 	public void testMultipleStartPoints() {
 		p1 = new MapPoint(1, 1);
-		p2 = new MapPoint(2, 2);
+		p2 = new MapPoint(3, 2);
 		r1 = new Road(Road.Type.START);
 		r2 = new Road(Road.Type.START);
 		map.setItem(r1, p1);
