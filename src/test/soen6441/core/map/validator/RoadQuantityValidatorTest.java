@@ -6,9 +6,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.After;
 import org.junit.Before;
-import org.junit.FixMethodOrder;
 import org.junit.Test;
-import org.junit.runners.MethodSorters;
 
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPoint;
@@ -24,7 +22,7 @@ import com.soen6441.core.map.validator.RoadQuantityValidator;
  * @version $Revision: 1.0 $
  */
 
-@FixMethodOrder(MethodSorters.JVM)
+
 public class RoadQuantityValidatorTest {
 
 	 PathValidator validator;
