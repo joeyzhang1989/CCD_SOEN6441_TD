@@ -28,9 +28,9 @@ public class TowerManager {
 	/*
 	 * Properties of TowerManager
 	 */
-	public String towerType;
-	public String filePath;
-	protected int initialPrice;
+	private String towerType;
+	private String filePath;
+	private int initialPrice;
 	
 	/*
 	 * This list is used to store all levels of tower object of a particular tower type.
@@ -50,23 +50,6 @@ public class TowerManager {
 		this.towerType = towerType;
 		this.filePath = filePath;
 		this.analyse();
-	}
-	
-	/**
-	 * This method use reflection to generate a particular type of tower object.
-	 * 
-	 * @param typeName The string use to defines a special type of tower.
-	 * @return tower A child class of Tower object. 
-     */
-	private Tower generateTower(String typeName) {
-		Tower tower = null;
-		try {
-			tower = (Tower) (Class.forName("com.soen6441.core.tower." + typeName).newInstance());
-		} catch (InstantiationException | IllegalAccessException
-				| ClassNotFoundException e) {
-			e.printStackTrace();
-		} 
-		return tower;
 	}
 	
 	/**
@@ -150,6 +133,24 @@ public class TowerManager {
 	}
 	
 	/**
+	 * This method use reflection to generate a particular type of tower object.
+	 * 
+	 * @param typeName The string use to defines a special type of tower.
+	 * @return tower A child class of Tower object. 
+     */
+	private Tower generateTower(String typeName) {
+		Tower tower = null;
+		try {
+			tower = (Tower) (Class.forName("com.soen6441.core.tower." + typeName).newInstance());
+		} catch (InstantiationException | IllegalAccessException
+				| ClassNotFoundException e) {
+			e.printStackTrace();
+		} 
+		return tower;
+	}
+	
+	
+	/**
 	 * Create a specific Tower object.
 	 * This method uses copyTo method of tower class.
 	 * 
@@ -188,7 +189,7 @@ public class TowerManager {
 	 * @return boolean 
      * @see Tower#canUpgrade() 
      */
-	protected boolean canUpgrade(Tower tower) {
+	public boolean canUpgrade(Tower tower) {
 		
 		if (tower.level >= leveledTowers.size()) {
 			return false;

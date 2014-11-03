@@ -17,7 +17,7 @@ import com.soen6441.core.tower.TowerManagerFactory;
 
 public class TowerManagerTest {
 	
-	private static TowerManagerFactory newTMF = TowerManagerFactory.currentManagerFactory();
+	private static TowerManagerFactory newTMF = TowerManagerFactory.defaultFactory();
 	private static TowerManager newTM = newTMF.getManager("BottleTower");
 	
 	/**

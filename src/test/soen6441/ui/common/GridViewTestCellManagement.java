@@ -36,25 +36,25 @@ public class GridViewTestCellManagement {
 
 	@Test
 	public void testAddCell() {
-		assertEquals(one.getCell(0, 0), cellA);
+		assertEquals(one.getCell(new GridPoint(0, 0)), cellA);
 	}
 
 	@Test
 	public void testGetCell() {
-		assertEquals(one.getCell(0, 0), cellA);
+		assertEquals(one.getCell(new GridPoint(0, 0)), cellA);
 	}
 
 	@Test
 	public void testRemoveCell() {
 		this.one.removeCell(cellA);
-		assertEquals(null, one.getCell(0, 0));
+		assertEquals(null, one.getCell(new GridPoint(0, 0)));
 	}
 
 	@Test
 	public void testReplaceCell() {
 		this.one.addCell(cellD, gp2);
 		this.one.replaceCell(cellD, cellC);
-		assertEquals(one.getCell(4, 4), cellC);
+		assertEquals(one.getCell(new GridPoint(4, 4)), cellC);
 	}
 
 }
