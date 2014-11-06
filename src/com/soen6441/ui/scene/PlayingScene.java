@@ -283,7 +283,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		public InspectableScenery() {
 			buildCommands = new ArrayList<Command>();
 			
-			towerManagerFactory = TowerManagerFactory.currentManagerFactory();
+			towerManagerFactory = TowerManagerFactory.defaultFactory();
 			List<String> typeNames = towerManagerFactory.getTypeNames();
 			for (String typeName : typeNames) {
 				TowerManager towerManager = towerManagerFactory.getManager(typeName);

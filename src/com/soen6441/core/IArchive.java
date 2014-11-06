@@ -14,7 +14,7 @@ public interface IArchive {
 	public void decode(Element element);
 	/**
 	 * Method encode.
-	
-	 * @return Element */
+	 * @return Element 
+	 */
 	public Element encode();
 }

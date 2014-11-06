@@ -1,9 +1,9 @@
 package com.soen6441.core.map;
 
 /**
- * This class will check whether the map is valid or not.In addition, this class
- * will provide methods to generate paths on the map  
+ * This class is a base class for all validators to test items on the map
  * 
+ * @author Zhe Zhao
  * @author Mohammad Ali
  * @version $Revision: 1.0 $
  */
@@ -48,7 +48,8 @@ public abstract class PathValidator {
 	
 	/**
 	 * Method validate will check whether a map is valid.
-	 * @return boolean */
+	 * @return boolean 
+	 */
 	
 	abstract public boolean validate();
 		

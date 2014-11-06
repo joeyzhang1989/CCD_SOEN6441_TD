@@ -172,7 +172,9 @@ public class GridView extends View {
 	
 	 * @return Cell
 	 *  The Cell object returned */
-	public GridViewCell getCell(int row, int column) {
+	public GridViewCell getCell(GridPoint point) {
+		int row = point.getRow();
+		int column = point.getColumn();
 		return this.cells[row][column];
 	}
 	
