@@ -3,6 +3,8 @@ package com.soen6441.core.map;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.soen6441.core.IArchive;
+
 /**
  * This class will define the distance the object has to travel along the path in the Map.  
  * 
@@ -11,7 +13,7 @@ import java.util.List;
  * @version $Revision: 1.0 $
  */
 
-public class MapPath  {
+public class MapPath{
 	
 	/*
 	 * Mark - Constructors
