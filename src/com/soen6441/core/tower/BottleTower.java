@@ -35,9 +35,16 @@ public class BottleTower extends Tower {
 		return result;
 	}
 	
+	/**
+	 * Set value of properties of an bottle tower object.
+	 * @see Tower#decode(Element)
+	 * @see IArchive
+	 */
 	@Override
 	public void decode(Element element) {
 		// TODO Auto-generated method stub
-		
+		super.decode(element);
 	}
+	
+	
 }
