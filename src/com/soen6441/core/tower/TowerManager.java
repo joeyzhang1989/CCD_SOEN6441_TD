@@ -103,30 +103,35 @@ public class TowerManager {
     		
     		tower.setDescription(element.element("description").getText());
     		
-    		//Check towerType and add unique properties of child tower classes to child tower object.
-    		if (this.towerType == "BottleTower") {
-    			BottleTower towerResult = (BottleTower)tower;
-    			leveledTowers.add(towerResult);
-    		}
+    		tower.decode(element);
     		
-    		if (this.towerType == "MudTower") {
-    			MudTower towerResult = (MudTower)tower;
-    			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));
-    			towerResult.setSlowDuration(new AffectableValue(Double.parseDouble(element.element("slowDuration").getText())));
-    			leveledTowers.add(towerResult);
-    		}
+    		leveledTowers.add(tower);
     		
-    		if (this.towerType == "SunTower") {
-    			SunTower towerResult = (SunTower)tower;
-    			leveledTowers.add(towerResult);
-    		}
     		
-    		if (this.towerType == "MoonTower") {
-    			MoonTower towerResult = (MoonTower)tower;
-    			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));
-    			towerResult.setSlowDuration(new AffectableValue(Double.parseDouble(element.element("slowDuration").getText())));
-    			leveledTowers.add(towerResult);
-    		}
+//    		//Check towerType and add unique properties of child tower classes to child tower object.
+//    		if (this.towerType == "BottleTower") {
+//    			BottleTower towerResult = (BottleTower)tower;
+//    			leveledTowers.add(towerResult);
+//    		}
+//    		
+//    		if (this.towerType == "MudTower") {
+//    			MudTower towerResult = (MudTower)tower;
+//    			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));
+//    			towerResult.setSlowDuration(new AffectableValue(Double.parseDouble(element.element("slowDuration").getText())));
+//    			leveledTowers.add(towerResult);
+//    		}
+//    		
+//    		if (this.towerType == "SunTower") {
+//    			SunTower towerResult = (SunTower)tower;
+//    			leveledTowers.add(towerResult);
+//    		}
+//    		
+//    		if (this.towerType == "MoonTower") {
+//    			MoonTower towerResult = (MoonTower)tower;
+//    			towerResult.setSlowRate(new AffectableValue(Double.parseDouble(element.element("slowRate").getText())));
+//    			towerResult.setSlowDuration(new AffectableValue(Double.parseDouble(element.element("slowDuration").getText())));
+//    			leveledTowers.add(towerResult);
+//    		}
            	
         }
         

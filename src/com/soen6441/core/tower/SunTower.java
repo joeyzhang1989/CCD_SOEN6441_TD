@@ -1,5 +1,7 @@
 package com.soen6441.core.tower;
 
+import org.dom4j.Element;
+
 /**
  * This class is a specific type of tower, SunTower.
  * A SunTower is an AOE tower attacks all Targets within its range.
@@ -33,4 +35,10 @@ public class SunTower extends Tower {
 		return result;
 	}
 
+	
+	@Override
+	public void decode(Element element) {
+		// TODO Auto-generated method stub
+		
+	}
 }
