@@ -1,5 +1,7 @@
 package com.soen6441.core.tower;
 
+import org.dom4j.Element;
+
 /**
  * This class is a specific type of tower, BottleTower.
  * A BottleTower attacks a single target.
@@ -32,5 +34,17 @@ public class BottleTower extends Tower {
 		String result = super.getDetailInformation();
 		return result;
 	}
-
+	
+	/**
+	 * Set value of properties of an bottle tower object.
+	 * @see Tower#decode(Element)
+	 * @see IArchive
+	 */
+	@Override
+	public void decode(Element element) {
+		// TODO Auto-generated method stub
+		super.decode(element);
+	}
+	
+	
 }

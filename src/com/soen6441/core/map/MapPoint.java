@@ -3,6 +3,11 @@ package com.soen6441.core.map;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dom4j.Element;
+import org.dom4j.tree.DefaultElement;
+
+import com.soen6441.core.IArchive;
+
 /**
  * The class MapPoint will define a point on the map by its x and y coordinates.
  * It will also provide  a getter and setter for the MapPoint Object.
@@ -13,7 +18,7 @@ import java.util.List;
  * @version $Revision: 1.0 $
  */
 
-public class MapPoint {
+public class MapPoint implements IArchive{
 	
 	/*
 	 * Mark - Constructors
@@ -201,6 +206,31 @@ public class MapPoint {
 		directions.add(new MapPoint(0, -1));
 		return directions;
 	}
+	
+	/*
+	 * Mark - Archive - Methods
+	 */
+	
+	public class NameForArchiving{
+		public static final String Class = "MapPoint";
+		private static final String X = "x";
+		private static final String Y = "y";
+	}
+
+	@Override
+	public void decode(Element element) {
+		this.x = Double.valueOf(element.attributeValue(NameForArchiving.X));
+		this.y = Double.valueOf(element.attributeValue(NameForArchiving.Y));
+	}
+
+	@Override
+	public Element encode() {
+		Element element = new DefaultElement(NameForArchiving.Class);
+		element.addAttribute(NameForArchiving.X, Double.toString(x));
+		element.addAttribute(NameForArchiving.Y, Double.toString(y));
+		return element;
+	}
+	
 	
 	/*
 	 * Mark - Object
