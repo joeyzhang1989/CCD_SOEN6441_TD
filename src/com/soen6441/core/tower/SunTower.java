@@ -45,4 +45,11 @@ public class SunTower extends Tower {
 		// TODO Auto-generated method stub
 		super.decode(element);
 	}
+	
+	@Override
+	public Element encode() {
+		Element element = super.encode();
+		element.setName("SunTower");
+		return element;
+	}
 }
