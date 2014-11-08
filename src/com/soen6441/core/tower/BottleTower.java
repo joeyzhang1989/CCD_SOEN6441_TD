@@ -35,6 +35,12 @@ public class BottleTower extends Tower {
 		return result;
 	}
 	
+	public class NameForArchiving{
+		
+		public static final String Class = "BottleTower";
+	
+	}
+	
 	/**
 	 * Set value of properties of an bottle tower object.
 	 * @see Tower#decode(Element)
@@ -48,19 +54,10 @@ public class BottleTower extends Tower {
 	@Override
 	public Element encode() {
 		Element element = super.encode();
-		element.setName("BottleTower");
+		element.setName(NameForArchiving.Class);
 		return element;
 	}
-	/*
-	public static void main(String[] args) {
-		Tower tower = TowerManagerFactory.defaultFactory().getManager("BottleTower").createTower();
-		Element element = tower.encode();
-		Document document = DocumentHelper.createDocument();
-        document.add(element);
-        System.out.println("\n Objects -> XML");
-        System.out.println(document.asXML());
-		
-	}
-	*/
+	
+	
 	
 }

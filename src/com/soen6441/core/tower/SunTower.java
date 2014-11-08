@@ -35,6 +35,12 @@ public class SunTower extends Tower {
 		return result;
 	}
 
+public class NameForArchiving{
+		
+		public static final String Class = "SunTower";
+	
+	}
+	
 	/**
 	 * Set value of properties of an sun tower object.
 	 * @see Tower#decode(Element)
@@ -42,14 +48,13 @@ public class SunTower extends Tower {
 	 */
 	@Override
 	public void decode(Element element) {
-		// TODO Auto-generated method stub
 		super.decode(element);
 	}
 	
 	@Override
 	public Element encode() {
 		Element element = super.encode();
-		element.setName("SunTower");
+		element.setName(NameForArchiving.Class);
 		return element;
 	}
 }
