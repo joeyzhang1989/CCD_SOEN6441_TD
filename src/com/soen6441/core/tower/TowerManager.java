@@ -8,6 +8,7 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
+import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
 
@@ -123,7 +124,9 @@ public class TowerManager implements IArchive {
 	@Override
 	public Element encode() {
 		
-		return null;
+		Element element = new DefaultElement("TowerManager");
+		element.addElement("initialPrice").addText(String.valueOf(this.getInitialPrice()));
+		return element;
 	}	
 	
 	/**

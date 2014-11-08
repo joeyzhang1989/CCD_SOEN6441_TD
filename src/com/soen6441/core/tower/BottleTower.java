@@ -42,9 +42,25 @@ public class BottleTower extends Tower {
 	 */
 	@Override
 	public void decode(Element element) {
-		// TODO Auto-generated method stub
 		super.decode(element);
 	}
 	
+	@Override
+	public Element encode() {
+		Element element = super.encode();
+		element.setName("BottleTower");
+		return element;
+	}
+	/*
+	public static void main(String[] args) {
+		Tower tower = TowerManagerFactory.defaultFactory().getManager("BottleTower").createTower();
+		Element element = tower.encode();
+		Document document = DocumentHelper.createDocument();
+        document.add(element);
+        System.out.println("\n Objects -> XML");
+        System.out.println(document.asXML());
+		
+	}
+	*/
 	
 }
