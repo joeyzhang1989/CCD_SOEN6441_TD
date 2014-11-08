@@ -3,7 +3,7 @@
 	<TowerManager>
 		<initialPrice>120</initialPrice>
 		<leveledTowers>
-			<MudTower>
+			<IceTower>
 				<level>1</level>
 				<upgradePrice>220</upgradePrice>
 				<sellPrice>96</sellPrice>
@@ -14,8 +14,9 @@
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_2_1.png</cellImageName>
 				<name>Ice Tower</name>
-				<description>Ice Tower attacks single target with slow-down affect.</description></MudTower>
-			<MudTower>
+				<description>Ice Tower attacks single target with slow-down affect.</description>
+			</IceTower>
+			<IceTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
 				<sellPrice>272</sellPrice>
@@ -27,8 +28,8 @@
 				<cellImageName>tower_cell_2_2.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
-			</MudTower>
-			<MudTower>
+			</IceTower>
+			<IceTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>480</sellPrice>
@@ -40,7 +41,7 @@
 				<cellImageName>tower_cell_2_3.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
-			</MudTower>
+			</IceTower>
 		</leveledTowers>
 	</TowerManager>
 </xml>
