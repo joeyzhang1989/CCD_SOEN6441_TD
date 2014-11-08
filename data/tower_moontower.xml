@@ -13,7 +13,7 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_4_1.png</cellImageName>
-				<towerName>Moon Tower</towerName>
+				<name>Moon Tower</name>
 				<description>Moon Tower is an AOE tower with deceleration affect.</description></MoonTower>
 			<MoonTower>
 				<level>2</level>
@@ -25,7 +25,7 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1300</slowDuration>
 				<cellImageName>tower_cell_4_2.png</cellImageName>
-				<towerName>Moon Tower</towerName>
+				<name>Moon Tower</name>
 				<description>Moon Tower is an AOE tower with deceleration affect.</description>
 			</MoonTower>
 			<MoonTower>
@@ -38,7 +38,7 @@
 				<slowRate>1</slowRate>
 				<slowDuration>1600</slowDuration>
 				<cellImageName>tower_cell_4_3.png</cellImageName>
-				<towerName>Moon Tower</towerName>
+				<name>Moon Tower</name>
 				<description>Moon Tower is an AOE tower with deceleration affect.</description>
 			</MoonTower>
 		</leveledTowers>

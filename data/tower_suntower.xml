@@ -11,7 +11,7 @@
 				<range>130</range>
 				<cdTime>700</cdTime>
 				<cellImageName>tower_cell_3_1.png</cellImageName>
-				<towerName>Sun Tower</towerName>
+				<name>Sun Tower</name>
 				<description>AOE tower attacks all target with in its range.</description></SunTower>
 			<SunTower>
 				<level>2</level>
@@ -21,7 +21,7 @@
 				<range>150</range>
 				<cdTime>650</cdTime>
 				<cellImageName>tower_cell_3_2.png</cellImageName>
-				<towerName>Sun Tower</towerName>
+				<name>Sun Tower</name>
 				<description>AOE tower attacks all target with in its range.</description>
 			</SunTower>
 			<SunTower>
@@ -32,7 +32,7 @@
 				<range>180</range>
 				<cdTime>500</cdTime>
 				<cellImageName>tower_cell_3_3.png</cellImageName>
-				<towerName>Sun Tower</towerName>
+				<name>Sun Tower</name>
 				<description>AOE tower attacks all target with in its range.</description>
 			</SunTower>
 		</leveledTowers>
