@@ -12,6 +12,7 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.RoadType;
 import com.soen6441.core.map.validator.StartPointQuantityValidator;
 
 /**
@@ -63,8 +64,8 @@ public class StartPointQuantityValidatorTest {
 	public void testMultipleStartPoints() {
 		MapPoint p1 = new MapPoint(1, 1);
 		MapPoint p2 = new MapPoint(3, 2);
-		Road r1 = new Road(Road.Type.START);
-		Road r2 = new Road(Road.Type.START);
+		Road r1 = new Road(RoadType.START);
+		Road r2 = new Road(RoadType.START);
 		map.setItem(r1, p1);
 		map.setItem(r2, p2);
 		validator.setMap(map);
@@ -82,7 +83,7 @@ public class StartPointQuantityValidatorTest {
 	@Test
 	public void testOnlyOneStartPoint() {
 		MapPoint p1 = new MapPoint(1, 1);
-		Road r1 = new Road(Road.Type.START);
+		Road r1 = new Road(RoadType.START);
 		map.setItem(r1, p1);
 		validator.setMap(map);
 		

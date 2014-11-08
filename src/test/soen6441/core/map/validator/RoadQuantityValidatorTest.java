@@ -12,6 +12,7 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.RoadType;
 import com.soen6441.core.map.validator.RoadQuantityValidator;
 
 /**
@@ -45,9 +46,9 @@ public class RoadQuantityValidatorTest {
 		MapPoint p3 = new MapPoint(3, 1);
 		
 		
-		Road r1 = new Road(Road.Type.START);
-		Road r2 = new Road(Road.Type.NORMAL);
-		Road r3 = new Road(Road.Type.END);
+		Road r1 = new Road(RoadType.START);
+		Road r2 = new Road(RoadType.NORMAL);
+		Road r3 = new Road(RoadType.END);
 		
 		map.setItem(r1, p1);
 		map.setItem(r2, p2);
@@ -88,7 +89,7 @@ public class RoadQuantityValidatorTest {
 		map.removeItem(map.getItem(new MapPoint(2,1)));	// delete the path
 		map.removeItem(map.getItem(new MapPoint(3,1)));	// delete the endPoint
 		MapPoint p1 = new MapPoint(2, 1); 
-		Road r1 = new Road(Road.Type.END);	// Create an EndPoint
+		Road r1 = new Road(RoadType.END);	// Create an EndPoint
 		map.setItem(r1, p1);	// Connect it directly with the startPoint
 		
 		assertFalse(validator.validate());	// RoadQuantityValidator must return False.

@@ -12,6 +12,7 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.RoadType;
 import com.soen6441.core.map.validator.ConnectionValidator;
 
 /**
@@ -43,10 +44,10 @@ public class ConnectionValidatorTest {
 		MapPoint p3 = new MapPoint(3, 1);
 		MapPoint p4 = new MapPoint(4, 1);
 		
-		Road r1 = new Road(Road.Type.START);
-		Road r2 = new Road(Road.Type.NORMAL);
-		Road r3 = new Road(Road.Type.NORMAL);
-		Road r4 = new Road(Road.Type.END);
+		Road r1 = new Road(RoadType.START);
+		Road r2 = new Road(RoadType.NORMAL);
+		Road r3 = new Road(RoadType.NORMAL);
+		Road r4 = new Road(RoadType.END);
 		
 		map.setItem(r1, p1);
 		map.setItem(r2, p2);
@@ -96,7 +97,7 @@ public class ConnectionValidatorTest {
 		GridMap map=this.validator.getMap();
 		
 		MapPoint p1 = new MapPoint(1, 2);
-		Road r1 = new Road(Road.Type.NORMAL);
+		Road r1 = new Road(RoadType.NORMAL);
 		map.setItem(r1, p1);
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as StartPoint has more than one neighbour.
@@ -111,7 +112,7 @@ public class ConnectionValidatorTest {
 		GridMap map=this.validator.getMap();
 		
 		MapPoint p1 = new MapPoint(4, 2);
-		Road r1 = new Road(Road.Type.NORMAL);
+		Road r1 = new Road(RoadType.NORMAL);
 		map.setItem(r1, p1);
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as EndPoint has more than one neighbour.
@@ -126,7 +127,7 @@ public class ConnectionValidatorTest {
 		GridMap map=this.validator.getMap();
 		
 		MapPoint p1 = new MapPoint(2, 2);
-		Road r1 = new Road(Road.Type.NORMAL);
+		Road r1 = new Road(RoadType.NORMAL);
 		map.setItem(r1, p1);
 		
 		assertFalse(validator.validate());	// ConnectionValidator must return False as EndPoint has more than one neighbour.

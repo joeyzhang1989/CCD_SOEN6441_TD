@@ -18,16 +18,16 @@ public class Road extends MapItem {
 	
 	public Road() {
 		super();
-		this.type = Type.NORMAL;
+		this.roadType = RoadType.NORMAL;
 	}
 	
 	/**
 	 * Constructor for Road.
-	 * @param type Type
+	 * @param roadType Type
 	 */
-	public Road(Type type) {
+	public Road(RoadType roadType) {
 		super();
-		this.type = type;
+		this.roadType = roadType;
 	}
 	
 	
@@ -35,11 +35,11 @@ public class Road extends MapItem {
 	 * Mark - Basic - Properties
 	 */
 	
-	public enum Type{
+	public enum RoadType{
 		NORMAL, START, END
 	}
 	
-	private Type type;
+	private RoadType roadType;
 
 	/*
 	 * Mark - Basic - Observerable
@@ -55,16 +55,16 @@ public class Road extends MapItem {
 	 * Method getType.
 	 * @return Type 
      */
-	public Type getType() {
-		return type;
+	public RoadType getRoadType() {
+		return roadType;
 	}
 
 	/**
 	 * Method setType.
-	 * @param type Type
+	 * @param roadType Type
 	 */
-	public void setType(Type type) {
-		this.type = type;
+	public void setRoadType(RoadType roadType) {
+		this.roadType = roadType;
 
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE);
@@ -80,7 +80,7 @@ public class Road extends MapItem {
      */
 	@Override
 	public String getName() {
-		switch (type) {
+		switch (roadType) {
 		case NORMAL:
 			return "Road";
 		case START:
@@ -99,7 +99,7 @@ public class Road extends MapItem {
 	@Override
 	public String getCellImageName() {
 
-		switch (type) {
+		switch (roadType) {
 		case NORMAL:
 			return "road_cell_normal.png";
 		case START:

@@ -7,6 +7,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.RoadType;
 
 /**
  * The class ConnectedPathValidator is a subclass of PathValidator.
@@ -59,9 +60,9 @@ public class ConnectionValidator extends PathValidator {
 		
 		for (Road road : roadItems) {
 		    int totalNeighbours = numberOfNeighbours(road);
-		    Road.Type type = road.getType();
+		    RoadType type = road.getRoadType();
 		    
-		    if(type == Road.Type.START) {
+		    if(type == RoadType.START) {
 		    	if(totalNeighbours > 1) {
 		    		this.setErrorMassage(STARTPOINT_BRANCH_ERROR);
 		    		return false;
@@ -69,7 +70,7 @@ public class ConnectionValidator extends PathValidator {
 		    		this.setErrorMassage(BROKEN_PATH_ERROR);
 		    		return false;
 		    	}
-		    } else if(type == Road.Type.END) {
+		    } else if(type == RoadType.END) {
 		    	if(totalNeighbours > 1) {
 		    		this.setErrorMassage(ENDPOINT_BRANCH_ERROR);
 		    		return false;
@@ -77,7 +78,7 @@ public class ConnectionValidator extends PathValidator {
 		    		this.setErrorMassage(BROKEN_PATH_ERROR);
 		    		return false;
 		    	}
-		    } else if(type == Road.Type.NORMAL) {
+		    } else if(type == RoadType.NORMAL) {
 		    	if(totalNeighbours > 2) {
 		    		this.setErrorMassage(MULTIPLE_BRANCH_ERROR);
 		    		return false;

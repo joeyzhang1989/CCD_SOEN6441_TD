@@ -5,6 +5,7 @@ import java.util.List;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.RoadType;
 
 /**
  * The class PathLengthValidator will validate the length of the path.
@@ -36,7 +37,7 @@ public class RoadQuantityValidator extends PathValidator {
 			MapItem mapItem = mapItems.get(i);
 			if (mapItem instanceof Road) {
 				Road road = (Road) mapItem;
-				if (road.getType() == Road.Type.NORMAL) {
+				if (road.getRoadType() == RoadType.NORMAL) {
 					quantity += 1;
 				}
 			}
