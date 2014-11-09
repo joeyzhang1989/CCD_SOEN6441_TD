@@ -5,6 +5,7 @@ import java.util.List;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.PathValidator;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.RoadType;
 
 /**
  * The class StartPointValidator is a subclass of PathValidator. It overrides
@@ -41,7 +42,7 @@ public class StartPointQuantityValidator extends PathValidator {
 			MapItem mapItem = mapItems.get(i);
 			if (mapItem instanceof Road) {
 				Road road = (Road) mapItem;
-				if (road.getType() == Road.Type.START) {
+				if (road.getRoadType() == RoadType.START) {
 					numberOfStartPoint += 1;
 				}
 			}

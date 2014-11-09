@@ -12,7 +12,7 @@ import javax.swing.JOptionPane;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
-import com.soen6441.core.map.Road.Type;
+import com.soen6441.core.map.Road.RoadType;
 import com.soen6441.core.play.Play;
 import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.common.Command;
@@ -286,13 +286,13 @@ public class EditingScene extends View implements GridViewSelectionListener {
 				gridMap.setItem(road, gridMap.getSelectedPoint());
 				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
 			} else if (command == buildStartPoint) {
-				Road road = new Road(Type.START);
+				Road road = new Road(RoadType.START);
 				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
 				GridMap gridMap = play.getMap();
 				gridMap.setItem(road, gridMap.getSelectedPoint());
 				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
 			} else if (command == buildEndPoint) {
-				Road road = new Road(Type.END);
+				Road road = new Road(RoadType.END);
 				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
 				GridMap gridMap = play.getMap();
 				gridMap.setItem(road, gridMap.getSelectedPoint());

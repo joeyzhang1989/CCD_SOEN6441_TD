@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<TowerManager>
+		<initialPrice>100</initialPrice>
+		<leveledTowers>
+			<BottleTower>
+				<level>1</level>
+				<upgradePrice>180</upgradePrice>
+				<sellPrice>80</sellPrice>
+				<damage>60</damage>
+				<range>190</range>
+				<cdTime>600</cdTime>
+				<cellImageName>tower_cell_1_1.png</cellImageName>
+				<name>Bottle Tower</name>
+				<description>Bottle Tower attacks single target.</description>
+			</BottleTower>
+			...
+		</leveledTowers>
+	</TowerManager>
+</xml>
