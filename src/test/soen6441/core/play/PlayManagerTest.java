@@ -25,7 +25,7 @@ import com.soen6441.core.play.PlayManager;
 
 public class PlayManagerTest {
  
-	static File testFile;
+	private static File testFile;
 	
 	@BeforeClass
 	public static void setup() {
