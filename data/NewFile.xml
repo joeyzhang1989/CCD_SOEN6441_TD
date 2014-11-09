@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<BottleTower><level>1</level><upgradePrice>180</upgradePrice><sellPrice>80</sellPrice><range>190.0</range><damage>60.0</damage><cdTime>600.0</cdTime><cellImageName>tower_cell_1_1.png</cellImageName><towerName>Bottle Tower</towerName><description>Bottle Tower attacks single target.</description></BottleTower>
