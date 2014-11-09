@@ -3,6 +3,9 @@ package com.soen6441.core.map;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.dom4j.Element;
+import org.dom4j.tree.DefaultElement;
+
 import com.soen6441.core.IArchive;
 
 /**
@@ -13,7 +16,7 @@ import com.soen6441.core.IArchive;
  * @version $Revision: 1.0 $
  */
 
-public class MapPath{
+public class MapPath implements IArchive{
 	
 	/*
 	 * Mark - Constructors
@@ -92,6 +95,34 @@ public class MapPath{
 	
 	public double goAlong(MapPoint point , double amount){
 		return 0;
+	}
+
+	/*
+	 * Mark - Archive - Methods
+	 */
+
+	public class NameForArchiving {
+		public static final String Class = "locations";
+
+	}
+
+	@Override
+	public void decode(Element element) {
+
+		MapPoint mapPoint = new MapPoint();
+		mapPoint.decode(element);
+		this.addLocation(mapPoint);
+	}
+
+	@Override
+	public Element encode() {
+		Element element = new DefaultElement(NameForArchiving.Class);
+
+		for (MapPoint mapPoint : locations) {
+			element.add(mapPoint.encode());
+		}
+
+		return element;
 	}
 	
 }
