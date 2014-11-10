@@ -1,5 +1,6 @@
 package com.soen6441.core.map;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -38,29 +39,43 @@ public class MapItemSelector {
 	 * Method fliterByCircularArea.
      * @return MapItemSelector mapItemSelector
      */
-	public MapItemSelector fliterByCircularArea(MapPoint mapPoint, double radius) {
+	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
 		
 	}
 	
 	/**
-	 * Method fliterByType.
+	 * Method filterByType.
      * @return MapItemSelector mapItemSelector
      */
 	// need to define the Types
-	public MapItemSelector fliterByTypes(MapItemSelectorTypeOption[] types) {
+	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
 		
 	}
 	
 	/**
-	 * Method fliterByAmount.
+	 * Method filterByAmount.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector fliterByAmount(int amount) {
+    public MapItemSelector filterByAmount(int amount) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	mapItemSelector.setMap(map);
+    	
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	if (amount > items.size()){
+    		
+    	} else {
+    		filteredItems.addAll(items);
+    	}
+    	
+    	mapItemSelector.setItems(filteredItems);
+    	
+    	
+//    	mapItemSelector.setItems(items);
+    	
 		return mapItemSelector;
 	}
     
