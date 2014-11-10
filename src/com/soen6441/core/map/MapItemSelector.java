@@ -55,7 +55,7 @@ public class MapItemSelector {
 	 * Method sortByDirectlyClosestToPoint.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector sortByDirectlyClosestToPoint () {
+    public MapItemSelector sortByDirectlyClosestToPoint (MapPoint point) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}
@@ -64,7 +64,7 @@ public class MapItemSelector {
 	 * Method sortByOnPathClosestToEndPoint.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector sortByOnPathClosestToEndPoint () {
+    public MapItemSelector sortByOnPathClosestToEndPoint () {  
     	MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}

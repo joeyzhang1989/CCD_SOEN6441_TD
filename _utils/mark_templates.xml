@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="java" deleted="false" description="Program Mark Default" enabled="true" name="mk">/*
+ * Mark - ${}s${cursor}
+ */
+</template><template autoinsert="true" context="java" deleted="false" description="Program Mark Constructors" enabled="true" name="mkc">/*
+ * Mark - Constructors
+ */
+${cursor}</template><template autoinsert="true" context="java" deleted="false" description="Program Mark Double" enabled="true" name="mkd">/*
+ * Mark - ${} - ${cursor}s
+ */</template><template autoinsert="true" context="java" deleted="false" description="Program Mark Getters &amp; Setters" enabled="true" name="mkgs">/*
+ * Mark - ${} - Getters &amp; Setters
+ */
+${cursor}</template><template autoinsert="true" context="java" deleted="false" description="Program Mark Initialization" enabled="true" name="mki">/*
+ * Mark - Initialization
+ */
+${cursor}</template><template autoinsert="true" context="java" deleted="false" description="Program Mark Method" enabled="true" name="mkm">/*
+ * Mark - ${} - Methods
+ */
+${cursor}</template><template autoinsert="true" context="java" deleted="false" description="Program Mark Properties" enabled="true" name="mkp">/*
+ * Mark - ${} - Properties
+ */
+${cursor}</template></templates>
