@@ -16,9 +16,8 @@ public class MapItemSelector {
 		this.map = map;
 	}
 
-	private List<MapItem> items;
+	private int amount;
 	
-
 	public int getAmount() {
 		return amount;
 	}
@@ -27,14 +26,7 @@ public class MapItemSelector {
 		this.amount = amount;
 	}
 
-	private MapPoint mapPoint;
-	private double radius;
-	private MapItemSelectorTypeOption[] types;
-	private int amount;
-	public enum MapItemSelectorTypeOption {
-		Road, Tower, Critter
-	}
-	
+	private List<MapItem> items;
 	public List<MapItem> getItems() {
 		return items;
 	}
@@ -43,6 +35,7 @@ public class MapItemSelector {
 		this.items = items;
 	}
 	
+	private MapPoint mapPoint;
 	public MapPoint getMapPoint() {
 		return mapPoint;
 	}
@@ -50,7 +43,8 @@ public class MapItemSelector {
 	public void setMapPoint(MapPoint mapPoint) {
 		this.mapPoint = mapPoint;
 	}
-
+	
+	private double radius;
 	public double getRadius() {
 		return radius;
 	}
@@ -58,7 +52,12 @@ public class MapItemSelector {
 	public void setRadius(double radius) {
 		this.radius = radius;
 	}
-
+	
+	public enum MapItemSelectorTypeOption {
+		Road, Tower, Critter
+	}
+	
+	private MapItemSelectorTypeOption[] types;
 	public MapItemSelectorTypeOption[] getTypes() {
 		return types;
 	}
