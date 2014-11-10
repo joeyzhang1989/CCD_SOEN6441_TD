@@ -144,6 +144,10 @@ public class MapPoint implements IArchive{
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 	
+	public double length(){
+		return distanceTo(new MapPoint(0, 0));
+	}
+	
 	/**
 	 * Method add.
 	 * @param point MapPoint
@@ -165,6 +169,13 @@ public class MapPoint implements IArchive{
 		MapPoint result = new MapPoint();
 		result.x = this.x - point.x;
 		result.y = this.y - point.y;
+		return result;
+	}
+	
+	public MapPoint scale(double value){
+		MapPoint result = new MapPoint();
+		result.x = this.x * value;
+		result.y = this.y * value;
 		return result;
 	}
 	
