@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<Play>
+		<coins></coins>
+		<map>
+			<GridMap>
+				<width></width>
+				<height></height>
+				<startPoints>
+					<MapPoint x="" y="" />
+					***
+				</startPoints>
+				<endPoints>
+					<MapPoint x="" y="" />
+					***
+				</endPoints>
+				<paths>
+					<MapPath>
+						<locations>
+							<MapPoint x="" y="" />
+							<MapPoint x="" y="" />
+							***
+						</locations>
+					</MapPath>
+					***
+				</paths>
+			</GridMap>
+		</map>
+	</Play>
+</xml>

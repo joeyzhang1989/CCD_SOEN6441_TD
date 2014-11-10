@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<TowerManager>
+		<initialPrice>180</initialPrice>
+		<leveledTowers>
+			<MoonTower>
+				<level>1</level>
+				<upgradePrice>260</upgradePrice>
+				<sellPrice>124</sellPrice>
+				<damage>20</damage>
+				<range>130</range>
+				<cdTime>900</cdTime>
+				<slowRate>1</slowRate>
+				<slowDuration>1000</slowDuration>
+				<cellImageName>tower_cell_4_1.png</cellImageName>
+				<name>Moon Tower</name>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description></MoonTower>
+			<MoonTower>
+				<level>2</level>
+				<upgradePrice>320</upgradePrice>
+				<sellPrice>312</sellPrice>
+				<damage>40</damage>
+				<range>150</range>
+				<cdTime>850</cdTime>
+				<slowRate>1</slowRate>
+				<slowDuration>1300</slowDuration>
+				<cellImageName>tower_cell_4_2.png</cellImageName>
+				<name>Moon Tower</name>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+			</MoonTower>
+			<MoonTower>
+				<level>3</level>
+				<upgradePrice>0</upgradePrice>
+				<sellPrice>524</sellPrice>
+				<damage>75</damage>
+				<range>180</range>
+				<cdTime>800</cdTime>
+				<slowRate>1</slowRate>
+				<slowDuration>1600</slowDuration>
+				<cellImageName>tower_cell_4_3.png</cellImageName>
+				<name>Moon Tower</name>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+			</MoonTower>
+		</leveledTowers>
+	</TowerManager>
+</xml>
