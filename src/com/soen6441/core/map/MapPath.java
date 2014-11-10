@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
@@ -102,27 +103,36 @@ public class MapPath implements IArchive{
 	 */
 
 	public class NameForArchiving {
-		public static final String Class = "locations";
+		public static final String Class = "MapPath";
+		public static final String LOCATIONS = "locations";
 
 	}
 
 	@Override
 	public void decode(Element element) {
+		Node locations = element.selectSingleNode("locations");
+		@SuppressWarnings("unchecked")
+		List<Node> pointNodes = locations.selectNodes("MapPoint");
 
-		MapPoint mapPoint = new MapPoint();
-		mapPoint.decode(element);
-		this.addLocation(mapPoint);
+		for (Node pointNode : pointNodes) {
+			Element pointElement = (Element) pointNode;
+			MapPoint mapPoint = new MapPoint();
+			mapPoint.decode(pointElement);
+			
+			this.addLocation(mapPoint);
+		}
 	}
 
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);
+		Element locations = element.addElement(NameForArchiving.LOCATIONS);
 
-		for (MapPoint mapPoint : locations) {
-			element.add(mapPoint.encode());
+		for (MapPoint mapPoint : this.locations) {
+			locations.add(mapPoint.encode());
 		}
 
 		return element;
 	}
-	
+
 }
