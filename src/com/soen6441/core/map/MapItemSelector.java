@@ -27,7 +27,7 @@ public class MapItemSelector {
 	}
 
 	public void setItems(List<MapItem> items) {
-		this.items = map.getAllItems();
+		this.items = items;
 	}
 	
 	public enum MapItemSelectorTypeOption {
@@ -41,6 +41,7 @@ public class MapItemSelector {
      */
 	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		mapPoint = map.getSelectedItem().getLocation();
 		return mapItemSelector;
 		
 	}
@@ -104,9 +105,11 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByRandom () {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
-    	mapItemSelector.setItems(items);
-    	items = mapItemSelector.getItems();
-    	Collections.shuffle(items);
+    	mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	Collections.shuffle(filteredItems);
+    	mapItemSelector.setItems(filteredItems);
+    	
 		return mapItemSelector;
   	}
 }
