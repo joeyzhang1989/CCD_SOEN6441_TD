@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<MapItem>
-	<location> [optinal when reading]
-		<MapPoint></MapPoint>
-	</location>
-	<name></name>
-	<cellImageName></cellImageName>
-</MapItem>
