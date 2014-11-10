@@ -11,6 +11,14 @@ public class MapItemSelector {
 
 	private GridMap map;
 
+	public GridMap getMap() {
+		return map;
+	}
+
+	public void setMap(GridMap map) {
+		this.map = map;
+	}
+
 	private List<MapItem> items;
 	
 	public List<MapItem> getItems() {
