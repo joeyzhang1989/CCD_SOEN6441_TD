@@ -58,7 +58,7 @@ public class MapItemSelector {
 	 * Method sortByOnPathClosestToEndPoint.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector sortByOnPathClosestToEndPoint () {
+    public MapItemSelector sortByOnPathClosestToEndPoint () {  
     	MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}
