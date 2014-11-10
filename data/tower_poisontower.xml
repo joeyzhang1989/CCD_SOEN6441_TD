@@ -13,7 +13,7 @@
 				<poisonDamage>1</poisonDamage>
 				<poisonCdTime>1000</poisonCdTime>
 				<poisonTimes>5</poisonTimes>
-				<cellImageName>tower_cell_2_1.png</cellImageName>
+				<cellImageName>tower_cell_5_1.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
 			</PoisonTower>
@@ -27,7 +27,7 @@
 				<poisonDamage>1</poisonDamage>
 				<poisonCdTime>1300</poisonCdTime>
 				<poisonTimes>7</poisonTimes>
-				<cellImageName>tower_cell_2_2.png</cellImageName>
+				<cellImageName>tower_cell_5_2.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
 			</PoisonTower>
@@ -41,7 +41,7 @@
 				<poisonDamage>1</poisonDamage>
 				<poisonCdTime>1600</poisonCdTime>
 				<poisonTimes>10</poisonTimes>
-				<cellImageName>tower_cell_2_3.png</cellImageName>
+				<cellImageName>tower_cell_5_3.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
 			</PoisonTower>
