@@ -52,6 +52,7 @@ public class MapItemSelector {
 	// need to define the Types
 	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		
 		return mapItemSelector;
 		
 	}
@@ -66,7 +67,7 @@ public class MapItemSelector {
     	
     	List<MapItem> filteredItems = new ArrayList<MapItem>();
     	if (amount > items.size()){
-    		
+    		items.subList(0, amount);
     	} else {
     		filteredItems.addAll(items);
     	}
