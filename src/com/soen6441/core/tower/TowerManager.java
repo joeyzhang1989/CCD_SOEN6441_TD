@@ -130,7 +130,11 @@ public class TowerManager implements IArchive {
         }
 		
 	}
-
+	
+	/**
+	 * This method is used to convert value of properties of a particular class to an XML data element.
+	 * @see IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		
