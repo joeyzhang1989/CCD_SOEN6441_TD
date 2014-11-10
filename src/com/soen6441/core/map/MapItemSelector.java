@@ -1,5 +1,6 @@
 package com.soen6441.core.map;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -10,6 +11,14 @@ import java.util.List;
 public class MapItemSelector {
 
 	private GridMap map;
+
+	public GridMap getMap() {
+		return map;
+	}
+
+	public void setMap(GridMap map) {
+		this.map = map;
+	}
 
 	private List<MapItem> items;
 	
@@ -71,6 +80,21 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByOnPathClosestToEndPoint () {  
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	List<MapPoint> points = new ArrayList<MapPoint>();
+		
+		MapPoint vector = endPoint.substract(startPoint);
+		
+		MapPoint delta = vector.normalize();
+		
+		MapPoint point = startPoint;
+		point = point.add(delta);
+		
+		while (!point.equals(endPoint)){
+			points.add(point);
+			point = point.add(delta);
+		}
+		
+		return points;
 		return mapItemSelector;
   	}
     
