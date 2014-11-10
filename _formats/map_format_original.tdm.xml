@@ -3,7 +3,7 @@
 	<Play>
 		<coins></coins>
 		<map>
-			<Map>
+			<GridMap>
 				<width></width>
 				<height></height>
 				<startPoints>
@@ -15,16 +15,16 @@
 					***
 				</endPoints>
 				<paths>
-					<Path>
+					<MapPath>
 						<locations>
 							<MapPoint x="" y="" />
 							<MapPoint x="" y="" />
 							***
 						</locations>
-					</Path>
+					</MapPath>
 					***
 				</paths>
-			</Map>
+			</GridMap>
 		</map>
 	</Play>
 </xml>
