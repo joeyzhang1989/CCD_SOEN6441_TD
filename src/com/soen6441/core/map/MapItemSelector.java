@@ -1,5 +1,6 @@
 package com.soen6441.core.map;
 
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -7,6 +8,7 @@ import java.util.List;
  * @author Mengyao Wang 
  */
 public class MapItemSelector {
+
 	private GridMap map;
 
 	private List<MapItem> items;
@@ -78,6 +80,9 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByRandom () {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	mapItemSelector.setItems(items);
+    	items = mapItemSelector.getItems();
+    	Collections.shuffle(items);
 		return mapItemSelector;
   	}
 }
