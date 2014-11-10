@@ -49,7 +49,7 @@ public class MapItemSelector {
 	 * Method sortByclosestToPoint.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector sortByDirectlyClosestToPoint () {
+    public MapItemSelector sortByDirectlyClosestToPoint (MapPoint point) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}
