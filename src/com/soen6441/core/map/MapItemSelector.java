@@ -1,8 +1,6 @@
 package com.soen6441.core.map;
 
-import com.soen6441.core.map.GridMap;
-import com.soen6441.core.map.MapPath;
-import com.soen6441.core.map.MapPoint;
+import java.util.List;
 
 /**
  * @author Chenglong Zhang 
@@ -10,7 +8,11 @@ import com.soen6441.core.map.MapPoint;
  */
 public class MapItemSelector {
 	private GridMap map;
-	private MapItem[][] items; 
+	private List<MapItem> items; 
+	
+	public enum MapItemSelectorTypeOption {
+		Road, Tower, Critter
+	}
 	
 	
 	/**
@@ -28,7 +30,7 @@ public class MapItemSelector {
      * @return MapItemSelector mapItemSelector
      */
 	// need to define the Types
-	public MapItemSelector fliterByType() {
+	public MapItemSelector fliterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
 		
@@ -47,7 +49,7 @@ public class MapItemSelector {
 	 * Method sortByclosestToPoint.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector sortByclosestToPoint () {
+    public MapItemSelector sortByDirectlyClosestToPoint () {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}
@@ -56,7 +58,7 @@ public class MapItemSelector {
 	 * Method sortByclosestToEndPoint.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector sortByclosestToEndPoint () {
+    public MapItemSelector sortByOnPathClosestToEndPoint () {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}
