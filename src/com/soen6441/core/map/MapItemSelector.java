@@ -8,16 +8,63 @@ import java.util.List;
  */
 public class MapItemSelector {
 	private GridMap map;
-	private List<MapItem> items; 
-	private MapPoint mapPoint;
-	private double radius;
-	private MapItemSelectorTypeOption[] types;
+	public GridMap getMap() {
+		return map;
+	}
+
+	public void setMap(GridMap map) {
+		this.map = map;
+	}
+
 	private int amount;
+	
+	public int getAmount() {
+		return amount;
+	}
+
+	public void setAmount(int amount) {
+		this.amount = amount;
+	}
+
+	private List<MapItem> items;
+	public List<MapItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<MapItem> items) {
+		this.items = items;
+	}
+	
+	private MapPoint mapPoint;
+	public MapPoint getMapPoint() {
+		return mapPoint;
+	}
+
+	public void setMapPoint(MapPoint mapPoint) {
+		this.mapPoint = mapPoint;
+	}
+	
+	private double radius;
+	public double getRadius() {
+		return radius;
+	}
+
+	public void setRadius(double radius) {
+		this.radius = radius;
+	}
+	
 	public enum MapItemSelectorTypeOption {
 		Road, Tower, Critter
 	}
 	
-	
+	private MapItemSelectorTypeOption[] types;
+	public MapItemSelectorTypeOption[] getTypes() {
+		return types;
+	}
+
+	public void setTypes(MapItemSelectorTypeOption[] types) {
+		this.types = types;
+	}
 	/**
 	 * Method fliterByCircularArea.
      * @return MapItemSelector mapItemSelector
