@@ -27,7 +27,7 @@ public class MapItemSelector {
 	}
 
 	public void setItems(List<MapItem> items) {
-		this.items = map.getAllItems();
+		this.items = items;
 	}
 	
 	public enum MapItemSelectorTypeOption {
@@ -39,29 +39,44 @@ public class MapItemSelector {
 	 * Method fliterByCircularArea.
      * @return MapItemSelector mapItemSelector
      */
-	public MapItemSelector fliterByCircularArea(MapPoint mapPoint, double radius) {
+	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		mapPoint = map.getSelectedItem().getLocation();
 		return mapItemSelector;
 		
 	}
 	
 	/**
-	 * Method fliterByType.
+	 * Method filterByType.
      * @return MapItemSelector mapItemSelector
      */
 	// need to define the Types
-	public MapItemSelector fliterByTypes(MapItemSelectorTypeOption[] types) {
+	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
 		
 	}
 	
 	/**
-	 * Method fliterByAmount.
+	 * Method filterByAmount.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector fliterByAmount(int amount) {
+    public MapItemSelector filterByAmount(int amount) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	mapItemSelector.setMap(map);
+    	
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	if (amount > items.size()){
+    		
+    	} else {
+    		filteredItems.addAll(items);
+    	}
+    	
+    	mapItemSelector.setItems(filteredItems);
+    	
+    	
+//    	mapItemSelector.setItems(items);
+    	
 		return mapItemSelector;
 	}
     
@@ -104,9 +119,11 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByRandom () {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
-    	mapItemSelector.setItems(items);
-    	items = mapItemSelector.getItems();
-    	Collections.shuffle(items);
+    	mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	Collections.shuffle(filteredItems);
+    	mapItemSelector.setItems(filteredItems);
+    	
 		return mapItemSelector;
   	}
 }
