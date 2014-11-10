@@ -23,7 +23,6 @@ public class MapItemSelector {
 		Road, Tower, Critter
 	}
 	
-	private MapItemSelectorTypeOption[] types;
 	
 	/**
 	 * Method fliterByCircularArea.
