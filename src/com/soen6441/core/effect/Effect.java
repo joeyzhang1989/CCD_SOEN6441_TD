@@ -97,4 +97,16 @@ public class Effect {
 	public void setType(String type) {
 		this.type = type;
 	}
+	
+	private String cellImageName;
+
+	public String getCellImageName() {
+		return cellImageName;
+	}
+
+	public void setCellImageName(String cellImageName) {
+		this.cellImageName = cellImageName;
+	}
+	
+		
 }

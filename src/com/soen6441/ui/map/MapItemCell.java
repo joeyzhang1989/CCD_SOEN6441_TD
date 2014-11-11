@@ -5,8 +5,10 @@ import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
 
+import com.soen6441.core.effect.Effect;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.ui.common.GridViewCell;
+import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * This class defines a unit of the mapView, our model where our grid resigns.
@@ -89,6 +91,12 @@ public class MapItemCell extends GridViewCell implements Observer{
 		if (this.isSelected()) {
 			g.setColor(new Color(0xAAAAAA));
 			g.drawRect(1, 1, this.getWidth() - 2, this.getHeight() - 2);
+		}
+	}
+	
+	private void paintEffects(Graphics g) {
+		for (Effect effect : item.getAllEffects()) {
+			g.drawImage(ImageAssets.imageNamed(effect.getCellImageName()), 0, 0, null);
 		}
 	}
 	
