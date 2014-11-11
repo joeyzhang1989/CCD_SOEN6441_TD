@@ -65,7 +65,7 @@ public class Critter extends MapItem {
 		private static final String Speed="speed";
 		private static final String Reward="reward";
 		private static final String Hp="hp";
-		private static final String totalHp="totalHp";
+		private static final String TotalHp="totalHp";
 		private static final String StealAmount="stealAmount";
 	}
 	
@@ -79,7 +79,7 @@ public class Critter extends MapItem {
 		
 		this.setHp(Integer.parseInt(element.element(NameForArchiving.Hp).getText()));
 		
-		this.setTotalHp(Integer.parseInt(element.element(NameForArchiving.totalHp).getText()));
+		this.setTotalHp(Integer.parseInt(element.element(NameForArchiving.TotalHp).getText()));
 		
 		this.setStealAmount(Integer.parseInt(element.element(NameForArchiving.StealAmount).getText()));
 				
