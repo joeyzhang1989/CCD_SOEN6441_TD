@@ -2,6 +2,7 @@ package com.soen6441.core.map;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 /**
@@ -52,7 +53,10 @@ public class MapItemSelector {
 	// need to define the Types
 	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		mapItemSelector.setMap(map);
 		
+		List<MapItem> fillteredItems = new ArrayList<MapItem>();
+//		if(types = )
 		return mapItemSelector;
 		
 	}
@@ -74,9 +78,6 @@ public class MapItemSelector {
     	
     	mapItemSelector.setItems(filteredItems);
     	
-    	
-//    	mapItemSelector.setItems(items);
-    	
 		return mapItemSelector;
 	}
     
@@ -86,7 +87,30 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByDirectlyClosestToPoint (MapPoint point) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	filteredItems.addAll(items);
+    	final MapPoint finalPoint = point;
+    	Collections.sort(items, new Comparator<MapItem>() {
+
+			@Override
+			public int compare(MapItem arg0, MapItem arg1) {
+				
+				if(arg0.getLocation().distanceTo(finalPoint) > arg1.getLocation().distanceTo(finalPoint)){
+					return 1;
+				} 
+				if(arg0.getLocation().distanceTo(finalPoint) < arg1.getLocation().distanceTo(finalPoint)){
+					return -1;
+				}
+				
+				return 0;
+			}
+    		
+		});
+    	
+    	mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
+		
   	}
     
     /**
