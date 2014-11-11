@@ -40,9 +40,9 @@ public class CritterMultiplier implements IArchive{
 	
 	public class NameForArchiving{
 		public static final String Class = "CritterMultiplier";
-		private static final String SpeedMultiplier="speedMultipier";
+		private static final String SpeedMultiplier="speedMultiplier";
 	//	private static final String RewardMultiplier="rewardMultiplier";
-		private static final String HpMultiplier="hpMultipier";
+		private static final String HpMultiplier="hpMultiplier";
 		private static final String Name="critterName";
 	}
 	
