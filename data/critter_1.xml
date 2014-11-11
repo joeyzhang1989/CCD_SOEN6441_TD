@@ -7,6 +7,6 @@
 		<steelAmount>10</steelAmount>
 		
 		<name>Critter 1</name>
-		<cellImageName>critter_1.png</cellImageName>
+		<cellImageName>critter_cell_1.png</cellImageName>
 	</Critter>
 </xml>
