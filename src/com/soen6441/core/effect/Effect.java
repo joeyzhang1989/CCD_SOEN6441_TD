@@ -18,7 +18,7 @@ public class Effect {
 	 */
 	
 	protected String type;
-	private IAffectable on;
+	
 	
 	/*
 	 * Constructors
@@ -32,11 +32,12 @@ public class Effect {
 	 * Constructor for Effect.
 	 * @param on IAffectable
 	 */
+	/*
 	public Effect(IAffectable on) {
 		super();
 		this.on = on;
 	}
-	
+	*/
 
 	/*
 	 * Methods
@@ -92,17 +93,7 @@ public class Effect {
 	 * Method getOn.
  	 * @return IAffectable  
      */
-	public IAffectable getOn() {
-		return on;
-	}
 	
-	/**
-	 * Method setOn.
-	 * @param on IAffectable
-	 */
-	public void setOn(IAffectable on) {
-		this.on = on;
-	}
 
 	public void setType(String type) {
 		this.type = type;
