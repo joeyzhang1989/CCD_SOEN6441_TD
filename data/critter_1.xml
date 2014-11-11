@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<Critter>
+		<totalHp>50</totalHp>
 		<hp>10</hp>
 		<speed>3</speed>
 		<reward>50</reward>
-		<steelAmount>10</steelAmount>
+		<stealAmount>10</stealAmount>
 		
 		<name>Critter 1</name>
 		<cellImageName>critter_cell_1.png</cellImageName>

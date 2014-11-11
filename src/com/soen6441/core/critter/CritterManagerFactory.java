@@ -38,7 +38,7 @@ public class CritterManagerFactory {
 		
 	}
 
-	public void getManager(String typeName){
-		
+	public CritterManager getManager(String typeName){
+		return managers.get(typeName);
 	}
 }

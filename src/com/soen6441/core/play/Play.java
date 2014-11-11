@@ -10,6 +10,7 @@ import org.dom4j.Node;
 import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
+import com.soen6441.core.critter.CritterWave;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
@@ -227,10 +228,35 @@ public class Play extends Observable  implements IArchive {
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 	}
 	
+	private List<CritterWave> critterWaves;
+	private int currentWaveIndex;
+	
+	public List<CritterWave> getCritterWaves() {
+		return critterWaves;
+	}
+
+	public void setCritterWaves(List<CritterWave> critterWaves) {
+		this.critterWaves = critterWaves;
+	}
+
+	public int getCurrentWaveIndex() {
+		return currentWaveIndex;
+	}
+
+	public int getCritterWaveAmount() {
+		return critterWaves.size();
+	}
+	public CritterWave currentWave() {
+		return critterWaves.get(currentWaveIndex);
+	}
+	public CritterWave nextWave() {
+		return critterWaves.get(currentWaveIndex+1);
+	}
+	
 	/*
 	 * Mark - Debug - Methods
 	 */
-	
+
 	public void buildDemo(){
 		
 		this.setCoins(1000);
@@ -329,4 +355,5 @@ public class Play extends Observable  implements IArchive {
 
 		return element;
 	}
+	
 }

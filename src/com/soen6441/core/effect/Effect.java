@@ -1,5 +1,7 @@
 package com.soen6441.core.effect;
 
+import com.soen6441.core.map.MapItem;
+
 /**
  * 
  * Any spatial thing which will temporarily change the <code>AffectableValue</code> should use this class to make it happen.
@@ -18,7 +20,8 @@ public class Effect {
 	 */
 	
 	protected String type;
-	private IAffectable on;
+	private MapItem on;
+	
 	
 	/*
 	 * Constructors
@@ -32,11 +35,12 @@ public class Effect {
 	 * Constructor for Effect.
 	 * @param on IAffectable
 	 */
+	/*
 	public Effect(IAffectable on) {
 		super();
 		this.on = on;
 	}
-	
+	*/
 
 	/*
 	 * Methods
@@ -69,10 +73,6 @@ public class Effect {
 		
 	}
 	
-	public void affectOnAffectableValues() {
-		
-	}
-	
 	public void stop() {
 		
 	}
@@ -92,17 +92,7 @@ public class Effect {
 	 * Method getOn.
  	 * @return IAffectable  
      */
-	public IAffectable getOn() {
-		return on;
-	}
 	
-	/**
-	 * Method setOn.
-	 * @param on IAffectable
-	 */
-	public void setOn(IAffectable on) {
-		this.on = on;
-	}
 
 	public void setType(String type) {
 		this.type = type;
