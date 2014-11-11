@@ -295,7 +295,6 @@ public class Play extends Observable  implements IArchive {
 		public static final String Class = "Play";
 		public static final String COINS = "coins";
 		public static final String MAP = "map";
-		public static final String GRID_MAP = "GridMap";
 
 	}
 
@@ -308,7 +307,7 @@ public class Play extends Observable  implements IArchive {
 		
 		// reading the map node to access GridMap.
 		Node mapNode = element.selectSingleNode(NameForArchiving.MAP);
-		Element gridMapNode = (Element) mapNode.selectSingleNode(NameForArchiving.GRID_MAP);
+		Element gridMapNode = (Element) mapNode.selectSingleNode(GridMap.NameForArchiving.Class);
 
 		GridMap map = new GridMap();
 		map.decode(gridMapNode);
