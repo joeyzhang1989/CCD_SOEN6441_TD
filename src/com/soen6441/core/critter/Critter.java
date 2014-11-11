@@ -1,8 +1,9 @@
 package com.soen6441.core.critter;
 
 import com.soen6441.core.effect.AffectableValue;
+import com.soen6441.core.map.MapItem;
 
-public class Critter {
+public class Critter extends MapItem {
 
 	private int totalHp;
 	private int hp;
