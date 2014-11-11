@@ -46,7 +46,10 @@ public class CritterManager {
 	public class NameForArchiving{
 		
 		public static final String Class = "CritterManager";
-		private static final String Critter="Critter";
+		private static final String Speed="speed";
+		private static final String Reward="reward";
+		private static final String Hp="hp";
+		
 		
 	}
 	
