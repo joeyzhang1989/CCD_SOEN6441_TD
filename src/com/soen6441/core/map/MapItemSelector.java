@@ -2,7 +2,10 @@ package com.soen6441.core.map;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
+
+import com.soen6441.core.tower.Tower;
 
 /**
  * @author Chenglong Zhang 
@@ -41,9 +44,15 @@ public class MapItemSelector {
      */
 	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
-		mapPoint = map.getSelectedItem().getLocation();
+		mapItemSelector.setMap(map);
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		for (MapItem item:items){
+			if (item.getLocation().distanceTo(mapPoint) <= radius) {
+				filteredItems.add(item);
+			}
+		}
+		mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
-		
 	}
 	
 	/**
@@ -53,6 +62,22 @@ public class MapItemSelector {
 	// need to define the Types
 	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		mapItemSelector.setMap(map);
+		
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		for (MapItem item:items){
+			for(MapItemSelectorTypeOption type:types){
+				if(type == MapItemSelectorTypeOption.Road && item instanceof Road){
+					filteredItems.add(item);
+				} else if(type == MapItemSelectorTypeOption.Tower && item instanceof Tower){
+					filteredItems.add(item);
+				} else if(type == MapItemSelectorTypeOption.Critter && item instanceof Tower){
+					filteredItems.add(item);
+				}
+			}
+		}
+		mapItemSelector.setItems(filteredItems);
+		
 		
 		return mapItemSelector;
 		
@@ -75,9 +100,6 @@ public class MapItemSelector {
     	
     	mapItemSelector.setItems(filteredItems);
     	
-    	
-//    	mapItemSelector.setItems(items);
-    	
 		return mapItemSelector;
 	}
     
@@ -87,7 +109,30 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByDirectlyClosestToPoint (MapPoint point) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	filteredItems.addAll(items);
+    	final MapPoint finalPoint = point;
+    	Collections.sort(items, new Comparator<MapItem>() {
+
+			@Override
+			public int compare(MapItem arg0, MapItem arg1) {
+				
+				if(arg0.getLocation().distanceTo(finalPoint) > arg1.getLocation().distanceTo(finalPoint)){
+					return 1;
+				} 
+				if(arg0.getLocation().distanceTo(finalPoint) < arg1.getLocation().distanceTo(finalPoint)){
+					return -1;
+				}
+				
+				return 0;
+			}
+    		
+		});
+    	
+    	mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
+		
   	}
     
     /**
@@ -95,7 +140,11 @@ public class MapItemSelector {
      * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector sortByOnPathClosestToEndPoint () {  
-    	MapItemSelector mapItemSelector = new MapItemSelector ();
+		MapItemSelector mapItemSelector = new MapItemSelector ();
+		mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+
+    	mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
   	}
     
@@ -107,9 +156,9 @@ public class MapItemSelector {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
     	mapItemSelector.setMap(map);
     	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	filteredItems.addAll(items);
     	Collections.shuffle(filteredItems);
     	mapItemSelector.setItems(filteredItems);
-    	
 		return mapItemSelector;
   	}
 }

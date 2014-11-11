@@ -163,9 +163,9 @@ public class MapPath implements IArchive{
 
 	@Override
 	public void decode(Element element) {
-		Node locations = element.selectSingleNode("locations");
+		Node locations = element.selectSingleNode(NameForArchiving.LOCATIONS);
 		@SuppressWarnings("unchecked")
-		List<Node> pointNodes = locations.selectNodes("MapPoint");
+		List<Node> pointNodes = locations.selectNodes(MapPoint.NameForArchiving.Class);
 
 		for (Node pointNode : pointNodes) {
 			Element pointElement = (Element) pointNode;

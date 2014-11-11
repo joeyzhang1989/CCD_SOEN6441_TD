@@ -65,6 +65,17 @@ public class Effect {
 		
 	}
 
+	public void start() {
+		
+	}
+	
+	public void affectOnAffectableValues() {
+		
+	}
+	
+	public void stop() {
+		
+	}
 	/*
 	 * Getters and Setters
 	 */
@@ -91,5 +102,9 @@ public class Effect {
 	 */
 	public void setOn(IAffectable on) {
 		this.on = on;
+	}
+
+	public void setType(String type) {
+		this.type = type;
 	}
 }

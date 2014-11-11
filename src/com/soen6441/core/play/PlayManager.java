@@ -75,12 +75,13 @@ public class PlayManager {
 		}
 
 		Element rootElement = document.getRootElement();
+		Element playElement = (Element) rootElement.selectSingleNode(Play.NameForArchiving.Class);
 
 		Play play = Play.currentPlay();
 		play.setLife(10);
-		play.decode(rootElement);
+		play.decode(playElement);
 
-		play.getMap().getPathManager().generateRoadItemsFromPaths(); // Alert! giving null pointer exception
+		play.getMap().getPathManager().generateRoadItemsFromPaths();
 
 		return play;
 
