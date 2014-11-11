@@ -41,7 +41,14 @@ public class MapItemSelector {
      */
 	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
-		mapPoint = map.getSelectedItem().getLocation();
+		mapItemSelector.setMap(map);
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		for (MapItem item:items){
+			if (item.getLocation().distanceTo(mapPoint) <= radius) {
+				filteredItems.add(item);
+			}
+		}
+		mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
 		
 	}
@@ -94,22 +101,7 @@ public class MapItemSelector {
      * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector sortByOnPathClosestToEndPoint () {  
-    	MapItemSelector mapItemSelector = new MapItemSelector ();
-    	List<MapPoint> points = new ArrayList<MapPoint>();
-		
-		MapPoint vector = endPoint.substract(startPoint);
-		
-		MapPoint delta = vector.normalize();
-		
-		MapPoint point = startPoint;
-		point = point.add(delta);
-		
-		while (!point.equals(endPoint)){
-			points.add(point);
-			point = point.add(delta);
-		}
-		
-		return points;
+		MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
   	}
     
@@ -123,7 +115,6 @@ public class MapItemSelector {
     	List<MapItem> filteredItems = new ArrayList<MapItem>();
     	Collections.shuffle(filteredItems);
     	mapItemSelector.setItems(filteredItems);
-    	
 		return mapItemSelector;
   	}
 }
