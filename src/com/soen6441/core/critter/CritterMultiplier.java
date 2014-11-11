@@ -9,7 +9,15 @@ public class CritterMultiplier implements IArchive{
 	private String critterName;
 	private double hpMultiplier;
 	private double speedMultiplier;
+	private double rewardMultiplier;
 	
+	
+	public double getRewardMultiplier() {
+		return rewardMultiplier;
+	}
+	public void setRewardMultiplier(double rewardMultiplier) {
+		this.rewardMultiplier = rewardMultiplier;
+	}
 	public String getCritterName() {
 		return critterName;
 	}

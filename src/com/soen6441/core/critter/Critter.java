@@ -5,6 +5,7 @@ import org.dom4j.Element;
 import com.soen6441.core.IArchive;
 import com.soen6441.core.effect.AffectableValue;
 import com.soen6441.core.map.MapItem;
+import com.soen6441.core.tower.Tower.NameForArchiving;
 
 public class Critter extends MapItem {
 
@@ -60,18 +61,26 @@ public class Critter extends MapItem {
 	}
 	
 	public class NameForArchiving{
-		
 		public static final String Class = "Critter";
 		private static final String Speed="speed";
 		private static final String Reward="reward";
 		private static final String Hp="hp";
-		
-		
+		private static final String StealAmount="stealAmount";
 	}
 	
 	@Override
 	public void decode(Element element) {
-		// TODO Auto-generated method stub
+
+		AffectableValue speed=new AffectableValue(Double.parseDouble(element.element(NameForArchiving.Speed).getText()));
+		this.setSpeed(speed);
+		
+		this.setReward(Integer.parseInt(element.element(NameForArchiving.Reward).getText()));
+		
+		//this.setSellPrice(Integer.parseInt(element.element(NameForArchiving.SellPrice).getText()));
+		
+		//AffectableValue range = new AffectableValue(Double.parseDouble(element.element(NameForArchiving.Range).getText()));
+		//this.setRange(range);
+		
 		super.decode(element);
 	}
 	
