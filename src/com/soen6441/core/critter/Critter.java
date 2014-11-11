@@ -14,7 +14,6 @@ public class Critter extends MapItem {
 	
 	public Critter()
 	{
-		new Critter();
 	}
 
 	public int getTotalHp() {
