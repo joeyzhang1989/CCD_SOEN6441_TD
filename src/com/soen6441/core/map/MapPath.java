@@ -95,9 +95,62 @@ public class MapPath implements IArchive{
      */
 	
 	public double goAlong(MapPoint point , double amount){
-		return 0;
+		int index = 0;
+		MapPoint startPoint = null;
+		MapPoint endPoint = null;
+		for (index = 0 ; index < locations.size() - 1; index++){
+			startPoint = locations.get(index);
+			endPoint = locations.get(index + 1);
+			if (isInSegment(point, startPoint, endPoint)) {
+				break;
+			}
+		}
+		
+		double rest;
+		MapPoint checkPoint = point;
+		while (index < locations.size() - 1) {
+			startPoint = locations.get(index);
+			endPoint = locations.get(index + 1);
+			
+			rest = goAlongInSegment(checkPoint, amount, startPoint, endPoint);
+			if (rest == 0) {
+				endPoint = locations.get(index + 1);
+				MapPoint vector = endPoint.substract(checkPoint).normalize().scale(amount);
+				MapPoint newPoint = checkPoint.add(vector);
+				point.setX(newPoint.getX());
+				point.setY(newPoint.getY());
+				return 0;
+			}
+			
+			amount = rest;
+			checkPoint = endPoint;
+			index ++;
+		}
+				
+		return amount;
+	}
+	
+	private double goAlongInSegment(MapPoint point , double amount, MapPoint startPoint, MapPoint endPoint){
+		double distanceToEnd = point.distanceTo(endPoint);
+		if (amount > distanceToEnd) {
+			return amount - distanceToEnd;
+		} else {
+			return 0;
+		}
 	}
 
+	private boolean isInSegment(MapPoint point , MapPoint startPoint, MapPoint endPoint) {
+		double x = point.getX();
+		double y = point.getY();
+		double x1 = startPoint.getX();
+		double y1 = startPoint.getY();
+		double x2 = endPoint.getX();
+		double y2 = endPoint.getY();
+		
+		if ((x == x1 && x == x2) && (y >= y1 && y < y2)) return true;
+		if ((y == y1 && y == y2) && (x >= x1 && x < x2)) return true;
+		return false;
+	}
 	/*
 	 * Mark - Archive - Methods
 	 */
