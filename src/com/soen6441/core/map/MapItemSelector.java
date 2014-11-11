@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import com.soen6441.core.tower.Tower;
-
 /**
  * @author Chenglong Zhang 
  * @author Mengyao Wang 
@@ -15,27 +13,7 @@ public class MapItemSelector {
 
 	private GridMap map;
 
-	public GridMap getMap() {
-		return map;
-	}
-
-	public void setMap(GridMap map) {
-		this.map = map;
-	}
-
 	private List<MapItem> items;
-	
-	public List<MapItem> getItems() {
-		return items;
-	}
-
-	public void setItems(List<MapItem> items) {
-		this.items = items;
-	}
-	
-	public enum MapItemSelectorTypeOption {
-		Road, Tower, Critter
-	}
 	
 	
 	/**
@@ -60,24 +38,20 @@ public class MapItemSelector {
      * @return MapItemSelector mapItemSelector
      */
 	// need to define the Types
-	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
+	public MapItemSelector filterByTypes(Class[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		mapItemSelector.setMap(map);
 		
 		List<MapItem> filteredItems = new ArrayList<MapItem>();
 		for (MapItem item:items){
-			for(MapItemSelectorTypeOption type:types){
-				if(type == MapItemSelectorTypeOption.Road && item instanceof Road){
-					filteredItems.add(item);
-				} else if(type == MapItemSelectorTypeOption.Tower && item instanceof Tower){
-					filteredItems.add(item);
-				} else if(type == MapItemSelectorTypeOption.Critter && item instanceof Tower){
+			for(Class type:types){
+				if (type.isInstance(item)) {
 					filteredItems.add(item);
 				}
 			}
 		}
-		mapItemSelector.setItems(filteredItems);
 		
+		mapItemSelector.setItems(filteredItems);
 		
 		return mapItemSelector;
 		
@@ -161,5 +135,21 @@ public class MapItemSelector {
     	mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
   	}
+    
+    public GridMap getMap() {
+		return map;
+	}
+
+	public void setMap(GridMap map) {
+		this.map = map;
+	}
+
+	public List<MapItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<MapItem> items) {
+		this.items = items;
+	}
 }
 
