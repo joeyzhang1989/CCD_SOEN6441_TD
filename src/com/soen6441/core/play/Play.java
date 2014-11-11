@@ -301,14 +301,13 @@ public class Play extends Observable  implements IArchive {
 
 	@Override
 	public void decode(Element element) {
-		Node playNode = element.selectSingleNode(NameForArchiving.Class);
-
-		//setting the # of coins 
-		Node coinNode = playNode.selectSingleNode(NameForArchiving.COINS);
+		
+		// setting the # of coins
+		Node coinNode = element.selectSingleNode(NameForArchiving.COINS);
 		this.coins = Integer.parseInt(coinNode.getText());
 		
-		//reading the map node to access GridMap.
-		Node mapNode = playNode.selectSingleNode(NameForArchiving.MAP);
+		// reading the map node to access GridMap.
+		Node mapNode = element.selectSingleNode(NameForArchiving.MAP);
 		Element gridMapNode = (Element) mapNode.selectSingleNode(NameForArchiving.GRID_MAP);
 
 		GridMap map = new GridMap();
