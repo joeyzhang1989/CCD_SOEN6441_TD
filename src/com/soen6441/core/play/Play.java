@@ -243,18 +243,14 @@ public class Play extends Observable  implements IArchive {
 		return currentWaveIndex;
 	}
 
-	public void setCurrentWaveIndex(int currentWaveIndex) {
-		this.currentWaveIndex = currentWaveIndex;
-	}
-
 	public int getCritterWaveAmount() {
-		return 1;
+		return critterWaves.size();
 	}
 	public CritterWave currentWave() {
-		return null;
+		return critterWaves.get(currentWaveIndex);
 	}
 	public CritterWave nextWave() {
-		return null;
+		return critterWaves.get(currentWaveIndex+1);
 	}
 	
 	/*
