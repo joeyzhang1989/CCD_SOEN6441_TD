@@ -1,6 +1,7 @@
 package test.soen6441.core.map;
 
 import static org.junit.Assert.*;
+import static org.junit.Assert.assertArrayEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -58,7 +59,7 @@ public class MapItemSelectorTest {
 		mapItemSelector.filterByCircularArea(p1, radius);
 		List<MapItem> filteredItems = new ArrayList<MapItem>();
 		filteredItems.addAll(items);
-		assertTrue (filteredItems == items);
+		assertTrue(filteredItems == items);
 	}
 
 	@Test
@@ -83,7 +84,11 @@ public class MapItemSelectorTest {
 
 	@Test
 	public void testSortByRandom() {
-		fail("Not yet implemented");
+		mapItemSelector.sortByRandom();
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(items);
+		assertFalse(filteredItems == items);
+		
 	}
 
 }
