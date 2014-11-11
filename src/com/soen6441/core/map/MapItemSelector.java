@@ -102,6 +102,10 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByOnPathClosestToEndPoint () {  
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+
+    	mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
   	}
     
@@ -113,6 +117,7 @@ public class MapItemSelector {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
     	mapItemSelector.setMap(map);
     	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	filteredItems.addAll(items);
     	Collections.shuffle(filteredItems);
     	mapItemSelector.setItems(filteredItems);
 		return mapItemSelector;
