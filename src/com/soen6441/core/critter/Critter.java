@@ -1,5 +1,8 @@
 package com.soen6441.core.critter;
 
+import org.dom4j.Element;
+
+import com.soen6441.core.IArchive;
 import com.soen6441.core.effect.AffectableValue;
 import com.soen6441.core.map.MapItem;
 
@@ -56,5 +59,28 @@ public class Critter extends MapItem {
 		this.stealAmount = stealAmount;
 	}
 	
+	public class NameForArchiving{
+		
+		public static final String Class = "Critter";
+		private static final String Speed="speed";
+		private static final String Reward="reward";
+		private static final String Hp="hp";
+		
+		
+	}
+	
+	@Override
+	public void decode(Element element) {
+		// TODO Auto-generated method stub
+		super.decode(element);
+	}
+	
+	@Override
+	public Element encode() {
+		// TODO Auto-generated method stub
+		return super.encode();
+	}
+	
+
 	
 }

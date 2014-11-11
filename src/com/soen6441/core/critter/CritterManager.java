@@ -7,13 +7,14 @@ import org.dom4j.io.SAXReader;
 
 public class CritterManager {
 
-	private String towerType;
+	private String critterName;
+
 	private String filePath;
 
 	private Critter critter;
-
-	public CritterManager(String towerType, String filePath) {
-		this.towerType = towerType;
+	
+	public CritterManager(String critterName, String filePath) {
+		this.critterName = critterName;
 		this.filePath = filePath;
 		this.analyse();
 	}
@@ -32,22 +33,19 @@ public class CritterManager {
 		
 		Element root = document.getRootElement();
 		
-		//this.decode(root);
 		
 	}
 	
-	
-
-	public Critter generateCritter(CritterMultiplier multiplier) {
+	public Critter generateCritter(CritterMultiplier critterMultiplier) {
 		return null;
 	}
 
-	public String getTowerType() {
-		return towerType;
+	public String getCritterName() {
+		return critterName;
 	}
 
-	public void setTowerType(String towerType) {
-		this.towerType = towerType;
+	public void setCritterName(String critterName) {
+		this.critterName = critterName;
 	}
 
 	public String getFilePath() {
