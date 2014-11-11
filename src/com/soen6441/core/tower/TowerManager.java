@@ -71,8 +71,9 @@ public class TowerManager implements IArchive {
 		}
 		
 		Element root = document.getRootElement();
+		Element towerManagerElement = root.element(NameForArchiving.Class);
 		
-		this.decode(root);
+		this.decode(towerManagerElement);
 		
 	}
 	
@@ -108,9 +109,8 @@ public class TowerManager implements IArchive {
 	 * @see IArchive
 	 */
 	@Override
-	public void decode(Element root) {
+	public void decode(Element towerManagerElement) {
 		
-		Element towerManagerElement = root.element(NameForArchiving.Class);
         this.initialPrice = (Integer.parseInt(towerManagerElement.element(NameForArchiving.InitialPrice).getText()));
         Element leveledTowersElement = towerManagerElement.element(NameForArchiving.LeveledTowers);
         
