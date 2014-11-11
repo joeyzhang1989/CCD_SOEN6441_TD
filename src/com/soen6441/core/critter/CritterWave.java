@@ -3,14 +3,17 @@ package com.soen6441.core.critter;
 import java.util.List;
 
 import org.dom4j.Element;
+import org.dom4j.Node;
 
 import com.soen6441.core.IArchive;
+import com.soen6441.core.critter.CritterMultiplier.NameForArchiving;
+import com.soen6441.core.map.MapPoint;
 
 public class CritterWave implements IArchive {
 
 	private double timeGap;
 	private List<CritterMultiplier> critters;
-	
+
 	private int currentIndex;
 
 	public double getTimeGap() {
@@ -34,17 +37,37 @@ public class CritterWave implements IArchive {
 	}
 
 	public int amount() {
-		return 0;
+		return critters.size();
 	}
 
 	public Critter nextCritter() {
-		return null;
+		CritterMultiplier critterMultiplier = critters.get(currentIndex);
+		currentIndex ++;
+		String name=critterMultiplier.getCritterName();
+		CritterManager manager= CritterManagerFactory.defaultFactory().getManager(name);
+		return manager.generateCritter(critterMultiplier);
+	}
+
+	public class NameForArchiving {
+		public static final String Class = "CritterWave";
+		private static final String TimeGap = "timeGap";
+		private static final String Critters = "critters";
 	}
 
 	@Override
 	public void decode(Element element) {
-		// TODO Auto-generated method stub
 
+		this.setTimeGap(Double.parseDouble(element.element(NameForArchiving.TimeGap).getText()));
+		Node critters = element.selectSingleNode(NameForArchiving.Critters);
+
+		@SuppressWarnings("unchecked")
+		List<Node> critterNodes = critters.selectNodes(Critter.NameForArchiving.Class);
+
+		for (Node critterNode : critterNodes) {
+			Element critterElement= (Element) critterNode;
+			Critter critter= new Critter();
+			critter.decode(critterElement);
+		}		
 	}
 
 	@Override
