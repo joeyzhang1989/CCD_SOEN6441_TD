@@ -3,16 +3,27 @@ package com.soen6441.core.play;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+<<<<<<< HEAD
+=======
+import java.util.ArrayList;
+>>>>>>> master
 import java.util.List;
 
 import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.DocumentHelper;
 import org.dom4j.Element;
+import org.dom4j.Node;
 import org.dom4j.io.SAXReader;
 import org.dom4j.io.XMLWriter;
 
+<<<<<<< HEAD
 import com.soen6441.core.critter.CritterWave;
+=======
+import com.soen6441.core.critter.Critter;
+import com.soen6441.core.critter.CritterWave;
+import com.soen6441.core.critter.CritterWave.NameForArchiving;
+>>>>>>> master
 
 
 /**
@@ -85,13 +96,39 @@ public class PlayManager {
 		play.decode(playElement);
 
 		play.getMap().getPathManager().generateRoadItemsFromPaths();
-
+		play.setCritterWaves(readDefaultCritterWaves());
+		
 		return play;
 
 	}
 	
 	private List<CritterWave> readDefaultCritterWaves() {
+<<<<<<< HEAD
 		
+=======
+		List<CritterWave> critterWaves = new ArrayList<CritterWave>();
+		
+		String filePath = System.getProperty("user.dir")+ "/data/" + "critter_waves.xml";
+		SAXReader reader = new SAXReader();
+		Document document = null;
+		try {
+			document = reader.read(new File(filePath));
+		} catch (DocumentException e) {
+			e.printStackTrace();
+		}
+		Element rootElement = document.getRootElement();
+		@SuppressWarnings("unchecked")
+		List<Element> critterWaveElements = rootElement.elements(CritterWave.NameForArchiving.Class);
+
+		for (Element critterWaveElement : critterWaveElements) {
+			CritterWave critterWave = new CritterWave();
+			critterWave.decode(critterWaveElement);
+
+			critterWaves.add(critterWave);
+		}	
+		
+		return critterWaves;
+>>>>>>> master
 	}
 	
 }
