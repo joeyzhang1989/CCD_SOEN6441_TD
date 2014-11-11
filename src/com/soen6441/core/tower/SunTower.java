@@ -34,8 +34,13 @@ public class SunTower extends Tower {
 		String result = super.getDetailInformation();
 		return result;
 	}
-
-public class NameForArchiving{
+	
+	/**
+	 * Inner class cantains name strings for archiving.
+	 * @author Haiyang Sun
+	 *
+	 */
+	public class NameForArchiving{
 		
 		public static final String Class = "SunTower";
 	
@@ -51,6 +56,11 @@ public class NameForArchiving{
 		super.decode(element);
 	}
 	
+	/**
+	 * Encode value of properties of an sun tower object.
+	 * @see Tower#encode(Element)
+	 * @see IArchive
+	 */
 	@Override
 	public Element encode() {
 		Element element = super.encode();
