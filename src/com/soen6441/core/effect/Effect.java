@@ -1,5 +1,7 @@
 package com.soen6441.core.effect;
 
+import com.soen6441.core.map.MapItem;
+
 /**
  * 
  * Any spatial thing which will temporarily change the <code>AffectableValue</code> should use this class to make it happen.
@@ -18,6 +20,7 @@ public class Effect {
 	 */
 	
 	protected String type;
+	private MapItem on;
 	
 	
 	/*
@@ -67,10 +70,6 @@ public class Effect {
 	}
 
 	public void start() {
-		
-	}
-	
-	public void affectOnAffectableValues() {
 		
 	}
 	
