@@ -1,7 +1,10 @@
 package com.soen6441.ui.parallel;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.geom.Rectangle2D;
 
 import javax.swing.JButton;
 
@@ -129,5 +132,33 @@ public class Button extends JButton {
 		}
 	}
 
-	
+//	@Override
+//	public void paint(Graphics g) {
+//		Graphics2D graphics2d = (Graphics2D)g;
+//		graphics2d.setFont(this.getFont());
+//		boolean isPressed = this.getModel().isPressed();
+//		boolean hasSubtitle = subtitle != null;
+//		
+//		Color colorTint = new Color(0x333333);
+//		Color colorBack = new Color(0xFFFFFF);
+//		
+//		if (isPressed) {
+//			graphics2d.setColor(colorTint);
+//			graphics2d.fillRect(0, 0, this.getWidth(), this.getHeight());
+//		} else {
+//			graphics2d.setColor(colorBack);
+//			graphics2d.fillRect(0, 0, this.getWidth(), this.getHeight());
+//			graphics2d.setColor(colorTint);
+//			graphics2d.drawRect(0, 0, this.getWidth(), this.getHeight());
+//		}
+//		
+//		Rectangle2D titleRect = this.getFont().getStringBounds(title, graphics2d.getFontRenderContext()); 
+//		
+//		if (hasSubtitle) {
+//			Rectangle2D subtitleRect = this.getFont().getStringBounds(subtitle, graphics2d.getFontRenderContext()); 
+//		} else {
+//			graphics2d.setColor(isPressed ? colorBack : colorTint);
+//			graphics2d.drawString(title, (float)((this.getWidth() - titleRect.getWidth() ) / 2), (float)((this.getHeight() - titleRect.getHeight() ) / 2));
+//		}
+//	}
 }
