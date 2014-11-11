@@ -56,11 +56,6 @@ public class CritterWave implements IArchive {
 
 	@Override
 	public void decode(Element element) {
-<<<<<<< HEAD
-
-=======
-		// NOT SO SURE IF CORRECT
->>>>>>> master
 		this.setTimeGap(Double.parseDouble(element.element(NameForArchiving.TimeGap).getText()));
 		Node critters = element.selectSingleNode(NameForArchiving.Critters);
 
