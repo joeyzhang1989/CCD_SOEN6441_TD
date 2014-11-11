@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import com.soen6441.core.tower.Tower;
+
 /**
  * @author Chenglong Zhang 
  * @author Mengyao Wang 
@@ -43,7 +45,6 @@ public class MapItemSelector {
 	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		return mapItemSelector;
-		
 	}
 	
 	/**
@@ -55,8 +56,21 @@ public class MapItemSelector {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		mapItemSelector.setMap(map);
 		
-		List<MapItem> fillteredItems = new ArrayList<MapItem>();
-//		if(types = )
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		for (MapItem item:items){
+			for(MapItemSelectorTypeOption type:types){
+				if(type == MapItemSelectorTypeOption.Road && item instanceof Road){
+					filteredItems.add(item);
+				} else if(type == MapItemSelectorTypeOption.Tower && item instanceof Tower){
+					filteredItems.add(item);
+				} else if(type == MapItemSelectorTypeOption.Critter && item instanceof Tower){
+					filteredItems.add(item);
+				}
+			}
+		}
+		mapItemSelector.setItems(filteredItems);
+		
+		
 		return mapItemSelector;
 		
 	}
