@@ -1,5 +1,7 @@
 package com.soen6441.core.map;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -7,7 +9,9 @@ import java.util.List;
  * @author Mengyao Wang 
  */
 public class MapItemSelector {
+
 	private GridMap map;
+
 	public GridMap getMap() {
 		return map;
 	}
@@ -16,17 +20,8 @@ public class MapItemSelector {
 		this.map = map;
 	}
 
-	private int amount;
-	
-	public int getAmount() {
-		return amount;
-	}
-
-	public void setAmount(int amount) {
-		this.amount = amount;
-	}
-
 	private List<MapItem> items;
+	
 	public List<MapItem> getItems() {
 		return items;
 	}
@@ -35,66 +30,54 @@ public class MapItemSelector {
 		this.items = items;
 	}
 	
-	private MapPoint mapPoint;
-	public MapPoint getMapPoint() {
-		return mapPoint;
-	}
-
-	public void setMapPoint(MapPoint mapPoint) {
-		this.mapPoint = mapPoint;
-	}
-	
-	private double radius;
-	public double getRadius() {
-		return radius;
-	}
-
-	public void setRadius(double radius) {
-		this.radius = radius;
-	}
-	
 	public enum MapItemSelectorTypeOption {
 		Road, Tower, Critter
 	}
 	
-	private MapItemSelectorTypeOption[] types;
-	public MapItemSelectorTypeOption[] getTypes() {
-		return types;
-	}
-
-	public void setTypes(MapItemSelectorTypeOption[] types) {
-		this.types = types;
-	}
+	
 	/**
 	 * Method fliterByCircularArea.
      * @return MapItemSelector mapItemSelector
      */
-	public MapItemSelector fliterByCircularArea(MapPoint mapPoint, double radius) {
+	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
-		this.mapPoint = mapPoint;
-		this.radius = radius;
+		mapPoint = map.getSelectedItem().getLocation();
 		return mapItemSelector;
 		
 	}
 	
 	/**
-	 * Method fliterByType.
+	 * Method filterByType.
      * @return MapItemSelector mapItemSelector
      */
 	// need to define the Types
-	public MapItemSelector fliterByTypes(MapItemSelectorTypeOption[] types) {
+	public MapItemSelector filterByTypes(MapItemSelectorTypeOption[] types) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
+		
 		return mapItemSelector;
 		
 	}
 	
 	/**
-	 * Method fliterByAmount.
+	 * Method filterByAmount.
      * @return MapItemSelector mapItemSelector
      */
-    public MapItemSelector fliterByAmount(int amount) {
+    public MapItemSelector filterByAmount(int amount) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
-    	this.amount = amount;
+    	mapItemSelector.setMap(map);
+    	
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	if (amount > items.size()){
+    		items.subList(0, amount);
+    	} else {
+    		filteredItems.addAll(items);
+    	}
+    	
+    	mapItemSelector.setItems(filteredItems);
+    	
+    	
+//    	mapItemSelector.setItems(items);
+    	
 		return mapItemSelector;
 	}
     
@@ -122,6 +105,11 @@ public class MapItemSelector {
      */
     public MapItemSelector sortByRandom () {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
+    	mapItemSelector.setMap(map);
+    	List<MapItem> filteredItems = new ArrayList<MapItem>();
+    	Collections.shuffle(filteredItems);
+    	mapItemSelector.setItems(filteredItems);
+    	
 		return mapItemSelector;
   	}
 }

@@ -35,6 +35,11 @@ public class BottleTower extends Tower {
 		return result;
 	}
 	
+	/**
+	 * Inner class cantains name strings for archiving.
+	 * @author Haiyang Sun
+	 *
+	 */
 	public class NameForArchiving{
 		
 		public static final String Class = "BottleTower";
@@ -51,13 +56,16 @@ public class BottleTower extends Tower {
 		super.decode(element);
 	}
 	
+	/**
+	 * Encode value of properties of a bottle tower object to an XML element.
+	 * @see Tower#encode(Element)
+	 * @see IArchive
+	 */
 	@Override
 	public Element encode() {
 		Element element = super.encode();
 		element.setName(NameForArchiving.Class);
 		return element;
 	}
-	
-	
-	
+
 }
