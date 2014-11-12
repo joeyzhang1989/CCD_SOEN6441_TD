@@ -14,6 +14,9 @@ public class TimerDemo implements TimerListener{
 		timer.setRepeatTimes(3);
 		timer.setTimerListener(this);
 		timer.start();
+//		Thread.sleep(2000);
+//		timer.stop();
+		
 //		timer.startImmediately();
 		System.out.println("0");
 	}

@@ -1,8 +1,10 @@
 package com.soen6441.ui.map;
 
+import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.tower.Tower;
+import com.soen6441.ui.map.cell.CritterCell;
 import com.soen6441.ui.map.cell.RoadCell;
 import com.soen6441.ui.map.cell.SceneryCell;
 import com.soen6441.ui.map.cell.TowerCell;
@@ -38,7 +40,11 @@ public class MapItemCellFactory {
 		} else if (item instanceof Tower) {
 			cell = new TowerCell();
 			item.addObserver(cell);
+		} else if (item instanceof Critter) {
+			cell = new CritterCell();
+			item.addObserver(cell);
 		}
+		
 		cell.setItem(item);
 		cell.setSize(40, 40);
 		return cell;

@@ -19,6 +19,12 @@ public class Critter extends MapItem {
 	public Critter()
 	{
 	}
+	
+	/*
+	 * Mark - Basic - Observerable
+	 */
+	
+	public static String OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE = "ObservableEvent_PropertyHpDidChange";
 
 	public int getTotalHp() {
 		return totalHp;
@@ -33,7 +39,17 @@ public class Critter extends MapItem {
 	}
 
 	public void setHp(int hp) {
+		if (hp < 0) {
+			hp = 0;
+		}
 		this.hp = hp;
+
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE);
+	}
+	
+	public void damaged(int damage) {
+		this.setHp(this.getHp() - damage);
 	}
 
 	public AffectableValue getSpeed() {
