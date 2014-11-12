@@ -8,6 +8,7 @@ public class Timer implements ActionListener{
 	
 	public Timer() {
 		timer = new javax.swing.Timer(0, this);
+		timer.setRepeats(false);
 	}
 	
 	private int repeatTimes;
