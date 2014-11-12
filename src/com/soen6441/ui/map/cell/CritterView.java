@@ -2,15 +2,13 @@ package com.soen6441.ui.map.cell;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import java.awt.Graphics2D;
 import java.util.Observable;
 
 import com.soen6441.core.critter.Critter;
-import com.soen6441.core.tower.Tower;
-import com.soen6441.ui.map.MapItemCell;
+import com.soen6441.ui.map.MapItemView;
 import com.soen6441.ui.parallel.ImageAssets;
 
-public class CritterCell extends MapItemCell {
+public class CritterView extends MapItemView {
 
 	/**
 	 * Method paint.
@@ -21,7 +19,6 @@ public class CritterCell extends MapItemCell {
 		super.paint(g);
 		g.drawImage(ImageAssets.imageNamed(getItem().getCellImageName()), 0, 0, null);
 		paintHpBar(g);
-		super.paintSelection(g);
 	}
 	
 	private void paintHpBar(Graphics g) {
@@ -57,7 +54,6 @@ public class CritterCell extends MapItemCell {
 		}
 	}
 
-	
 	
 	public Critter getItemCritter(){
 		return (Critter)this.getItem();

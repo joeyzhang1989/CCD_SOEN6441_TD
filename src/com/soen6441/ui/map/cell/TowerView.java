@@ -3,17 +3,15 @@ package com.soen6441.ui.map.cell;
 import java.awt.Graphics;
 import java.util.Observable;
 
-import javax.swing.ImageIcon;
-
-import com.soen6441.core.map.Road;
-import com.soen6441.ui.map.MapItemCell;
+import com.soen6441.core.tower.Tower;
+import com.soen6441.ui.map.MapItemView;
 import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * @author Zhe Zhao
  * @version $Revision: 1.0 $
  */
-public class RoadCell extends MapItemCell{
+public class TowerView extends MapItemView {
 	
 	/*
 	 * Mark - Displaying - Methods
@@ -26,8 +24,7 @@ public class RoadCell extends MapItemCell{
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(ImageAssets.imageNamed(getItem().getCellImageName()), 0, 0, null);
-		super.paintSelection(g);
+		g.drawImage(ImageAssets.imageNamed(getItemTower().getCellImageName()), 0, 0, null);
 	}
 	
 	/**
@@ -39,20 +36,20 @@ public class RoadCell extends MapItemCell{
 	@Override
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
-		if (arg == Road.OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE){
+		if (arg == Tower.OBSERVABLE_EVENT_PROPERTY_LEVEL_DID_CHANGE){
 			this.repaint();
 		}
 	}
-	
+
 	/*
 	 * Mark - Convenience - Methods
 	 */
 	
 	/**
-	 * Method getItemRoad.	
-	 * @return Road 
+	 * Method getItemTower.	
+	 * @return Tower
      */
-	public Road getItemRoad(){
-		return (Road)this.getItem();
+	public Tower getItemTower(){
+		return (Tower)this.getItem();
 	}
 }

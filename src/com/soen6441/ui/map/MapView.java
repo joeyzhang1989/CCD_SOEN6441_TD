@@ -8,11 +8,17 @@ import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.GridMapItemsListener;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
+import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
 import com.soen6441.ui.common.GridViewCell;
 import com.soen6441.ui.common.GridViewSelectionListener;
+import com.soen6441.ui.map.cell.CritterView;
+import com.soen6441.ui.map.cell.RoadView;
+import com.soen6441.ui.map.cell.SceneryView;
+import com.soen6441.ui.map.cell.TowerView;
 import com.soen6441.ui.parallel.View;
 
 /**
@@ -31,7 +37,7 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	 */
 
 	private GridView gridView;
-	private View critterView;
+	private View critterLayerView;
 	
 	/*
 	 * Mark - Views - Life Cycle
@@ -43,8 +49,8 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		gridView = new GridView();
 		this.add(gridView);
 		
-		critterView = new View();
-		this.add(critterView);
+		critterLayerView = new View();
+		this.add(critterLayerView);
 	}
 	
 	@Override
@@ -98,13 +104,13 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		gridView.setNumberOfRows(map.getHeight());
 		gridView.setNumberOfColumns(map.getWidth());
 		gridView.setSize(this.suggestedSize());
-		critterView.setSize(this.suggestedSize());
+		critterLayerView.setSize(this.suggestedSize());
 		
 		for (int i = 0; i < map.getWidth(); i++){
 			for (int j = 0; j < map.getHeight(); j++){
 				MapItem item = map.getItem(new MapPoint(i, j));
-				MapItemCell cell = MapItemCellFactory.cellFromItem(item);
-				cell.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
+				MapItemView itemView = itemViewFromItem(item);
+				MapItemCell cell = cellFromItemView(itemView);
 				gridView.addCell(cell, new GridPoint(j, i));
 			}
 		}
@@ -161,7 +167,8 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		if(item != null) {
 			GridPoint point = mapPointToGridPoint(item.getLocation());
 			GridViewCell scenaryCell = gridView.getCell(point);
-			GridViewCell itemCell = MapItemCellFactory.cellFromItem(item);
+			MapItemView itemView = itemViewFromItem(item);
+			GridViewCell itemCell = cellFromItemView(itemView);
 			gridView.replaceCell(scenaryCell, itemCell);
 		}
 	}
@@ -170,16 +177,17 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	public void gridMapDidRemoveItem(MapItem item) {
 		GridPoint point = mapPointToGridPoint(item.getLocation());
 		GridViewCell itemCell = gridView.getCell(point);
-		GridViewCell scenaryCell = MapItemCellFactory.createScenaryCell();
+		MapItemView itemView = itemViewFromItem(null);
+		GridViewCell scenaryCell = cellFromItemView(itemView);
 		gridView.replaceCell(itemCell, scenaryCell);
 	}
 
 	@Override
 	public void gridMapDidAddCritter(Critter critter) {
 		Point point = mapPointToSwingPoint(critter.getLocation());
-		GridViewCell critterCell = MapItemCellFactory.cellFromItem(critter);
-		critterCell.setLocation(point);
-		critterView.add(critterCell);
+		MapItemView critterView = itemViewFromItem(critter);
+		critterView.setLocation(point);
+		critterLayerView.add(critterView);
 	}
 
 	@Override
@@ -187,6 +195,29 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		
 	}
 	
+	private MapItemCell cellFromItemView(MapItemView itemView) {
+		MapItemCell cell = new MapItemCell();
+		cell.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
+		cell.add(itemView);
+		return cell;
+	}
+	
+	private MapItemView itemViewFromItem(MapItem item){
+		MapItemView itemView = null;
+		if(item == null) {
+			itemView = new SceneryView();
+		} else if (item instanceof Road) {
+			itemView = new RoadView();
+		} else if (item instanceof Tower) {
+			itemView = new TowerView();
+		} else if (item instanceof Critter) {
+			itemView = new CritterView();
+		}
+		
+		itemView.setItem(item);
+		itemView.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
+		return itemView;
+	}
 	
 	/*
 	 * Mark - Grid Point & Map Point & Point , Conversion - Methods

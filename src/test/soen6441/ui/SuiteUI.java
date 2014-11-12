@@ -5,12 +5,11 @@ import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
 import test.soen6441.ui.common.SuiteCommon;
-import test.soen6441.ui.map.SuiteMap;
 
 /**
  */
 @RunWith(Suite.class)
-@SuiteClasses({SuiteCommon.class, SuiteMap.class})
+@SuiteClasses({SuiteCommon.class})
 public class SuiteUI {
 
 }
