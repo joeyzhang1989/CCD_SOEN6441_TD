@@ -9,7 +9,7 @@ public class TimerDemo implements TimerListener{
 	
 	public TimerDemo(){
 		timer = new Timer();
-		timer.setRepeats(true);
+		//timer.setRepeats(true);
 		timer.setDelay(5000);
 		timer.setRepeatTimes(3);
 		timer.setTimerListener(this);
