@@ -1,5 +1,6 @@
 package com.soen6441.core.effect;
 
+import com.soen6441.core.Timer;
 import com.soen6441.core.map.MapItem;
 
 /**
@@ -21,6 +22,7 @@ public class Effect {
 	
 	protected String type;
 	private MapItem on;
+	private Timer timer;
 	
 	
 	/*
@@ -114,6 +116,14 @@ public class Effect {
 
 	public void setOn(MapItem on) {
 		this.on = on;
+	}
+
+	public Timer getTimer() {
+		return timer;
+	}
+
+	public void setTimer(Timer timer) {
+		this.timer = timer;
 	}
 	
 		
