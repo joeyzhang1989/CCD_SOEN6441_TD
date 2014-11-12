@@ -1,8 +1,13 @@
 package com.soen6441.ui.map;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Point;
+import java.util.HashMap;
+import java.util.Map;
 
+import com.soen6441.core.Timer;
+import com.soen6441.core.TimerListener;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.GridMapItemsListener;
@@ -30,7 +35,7 @@ import com.soen6441.ui.parallel.View;
  * 
  * @version $Revision: 1.0 $
  */
-public class MapView extends View implements GridMapItemsListener, GridViewSelectionListener{
+public class MapView extends View implements GridMapItemsListener, GridViewSelectionListener, TimerListener{
 	
 	/*
 	 * Mark - Views - Properties
@@ -38,6 +43,7 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 
 	private GridView gridView;
 	private View critterLayerView;
+	private Map<Critter, CritterView> critterViews;
 	
 	/*
 	 * Mark - Views - Life Cycle
@@ -51,9 +57,10 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		this.add(gridView);
 		
 		critterLayerView = new View();
+		critterLayerView.setBackground(new Color(0, 0, 0, 0));
 		this.add(critterLayerView);
 		
-		
+		critterViews = new HashMap<Critter, CritterView>();
 	}
 	
 	@Override
@@ -118,17 +125,8 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 			}
 		}
 		map.setItemsListener(this);
-		demoCritter();
 	}
 	
-	
-	private void demoCritter(){
-		Play play = Play.currentPlay();
-		Critter critter = play.nextWave().nextCritter();
-		critter.setLocation(map.getStartPoints().get(0));
-		map.setCritter(critter);
-		
-	}
 	
 	/*
 	 * Mark - Grid View Selection Delegation - Properties
@@ -188,15 +186,19 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	@Override
 	public void gridMapDidAddCritter(Critter critter) {
 		Point point = mapPointToSwingPoint(critter.getLocation());
-		MapItemView critterView = itemViewFromItem(critter);
+		CritterView critterView = (CritterView) itemViewFromItem(critter);
 		critterView.setLocation(point);
 		
 		critterLayerView.add(critterView);
+		critterViews.put(critter, critterView);
+		this.repaint();
 	}
 
 	@Override
 	public void gridMapDidRemoveCritter(Critter critter) {
-		
+		CritterView critterView = critterViews.get(critter);
+		critterLayerView.remove(critterView);
+		critterViews.remove(critter);
 	}
 	
 	private MapItemCell cellFromItemView(MapItemView itemView) {
@@ -236,8 +238,13 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	}
 	
 	public static Point mapPointToSwingPoint(MapPoint mapPoint) {
-		int x = (int)(mapPoint.getX() * _UNIT_LENGTH + _UNIT_LENGTH * 0.5);
-		int y = (int)(mapPoint.getY() * _UNIT_LENGTH + _UNIT_LENGTH * 0.5);
+		int x = (int)(mapPoint.getX() * _UNIT_LENGTH);
+		int y = (int)(mapPoint.getY() * _UNIT_LENGTH);
 		return new Point(x, y);
+	}
+	
+	@Override
+	public void timerTick(Timer timer) {
+		this.repaint();
 	}
 }

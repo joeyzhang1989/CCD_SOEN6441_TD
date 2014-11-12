@@ -127,12 +127,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		bannerView.add(controlButton);
 		
 		// this label should be updated 
-		String wave = "1/10";
 		infoLabel = new Label();
-		infoLabel.setText("Wave : "+wave);
 		infoLabel.setSize(120, 40);
 		infoLabel.setLocation(140, 10);
 		bannerView.add(infoLabel);
+		updateInfoLabel();
 		
 		//coinslabel
 		money = new Label();
@@ -208,7 +207,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		controlButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				play.nextWave();
+				updateInfoLabel();
 			}
 		});
 		
@@ -219,16 +219,22 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				 play.deleteObserver(PlayingScene.this);
-				 Play.destroy();
+				play.stopRunner();
+				play.deleteObserver(PlayingScene.this);
+				Play.destroy();
 				 
-				 PlayingScene.this.viewFlow.pop();
+				PlayingScene.this.viewFlow.pop();
 				
 			}
 		});
 		
 		mapView.setSelectionListener(this);
+		play.registeRunner(mapView);
+		play.startRunner();
+	}
+	
+	public void updateInfoLabel(){
+		infoLabel.setText("Wave: " + (play.getCurrentWaveIndex() + 1) + "/"  + play.getCritterWaveAmount());
 	}
 	
 	/*

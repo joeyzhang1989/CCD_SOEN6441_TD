@@ -18,7 +18,7 @@ import com.soen6441.core.IArchive;
  * @version $Revision: 1.0 $
  */
 
-public class MapPoint implements IArchive{
+public class MapPoint implements IArchive, Cloneable{
 	
 	/*
 	 * Mark - Constructors
@@ -266,6 +266,13 @@ public class MapPoint implements IArchive{
 		if (Double.doubleToLongBits(y) != Double.doubleToLongBits(other.y))
 			return false;
 		return true;
+	}
+	
+	public MapPoint copy(){
+		MapPoint mapPoint = new MapPoint();
+		mapPoint.x = this.x;
+		mapPoint.y = this.y;
+		return mapPoint;
 	}
 	
 	/**
