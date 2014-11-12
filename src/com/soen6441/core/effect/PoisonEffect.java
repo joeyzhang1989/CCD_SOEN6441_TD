@@ -1,6 +1,10 @@
 package com.soen6441.core.effect;
 
-public class PoisonEffect extends Effect{
+import com.soen6441.core.Timer;
+import com.soen6441.core.TimerListener;
+import com.soen6441.core.critter.Critter;
+
+public class PoisonEffect extends Effect implements TimerListener{
 	
 	int poisonDamage;
 	double poisonCdTime;
@@ -15,7 +19,7 @@ public class PoisonEffect extends Effect{
 	@Override
 	public boolean strongerThan (Effect effect) {
 		
-		if (effect.type.equalsIgnoreCase(EFFECT_TYPE)) {
+		if (effect.type.equalsIgnoreCase(type)) {
 			PoisonEffect exist = (PoisonEffect)effect;			
 			if (this.getPoisonDamage() > exist.getPoisonDamage()) {
 				return true;
@@ -24,6 +28,41 @@ public class PoisonEffect extends Effect{
 		return false;
 		
 	}
+	
+	@Override
+	public void start() {
+		
+		this.setTimer(new Timer());
+		this.getTimer().setDelay((int) this.poisonCdTime);
+		this.getTimer().setRepeats(true);
+		this.getTimer().setRepeatTimes(this.poisonTimes);
+		
+	}
+	
+	@Override
+	public void stop() {
+		
+		this.getTimer().stop();
+	}
+	
+	@Override
+	public void timerTick(Timer timer) {
+
+		Critter critter = (Critter)this.getOn();
+		
+		if (this.getTimer().getCurrentRepeatTimes() == this.poisonTimes) {
+			
+			this.getOn().removeEffect(this);
+			critter.damaged(poisonDamage);
+			
+		} else {
+			
+			critter.damaged(poisonDamage);
+		}
+		
+	}
+	
+	
 
 	public int getPoisonDamage() {
 		return poisonDamage;
@@ -48,5 +87,7 @@ public class PoisonEffect extends Effect{
 	public void setPoisonTimes(int poisonTimes) {
 		this.poisonTimes = poisonTimes;
 	}
+
+	
 	
 }
