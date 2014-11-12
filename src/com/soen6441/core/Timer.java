@@ -80,7 +80,12 @@ public class Timer implements ActionListener{
 	public int getDelay() {
 		return timer.getDelay();
 	}
-
+	
+	public void setTimeIntervalSecond(double second) {
+		this.setDelay((int)(second * 1000));
+	}
+	
+	
 	public void setRepeats(boolean flag) {
 		timer.setRepeats(flag);
 	}

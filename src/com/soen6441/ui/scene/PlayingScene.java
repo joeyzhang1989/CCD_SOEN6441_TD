@@ -19,8 +19,6 @@ import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
-import com.soen6441.ui.map.MapItemCell;
-import com.soen6441.ui.map.MapItemCellFactory;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -129,12 +127,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		bannerView.add(controlButton);
 		
 		// this label should be updated 
-		String wave = "1/10";
 		infoLabel = new Label();
-		infoLabel.setText("Wave : "+wave);
 		infoLabel.setSize(120, 40);
 		infoLabel.setLocation(140, 10);
 		bannerView.add(infoLabel);
+		updateInfoLabel();
 		
 		//coinslabel
 		money = new Label();
@@ -210,7 +207,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		controlButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				play.nextWave();
+				updateInfoLabel();
 			}
 		});
 		
@@ -221,16 +219,22 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				 play.deleteObserver(PlayingScene.this);
-				 Play.destroy();
+				play.stopRunner();
+				play.deleteObserver(PlayingScene.this);
+				Play.destroy();
 				 
-				 PlayingScene.this.viewFlow.pop();
+				PlayingScene.this.viewFlow.pop();
 				
 			}
 		});
 		
 		mapView.setSelectionListener(this);
+		play.registeRunner(mapView);
+		play.startRunner();
+	}
+	
+	public void updateInfoLabel(){
+		infoLabel.setText("Wave: " + (play.getCurrentWaveIndex() + 1) + "/"  + play.getCritterWaveAmount());
 	}
 	
 	/*
@@ -350,18 +354,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			if (play.getCoins() >= price) {
 				play.spendCoins(price);
 				
-				// build the model
 				Tower tower = towerManager.createTower();
-				
-				// build the view
-				MapItemCell cell = MapItemCellFactory.cellFromItem(tower);
-				
-				// link the model
-				GridMap gridMap = mapView.getMap();
-				gridMap.setItem(tower, gridMap.getSelectedPoint());
-				
-				// link the view
-				mapView.replaceCell(mapView.getSelectedCell(), cell);
+				GridMap gridMap = play.getMap();
+				play.getMap().setItem(tower, gridMap.getSelectedPoint());
 			}
 		}
 	}
@@ -470,15 +465,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				}	
 			} else if (command == refundCommand) {
 				play.earnCoins(tower.getSellPrice());
-				
-				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
-				
-				// link the model and remove the mapItem
-				GridMap gridMap = mapView.getMap();
-				gridMap.removeItem(tower);
-				
-				// link the view and replace the tower with scenery cell
-				mapView.replaceCell(mapView.getSelectedCell(), cell);
+				play.getMap().removeItem(tower);
 			} 
 		}	
 	}	

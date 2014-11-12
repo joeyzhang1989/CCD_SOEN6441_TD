@@ -2,12 +2,13 @@ package com.soen6441.core.critter;
 
 import org.dom4j.Element;
 
-import com.soen6441.core.IArchive;
+import com.soen6441.core.Timer;
+import com.soen6441.core.TimerListener;
 import com.soen6441.core.effect.AffectableValue;
 import com.soen6441.core.map.MapItem;
-import com.soen6441.core.tower.Tower.NameForArchiving;
+import com.soen6441.core.play.Play;
 
-public class Critter extends MapItem {
+public class Critter extends MapItem implements TimerListener{
 
 	private int totalHp;
 	private int hp;
@@ -19,6 +20,13 @@ public class Critter extends MapItem {
 	public Critter()
 	{
 	}
+	
+	/*
+	 * Mark - Basic - Observerable
+	 */
+	
+	public static String OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE = "ObservableEvent_PropertyHpDidChange";
+	public static String OBSERVABLE_EVENT_PROPERTY_LOCATION_DID_CHANGE = "ObservableEvent_PropertyLocationDidChange";
 
 	public int getTotalHp() {
 		return totalHp;
@@ -33,7 +41,18 @@ public class Critter extends MapItem {
 	}
 
 	public void setHp(int hp) {
+		if (hp < 0) {
+			hp = 0;
+			map.removeCritter(this);
+		}
 		this.hp = hp;
+
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE);
+	}
+	
+	public void damaged(int damage) {
+		this.setHp(this.getHp() - damage);
 	}
 
 	public AffectableValue getSpeed() {
@@ -58,6 +77,24 @@ public class Critter extends MapItem {
 
 	public void setStealAmount(int stealAmount) {
 		this.stealAmount = stealAmount;
+	}
+	
+	
+	@Override
+	public void timerTick(Timer timer) {
+		
+		double out = map.moveOnPath(this, this.getSpeed().getEffectedValue() / Play.RUNNER_FPS);
+		this.damaged(1);
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE);
+		
+		if (out > 0) {
+			map.removeCritter(this);
+		} else {
+			this.setChanged();
+			this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_LOCATION_DID_CHANGE);
+		}
+		
 	}
 	
 	public class NameForArchiving{

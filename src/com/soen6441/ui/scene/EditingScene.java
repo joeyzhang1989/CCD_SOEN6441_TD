@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
+import com.soen6441.core.map.PathManager;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.RoadType;
 import com.soen6441.core.play.Play;
@@ -19,8 +20,6 @@ import com.soen6441.ui.common.Command;
 import com.soen6441.ui.common.GridViewSelectionListener;
 import com.soen6441.ui.common.IInspectable;
 import com.soen6441.ui.common.InspectorView;
-import com.soen6441.ui.map.MapItemCell;
-import com.soen6441.ui.map.MapItemCellFactory;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -279,25 +278,17 @@ public class EditingScene extends View implements GridViewSelectionListener {
          */
 		@Override
 		public void execute(Command command) {
+			Road road = null; 
 			if (command == buildRoad) {
-				Road road = new Road();
-				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
-				GridMap gridMap = play.getMap();
-				gridMap.setItem(road, gridMap.getSelectedPoint());
-				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
+				road = new Road();
 			} else if (command == buildStartPoint) {
-				Road road = new Road(RoadType.START);
-				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
-				GridMap gridMap = play.getMap();
-				gridMap.setItem(road, gridMap.getSelectedPoint());
-				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
+				road = new Road(RoadType.START);
 			} else if (command == buildEndPoint) {
-				Road road = new Road(RoadType.END);
-				MapItemCell roadCell = MapItemCellFactory.cellFromItem(road);
-				GridMap gridMap = play.getMap();
-				gridMap.setItem(road, gridMap.getSelectedPoint());
-				mapView.replaceCell(mapView.getSelectedCell(), roadCell);
+				road = new Road(RoadType.END);
 			}
+			
+			GridMap gridMap = play.getMap();
+			gridMap.setItem(road, gridMap.getSelectedPoint());
 		}
 
 	}
@@ -378,10 +369,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		@Override
 		public void execute(Command command) {
 			if (command == destroyCell) {
-				MapItemCell cell = MapItemCellFactory.cellFromItem(null);
-				GridMap gridMap = play.getMap();
-				gridMap.removeItem(gridMap.getSelectedItem());
-				mapView.replaceCell(mapView.getSelectedCell(), cell);
+				play.getMap().removeItem(road);
 			}
 		}
 	}
@@ -409,8 +397,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			infoLabel.setText("Validation : Path Is Valid");
 			return true;
 		} else {
-			infoLabel.setText("Validation : "
-					+ gridMap.getPathManager().getErrorMessage());
+			infoLabel.setText("Validation : " + gridMap.getPathManager().getErrorMessage());
 			return false;
 		}
 

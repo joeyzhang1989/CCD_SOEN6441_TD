@@ -10,6 +10,9 @@ import org.dom4j.Node;
 import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
+import com.soen6441.core.Timer;
+import com.soen6441.core.TimerListener;
+import com.soen6441.core.critter.Critter;
 import com.soen6441.core.critter.CritterWave;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPath;
@@ -17,6 +20,7 @@ import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
+import com.soen6441.ui.scene.PlayingScene;
 
 /**
  * 
@@ -77,7 +81,7 @@ import com.soen6441.core.tower.TowerManagerFactory;
  * @version $Revision: 1.0 $
  */
 
-public class Play extends Observable  implements IArchive {
+public class Play extends Observable implements IArchive, TimerListener{
 	
 	/*
 	 * Mark - Singleton - Basic
@@ -104,7 +108,7 @@ public class Play extends Observable  implements IArchive {
 	 */
 	private Play()
 	{
-		
+		initRunner();
 	}
 	
 	/*
@@ -228,12 +232,52 @@ public class Play extends Observable  implements IArchive {
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 	}
 	
+	/*
+	 * Mark - Critter Waves - Properties
+	 */
+	 
 	private List<CritterWave> critterWaves;
-	private int currentWaveIndex;
+	private int currentWaveIndex = -1;
+	
+	private Timer waveTimer;
 	
 	public List<CritterWave> getCritterWaves() {
 		return critterWaves;
 	}
+	
+	/*
+	 * Mark - Critter Waves - Methods
+	 */
+	private CritterWave currentWave(){
+		return critterWaves.get(currentWaveIndex);
+	}
+	
+	public void nextWave() {
+		currentWaveIndex ++;
+		CritterWave currentWave = currentWave();
+		
+		waveTimer = new Timer();
+		waveTimer.setRepeats(true);
+		waveTimer.setRepeatTimes(currentWave.amount());
+		waveTimer.setTimeIntervalSecond(currentWave.getTimeGap());
+		waveTimer.setTimerListener(this);
+		
+		waveTimer.startImmediately();
+	}
+
+	private void waveTimerTick(){
+		Critter critter = currentWave().nextCritter();
+		MapPoint startLocation = map.getStartPoints().get(0).copy();
+		map.addCritter(critter, startLocation);
+	}
+	
+	public int getCritterWaveAmount() {
+		return critterWaves.size();
+	}
+	
+	/*
+	 * Mark - Critter Waves - Getters & Setters
+	 */
 
 	public void setCritterWaves(List<CritterWave> critterWaves) {
 		this.critterWaves = critterWaves;
@@ -242,17 +286,79 @@ public class Play extends Observable  implements IArchive {
 	public int getCurrentWaveIndex() {
 		return currentWaveIndex;
 	}
+	
+	/*
+	 * Mark - Runner - Properties
+	 */
+	
+	private Timer runningTimer;
 
-	public int getCritterWaveAmount() {
-		return critterWaves.size();
-	}
-	public CritterWave currentWave() {
-		return critterWaves.get(currentWaveIndex);
-	}
-	public CritterWave nextWave() {
-		return critterWaves.get(currentWaveIndex+1);
+
+	public static final int RUNNER_FPS = 32;
+	private List<TimerListener> runningListeners;
+	
+	/*
+	 * Mark - Runner - Methods
+	 */
+	
+	private void initRunner(){
+		runningListeners = new ArrayList<TimerListener>();
+		
+		runningTimer = new Timer();
+		runningTimer.setDelay(1000 / RUNNER_FPS);
+		runningTimer.setRepeats(true);
+		runningTimer.setTimerListener(this);
+		
 	}
 	
+	private void runningTimerTick(Timer timer){
+		List<TimerListener> runningListeners = new ArrayList<TimerListener>(this.runningListeners);
+		for (TimerListener timerListener: runningListeners) {
+			timerListener.timerTick(timer);
+		}
+	}
+	
+	public void registeRunner(TimerListener timerListener) {
+		runningListeners.add(timerListener);
+	}
+	
+	public void resignRunner(TimerListener timerListener) {
+		runningListeners.remove(timerListener);
+	}
+	
+	public void startRunner() {
+		runningTimer.start();
+	}
+	
+	public void stopRunner() {
+		runningTimer.stop();
+	}
+	
+	
+	/*
+	 * Mark - Runner - Getters & Setters
+	 */
+	
+	public Timer getRunningTimer() {
+		return runningTimer;
+	}
+	
+	/*
+	 * Mark - Timer Listener - Methods
+	 */
+	
+
+	@Override
+	public void timerTick(Timer timer) {
+		if (timer == runningTimer) {
+			runningTimerTick(timer);
+		} else if (timer == waveTimer) {
+			waveTimerTick();
+		}
+	}
+	
+	
+	 
 	/*
 	 * Mark - Debug - Methods
 	 */

@@ -1,34 +1,21 @@
-package com.soen6441.ui.map.cell;
+package com.soen6441.ui.map.itemView;
 
 import java.awt.Graphics;
 import java.util.Observable;
 
-import javax.swing.ImageIcon;
-
 import com.soen6441.core.map.Road;
-import com.soen6441.ui.map.MapItemCell;
+import com.soen6441.ui.map.MapItemView;
 import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * @author Zhe Zhao
  * @version $Revision: 1.0 $
  */
-public class RoadCell extends MapItemCell{
+public class RoadView extends MapItemView{
 	
 	/*
 	 * Mark - Displaying - Methods
 	 */
-	
-	/**
-	 * Method paint.
-	 * @param g Graphics
-	 */
-	@Override
-	public void paint(Graphics g) {
-		super.paint(g);
-		g.drawImage(ImageAssets.imageNamed(getItem().getCellImageName()), 0, 0, null);
-		super.paintSelection(g);
-	}
 	
 	/**
 	 * Method update.
