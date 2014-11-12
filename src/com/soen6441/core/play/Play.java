@@ -12,6 +12,7 @@ import org.dom4j.tree.DefaultElement;
 import com.soen6441.core.IArchive;
 import com.soen6441.core.Timer;
 import com.soen6441.core.TimerListener;
+import com.soen6441.core.critter.Critter;
 import com.soen6441.core.critter.CritterWave;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapPath;
@@ -236,7 +237,9 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	 
 	private List<CritterWave> critterWaves;
-	private int currentWaveIndex;
+	private int currentWaveIndex = -1;
+	
+	private Timer waveTimer;
 	
 	public List<CritterWave> getCritterWaves() {
 		return critterWaves;
@@ -245,15 +248,29 @@ public class Play extends Observable implements IArchive, TimerListener{
 	/*
 	 * Mark - Critter Waves - Methods
 	 */
-
-	public CritterWave currentWave() {
+	private CritterWave currentWave(){
 		return critterWaves.get(currentWaveIndex);
 	}
 	
-	public CritterWave nextWave() {
-		return critterWaves.get(currentWaveIndex+1);
+	public void nextWave() {
+		currentWaveIndex ++;
+		CritterWave currentWave = currentWave();
+		
+		waveTimer = new Timer();
+		waveTimer.setRepeats(true);
+		waveTimer.setRepeatTimes(currentWave.amount());
+		waveTimer.setTimeIntervalSecond(currentWave.getTimeGap());
+		waveTimer.setTimerListener(this);
+		
+		waveTimer.startImmediately();
 	}
 
+	private void waveTimerTick(){
+		Critter critter = currentWave().nextCritter();
+		MapPoint startLocation = map.getStartPoints().get(0).copy();
+		map.addCritter(critter, startLocation);
+	}
+	
 	public int getCritterWaveAmount() {
 		return critterWaves.size();
 	}
@@ -288,14 +305,14 @@ public class Play extends Observable implements IArchive, TimerListener{
 		runningListeners = new ArrayList<TimerListener>();
 		
 		runningTimer = new Timer();
-		runningTimer.setDelay(RUNNER_FPS);
+		runningTimer.setDelay(1000 / RUNNER_FPS);
 		runningTimer.setRepeats(true);
 		runningTimer.setTimerListener(this);
 		
 	}
 	
-	@Override
-	public void timerTick(Timer timer) {
+	private void runningTimerTick(Timer timer){
+		List<TimerListener> runningListeners = new ArrayList<TimerListener>(this.runningListeners);
 		for (TimerListener timerListener: runningListeners) {
 			timerListener.timerTick(timer);
 		}
@@ -317,6 +334,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		runningTimer.stop();
 	}
 	
+	
 	/*
 	 * Mark - Runner - Getters & Setters
 	 */
@@ -325,6 +343,19 @@ public class Play extends Observable implements IArchive, TimerListener{
 		return runningTimer;
 	}
 	
+	/*
+	 * Mark - Timer Listener - Methods
+	 */
+	
+
+	@Override
+	public void timerTick(Timer timer) {
+		if (timer == runningTimer) {
+			runningTimerTick(timer);
+		} else if (timer == waveTimer) {
+			waveTimerTick();
+		}
+	}
 	
 	
 	 

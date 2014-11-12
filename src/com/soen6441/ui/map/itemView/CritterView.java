@@ -6,9 +6,14 @@ import java.util.Observable;
 
 import com.soen6441.core.critter.Critter;
 import com.soen6441.ui.map.MapItemView;
+import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.ImageAssets;
 
 public class CritterView extends MapItemView {
+	
+	public CritterView() {
+		this.setBackground(new Color(0, 0, 0, 0));
+	}
 
 	/**
 	 * Method paint.
@@ -50,6 +55,9 @@ public class CritterView extends MapItemView {
 		super.update(o, arg);
 		if (arg == Critter.OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE){
 			this.repaint();
+		} else if (arg == Critter.OBSERVABLE_EVENT_PROPERTY_LOCATION_DID_CHANGE) {
+			this.setLocation(MapView.mapPointToSwingPoint(getItem().getLocation()));
+//			this.repaint();
 		}
 	}
 
