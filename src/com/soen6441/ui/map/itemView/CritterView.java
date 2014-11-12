@@ -1,4 +1,4 @@
-package com.soen6441.ui.map.cell;
+package com.soen6441.ui.map.itemView;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -17,7 +17,6 @@ public class CritterView extends MapItemView {
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
-		g.drawImage(ImageAssets.imageNamed(getItem().getCellImageName()), 0, 0, null);
 		paintHpBar(g);
 	}
 	
@@ -31,12 +30,12 @@ public class CritterView extends MapItemView {
 		Color colorRemain = new Color(0x00CC32);
 		
 		g.setColor(colorTotal);
-		g.drawRect(x, y, width, height);
+		g.fillRect(x, y, width, height);
 		
 		Critter critter = getItemCritter();
 		double ratio = critter.getHp() * 1.0 / critter.getTotalHp();
 		g.setColor(colorRemain);
-		g.drawRect(x, y, (int)(width * ratio), height);
+		g.fillRect(x, y, (int)(width * ratio), height);
 		
 	}
 	

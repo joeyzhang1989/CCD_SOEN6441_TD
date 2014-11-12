@@ -3,7 +3,7 @@
 	<Critter>
 		<totalHp>50</totalHp>
 		<hp>10</hp>
-		<speed>3</speed>
+		<speed>1</speed>
 		<reward>50</reward>
 		<stealAmount>10</stealAmount>
 		

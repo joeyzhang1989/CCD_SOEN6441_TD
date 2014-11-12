@@ -15,10 +15,10 @@ import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
 import com.soen6441.ui.common.GridViewCell;
 import com.soen6441.ui.common.GridViewSelectionListener;
-import com.soen6441.ui.map.cell.CritterView;
-import com.soen6441.ui.map.cell.RoadView;
-import com.soen6441.ui.map.cell.SceneryView;
-import com.soen6441.ui.map.cell.TowerView;
+import com.soen6441.ui.map.itemView.CritterView;
+import com.soen6441.ui.map.itemView.RoadView;
+import com.soen6441.ui.map.itemView.SceneryView;
+import com.soen6441.ui.map.itemView.TowerView;
 import com.soen6441.ui.parallel.View;
 
 /**
@@ -46,11 +46,14 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
+
 		gridView = new GridView();
 		this.add(gridView);
 		
 		critterLayerView = new View();
 		this.add(critterLayerView);
+		
+		
 	}
 	
 	@Override
@@ -187,6 +190,7 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		Point point = mapPointToSwingPoint(critter.getLocation());
 		MapItemView critterView = itemViewFromItem(critter);
 		critterView.setLocation(point);
+		
 		critterLayerView.add(critterView);
 	}
 

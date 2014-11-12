@@ -46,6 +46,17 @@ public class MapItemView extends View implements Observer{
 	 * Mark - Draw - Methods
 	 */
 	 
+	public void paint(Graphics g) {
+		super.paint(g);
+		MapItem item = this.getItem();
+		if (item != null) {
+			String cellImageName = item.getCellImageName();
+			if (cellImageName != null) {
+				g.drawImage(ImageAssets.imageNamed(cellImageName), 0, 0, null);
+			}
+		}
+//		paintEffects(g);
+	}
 
 	private void paintEffects(Graphics g) {
 		for (Effect effect : item.getAllEffects()) {

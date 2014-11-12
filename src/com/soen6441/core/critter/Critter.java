@@ -2,12 +2,12 @@ package com.soen6441.core.critter;
 
 import org.dom4j.Element;
 
-import com.soen6441.core.IArchive;
+import com.soen6441.core.Timer;
+import com.soen6441.core.TimerListener;
 import com.soen6441.core.effect.AffectableValue;
 import com.soen6441.core.map.MapItem;
-import com.soen6441.core.tower.Tower.NameForArchiving;
 
-public class Critter extends MapItem {
+public class Critter extends MapItem implements TimerListener{
 
 	private int totalHp;
 	private int hp;
@@ -74,6 +74,11 @@ public class Critter extends MapItem {
 
 	public void setStealAmount(int stealAmount) {
 		this.stealAmount = stealAmount;
+	}
+	
+	@Override
+	public void timerTick(Timer timer) {
+		
 	}
 	
 	public class NameForArchiving{

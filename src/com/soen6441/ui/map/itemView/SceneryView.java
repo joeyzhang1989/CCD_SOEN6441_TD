@@ -1,4 +1,4 @@
-package com.soen6441.ui.map.cell;
+package com.soen6441.ui.map.itemView;
 
 import com.soen6441.ui.map.MapItemView;
 
