@@ -10,11 +10,6 @@ public class PoisonEffect extends Effect implements TimerListener{
 	double poisonCdTime;
 	int poisonTimes;
 	
-	public static final String EFFECT_TYPE = "poisonEffect";
-	
-	public PoisonEffect () {
-		this.type = EFFECT_TYPE;
-	}
 	
 	@Override
 	public boolean strongerThan (Effect effect) {
