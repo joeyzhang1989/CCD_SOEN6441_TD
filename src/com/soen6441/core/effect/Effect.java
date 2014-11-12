@@ -107,6 +107,14 @@ public class Effect {
 	public void setCellImageName(String cellImageName) {
 		this.cellImageName = cellImageName;
 	}
+
+	public MapItem getOn() {
+		return on;
+	}
+
+	public void setOn(MapItem on) {
+		this.on = on;
+	}
 	
 		
 }
