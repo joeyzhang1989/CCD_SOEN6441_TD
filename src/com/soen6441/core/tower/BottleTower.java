@@ -5,7 +5,6 @@ import java.util.List;
 import org.dom4j.Element;
 
 import com.soen6441.core.IArchive;
-import com.soen6441.core.Timer;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;

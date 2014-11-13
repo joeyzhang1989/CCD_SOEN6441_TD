@@ -3,7 +3,6 @@ package com.soen6441.core.tower;
 import org.dom4j.Element;
 
 import com.soen6441.core.Timer;
-import com.soen6441.core.critter.Critter;
 
 /**
  * This class is a specific type of tower, SunTower.
