@@ -81,7 +81,13 @@ public class MapItemSelectorTest {
 	public void testSortByOnPathClosestToEndPoint() {
 		fail("Not yet implemented");
 	}
-
+	public void testsortByWeakest() {
+		fail("Not yet implemented");
+	}
+	public void testsortByStrongest() {
+		fail("Not yet implemented");
+	}
+	
 	@Test
 	public void testSortByRandom() {
 		mapItemSelector.sortByRandom();
