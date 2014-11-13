@@ -2,7 +2,7 @@
 <xml>
 	<Critter>
 		<totalHp>100</totalHp>
-		<hp>45</hp>
+		<hp>100</hp>
 		<speed>1.5</speed>
 		<reward>20</reward>
 		<stealAmount>30</stealAmount>

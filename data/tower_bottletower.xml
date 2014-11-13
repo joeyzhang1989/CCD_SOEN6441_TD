@@ -9,7 +9,7 @@
 				<sellPrice>80</sellPrice>
 				<damage>60</damage>
 				<range>190</range>
-				<cdTime>600</cdTime>
+				<cdTime>0.6</cdTime>
 				<cellImageName>tower_cell_1_1.png</cellImageName>
 				<name>Bottle Tower</name>
 				<description>Bottle Tower attacks single target.</description></BottleTower>
@@ -19,7 +19,7 @@
 				<sellPrice>224</sellPrice>
 				<damage>80</damage>
 				<range>240</range>
-				<cdTime>400</cdTime>
+				<cdTime>0.4</cdTime>
 				<cellImageName>tower_cell_1_2.png</cellImageName>
 				<name>Bottle Tower</name>
 				<description>Bottle Tower attacks single target.</description>
@@ -30,7 +30,7 @@
 				<sellPrice>432</sellPrice>
 				<damage>100</damage>
 				<range>300</range>
-				<cdTime>250</cdTime>
+				<cdTime>0.25</cdTime>
 				<cellImageName>tower_cell_1_3.png</cellImageName>
 				<name>Bottle Tower</name>
 				<description>Bottle Tower attacks single target.</description>
