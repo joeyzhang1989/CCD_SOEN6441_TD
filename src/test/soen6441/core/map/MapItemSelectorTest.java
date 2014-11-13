@@ -73,10 +73,12 @@ public class MapItemSelectorTest {
 
 	@Test
 	public void testFilterByCircularArea() {
-//		mapItemSelector.filterByCircularArea(p1, 1);
-//		List<MapItem> filteredItems = new ArrayList<MapItem>();
-//		filteredItems.addAll(items);
-//		assertTrue(filteredItems == items);
+		List<MapItem> items;
+		
+		items = map.getItemSelector()
+				.filterByCircularArea(p1, 2)
+				.getItems();
+		assertTrue(items.size() == 4);
 	}
 
 	@Test
@@ -117,7 +119,8 @@ public class MapItemSelectorTest {
 	}
 	@Test
 	public void testsortByWeakest() {
-//
+
+		
 	}
 	@Test
 	public void testsortByStrongest() {
@@ -139,7 +142,7 @@ public class MapItemSelectorTest {
 		items = map.getItemSelector()
 				.filterByExcluding(item1)
 				.getItems();
-		assertFalse(filteredItems == items);	
+		assertTrue(filteredItems.size() > items.size());	
 		}
 	
 	@Test
