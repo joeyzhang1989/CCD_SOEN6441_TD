@@ -60,6 +60,7 @@ public class Effect {
 	 * @see #getType() 
 	 */
 	public boolean strongerThan(Effect effect){
+		
 		return false;
 	}
 	

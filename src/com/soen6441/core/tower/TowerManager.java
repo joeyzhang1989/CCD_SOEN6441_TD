@@ -168,8 +168,8 @@ public class TowerManager implements IArchive {
      */
 	public void upgrade(Tower tower) {
 		
-		if (tower.level < leveledTowers.size()) {
-			leveledTowers.get(tower.level).copyTo(tower);
+		if (tower.getLevel() < leveledTowers.size()) {
+			leveledTowers.get(tower.getLevel()).copyTo(tower);
 		}
 		
 	}
@@ -184,7 +184,7 @@ public class TowerManager implements IArchive {
      */
 	public boolean canUpgrade(Tower tower) {
 		
-		if (tower.level >= leveledTowers.size()) {
+		if (tower.getLevel() >= leveledTowers.size()) {
 			return false;
 		}
 		return true;
