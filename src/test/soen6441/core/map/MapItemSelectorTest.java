@@ -28,6 +28,9 @@ public class MapItemSelectorTest {
 	private MapPoint p3; 
 	private MapPoint p4; 
 	private MapPoint p5; 
+	private Critter c1;
+	private Critter c2;
+	private Critter c3;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -57,12 +60,12 @@ public class MapItemSelectorTest {
 		p3 = new MapPoint(3, 3);
 		map.setItem(item3, p3);
 		
-		Critter c1 = new Critter();
+		c1 = new Critter();
 		c1.setHp(10);
 		map.addCritter(c1, p4);
 
-		Critter c2 = new Critter();
-		c1.setHp(11);
+		c2 = new Critter();
+		c2.setHp(11);
 		map.addCritter(c2, p5);
 		
 		
@@ -107,37 +110,47 @@ public class MapItemSelectorTest {
 	@Test
 	public void testSortByOnPathClosestToEndPoint() {
 		List<MapItem> items;
-		
 		items = map.getItemSelector()
 				.sortByOnPathClosestToEndPoint()
 				.getItems();
-		assertTrue();
-		
-//		mapItemSelector.sortByOnPathClosestToEndPoint();
-//		List<MapItem> filteredItems = new ArrayList<MapItem>();
-//		filteredItems.addAll(items);
-//		assertFalse(filteredItems == items);
+		assertTrue(true);
 	}
+	@Test
 	public void testsortByWeakest() {
-//		mapItemSelector.sortByWeakest();
-//		List<MapItem> filteredItems = new ArrayList<MapItem>();
-//		filteredItems.addAll(items1);
-//		assertFalse(filteredItems == items);
+//
 	}
+	@Test
 	public void testsortByStrongest() {
-//		mapItemSelector.sortByStrongest();
-//		List<MapItem> filteredItems = new ArrayList<MapItem>();
-//		filteredItems.addAll(items1);
-//		assertFalse(filteredItems == items);
+		List<MapItem> items;
+		items = map.getItemSelector()
+				.sortByStrongest()
+				.getItems();
+		//Critter c3 = new Critter();
+		for (MapItem item:items){
+			c3 = (Critter) item;
+		}
+		assertTrue(c3.getHp() == c2.getHp());
 	}
+	@Test
+	public void testfilterByExcluding() {
+		List<MapItem> items;
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(map.getItemSelector().getItems());
+		items = map.getItemSelector()
+				.filterByExcluding(item1)
+				.getItems();
+		assertFalse(filteredItems == items);	
+		}
 	
 	@Test
 	public void testSortByRandom() {
-//		mapItemSelector.sortByRandom();
-//		List<MapItem> filteredItems = new ArrayList<MapItem>();
-//		filteredItems.addAll(items);
-//		assertFalse(filteredItems == items);
-		
+		List<MapItem> items;
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(map.getItemSelector().getItems());
+		items = map.getItemSelector()
+				.sortByStrongest()
+				.getItems();
+		assertFalse(filteredItems == items);
 	}
 
 }
