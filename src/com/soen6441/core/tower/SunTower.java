@@ -81,19 +81,19 @@ public class SunTower extends Tower {
 	@Override
 	public void attack() {
 		
-		super.attack();
-		this.getTimer().setTimerListener(this);
-		this.getTimer().start();
+//		super.attack();
+//		this.getTimer().setTimerListener(this);
+//		this.getTimer().start();
 	}
 	
 	@Override
 	public void timerTick(Timer timer) {
 		
-		super.timerTick(timer);
-		for (int i=0; i< targetSelector.getItems().size(); i++) {
-			Critter critter = (Critter)targetSelector.getItems().get(i);
-			critter.damaged((int) this.getDamage().getEffectedValue());
-			
-		}
+//		super.timerTick(timer);
+//		for (int i=0; i< targetSelector.getItems().size(); i++) {
+//			Critter critter = (Critter)targetSelector.getItems().get(i);
+//			critter.damaged((int) this.getDamage().getEffectedValue());
+//			
+//		}
 	}
 }

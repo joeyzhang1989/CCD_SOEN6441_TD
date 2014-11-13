@@ -16,11 +16,7 @@ public class Critter extends MapItem implements TimerListener{
 	
 	private int reward;
 	private int stealAmount;
-	
-	public Critter()
-	{
-	}
-	
+
 	/*
 	 * Mark - Basic - Observerable
 	 */
@@ -84,9 +80,6 @@ public class Critter extends MapItem implements TimerListener{
 	public void timerTick(Timer timer) {
 		
 		double out = map.moveOnPath(this, this.getSpeed().getEffectedValue() / Play.RUNNER_FPS);
-		this.damaged(1);
-		this.setChanged();
-		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE);
 		
 		if (out > 0) {
 			map.removeCritter(this);
@@ -125,7 +118,6 @@ public class Critter extends MapItem implements TimerListener{
 	
 	@Override
 	public Element encode() {
-		// TODO Auto-generated method stub
 		return super.encode();
 	}
 	
