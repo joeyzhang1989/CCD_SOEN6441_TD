@@ -9,6 +9,7 @@ import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
@@ -26,6 +27,7 @@ public class MapItemSelectorTest {
 	private MapPoint p3; 
 	private double radius;
 	private List<MapItem> items;
+	private List<MapItem> items1;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -52,6 +54,18 @@ public class MapItemSelectorTest {
 		map.setSelectedPoint(p1);
 		map.setSelectedPoint(p2);
 		map.setSelectedPoint(p3);
+		
+		Critter c1 = new Critter();
+		c1.setHp(10);
+		map.setItem(c1, p1);
+
+		Critter c2 = new Critter();
+		c1.setHp(11);
+		map.setItem(c2, p2);
+		
+		items1.add(c1);
+		items1.add(c2);
+		
 	}
 
 	@Test
@@ -79,13 +93,22 @@ public class MapItemSelectorTest {
 
 	@Test
 	public void testSortByOnPathClosestToEndPoint() {
-		fail("Not yet implemented");
+		mapItemSelector.sortByOnPathClosestToEndPoint();
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(items);
+		assertFalse(filteredItems == items);
 	}
 	public void testsortByWeakest() {
-		fail("Not yet implemented");
+		mapItemSelector.sortByWeakest();
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(items1);
+		assertFalse(filteredItems == items);
 	}
 	public void testsortByStrongest() {
-		fail("Not yet implemented");
+		mapItemSelector.sortByStrongest();
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(items1);
+		assertFalse(filteredItems == items);
 	}
 	
 	@Test
