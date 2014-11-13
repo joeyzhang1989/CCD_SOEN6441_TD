@@ -2,6 +2,9 @@ package com.soen6441.core.tower;
 
 import org.dom4j.Element;
 
+import com.soen6441.core.Timer;
+import com.soen6441.core.critter.Critter;
+
 /**
  * This class is a specific type of tower, SunTower.
  * A SunTower is an AOE tower attacks all Targets within its range.
@@ -36,7 +39,7 @@ public class SunTower extends Tower {
 	}
 	
 	/**
-	 * Inner class cantains name strings for archiving.
+	 * Inner class contains name strings for archiving.
 	 * @author Haiyang Sun
 	 *
 	 */
@@ -66,5 +69,24 @@ public class SunTower extends Tower {
 		Element element = super.encode();
 		element.setName(NameForArchiving.Class);
 		return element;
+	}
+
+	@Override
+	public void attack() {
+		
+		super.attack();
+		this.getTimer().setTimerListener(this);
+		this.getTimer().start();
+	}
+	
+	@Override
+	public void timerTick(Timer timer) {
+		
+		super.timerTick(timer);
+		for (int i=0; i< targetSelector.getItems().size(); i++) {
+			Critter critter = (Critter)targetSelector.getItems().get(i);
+			critter.damaged((int) this.getDamage().getEffectedValue());
+			
+		}
 	}
 }

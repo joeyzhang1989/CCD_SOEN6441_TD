@@ -2,6 +2,9 @@ package com.soen6441.core.tower;
 
 import org.dom4j.Element;
 
+import com.soen6441.core.Timer;
+import com.soen6441.core.critter.Critter;
+
 /**
  * This class is a specific type of tower, BottleTower.
  * A BottleTower attacks a single target.
@@ -68,4 +71,25 @@ public class BottleTower extends Tower {
 		return element;
 	}
 
+	@Override
+	public void attack() {
+		
+		this.getTimer().setRepeats(true);
+		this.getTimer().setDelay((int) this.getCdTime().getEffectedValue());
+		this.getTimer().setTimerListener(this);
+		this.getTimer().start();
+		
+	}
+	
+	@Override
+	public void timerTick(Timer timer) {
+		
+		super.timerTick(timer);
+		this.setTargetSelector(this.getTargetSelector().sortByDirectlyClosestToPoint(this.getLocation()).filterByAmount(1));
+		if (this.getTargetSelector().getItems().get(0) != null) {
+			
+			Critter critter = (Critter)targetSelector.getItems().get(0);
+			critter.damaged((int) this.getDamage().getEffectedValue());
+		}
+	}
 }
