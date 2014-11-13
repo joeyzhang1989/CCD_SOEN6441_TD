@@ -547,7 +547,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public void execute(Command command) {
 		
-		
 		}
 	
 	}
