@@ -15,6 +15,9 @@ import com.soen6441.core.critter.Critter;
  * @version $Revision: 1.0 $
  */
 public class BottleTower extends Tower {
+	/*
+	 * Basic methods
+	 */
 	
 	/**
 	 * Copy properties from one BottleTower object to another.
@@ -70,7 +73,10 @@ public class BottleTower extends Tower {
 		element.setName(NameForArchiving.Class);
 		return element;
 	}
-
+	
+	/*
+	 * Attack methods
+	 */
 	@Override
 	public void attack() {
 		

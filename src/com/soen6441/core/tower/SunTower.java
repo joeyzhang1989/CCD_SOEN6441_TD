@@ -16,6 +16,10 @@ import com.soen6441.core.critter.Critter;
  */
 public class SunTower extends Tower {
 	
+	/*
+	 * Basic methods
+	 */
+	
 	/**
 	 * Copy properties from one SunTower object to another.
 	 * 
@@ -70,7 +74,10 @@ public class SunTower extends Tower {
 		element.setName(NameForArchiving.Class);
 		return element;
 	}
-
+	
+	/*
+	 * Attack methods
+	 */
 	@Override
 	public void attack() {
 		
