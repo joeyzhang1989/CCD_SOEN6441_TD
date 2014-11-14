@@ -126,16 +126,20 @@ public class MapItemSelectorTest {
 	}
 	@Test
 	public void testsortByWeakest() {
-
+		List<MapItem> items;
+		items = map.getItemSelector()
+				.sortByStrongest()
+				.getItems();
+		assertTrue(items.size() == 1);
 		
 	}
 	@Test
 	public void testsortByStrongest() {
 		List<MapItem> items;
 		items = map.getItemSelector()
-				//.sortByStrongest()
+				.sortByStrongest()
 				.getItems();
-		assertTrue(items.size() == 5);
+		assertTrue(items.size() == 1);
 	}
 	@Test
 	public void testfilterByExcluding() {
