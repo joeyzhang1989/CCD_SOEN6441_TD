@@ -1,8 +1,12 @@
 package com.soen6441.core.tower;
 
+import java.util.List;
+
 import org.dom4j.Element;
 
-import com.soen6441.core.Timer;
+import com.soen6441.core.critter.Critter;
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.map.MapItemSelector;
 
 /**
  * This class is a specific type of tower, SunTower.
@@ -78,21 +82,22 @@ public class SunTower extends Tower {
 	 * Attack methods
 	 */
 	@Override
-	public void attack() {
+	protected void searchForTargets() {
+		MapItemSelector selector = map.getItemSelector();
+		List<MapItem> targets = selector
+				.filterByType(Critter.class)
+				.filterByCircularArea(this.getLocation(), this.getRange().getEffectedValue())
+				.sortByDirectlyClosestToPoint(this.getLocation())
+				.getItems();
 		
-//		super.attack();
-//		this.getTimer().setTimerListener(this);
-//		this.getTimer().start();
+		this.setTargets(targets);
 	}
 	
 	@Override
-	public void timerTick(Timer timer) {
-		
-//		super.timerTick(timer);
-//		for (int i=0; i< targetSelector.getItems().size(); i++) {
-//			Critter critter = (Critter)targetSelector.getItems().get(i);
-//			critter.damaged((int) this.getDamage().getEffectedValue());
-//			
-//		}
+	protected void attack() {
+		for (MapItem item:this.getTargets()) {
+			Critter critter = (Critter)item;
+			critter.damaged((int) this.getDamage().getEffectedValue());	
+		}
 	}
 }

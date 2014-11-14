@@ -9,7 +9,7 @@
 				<sellPrice>124</sellPrice>
 				<damage>40</damage>
 				<range>130</range>
-				<cdTime>700</cdTime>
+				<cdTime>1</cdTime>
 				<cellImageName>tower_cell_3_1.png</cellImageName>
 				<name>Sun Tower</name>
 				<description>AOE tower attacks all target with in its range.</description></SunTower>
