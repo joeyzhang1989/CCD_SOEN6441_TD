@@ -11,7 +11,6 @@ import org.dom4j.Element;
 import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
-import com.soen6441.core.effect.AffectableValue;
 import com.soen6441.core.effect.Effect;
 
 
