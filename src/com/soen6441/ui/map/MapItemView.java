@@ -55,12 +55,14 @@ public class MapItemView extends View implements Observer{
 				g.drawImage(ImageAssets.imageNamed(cellImageName), 0, 0, null);
 			}
 		}
-//		paintEffects(g);
+		paintEffects(g);
 	}
 
 	private void paintEffects(Graphics g) {
-		for (Effect effect : item.getAllEffects()) {
-			g.drawImage(ImageAssets.imageNamed(effect.getCellImageName()), 0, 0, null);
+		if (this.item != null) {
+			for (Effect effect : item.getAllEffects()) {
+				g.drawImage(ImageAssets.imageNamed(effect.getCellImageName()), 0, 0, null);
+			}
 		}
 	}
 	

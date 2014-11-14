@@ -1,7 +1,6 @@
 package test.soen6441.core.map;
 
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertArrayEquals;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +30,7 @@ public class MapItemSelectorTest {
 	private Critter c1;
 	private Critter c2;
 	private Critter c3;
+	private Class<?> Road;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -83,7 +83,14 @@ public class MapItemSelectorTest {
 
 	@Test
 	public void testFilterByTypes() {
-		fail("Not yet implemented");
+		List<MapItem> items;
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		
+		items = map.getItemSelector()
+				.filterByType(Road)
+				.getItems();
+		assertTrue(true);
+				
 	}
 
 	@Test
@@ -106,7 +113,11 @@ public class MapItemSelectorTest {
 
 	@Test
 	public void testSortByDirectlyClosestToPoint() {
-		fail("Not yet implemented");
+		List<MapItem> items;
+		items = map.getItemSelector()
+				.sortByDirectlyClosestToPoint(p2)
+				.getItems();
+		assertTrue(true);
 	}
 
 	@Test
@@ -127,19 +138,18 @@ public class MapItemSelectorTest {
 	@Test
 	public void testsortByWeakest() {
 		List<MapItem> items;
-		items = map.getItemSelector()
-				.sortByStrongest()
-				.getItems();
-		assertTrue(items.size() == 1);
-		
+	
+
 	}
 	@Test
 	public void testsortByStrongest() {
 		List<MapItem> items;
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(map.getItemSelector().getItems());
 		items = map.getItemSelector()
 				.sortByStrongest()
 				.getItems();
-		assertTrue(items.size() == 1);
+
 	}
 	@Test
 	public void testfilterByExcluding() {

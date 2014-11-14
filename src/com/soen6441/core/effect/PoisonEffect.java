@@ -10,12 +10,13 @@ public class PoisonEffect extends Effect implements TimerListener{
 	double poisonCdTime;
 	int poisonTimes;
 	
-	public PoisonEffect(String type, int poisonDamage, double poisonCdTime, int poisonTimes) {
+	public PoisonEffect(String type) {
 		
 		this.setType(type);
-		this.setPoisonDamage(poisonDamage);
-		this.setPoisonCdTime(poisonCdTime);
-		this.setPoisonTimes(poisonTimes);
+		
+	}
+	public PoisonEffect() {
+		
 	}
 	
 	@Override
@@ -34,11 +35,10 @@ public class PoisonEffect extends Effect implements TimerListener{
 	@Override
 	public void start() {
 		
-		this.setTimer(new Timer());
-		this.getTimer().setDelay((int) this.poisonCdTime);
+		this.getTimer().setTimeIntervalSecond(this.poisonCdTime);
 		this.getTimer().setRepeats(true);
 		this.getTimer().setRepeatTimes(this.poisonTimes);
-		
+		this.getTimer().start();		
 	}
 	
 	@Override

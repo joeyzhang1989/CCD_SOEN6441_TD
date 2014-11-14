@@ -9,37 +9,40 @@
 				<sellPrice>124</sellPrice>
 				<damage>5</damage>
 				<range>1</range>
-				<cdTime>1</cdTime>
-				<slowRate>0.5</slowRate>
-				<slowDuration>1000</slowDuration>
+				<cdTime>1.5</cdTime>
+				<slowRate>0.7</slowRate>
+				<slowDuration>1.5</slowDuration>
 				<cellImageName>tower_cell_4_1.png</cellImageName>
 				<name>Moon Tower</name>
-				<description>Moon Tower is an AOE tower with deceleration affect.</description></MoonTower>
+				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+				<effectImageName>effect_cell_3_1.png</effectImageName></MoonTower>
 			<MoonTower>
 				<level>2</level>
 				<upgradePrice>320</upgradePrice>
 				<sellPrice>312</sellPrice>
-				<damage>40</damage>
-				<range>150</range>
-				<cdTime>850</cdTime>
-				<slowRate>1</slowRate>
-				<slowDuration>1300</slowDuration>
+				<damage>10</damage>
+				<range>2</range>
+				<cdTime>1.3</cdTime>
+				<slowRate>0.6</slowRate>
+				<slowDuration>2</slowDuration>
 				<cellImageName>tower_cell_4_2.png</cellImageName>
 				<name>Moon Tower</name>
 				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+				<effectImageName>effect_cell_3_2.png</effectImageName>
 			</MoonTower>
 			<MoonTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>524</sellPrice>
-				<damage>75</damage>
-				<range>180</range>
-				<cdTime>800</cdTime>
-				<slowRate>1</slowRate>
-				<slowDuration>1600</slowDuration>
+				<damage>15</damage>
+				<range>3</range>
+				<cdTime>1</cdTime>
+				<slowRate>0.5</slowRate>
+				<slowDuration>2.5</slowDuration>
 				<cellImageName>tower_cell_4_3.png</cellImageName>
 				<name>Moon Tower</name>
 				<description>Moon Tower is an AOE tower with deceleration affect.</description>
+				<effectImageName>effect_cell_3_3.png</effectImageName>
 			</MoonTower>
 		</leveledTowers>
 	</TowerManager>

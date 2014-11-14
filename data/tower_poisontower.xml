@@ -7,43 +7,45 @@
 				<level>1</level>
 				<upgradePrice>280</upgradePrice>
 				<sellPrice>120</sellPrice>
-				<damage>60</damage>
-				<range>140</range>
-				<cdTime>1200</cdTime>
-				<poisonDamage>1</poisonDamage>
-				<poisonCdTime>1000</poisonCdTime>
+				<damage>15</damage>
+				<range>1</range>
+				<cdTime>1.5</cdTime>
+				<poisonDamage>5</poisonDamage>
+				<poisonCdTime>2</poisonCdTime>
 				<poisonTimes>5</poisonTimes>
 				<cellImageName>tower_cell_5_1.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
-			</PoisonTower>
+				<effectImageName>effect_cell_2_1.png</effectImageName></PoisonTower>
 			<PoisonTower>
 				<level>2</level>
 				<upgradePrice>340</upgradePrice>
 				<sellPrice>330</sellPrice>
-				<damage>80</damage>
-				<range>140</range>
-				<cdTime>1050</cdTime>
-				<poisonDamage>1</poisonDamage>
-				<poisonCdTime>1300</poisonCdTime>
-				<poisonTimes>7</poisonTimes>
+				<damage>20</damage>
+				<range>2</range>
+				<cdTime>1.4</cdTime>
+				<poisonDamage>7</poisonDamage>
+				<poisonCdTime>2</poisonCdTime>
+				<poisonTimes>5</poisonTimes>
 				<cellImageName>tower_cell_5_2.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
+				<effectImageName>effect_cell_2_2.png</effectImageName>
 			</PoisonTower>
 			<PoisonTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>560</sellPrice>
-				<damage>100</damage>
-				<range>160</range>
-				<cdTime>900</cdTime>
-				<poisonDamage>1</poisonDamage>
-				<poisonCdTime>1600</poisonCdTime>
-				<poisonTimes>10</poisonTimes>
+				<damage>25</damage>
+				<range>3</range>
+				<cdTime>1.2</cdTime>
+				<poisonDamage>10</poisonDamage>
+				<poisonCdTime>2</poisonCdTime>
+				<poisonTimes>5</poisonTimes>
 				<cellImageName>tower_cell_5_3.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
+				<effectImageName>effect_cell_2_3.png</effectImageName>
 			</PoisonTower>
 		</leveledTowers>
 	</TowerManager>

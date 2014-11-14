@@ -1,6 +1,7 @@
 package com.soen6441.core.effect;
 
 import com.soen6441.core.Timer;
+import com.soen6441.core.TimerListener;
 import com.soen6441.core.map.MapItem;
 
 /**
@@ -14,7 +15,7 @@ import com.soen6441.core.map.MapItem;
  * 
  * @version $Revision: 1.0 $
  */
-public class Effect {
+public class Effect implements TimerListener {
 	
 	/*
 	 * Properties
@@ -30,7 +31,8 @@ public class Effect {
 	 */
 	
 	public Effect() {
-		super();
+		timer = new Timer();
+		timer.setTimerListener(this);
 	}
 
 	/**
@@ -79,6 +81,12 @@ public class Effect {
 	public void stop() {
 		
 	}
+	
+	@Override
+	public void timerTick(Timer timer) {
+		
+	}
+	
 	/*
 	 * Getters and Setters
 	 */
@@ -126,6 +134,8 @@ public class Effect {
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}
+
+	
 	
 		
 }
