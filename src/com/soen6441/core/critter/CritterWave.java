@@ -1,11 +1,6 @@
 package com.soen6441.core.critter;
-/**
- * This class defines the CritterWave , it reads an xml file that defines for each wave which critters are going to show up.
- * 
- * @author JeanRaymondDaher
- *
- * @version $Revision: 1.1 $
- */
+
+import java.util.ArrayList;
 import java.util.List;
 
 import org.dom4j.Element;
@@ -71,15 +66,17 @@ public class CritterWave implements IArchive {
 	@Override
 	public void decode(Element element) {
 		this.setTimeGap(Double.parseDouble(element.element(NameForArchiving.TimeGap).getText()));
-		Node critters = element.selectSingleNode(NameForArchiving.Critters);
+		Element crittersElement = element.element(NameForArchiving.Critters);
 
 		@SuppressWarnings("unchecked")
-		List<Node> critterNodes = critters.selectNodes(Critter.NameForArchiving.Class);
+		List<Element> critterElements = crittersElement.elements(CritterMultiplier.NameForArchiving.Class);
 
-		for (Node critterNode : critterNodes) {
-			Element critterElement= (Element) critterNode;
-			Critter critter= new Critter();
-			critter.decode(critterElement);
+		critters = new ArrayList<CritterMultiplier>();
+		for (Element critterMultiplierElement : critterElements) {
+			CritterMultiplier critterMultiplier= new CritterMultiplier();
+			critterMultiplier.decode(critterMultiplierElement);
+			
+			critters.add(critterMultiplier);
 		}		
 	}
 

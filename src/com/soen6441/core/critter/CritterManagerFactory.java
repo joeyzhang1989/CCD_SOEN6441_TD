@@ -1,11 +1,5 @@
 package com.soen6441.core.critter;
-/**
- * This class defines the CritterManagerFactory data structure which will create multiple critters of types 1 and 2 defined each in specific xml file.
- * 
- * @author JeanRaymondDaher
- *
- * @version $Revision: 1.1 $
- */
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
