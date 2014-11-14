@@ -7,10 +7,10 @@
 				<level>1</level>
 				<upgradePrice>260</upgradePrice>
 				<sellPrice>124</sellPrice>
-				<damage>20</damage>
-				<range>130</range>
-				<cdTime>900</cdTime>
-				<slowRate>1</slowRate>
+				<damage>5</damage>
+				<range>1</range>
+				<cdTime>1</cdTime>
+				<slowRate>0.5</slowRate>
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_4_1.png</cellImageName>
 				<name>Moon Tower</name>
