@@ -1,5 +1,11 @@
 package com.soen6441.core.critter;
-
+/**
+ * This class defines the CritterMultiplier which will upgrade our critters to their next defined level.
+ * 
+ * @author JeanRaymondDaher
+ *
+ * @version $Revision: 1.1 $
+ */
 import org.dom4j.Element;
 
 import com.soen6441.core.IArchive;
@@ -40,9 +46,9 @@ public class CritterMultiplier implements IArchive{
 	
 	public class NameForArchiving{
 		public static final String Class = "CritterMultiplier";
-		private static final String SpeedMultiplier="speedMultiplier";
+		private static final String SpeedMultiplier="speedMultipier";
 	//	private static final String RewardMultiplier="rewardMultiplier";
-		private static final String HpMultiplier="hpMultiplier";
+		private static final String HpMultiplier="hpMultipier";
 		private static final String Name="critterName";
 	}
 	
