@@ -2,6 +2,8 @@ package com.soen6441.ui.map;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.HashMap;
 import java.util.Map;
@@ -14,7 +16,6 @@ import com.soen6441.core.map.GridMapItemsListener;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
-import com.soen6441.core.play.Play;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.common.GridPoint;
 import com.soen6441.ui.common.GridView;
@@ -75,6 +76,32 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		return gridView.suggestedSize();
 	}
 
+	@Override
+	public void paint(Graphics g) {
+		super.paint(g);
+		if (map.getSelectedPoint() != null) {
+			MapItem item = map.getSelectedItem();
+			
+			if (item != null && item instanceof Tower){
+				paintRange((Graphics2D)g);
+			}
+		}
+	}
+	
+	private void paintRange(Graphics2D g) {
+		Tower tower = (Tower) map.getSelectedItem();
+		Point center = mapPointToSwingPoint(tower.getLocation());
+		center.x += _UNIT_LENGTH * 0.5;
+		center.y += _UNIT_LENGTH * 0.5;
+		int range = (int)(tower.getRange().getEffectedValue() * _UNIT_LENGTH);
+		
+		for (int i = 0; i < 4; i ++) {
+			g.setColor(new Color(0x66, 0x66, 0x66, 256 * (6-i) / 8 - 1));
+			g.drawOval(center.x - range, center.y - range, range * 2, range * 2);
+			range --;
+		}
+	}
+	
 	/*
 	 * Mark - Basic - Properties
 	 */
