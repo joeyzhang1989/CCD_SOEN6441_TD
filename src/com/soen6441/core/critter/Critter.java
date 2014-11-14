@@ -39,6 +39,9 @@ public class Critter extends MapItem implements TimerListener{
 	public void setHp(int hp) {
 		if (hp < 0) {
 			hp = 0;
+			Play play = Play.currentPlay();
+			play.earnCoins(this.getReward());
+			
 			map.removeCritter(this);
 		}
 		this.hp = hp;
@@ -82,7 +85,9 @@ public class Critter extends MapItem implements TimerListener{
 		double out = map.moveOnPath(this, this.getSpeed().getEffectedValue() / Play.RUNNER_FPS);
 		
 		if (out > 0) {
-			System.out.println(out);
+			Play play = Play.currentPlay();
+			play.alterLife(-1);
+			play.spendCoins(this.getStealAmount());
 			map.removeCritter(this);
 		} else {
 			this.setChanged();

@@ -167,6 +167,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.setCoins(this.getCoins() - coins);
 	}
 	
+	public void alterLife(int life) {
+		this.setLife(this.getLife() + life);
+	}
+	
 	/*
 	 * Mark - Basic - Observerable
 	 */
