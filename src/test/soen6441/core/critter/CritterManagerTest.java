@@ -1,11 +1,5 @@
 package test.soen6441.core.critter;
-/**
- * This class test the critter manager and checks if the xml file is read correctly, and the multiplier is working accordingly.
- * 
- * @author JeanRaymondDaher
- *
- * @version $Revision: 1.1 $
- */
+
 import static org.junit.Assert.*;
 
 import org.junit.Test;
