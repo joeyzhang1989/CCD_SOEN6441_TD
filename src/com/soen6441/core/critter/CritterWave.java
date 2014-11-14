@@ -46,6 +46,10 @@ public class CritterWave implements IArchive {
 		return critters.size();
 	}
 
+	/**
+	 * Access the next critter entering the scene.
+	 * @return Critter returns the next critter in the wave
+	 */
 	public Critter nextCritter() {
 		CritterMultiplier critterMultiplier = critters.get(currentIndex);
 		currentIndex ++;
@@ -60,9 +64,12 @@ public class CritterWave implements IArchive {
 		private static final String Critters = "critters";
 	}
 
+	/**
+	 * Decode method reads XML wave file and stores waves in a List
+	 * @see com.soen6441.core.IArchive#decode(org.dom4j.Element)
+	 */
 	@Override
 	public void decode(Element element) {
-		// NOT SO SURE IF CORRECT
 		this.setTimeGap(Double.parseDouble(element.element(NameForArchiving.TimeGap).getText()));
 		Node critters = element.selectSingleNode(NameForArchiving.Critters);
 

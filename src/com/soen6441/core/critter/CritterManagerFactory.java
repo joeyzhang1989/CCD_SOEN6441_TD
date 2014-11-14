@@ -29,6 +29,12 @@ public class CritterManagerFactory {
 		return defaultFactory;
 	}
 
+
+	/**
+	 * Constructor.
+	 * Declares all kinds of critter type names, finds the XML data file path by type names, 
+	 * then create CritterManagers using the types.
+	 */
 	private CritterManagerFactory() {
 		
 		typeNames = new ArrayList<String>(Arrays.asList("Critter 1","Critter 2"));

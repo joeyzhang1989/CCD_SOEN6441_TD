@@ -22,24 +22,31 @@ public class CritterMultiplier implements IArchive{
 	public double getRewardMultiplier() {
 		return rewardMultiplier;
 	}
+	
 	public void setRewardMultiplier(double rewardMultiplier) {
 		this.rewardMultiplier = rewardMultiplier;
 	}
+	
 	public String getCritterName() {
 		return critterName;
 	}
+	
 	public void setCritterName(String critterName) {
 		this.critterName = critterName;
 	}
+	
 	public double getHpMultiplier() {
 		return hpMultiplier;
 	}
+	
 	public void setHpMultiplier(double hpMultiplier) {
 		this.hpMultiplier = hpMultiplier;
 	}
+	
 	public double getSpeedMultiplier() {
 		return speedMultiplier;
 	}
+	
 	public void setSpeedMultiplier(double speedMultiplier) {
 		this.speedMultiplier = speedMultiplier;
 	}
@@ -52,7 +59,10 @@ public class CritterMultiplier implements IArchive{
 		private static final String Name="critterName";
 	}
 	
-	
+	/**
+	 * Decode method which takes an XML critter multiplier file and saves the values in critterMultiplier object
+	 * @see com.soen6441.core.IArchive#decode(org.dom4j.Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		this.setSpeedMultiplier(Double.parseDouble(element.element(NameForArchiving.SpeedMultiplier).getText()));
