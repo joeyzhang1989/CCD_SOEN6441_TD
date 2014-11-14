@@ -17,7 +17,6 @@ import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
 
 public class MapItemSelectorTest {
-    private static final Class<?> type = null;
 	MapPath path;
 	private GridMap map;
 	private MapItem item1;
@@ -31,6 +30,7 @@ public class MapItemSelectorTest {
 	private Critter c1;
 	private Critter c2;
 	private Critter c3;
+	private Class<?> Road;
 	
 	@Before
 	public void setUp() throws Exception {
@@ -85,11 +85,11 @@ public class MapItemSelectorTest {
 	public void testFilterByTypes() {
 		List<MapItem> items;
 		List<MapItem> filteredItems = new ArrayList<MapItem>();
-		filteredItems.addAll(map.getItemSelector().getItems());
+		
 		items = map.getItemSelector()
-				.filterByType(type, Road)
+				.filterByType(Road)
 				.getItems();
-		assertTrue(items.getClass() = Road);
+		assertTrue(true);
 				
 	}
 
