@@ -15,7 +15,7 @@
 				<cellImageName>tower_cell_2_1.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
-			</IceTower>
+				<effectImageName>effect_cell_1_1.png</effectImageName></IceTower>
 			<IceTower>
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
@@ -28,6 +28,7 @@
 				<cellImageName>tower_cell_2_2.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
+				<effectImageName>effect_cell_1_2.png</effectImageName>
 			</IceTower>
 			<IceTower>
 				<level>3</level>
@@ -41,6 +42,7 @@
 				<cellImageName>tower_cell_2_3.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
+				<effectImageName>effect_cell_1_3.png</effectImageName>
 			</IceTower>
 		</leveledTowers>
 	</TowerManager>
