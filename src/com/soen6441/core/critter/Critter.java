@@ -82,6 +82,7 @@ public class Critter extends MapItem implements TimerListener{
 		double out = map.moveOnPath(this, this.getSpeed().getEffectedValue() / Play.RUNNER_FPS);
 		
 		if (out > 0) {
+			System.out.println(out);
 			map.removeCritter(this);
 		} else {
 			this.setChanged();

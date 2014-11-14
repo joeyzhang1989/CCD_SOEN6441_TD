@@ -294,7 +294,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	private Timer runningTimer;
 
 
-	public static final int RUNNER_FPS = 32;
+	public static final double RUNNER_FPS = 32;
 	private List<TimerListener> runningListeners;
 	
 	/*
@@ -305,7 +305,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		runningListeners = new ArrayList<TimerListener>();
 		
 		runningTimer = new Timer();
-		runningTimer.setDelay(1000 / RUNNER_FPS);
+		runningTimer.setTimeIntervalSecond(1 / RUNNER_FPS);
 		runningTimer.setRepeats(true);
 		runningTimer.setTimerListener(this);
 		
