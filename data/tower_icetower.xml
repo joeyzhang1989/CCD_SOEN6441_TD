@@ -7,11 +7,11 @@
 				<level>1</level>
 				<upgradePrice>220</upgradePrice>
 				<sellPrice>96</sellPrice>
-				<damage>30</damage>
-				<range>140</range>
+				<damage>5</damage>
+				<range>1</range>
 				<cdTime>1</cdTime>
-				<slowRate>0.1</slowRate>
-				<slowDuration>1000</slowDuration>
+				<slowRate>0.7</slowRate>
+				<slowDuration>2</slowDuration>
 				<cellImageName>tower_cell_2_1.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
@@ -20,11 +20,11 @@
 				<level>2</level>
 				<upgradePrice>260</upgradePrice>
 				<sellPrice>272</sellPrice>
-				<damage>50</damage>
-				<range>140</range>
-				<cdTime>1050</cdTime>
-				<slowRate>1</slowRate>
-				<slowDuration>1300</slowDuration>
+				<damage>10</damage>
+				<range>2</range>
+				<cdTime>0.8</cdTime>
+				<slowRate>0.6</slowRate>
+				<slowDuration>2.5</slowDuration>
 				<cellImageName>tower_cell_2_2.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
@@ -33,11 +33,11 @@
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>480</sellPrice>
-				<damage>80</damage>
-				<range>160</range>
-				<cdTime>900</cdTime>
-				<slowRate>1</slowRate>
-				<slowDuration>1600</slowDuration>
+				<damage>15</damage>
+				<range>3</range>
+				<cdTime>0.6</cdTime>
+				<slowRate>0.5</slowRate>
+				<slowDuration>3</slowDuration>
 				<cellImageName>tower_cell_2_3.png</cellImageName>
 				<name>Ice Tower</name>
 				<description>Ice Tower attacks single target with slow-down affect.</description>
