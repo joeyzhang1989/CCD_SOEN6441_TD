@@ -84,6 +84,8 @@ public class MapItemSelectorTest {
 	@Test
 	public void testFilterByTypes() {
 		List<MapItem> items;
+		List<MapItem> filteredItems = new ArrayList<MapItem>();
+		filteredItems.addAll(map.getItemSelector().getItems());
 		items = map.getItemSelector()
 				.filterByType(type, Road)
 				.getItems();
@@ -137,7 +139,7 @@ public class MapItemSelectorTest {
 	public void testsortByWeakest() {
 		List<MapItem> items;
 		items = map.getItemSelector()
-				//.sortByStrongest()
+				//.sortByWeakest()
 				.getItems();
 		assertTrue(items.size() == 5);
 		
