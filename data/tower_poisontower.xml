@@ -16,7 +16,7 @@
 				<cellImageName>tower_cell_5_1.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
-			</PoisonTower>
+				<effectImageName>effect_cell_2_1.png</effectImageName></PoisonTower>
 			<PoisonTower>
 				<level>2</level>
 				<upgradePrice>340</upgradePrice>
@@ -30,6 +30,7 @@
 				<cellImageName>tower_cell_5_2.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
+				<effectImageName>effect_cell_2_2.png</effectImageName>
 			</PoisonTower>
 			<PoisonTower>
 				<level>3</level>
@@ -44,6 +45,7 @@
 				<cellImageName>tower_cell_5_3.png</cellImageName>
 				<name>Poison Tower</name>
 				<description>Poison Tower attacks single target with DOT.</description>
+				<effectImageName>effect_cell_2_3.png</effectImageName>
 			</PoisonTower>
 		</leveledTowers>
 	</TowerManager>
