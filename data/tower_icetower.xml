@@ -9,8 +9,8 @@
 				<sellPrice>96</sellPrice>
 				<damage>30</damage>
 				<range>140</range>
-				<cdTime>1200</cdTime>
-				<slowRate>1</slowRate>
+				<cdTime>1</cdTime>
+				<slowRate>0.1</slowRate>
 				<slowDuration>1000</slowDuration>
 				<cellImageName>tower_cell_2_1.png</cellImageName>
 				<name>Ice Tower</name>
