@@ -140,7 +140,6 @@ public class MapItemSelectorTest {
 		List<MapItem> items;
 		//double a=path.distanceToLastLocation(p2);
 		//System.out.println(a);
-
 		items = map.getItemSelector()
 				.sortByOnPathClosestToEndPoint()
 				.getItems();
@@ -156,17 +155,23 @@ public class MapItemSelectorTest {
 	@Test
 	public void testsortByWeakest() {
 		List<MapItem> items;
+		items = map.getItemSelector()
+				.sortByWeakest()
+				.getItems();
+		assertTrue(items.indexOf(c1) == 0);
 	
 
 	}
 	@Test
 	public void testsortByStrongest() {
 		List<MapItem> items;
-		List<MapItem> filteredItems = new ArrayList<MapItem>();
-		filteredItems.addAll(map.getItemSelector().getItems());
 		items = map.getItemSelector()
+				.filterByType(Critter.class)
 				.sortByStrongest()
 				.getItems();
+		System.out.println(items.indexOf(c2));
+		System.out.println(items.size());
+		assertTrue(items.indexOf(c2) == 0);
 		
 
 	}
