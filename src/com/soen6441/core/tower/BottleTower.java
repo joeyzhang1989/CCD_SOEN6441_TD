@@ -106,4 +106,10 @@ public class BottleTower extends Tower {
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
 	}
+	
+	@Override
+	protected void resetAffectableValue() {
+		super.resetAffectableValue();
+	}
+	
 }
