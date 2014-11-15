@@ -101,4 +101,9 @@ public class BottleTower extends Tower {
 			critter.damaged((int) this.getDamage().getEffectedValue());	
 		}
 	}
+	
+	@Override
+	public void reinforce(double enhanceRate) {
+		super.reinforce(enhanceRate);
+	}
 }

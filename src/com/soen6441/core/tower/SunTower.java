@@ -100,4 +100,8 @@ public class SunTower extends Tower {
 			critter.damaged((int) this.getDamage().getEffectedValue());	
 		}
 	}
+	@Override
+	public void reinforce(double enhanceRate) {
+		super.reinforce(enhanceRate);
+	}
 }
