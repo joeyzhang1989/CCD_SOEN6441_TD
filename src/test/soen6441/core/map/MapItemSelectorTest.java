@@ -11,11 +11,19 @@ import org.junit.Test;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
-import com.soen6441.core.map.MapItemSelector;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
-import com.soen6441.core.map.PathManager;
 import com.soen6441.core.map.Road;
+
+/**
+ * MapItemSelector test case to test the sorting and flitering 
+ * methods to re-arrange the MapItem list
+ * 
+ * @author Chenglong Zhang
+ * @author Zhe Zhao
+ * @author MengYao Wang
+ * @version $Revision: 1.0 $
+ */
 
 public class MapItemSelectorTest {
 	private MapPath path;

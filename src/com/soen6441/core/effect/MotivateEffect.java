@@ -17,8 +17,7 @@ public class MotivateEffect extends Effect implements TimerListener{
 				return true;
 			}
 		}
-		return false;
-		
+		return false;	
 	}
 	
 	@Override
