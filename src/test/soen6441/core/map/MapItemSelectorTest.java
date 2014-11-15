@@ -19,20 +19,7 @@ import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.PathManager;
 import com.soen6441.core.map.Road;
 
-<<<<<<< HEAD
-/**
- * MapItemSelector test case to test the sorting and flitering methods to
- * re-arrange the MapItem list
- * 
- * @author Chenglong Zhang
- * @author Zhe Zhao
- * @author Mohammad Ali
- * @author MengYao Wang
- * @version $Revision: 1.0 $
- */
 
-=======
->>>>>>> parent of d5d4e53... add javadoc to testcase
 public class MapItemSelectorTest {
 	private MapPath path;
 	private GridMap map;
