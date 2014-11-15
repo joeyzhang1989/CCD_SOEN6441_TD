@@ -212,7 +212,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 					updateInfoLabel();
 
 				} else {
-					infoLabel.setText("waves Finished");
+					infoLabel.setText("Waves Finished");
 					controlButton.setEnabled(false);
 				}
 
