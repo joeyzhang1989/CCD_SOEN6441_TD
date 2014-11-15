@@ -14,6 +14,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
+import com.soen6441.core.map.PathManager;
 import com.soen6441.core.map.Road;
 
 public class MapItemSelectorTest {
@@ -59,7 +60,6 @@ public class MapItemSelectorTest {
 		map.setItem(item2, p2);
 		
 		item3 = new Road();
-		p3 = new MapPoint(3, 3);
 		map.setItem(item3, p3);
 		
 		c1 = new Critter();
@@ -129,17 +129,22 @@ public class MapItemSelectorTest {
 		
 		
 	}
+	@Test
+	public void testGetLastLocation() {
+		MapPoint p = path.getLastLocation();
+		assertEquals(p, p3);
+	}
 
 	@Test
-	public void testSortByOnPathClosestToEndPoint() {
+	public void testsortByOnPathClosestToEndPoint() {
 		List<MapItem> items;
+		//double a=path.distanceToLastLocation(p2);
+		//System.out.println(a);
+
 		items = map.getItemSelector()
 				.sortByOnPathClosestToEndPoint()
 				.getItems();
-		path.addLocation(new MapPoint());
-		MapPoint p = path.getLastLocation();
-		assertEquals(p, p3);
-		//assertTrue(items.indexOf(item3) == 2);
+		assertTrue(items.size() == 3);
 	}
 	@Test
 	public void testitemAddition() {

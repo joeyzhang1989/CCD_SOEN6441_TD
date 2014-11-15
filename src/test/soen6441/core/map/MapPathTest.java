@@ -28,20 +28,20 @@ public class MapPathTest {
 		path.addLocation(p1);
 		path.addLocation(p2);
 		path.addLocation(p3);
+		
 	}
-
-	@Test
-	public void testGetFirstLocation() {
-		MapPoint p = path.getFirstLocation();
-		assertEquals(p, p1);
-	}
-
+	
 	@Test
 	public void testGetLastLocation() {
 		MapPoint p = path.getLastLocation();
 		assertEquals(p, p3);
 	}
-
+	
+	@Test
+	public void testGetFirstLocation() {
+		MapPoint p = path.getFirstLocation();
+		assertEquals(p, p1);
+	}
 	@Test
 	public void testAddLocation() {
 		path.addLocation(new MapPoint());

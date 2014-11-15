@@ -5,6 +5,8 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import test.soen6441.core.map.MapItemSelectorTest;
+
 
 import com.soen6441.core.critter.Critter;
 
@@ -133,6 +135,7 @@ public class MapItemSelector {
     
     /**
 	 * Method sortByOnPathClosestToEndPoint.
+     * @param mapItemSelectorTest 
      * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector sortByOnPathClosestToEndPoint () {  
@@ -144,9 +147,9 @@ public class MapItemSelector {
     	Collections.sort(filteredItems, new Comparator<MapItem>() {
 
 			@Override
-			public int compare(MapItem map1, MapItem map2) {
-				double distance1 = map.pathDistanceToEndPoints(map1.getLocation());
-				double distance2 = map.pathDistanceToEndPoints(map2.getLocation());
+			public int compare(MapItem item1, MapItem item2) {
+				double distance1 = map.pathDistanceToEndPoints(item1.getLocation());
+				double distance2 = map.pathDistanceToEndPoints(item2.getLocation());
 				if (distance1 > distance2){
 					return 1;
 				}
