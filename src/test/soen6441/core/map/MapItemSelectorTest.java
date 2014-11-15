@@ -17,7 +17,7 @@ import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
 
 public class MapItemSelectorTest {
-	MapPath path;
+	private MapPath path;
 	private GridMap map;
 	private MapItem item1;
 	private MapItem item2;
@@ -30,7 +30,7 @@ public class MapItemSelectorTest {
 	private Critter c1;
 	private Critter c2;
 	private Critter c3;
-	private Class<?> Road;
+
 	
 	@Before
 	public void setUp() throws Exception {
@@ -40,16 +40,18 @@ public class MapItemSelectorTest {
 		
 		path = new MapPath();
 		
+		
 		p1 = new MapPoint(0, 0);
 		p2 = new MapPoint(1, 1);
 		p3 = new MapPoint(2, 2);
 		p4 = new MapPoint(1, 0);
-		p5 = new MapPoint(2, 0);
+		p5 = new MapPoint(0, 1);
 		
 		
 		path.addLocation(p1);
 		path.addLocation(p2);
 		path.addLocation(p3);
+		
 		item1 = new Road();
 		map.setItem(item1, p1);
 
@@ -84,12 +86,16 @@ public class MapItemSelectorTest {
 	@Test
 	public void testFilterByTypes() {
 		List<MapItem> items;
-		List<MapItem> filteredItems = new ArrayList<MapItem>();
+	
+		items = map.getItemSelector()
+				.filterByType(Road.class)
+				.getItems();
+		assertTrue(items.size() == 3);
 		
 		items = map.getItemSelector()
-				.filterByType(Road)
+				.filterByType(Critter.class)
 				.getItems();
-		assertTrue(true);
+		assertTrue(items.size() == 2);
 				
 	}
 
@@ -117,7 +123,11 @@ public class MapItemSelectorTest {
 		items = map.getItemSelector()
 				.sortByDirectlyClosestToPoint(p2)
 				.getItems();
-		assertTrue(true);
+		
+		assertTrue(items.indexOf(item1) == 3);
+		assertTrue(items.indexOf(item3) == 4);
+		
+		
 	}
 
 	@Test
@@ -126,7 +136,10 @@ public class MapItemSelectorTest {
 		items = map.getItemSelector()
 				.sortByOnPathClosestToEndPoint()
 				.getItems();
-		assertTrue(true);
+		path.addLocation(new MapPoint());
+		MapPoint p = path.getLastLocation();
+		assertEquals(p, p3);
+		//assertTrue(items.indexOf(item3) == 2);
 	}
 	@Test
 	public void testitemAddition() {
@@ -149,6 +162,7 @@ public class MapItemSelectorTest {
 		items = map.getItemSelector()
 				.sortByStrongest()
 				.getItems();
+		
 
 	}
 	@Test
