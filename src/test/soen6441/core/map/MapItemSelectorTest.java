@@ -23,8 +23,8 @@ import com.soen6441.core.map.Road;
  * 
  * @author Chenglong Zhang
  * @author Zhe Zhao
- * @author MengYao Wang
  * @author Mohammad Ali
+ * @author MengYao Wang
  * @version $Revision: 1.0 $
  */
 
@@ -87,7 +87,9 @@ public class MapItemSelectorTest {
 		List<MapItem> items;
 		MapPoint p6 = new MapPoint(1, 1);
 
-		items = map.getItemSelector().filterByCircularArea(p6, 2).getItems();
+		items = map.getItemSelector()
+				.filterByCircularArea(p6, 2)
+				.getItems();
 		assertTrue(items.size() == 7); // 5 road Item plus 2 Critters
 	}
 
@@ -106,11 +108,14 @@ public class MapItemSelectorTest {
 	@Test
 	public void testFilterByAmount() {
 		List<MapItem> items;
-		items = map.getItemSelector().filterByAmount(2).getItems();
+		items = map.getItemSelector()
+				.filterByAmount(2)
+				.getItems();
 
 		assertTrue(items.size() == 2);
 
-		items = map.getItemSelector().filterByAmount(2).filterByAmount(3)
+		items = map.getItemSelector()
+				.filterByAmount(2).filterByAmount(3)
 				.getItems();
 		assertTrue(items.size() == 2);
 
@@ -124,8 +129,10 @@ public class MapItemSelectorTest {
 		c3.setHp(10);
 		map.addCritter(c3, p3);
 
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByDirectlyClosestToPoint(p1).getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByDirectlyClosestToPoint(p1)
+				.getItems();
 
 		assertTrue(items.size() == 3);
 
@@ -134,8 +141,10 @@ public class MapItemSelectorTest {
 		assertTrue(items.indexOf(c3) == 2);
 
 		items = null;
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByDirectlyClosestToPoint(p6).getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByDirectlyClosestToPoint(p6)
+				.getItems();
 
 		assertTrue(items.indexOf(c1) == 2);
 		assertTrue(items.indexOf(c2) == 1);
@@ -152,8 +161,10 @@ public class MapItemSelectorTest {
 	@Test
 	public void testsortByOnPathClosestToEndPoint() {
 		List<MapItem> items;
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByOnPathClosestToEndPoint().getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByOnPathClosestToEndPoint()
+				.getItems();
 
 		assertTrue(items.size() == 2);
 		assertTrue(items.indexOf(c1) == 1);
@@ -164,7 +175,8 @@ public class MapItemSelectorTest {
 	@Test
 	public void testItemAddition() {
 		List<MapItem> items;
-		items = map.getItemSelector().getItems();
+		items = map.getItemSelector()
+				.getItems();
 
 		assertTrue(items.size() == 7);
 	}
@@ -172,8 +184,10 @@ public class MapItemSelectorTest {
 	@Test
 	public void testsortByWeakest() {
 		List<MapItem> items;
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByWeakest().getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByWeakest()
+				.getItems();
 
 		assertTrue(items.indexOf(c1) == 0);
 		assertTrue(items.indexOf(c2) == 1);
@@ -184,8 +198,10 @@ public class MapItemSelectorTest {
 		map.addCritter(c3, p3);
 
 		items = null;
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByWeakest().getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByWeakest()
+				.getItems();
 
 		assertTrue(items.indexOf(c3) == 0);
 		assertTrue(items.indexOf(c1) == 1);
@@ -196,8 +212,10 @@ public class MapItemSelectorTest {
 	@Test
 	public void testsortByStrongest() {
 		List<MapItem> items;
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByStrongest().getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByStrongest()
+				.getItems();
 
 		assertTrue(items.indexOf(c2) == 0);
 		assertTrue(items.indexOf(c1) == 1);
@@ -208,8 +226,10 @@ public class MapItemSelectorTest {
 		map.addCritter(c3, p3);
 
 		items = null;
-		items = map.getItemSelector().filterByType(Critter.class)
-				.sortByStrongest().getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.sortByStrongest()
+				.getItems();
 
 		assertTrue(items.indexOf(c3) == 0);
 		assertTrue(items.indexOf(c2) == 1);
@@ -222,7 +242,9 @@ public class MapItemSelectorTest {
 		List<MapItem> items;
 		List<MapItem> filteredItems = new ArrayList<MapItem>();
 		filteredItems.addAll(map.getItemSelector().getItems());
-		items = map.getItemSelector().filterByExcluding(c1).getItems();
+		items = map.getItemSelector().
+				filterByExcluding(c1).
+				getItems();
 
 		assertTrue(items.size() == filteredItems.size() - 1);
 
@@ -233,7 +255,9 @@ public class MapItemSelectorTest {
 		List<MapItem> items;
 		List<MapItem> filteredItems = new ArrayList<MapItem>();
 		filteredItems.addAll(map.getItemSelector().getItems());
-		items = map.getItemSelector().sortByRandom().getItems();
+		items = map.getItemSelector()
+				.sortByRandom()
+				.getItems();
 
 		assertFalse(filteredItems == items);
 	}
