@@ -68,12 +68,6 @@ public class Critter extends MapItem {
 		this.stealAmount = stealAmount;
 	}
 	
-	/**Class used for dom4j in order to be able to read specific xml tags
-	 * 
-	 * @author JeanRaymondDaher
-	 *
-	 * @version $Revision: 1.1 $
-	 */
 	public class NameForArchiving{
 		public static final String Class = "Critter";
 		private static final String Speed="speed";
@@ -83,12 +77,9 @@ public class Critter extends MapItem {
 		private static final String StealAmount="stealAmount";
 	}
 	
-	/**
-	 * This method takes the xml critter file and reads data and saves it in the critter object
-	 * @see IArchive
-	 */
 	@Override
 	public void decode(Element element) {
+
 		AffectableValue speed=new AffectableValue(Double.parseDouble(element.element(NameForArchiving.Speed).getText()));
 		this.setSpeed(speed);
 		

@@ -13,13 +13,11 @@ public class MapPointTest {
 	
 	MapPoint p1;
 	MapPoint p2;
-	MapPoint p3;
 	
 	@Before
 	public void setup() {
 		p1 = new MapPoint(10.2, 10.4);
 		p2 = new MapPoint(10.2, 10.4);
-		p3 = new MapPoint(5.2, 5.4);
 		
 	}
 
@@ -37,11 +35,5 @@ public class MapPointTest {
 	public void testEqualsObject() {
 		assertEquals(p1, p2);
 	}
-	
-	@Test
-	public void testDistanceTo() {
-		assertTrue(p1.distanceTo(p2) == 0);
-		assertTrue((int) p1.distanceTo(p3) == 7);
-	}
-	
+
 }

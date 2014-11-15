@@ -1,13 +1,10 @@
 package com.soen6441.ui.scene;
 
-import java.awt.Font;
 import java.awt.TextField;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.JOptionPane;
-
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.play.Play;
 import com.soen6441.ui.parallel.*;
@@ -48,7 +45,6 @@ public class NewMapScene extends View {
 		// add a label of widthText
 		widthTextLabel = new Label();
 		widthTextLabel.setText("Width");
-		widthTextLabel.setFont(widthTextLabel.getFont().deriveFont(Font.BOLD));
 		widthTextLabel.setSize(200, 40);
 		widthTextLabel.setLocation(220, 150);
 		this.add(widthTextLabel);
@@ -61,7 +57,6 @@ public class NewMapScene extends View {
 
 		heightTextLabel = new Label();
 		heightTextLabel.setText("Height");
-		heightTextLabel.setFont(heightTextLabel.getFont().deriveFont(Font.BOLD));
 		heightTextLabel.setSize(200, 40);
 		heightTextLabel.setLocation(220, (int)widthTextLabel.getLocation().getY() + 50);
 		this.add(heightTextLabel);
@@ -74,7 +69,6 @@ public class NewMapScene extends View {
 		
 		nameTextLabel = new Label();
 		nameTextLabel.setText("Name");
-		nameTextLabel.setFont(nameTextLabel.getFont().deriveFont(Font.BOLD));
 		nameTextLabel.setSize(200, 40);
 		nameTextLabel.setLocation(220, (int)heightTextLabel.getLocation().getY() + 50);
 		this.add(nameTextLabel);
@@ -87,14 +81,12 @@ public class NewMapScene extends View {
 
 		nextButton = new Button();
 		nextButton.setTitle("Next");
-		nextButton.setFont(nextButton.getFont().deriveFont(Font.BOLD));
 		nextButton.setLocation(300, (int)nameTextField.getLocation().getY() + 50);
 		nextButton.setSize(200, 40);
 		this.add(nextButton);
 
 		backButton = new Button();
 		backButton.setTitle("BACK");
-		backButton.setFont(backButton.getFont().deriveFont(Font.BOLD));
 		backButton.setSize(60, 20);
 		backButton.setLocation(10, 540);
 		this.add(backButton);

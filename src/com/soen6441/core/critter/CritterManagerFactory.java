@@ -1,5 +1,11 @@
 package com.soen6441.core.critter;
-
+/**
+ * This class defines the CritterManagerFactory data structure which will create multiple critters of types 1 and 2 defined each in specific xml file.
+ * 
+ * @author JeanRaymondDaher
+ *
+ * @version $Revision: 1.1 $
+ */
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -23,12 +29,6 @@ public class CritterManagerFactory {
 		return defaultFactory;
 	}
 
-
-	/**
-	 * Constructor.
-	 * Declares all kinds of critter type names, finds the XML data file path by type names, 
-	 * then create CritterManagers using the types.
-	 */
 	private CritterManagerFactory() {
 		
 		typeNames = new ArrayList<String>(Arrays.asList("Critter 1","Critter 2"));
