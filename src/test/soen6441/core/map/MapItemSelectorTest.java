@@ -15,13 +15,8 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
-import com.soen6441.core.map.PathManager;
 import com.soen6441.core.map.Road;
 
-<<<<<<< HEAD
-=======
-
->>>>>>> origin/zcl_local
 public class MapItemSelectorTest {
 	MapPath path;
 	private GridMap map;
