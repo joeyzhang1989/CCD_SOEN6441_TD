@@ -1,6 +1,7 @@
 package com.soen6441.ui.scene;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -8,6 +9,7 @@ import java.io.File;
 import javax.swing.JFileChooser;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
+
 
 
 
@@ -64,20 +66,23 @@ public class MainScene extends View {
 		// add a playbutton in the mainscene
 		playButton = new Button();
 		playButton.setTitle("Play");
+		playButton.setFont(playButton.getFont().deriveFont(Font.BOLD));
 		playButton.setLocation(300, 320);
 		playButton.setSize(200, 40);
 		this.add(playButton);
 
 		// add an editbutton in the mainscene
 		editButton = new Button();
-		editButton.setTitle("Edit a map");
+		editButton.setTitle("Edit a Map");
+		editButton.setFont(editButton.getFont().deriveFont(Font.BOLD));
 		editButton.setLocation(300, 370);
 		editButton.setSize(200, 40);
 		this.add(editButton);
 
 		// add a newmapbutton in the mainscene
 		newMapButton = new Button();
-		newMapButton.setTitle("Create new map");
+		newMapButton.setTitle("Create New Map");
+		newMapButton.setFont(newMapButton.getFont().deriveFont(Font.BOLD));
 		newMapButton.setLocation(300, 420);
 		newMapButton.setSize(200, 40);
 		this.add(newMapButton);

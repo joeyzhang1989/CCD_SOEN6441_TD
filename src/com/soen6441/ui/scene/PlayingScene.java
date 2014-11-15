@@ -201,14 +201,21 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	protected void initEvents() {
 		super.initEvents();
-		
-		//perform the nextWave function to create the next wave of critters
-		
+
+		// perform the nextWave function to create the next wave of critters
+
 		controlButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				play.nextWave();
-				updateInfoLabel();
+				if (play.getCurrentWaveIndex() < play.getCritterWaveAmount() - 1) {
+					play.nextWave();
+					updateInfoLabel();
+
+				} else {
+					infoLabel.setText("Waves Finished");
+					controlButton.setEnabled(false);
+				}
+
 			}
 		});
 		
