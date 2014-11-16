@@ -5,8 +5,6 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
-import test.soen6441.core.map.MapItemSelectorTest;
-
 
 import com.soen6441.core.critter.Critter;
 
@@ -135,7 +133,6 @@ public class MapItemSelector {
     
     /**
 	 * Method sortByOnPathClosestToEndPoint.
-     * @param mapItemSelectorTest 
      * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector sortByOnPathClosestToEndPoint () {  
