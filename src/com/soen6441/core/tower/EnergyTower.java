@@ -43,6 +43,7 @@ public class EnergyTower extends Tower {
 		EnergyTower energyTower = (EnergyTower)tower;
 		super.copyTo(energyTower);
 		energyTower.enhanceRate = this.enhanceRate;
+		energyTower.enhanceDuration = this.enhanceDuration;
 		energyTower.effectImageName = this.effectImageName;
 	}
 	
@@ -53,7 +54,8 @@ public class EnergyTower extends Tower {
 	@Override
 	public String getDetailInformation() {
 		String result = "CDTime :" + this.getCdTime().getEffectedValue() + System.getProperty("line.separator")
-					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator");
+					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator")
+					  + "Duration :" + this.enhanceDuration + System.getProperty("line.separator");
 		return result;
 	}
 	

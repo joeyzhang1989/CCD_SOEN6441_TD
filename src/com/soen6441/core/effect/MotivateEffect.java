@@ -33,7 +33,7 @@ public class MotivateEffect extends Effect {
 	
 	@Override
 	public void start() {
-		this.getTimer().setTimeIntervalSecond(10);
+		this.getTimer().setTimeIntervalSecond(enhanceDuration);
 		this.getTimer().start();
 	}
 	
@@ -42,15 +42,13 @@ public class MotivateEffect extends Effect {
 		
 		Tower tower = (Tower)this.getOn();
 		tower.reinforce(enhanceRate);
-		System.out.println("Motivate Effect added : MotivateEffect");
-		
+	
 	}
 	
 	public void timerTick(Timer timer) {
 		
 		this.getOn().removeEffect(this);
 		this.stop();
-		System.out.println("Motivate Effect removed : MotivateEffect");
 		
 	}
 	
@@ -58,7 +56,6 @@ public class MotivateEffect extends Effect {
 	public void stop() {
 		
 		this.getTimer().stop();
-		System.out.println("Timer stop : motivateEffect");
 		
 	}
 
