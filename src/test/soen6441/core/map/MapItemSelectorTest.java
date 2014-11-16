@@ -96,11 +96,15 @@ public class MapItemSelectorTest {
 	@Test
 	public void testFilterByTypes() {
 		List<MapItem> items;
-		items = map.getItemSelector().filterByType(Road.class).getItems();
+		items = map.getItemSelector()
+				.filterByType(Road.class)
+				.getItems();
 
 		assertTrue(items.size() == 5);
 
-		items = map.getItemSelector().filterByType(Critter.class).getItems();
+		items = map.getItemSelector()
+				.filterByType(Critter.class)
+				.getItems();
 		assertTrue(items.size() == 2);
 
 	}
@@ -115,7 +119,8 @@ public class MapItemSelectorTest {
 		assertTrue(items.size() == 2);
 
 		items = map.getItemSelector()
-				.filterByAmount(2).filterByAmount(3)
+				.filterByAmount(2)
+				.filterByAmount(3)
 				.getItems();
 		assertTrue(items.size() == 2);
 
@@ -242,9 +247,9 @@ public class MapItemSelectorTest {
 		List<MapItem> items;
 		List<MapItem> filteredItems = new ArrayList<MapItem>();
 		filteredItems.addAll(map.getItemSelector().getItems());
-		items = map.getItemSelector().
-				filterByExcluding(c1).
-				getItems();
+		items = map.getItemSelector()
+				.filterByExcluding(c1)
+				.getItems();
 
 		assertTrue(items.size() == filteredItems.size() - 1);
 
