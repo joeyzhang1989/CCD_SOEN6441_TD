@@ -3,11 +3,25 @@ package com.soen6441.core.effect;
 import com.soen6441.core.Timer;
 import com.soen6441.core.tower.Tower;
 
+/**
+ * This is a kind of special effect on Tower.
+ * By adding this effect to a Tower object, to enhance the properties of the tower object.
+ * @author Haiyang Sun
+ * @see Effect
+ * @see MapItem
+ * @see Tower
+ */
 public class MotivateEffect extends Effect {
 	
+	/*
+	 * Properties
+	 */
 	double enhanceRate;
 	double enhanceDuration;
-
+	
+	/*
+	 * Constructor
+	 */
 	public MotivateEffect(String type) {
 		
 		this.setType(type);
@@ -15,9 +29,17 @@ public class MotivateEffect extends Effect {
 	}
 	
 	public MotivateEffect() {
-		
-		
+			
 	}
+	
+	/*
+	 * Methods
+	 */
+	
+	/**
+	 * Check if the existing same kind of Effect is stronger than this one.
+	 * @see Effect#strongerThan(Effect)
+	 */
 	@Override
 	public boolean strongerThan (Effect effect) {
 		
@@ -30,13 +52,21 @@ public class MotivateEffect extends Effect {
 		return false;
 		
 	}
-	
+
+	/**
+	 * Method to start the effect.
+	 * @see Effect#start()
+	 */
 	@Override
 	public void start() {
 		this.getTimer().setTimeIntervalSecond(enhanceDuration);
 		this.getTimer().start();
 	}
 	
+	/**
+	 * Method to add a sustaining effect on a critter object.
+	 * @see Effect#affect()
+	 */
 	@Override
 	public void affect() {
 		
@@ -45,6 +75,10 @@ public class MotivateEffect extends Effect {
 	
 	}
 	
+	/**
+	 * Timer tick method: At the ending time of this effect, remove itself.
+	 * @see Effect#timerTick(Timer)
+	 */
 	public void timerTick(Timer timer) {
 		
 		this.getOn().removeEffect(this);
@@ -52,13 +86,20 @@ public class MotivateEffect extends Effect {
 		
 	}
 	
+	/**
+	 * Method to stop effecting.
+	 * @see Effect#stop()
+	 */
 	@Override
 	public void stop() {
 		
 		this.getTimer().stop();
 		
 	}
-
+	
+	/*
+	 * Getters and Setters.
+	 */
 	public double getEnhanceRate() {
 		return enhanceRate;
 	}
