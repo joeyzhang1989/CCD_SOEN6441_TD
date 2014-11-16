@@ -132,11 +132,7 @@ public class MapItem extends Observable implements IArchive{
 	protected void resetAffectableValue() {
 		
 	}
-
-    /*
-     * Mark - Effect - Implement IAffectable
-     */
-	       
+   
 	/**
      * Method addEffect.
      * @param effect Effect
@@ -146,15 +142,21 @@ public class MapItem extends Observable implements IArchive{
 		
 		Effect comparedEffect = this.getEffect(effect.getType());
 		
-		if (comparedEffect != null && effect.strongerThan(comparedEffect)) {
-			this.removeEffect(effect);
-		}
-		
-		effect.setOn(this);
-		effects.put(effect.getType(), effect);
-		effect.affect();
-		effect.start();
-		
+		if (comparedEffect != null) {
+			if(effect.strongerThan(comparedEffect)) {
+				this.removeEffect(effect);
+				System.out.println("Effect removed : MapItem");
+				effect.setOn(this);
+				effects.put(effect.getType(), effect);
+				effect.affect();
+				effect.start();
+			}
+		} else {
+			effect.setOn(this);
+			effects.put(effect.getType(), effect);
+			effect.affect();
+			effect.start();	
+		}	
 	}
 
 
@@ -182,6 +184,7 @@ public class MapItem extends Observable implements IArchive{
 	public void removeEffect(Effect effect) {
 		
 		effect.stop();
+		effect.setOn(null);
 		effects.remove(effect.getType());
 		this.updateAffectableValues();
 		

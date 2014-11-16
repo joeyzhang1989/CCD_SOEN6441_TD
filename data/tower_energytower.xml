@@ -36,7 +36,7 @@
 				<sellPrice>480</sellPrice>
 				<damage>15</damage>
 				<range>3</range>
-				<cdTime>3</cdTime>
+				<cdTime>1</cdTime>
 				<enhanceRate>1.3</enhanceRate>
 				<enhanceDuration>3</enhanceDuration>
 				<cellImageName>tower_cell_2_3.png</cellImageName>

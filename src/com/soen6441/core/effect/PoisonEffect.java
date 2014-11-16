@@ -56,11 +56,15 @@ public class PoisonEffect extends Effect implements TimerListener{
 			
 			this.getOn().removeEffect(this);
 			critter.damaged(poisonDamage);
+			System.out.println("last poison");
 			
 		} else {
 			
 			critter.damaged(poisonDamage);
+			System.out.println("poison");
+			
 		}
+		
 		
 	}
 	

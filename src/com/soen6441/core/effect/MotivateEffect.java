@@ -1,28 +1,39 @@
 package com.soen6441.core.effect;
 
 import com.soen6441.core.Timer;
-import com.soen6441.core.TimerListener;
 import com.soen6441.core.tower.Tower;
 
-public class MotivateEffect extends Effect implements TimerListener{
+public class MotivateEffect extends Effect {
 	
 	double enhanceRate;
 	double enhanceDuration;
+
+	public MotivateEffect(String type) {
+		
+		this.setType(type);
+		
+	}
+	
+	public MotivateEffect() {
+		
+		
+	}
 	@Override
 	public boolean strongerThan (Effect effect) {
 		
 		if (effect.type.equalsIgnoreCase(type)) {
 			MotivateEffect exist = (MotivateEffect)effect;			
-			if (this.enhanceRate > exist.enhanceRate) {
+			if (this.getEnhanceRate() > exist.getEnhanceRate()) {
 				return true;
 			}
 		}
-		return false;	
+		return false;
+		
 	}
 	
 	@Override
 	public void start() {
-		this.getTimer().setTimeIntervalSecond(this.getEnhanceDuration());
+		this.getTimer().setTimeIntervalSecond(10);
 		this.getTimer().start();
 	}
 	
@@ -31,13 +42,15 @@ public class MotivateEffect extends Effect implements TimerListener{
 		
 		Tower tower = (Tower)this.getOn();
 		tower.reinforce(enhanceRate);
-		
+		System.out.println("Motivate Effect added : MotivateEffect");
 		
 	}
-	@Override
+	
 	public void timerTick(Timer timer) {
 		
 		this.getOn().removeEffect(this);
+		this.stop();
+		System.out.println("Motivate Effect removed : MotivateEffect");
 		
 	}
 	
@@ -45,6 +58,7 @@ public class MotivateEffect extends Effect implements TimerListener{
 	public void stop() {
 		
 		this.getTimer().stop();
+		System.out.println("Timer stop : motivateEffect");
 		
 	}
 

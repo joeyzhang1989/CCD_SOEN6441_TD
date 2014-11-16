@@ -52,7 +52,7 @@ public class EnergyTower extends Tower {
 	 */
 	@Override
 	public String getDetailInformation() {
-		String result = "CDTime :" + this.getCdTime() + System.getProperty("line.separator")
+		String result = "CDTime :" + this.getCdTime().getEffectedValue() + System.getProperty("line.separator")
 					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator");
 		return result;
 	}
@@ -120,7 +120,7 @@ public class EnergyTower extends Tower {
 	protected void attack() {
 		for (MapItem item:this.getTargets()) {
 			
-			MotivateEffect effect = new MotivateEffect();
+			MotivateEffect effect = new MotivateEffect(ENHACE_EFFECT);
 			effect.setEnhanceRate(this.enhanceRate);
 			effect.setEnhanceDuration(this.enhanceDuration);
 			effect.setCellImageName(this.getEffectImageName());
