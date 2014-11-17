@@ -118,6 +118,7 @@ public class MapItem extends Observable implements IArchive{
 	 */
 
 	private Map<String , Effect> effects = new HashMap<String, Effect>();
+	private Object effectLock = new Object();
 	
 	/*
 	 * Mark - Effect - Methods
@@ -142,21 +143,22 @@ public class MapItem extends Observable implements IArchive{
 		
 		Effect comparedEffect = this.getEffect(effect.getType());
 		
-		if (comparedEffect != null) {
-			if(effect.strongerThan(comparedEffect)) {
-				this.removeEffect(effect);
-				System.out.println("Effect removed : MapItem");
+//		synchronized (effectLock) {
+			if (comparedEffect != null) {
+				if(effect.strongerThan(comparedEffect)) {
+					this.removeEffect(effect);
+					effect.setOn(this);
+					effects.put(effect.getType(), effect);
+					effect.affect();
+					effect.start();
+				}
+			} else {
 				effect.setOn(this);
 				effects.put(effect.getType(), effect);
 				effect.affect();
-				effect.start();
+				effect.start();	
 			}
-		} else {
-			effect.setOn(this);
-			effects.put(effect.getType(), effect);
-			effect.affect();
-			effect.start();	
-		}	
+//		}
 	}
 
 
@@ -182,13 +184,12 @@ public class MapItem extends Observable implements IArchive{
 	
      * @see com.soen6441.core.effect.IAffectable#removeEffect(Effect) */
 	public void removeEffect(Effect effect) {
-		
-		effect.stop();
-		effect.setOn(null);
-		effects.remove(effect.getType());
-		this.updateAffectableValues();
-		
-		
+//		synchronized (effectLock) {
+			effect.stop();
+			effect.setOn(null);
+			effects.remove(effect.getType());
+			this.updateAffectableValues();
+//		}
 	}
 
 	

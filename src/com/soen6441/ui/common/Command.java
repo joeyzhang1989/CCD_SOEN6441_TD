@@ -33,11 +33,12 @@ public class Command {
 	
 	private String title;
 	private String subtitle;
+	private String imageName;
 	
 	/*
 	 * Mark - Method - Getters & Setters
 	 */
-	
+
 	/**
 	 * Method getTitle.
 	 * @return String  
@@ -66,5 +67,13 @@ public class Command {
 	 */
 	public void setSubtitle(String subtitle) {
 		this.subtitle = subtitle;
+	}
+
+	public String getImageName() {
+		return imageName;
+	}
+
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
 	}
 }

@@ -15,6 +15,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
 import com.soen6441.core.play.PlayEventListener;
+import com.soen6441.core.strategy.Strategy;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
@@ -371,6 +372,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			return "You can select any type of tower to build on this cell.";
 		}
 
+		@Override
+		public List<Command> gridCommands() {
+			return null;
+		}
+		
 		/**
 		 * Method commands.
 		 * @return List<Command>  
@@ -428,6 +434,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		private Command refundCommand;
 		private Tower tower;
 		
+		private List<Command> strategyCommands;
 		
 		/**
 		 * Constructor for InspectableTower.
@@ -470,6 +477,22 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			
 			return tower.getDescription() + "\n" + tower.getDetailInformation();
 		}
+		
+		@Override
+		public List<Command> gridCommands() {
+			if (tower.isStrategyEnabled()) {
+				strategyCommands = new ArrayList<Command>();
+				List<Strategy> strategies = Strategy.getAllStrategies();
+				for (Strategy strategy : strategies) {
+					Command command = new Command();
+					command.setImageName(strategy.getImageName());
+					strategyCommands.add(command);
+				}
+				return strategyCommands;
+			} else {
+				return null;
+			}
+		}
 
 		/**
 		 * Method commands.
@@ -507,7 +530,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			} else if (command == refundCommand) {
 				play.earnCoins(tower.getSellPrice());
 				play.getMap().removeItem(tower);
-			} 
+			} else {
+				int index = strategyCommands.indexOf(command);
+				String strategyName = Strategy.getStrategyNames().get(index);
+				tower.setStrategyName(strategyName);
+			}
 		}	
 	}	
 
@@ -569,6 +596,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			return null;
 		}
 
+		@Override
+		public List<Command> gridCommands() {
+			return null;
+		}
+		
 		/**
 		 * Method commands.
 		 * @return List<Command>  

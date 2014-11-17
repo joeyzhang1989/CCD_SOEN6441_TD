@@ -34,6 +34,13 @@ public interface IInspectable{
      */
 	
 	public String description();
+	
+	/**
+	 * Method gridCommands.
+	 * @return List<Command>  
+     */
+	public List<Command> gridCommands();
+	
 	/**
 	 * Method commands.
 	 * @return List<Command>  

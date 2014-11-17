@@ -17,21 +17,6 @@ import com.soen6441.ui.common.GridViewCell;
 
 public class MapItemCell extends GridViewCell{
 
-	
-	/*
-	 * Mark - Selection - Methods
-	 */
-	
-	/**
-	 * Method setSelected.
-	 * @param selected boolean
-	 */
-	@Override
-	public void setSelected(boolean selected) {
-		super.setSelected(selected);
-		this.repaint();
-	}
-	
 	/*
 	 * Mark - Paint - Methods
 	 */

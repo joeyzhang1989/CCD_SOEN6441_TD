@@ -139,7 +139,6 @@ public class Button extends JButton {
 		graphics2d.setFont(this.getFont());
 		boolean isPressed = this.getModel().isPressed();
 		boolean enabled = this.isEnabled(); 
-		boolean hasSubtitle = subtitle != null;
 		
 		Color colorTint = enabled ? new Color(0x333333) : new Color(0xCCCCCC);
 		Color colorBack = new Color(0xFFFFFF);
@@ -160,19 +159,7 @@ public class Button extends JButton {
 		int titleWidth = metrics.stringWidth(title);
 		float y = (float)((this.getHeight() - height ) / 2.0f) + metrics.getAscent();
 		
-		
-		if (hasSubtitle) {
-			int subtitleWidth = metrics.stringWidth(subtitle);
-			
-			int margin = 10;
-			graphics2d.setColor(isPressed ? colorBack : colorTint);
-			
-			graphics2d.drawString(title, margin, y);
-			graphics2d.drawString(subtitle, this.getWidth() - margin - subtitleWidth, y);
-			
-		} else {
-			graphics2d.setColor(isPressed ? colorBack : colorTint);
-			graphics2d.drawString(title, (float)((this.getWidth() - titleWidth ) / 2.0f), y);
-		}
+		graphics2d.setColor(isPressed ? colorBack : colorTint);
+		graphics2d.drawString(title, (float)((this.getWidth() - titleWidth ) / 2.0f), y);
 	}
 }

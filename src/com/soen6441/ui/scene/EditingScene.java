@@ -271,6 +271,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return commands;
 		}
 
+		@Override
+		public List<Command> gridCommands() {
+			return null;
+		}
+
 		/**
 		 * Method execute.
 		 * @param command Command
@@ -349,6 +354,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return "This is a road cell that you can destroy";
 		}
 
+		@Override
+		public List<Command> gridCommands() {
+			return null;
+		}
+		
 		/**
 		 * Method commands.
 		 * @return List<Command> 

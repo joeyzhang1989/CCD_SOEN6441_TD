@@ -1,12 +1,15 @@
 package com.soen6441.ui.common;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 
 import com.soen6441.ui.parallel.Button;
+import com.soen6441.ui.parallel.CommandButton;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.TextView;
 import com.soen6441.ui.parallel.View;
@@ -23,13 +26,15 @@ import com.soen6441.ui.parallel.View;
  * @see IInspectable
  * @version $Revision: 1.0 $
  */
-public class InspectorView extends View {
+public class InspectorView extends View implements GridViewSelectionListener{
 	
 	/*
 	 * Mark - Command - Properties
 	 */
 
+	private List<Command> gridCommands;
 	private List<Command> commands;
+	
 	
 	/*
 	 * Mark - Views - Properties
@@ -39,7 +44,8 @@ public class InspectorView extends View {
 	private Label subtitleLabel;
 //	private ImageView imageView;
 	private TextView descriptionTextArea;
-	private List<Button> commandButtons;
+	private GridView gridView;
+	private List<CommandButton> commandButtons;
 	
 	/*
 	 * Mark - Views - Life Cycle 
@@ -49,7 +55,7 @@ public class InspectorView extends View {
 	protected void init() {
 		super.init();
 		this.setSize(180, 500);
-		this.commandButtons = new ArrayList<Button>();
+		this.commandButtons = new ArrayList<CommandButton>();
 	}
 	
 	@Override
@@ -73,12 +79,21 @@ public class InspectorView extends View {
 		TextView descriptionTextView = new TextView();
 		descriptionTextView.setFontSize(12);
 		descriptionTextView.setSize(160, 200);
-		descriptionTextView.setLocation(10, 160);
+		descriptionTextView.setLocation(10, 60);
 		descriptionTextView.setBackground(new Color(0xEEEEEE));
         
+		GridView gridView = new GridView();
+		gridView.setSelectionListener(this);
+		gridView.setVisible(false);
+		this.add(gridView);
+		this.gridView = gridView;
+		
 		this.add(descriptionTextView);
 		this.descriptionTextArea = descriptionTextView;
 	}
+	
+	private static final int _NUMBER_OF_COLUMN = 4;
+	private static final int _UNIT_LENGTH = 40;
 
 	/**
 	 * To refersh the inspector view.
@@ -89,7 +104,7 @@ public class InspectorView extends View {
 		descriptionTextArea.setText(on.description());
 		
 		//remove old buttons
-		for (Button button:commandButtons){
+		for (CommandButton button:commandButtons){
 			this.remove(button);
 		}
 		
@@ -100,10 +115,9 @@ public class InspectorView extends View {
 			for (int i = 0; i < commands.size(); i++){
 				Command command = commands.get(i);
 				
-				Button button = new Button();
+				CommandButton button = new CommandButton();
 				button.setFontSize(12);
-				button.setTitle(command.getTitle());
-				button.setSubtitle(command.getSubtitle());
+				button.setCommand(command);
 				button.setSize(160, 40);
 				button.setLocation(10, this.getHeight() - 50 * (commands.size() - i));
 				this.add(button);
@@ -112,11 +126,49 @@ public class InspectorView extends View {
 				button.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						int index = commandButtons.indexOf(e.getSource());
-						on.execute(commands.get(index));
+						CommandButton commandButton = (CommandButton)e.getSource();
+						on.execute(commandButton.getCommand());
 					}
 				});
 			}
+		}
+		
+
+		gridCommands = on.gridCommands();
+		if (gridCommands != null) {
+			gridView.setNumberOfColumns(_NUMBER_OF_COLUMN);
+			gridView.setNumberOfRows((gridCommands.size() - 1) / _NUMBER_OF_COLUMN + 1);
+			gridView.setUnitHeight(_UNIT_LENGTH);
+			gridView.setUnitWidth(_UNIT_LENGTH);
+			
+			Dimension dimension = gridView.suggestedSize();
+			gridView.setSize(dimension);
+			gridView.setLocation(10, (int) (this.getHeight() - 50 * commands.size() - 10 - dimension.getHeight()));
+			
+			for (int i = 0 ; i < gridCommands.size() ; i ++) {
+				CommandButton commandButton = new CommandButton();
+				commandButton.setCommand(gridCommands.get(i));
+				commandButton.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
+				
+				GridViewCell cell = new GridViewCell();
+				cell.add(commandButton);
+
+				int row = i / _NUMBER_OF_COLUMN;
+				int column = i % _NUMBER_OF_COLUMN;
+				gridView.addCell(cell, new GridPoint(row, column));
+				
+				commandButton.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						CommandButton commandButton = (CommandButton)e.getSource();
+						on.execute(commandButton.getCommand());
+					}
+				});
+			}
+			
+			gridView.setVisible(true);
+		} else {
+			gridView.setVisible(false);
 		}
 	}
 	
@@ -148,5 +200,13 @@ public class InspectorView extends View {
 	public void setOn(IInspectable on) {
 		this.on = on;
 	}
-	
+
+	/*
+	 * Mark - Grid View Selection - Methods
+	 */
+	 
+	@Override
+	public void gridViewDidSelect() {
+		
+	}
 }

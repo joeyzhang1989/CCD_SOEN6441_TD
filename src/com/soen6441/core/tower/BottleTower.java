@@ -8,6 +8,7 @@ import com.soen6441.core.IArchive;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
+import com.soen6441.core.strategy.EnableStrategy;
 
 /**
  * This class is a specific type of tower, BottleTower.
@@ -18,7 +19,7 @@ import com.soen6441.core.map.MapItemSelector;
  * @author Haiyang Sun
  * @version $Revision: 1.0 $
  */
-public class BottleTower extends Tower {
+public class BottleTower extends Tower implements EnableStrategy {
 	/*
 	 * Basic methods
 	 */
@@ -93,7 +94,7 @@ public class BottleTower extends Tower {
 		List<MapItem> targets = selector
 				.filterByType(Critter.class)
 				.filterByCircularArea(this.getLocation(), this.getRange().getEffectedValue())
-				.sortByDirectlyClosestToPoint(this.getLocation())
+				.sortByStrategy(this.getStrategyName(), this)
 				.filterByAmount(1)
 				.getItems();
 		

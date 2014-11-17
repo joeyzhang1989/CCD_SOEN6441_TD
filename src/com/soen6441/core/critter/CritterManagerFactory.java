@@ -32,8 +32,8 @@ public class CritterManagerFactory {
 		fileNames.put("Critter 3", "critter_3");
 		
 		
-		for(int i=0; i<typeNames.size(); i++) {
-			CritterManager critterManager = new CritterManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/"+ fileNames.get(typeNames.get(i)) +".xml");
+		for(int i = 0; i < typeNames.size(); i++) {
+			CritterManager critterManager = new CritterManager(typeNames.get(i), System.getProperty("user.dir") + "/data/" + fileNames.get(typeNames.get(i)) + ".xml");
 			managers.put(typeNames.get(i), critterManager);
 		}
 		
