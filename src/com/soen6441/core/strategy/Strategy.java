@@ -11,12 +11,21 @@ public class Strategy {
 	 * Mark - Basic - Properties
 	 */
 	
-	private String imageName;
 	private String name;
+	private String imageName;
+	private String description;
 	
 	/*
 	 * Mark - Basic - Getters & Setters
 	 */
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
 	 
 	public String getImageName() {
 		return imageName;
@@ -26,12 +35,12 @@ public class Strategy {
 		this.imageName = imageName;
 	}
 
-	public String getName() {
-		return name;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 	
 	/*
@@ -59,24 +68,28 @@ public class Strategy {
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT);
 		strategy.setImageName("strategy_1.png");
+		strategy.setDescription("XXXXX");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 		
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_ON_PATH_CLOSEST_TO_END_POINT);
 		strategy.setImageName("strategy_2.png");
+		strategy.setDescription("XXXXX");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_WEAKEST);
 		strategy.setImageName("strategy_3.png");
+		strategy.setDescription("XXXXX");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_STRONGEST);
 		strategy.setImageName("strategy_4.png");
+		strategy.setDescription("XXXXX");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 	}
