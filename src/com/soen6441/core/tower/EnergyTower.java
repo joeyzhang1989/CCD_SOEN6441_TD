@@ -36,7 +36,7 @@ public class EnergyTower extends Tower {
 	 * Copy properties from one EnergyTower object to another.
 	 * 
 	 * @param tower
-	 * @see Tower#copyTo(Tower)  
+	 * @see Tower#copyTo(Tower)
      */
 	@Override
 	public void copyTo(Tower tower){
@@ -50,7 +50,7 @@ public class EnergyTower extends Tower {
 	/**
 	 * Return detail information of a EnergyTower object.
 	 * @return String
-	 */
+     */
 	@Override
 	public String getDetailInformation() {
 		String result = "CDTime :" + (int)this.getCdTime().getAffectedValue() + System.getProperty("line.separator")
@@ -63,6 +63,7 @@ public class EnergyTower extends Tower {
 	 * Inner class contains name strings for archiving.
 	 * @author Haiyang Sun
 	 *
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		
@@ -89,9 +90,10 @@ public class EnergyTower extends Tower {
 	
 	/**
 	 * Encode value of properties of an sun tower object.
-	 * @see Tower#encode(Element)
-	 * @see IArchive
-	 */
+	 * @return Element
+ 	 * @see Tower#encode(Element) 
+     * @see IArchive 
+     */
 	@Override
 	public Element encode() {
 		Element element = super.encode();
@@ -148,9 +150,10 @@ public class EnergyTower extends Tower {
 	/**
 	 * This method is use to enhance properties of the tower.
 	 * It is called by Motivate Effect, EnergyTower.
-	 * @see MotivateEffect
-	 * @see EnergyTower
-	 */
+	 * @param enhanceRate double
+	 * @see MotivateEffect 
+     * @see EnergyTower
+     */
 	@Override
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
@@ -158,8 +161,8 @@ public class EnergyTower extends Tower {
 	
 	/**
 	 * This method is used to reset all effected values of this object to its original values.
-	 * @see MapItem
-	 */
+	 * @see MapItem 
+     */
 	@Override
 	protected void resetAffectableValue() {
 		super.resetAffectableValue();
@@ -168,26 +171,50 @@ public class EnergyTower extends Tower {
 	/*
 	 * Getters and Setters
 	 */
+	/**
+	 * Method getEnhanceRate.
+	 * @return double
+	 */
 	public double getEnhanceRate() {
 		return enhanceRate;
 	}
 	
+	/**
+	 * Method setEnhanceRate.
+	 * @param enhanceRate double
+	 */
 	public void setEnhanceRate(double enhanceRate) {
 		this.enhanceRate = enhanceRate;
 	}
 
+	/**
+	 * Method getEffectImageName.
+	 * @return String
+	 */
 	public String getEffectImageName() {
 		return effectImageName;
 	}
 
+	/**
+	 * Method setEffectImageName.
+	 * @param effectImageName String
+	 */
 	public void setEffectImageName(String effectImageName) {
 		this.effectImageName = effectImageName;
 	}
 
+	/**
+	 * Method getEnhanceDuration.
+	 * @return double
+	 */
 	public double getEnhanceDuration() {
 		return enhanceDuration;
 	}
 
+	/**
+	 * Method setEnhanceDuration.
+	 * @param enhanceDuration double
+	 */
 	public void setEnhanceDuration(double enhanceDuration) {
 		this.enhanceDuration = enhanceDuration;
 	}

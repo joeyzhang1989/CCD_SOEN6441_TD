@@ -13,6 +13,7 @@ import com.soen6441.core.strategy.Strategy;
 /**
  * @author Chenglong Zhang 
  * @author Mengyao Wang 
+ * @version $Revision: 1.0 $
  */
 public class MapItemSelector {
 	
@@ -27,18 +28,34 @@ public class MapItemSelector {
 	 * Mark - Context - Getters & Setters
 	 */
     
-    public GridMap getMap() {
+    /**
+	 * Method getMap.
+	 * @return GridMap
+	 */
+	public GridMap getMap() {
 		return map;
 	}
 
+	/**
+	 * Method setMap.
+	 * @param map GridMap
+	 */
 	public void setMap(GridMap map) {
 		this.map = map;
 	}
 
+	/**
+	 * Method getItems.
+	 * @return List<MapItem>
+	 */
 	public List<MapItem> getItems() {
 		return items;
 	}
 
+	/**
+	 * Method setItems.
+	 * @param items List<MapItem>
+	 */
 	public void setItems(List<MapItem> items) {
 		this.items = items;
 	}
@@ -49,8 +66,10 @@ public class MapItemSelector {
 	
 	/**
 	 * Method fliterByCircularArea.
-     * @return MapItemSelector mapItemSelector
-     */
+    
+     * @param mapPoint MapPoint
+	 * @param radius double
+	 * @return MapItemSelector mapItemSelector */
 	public MapItemSelector filterByCircularArea(MapPoint mapPoint, double radius) {
 		MapItemSelector mapItemSelector = new MapItemSelector ();
 		mapItemSelector.setMap(map);
@@ -66,7 +85,8 @@ public class MapItemSelector {
 	
 	/**
 	 * Method filterByType.
-     * @return MapItemSelector mapItemSelector
+     * @param type Class<?>
+	 * @return MapItemSelector mapItemSelector
      */
 	// need to define the Types
 	public MapItemSelector filterByType(Class<?> type) {
@@ -88,7 +108,8 @@ public class MapItemSelector {
 	
 	/**
 	 * Method filterByAmount.
-     * @return MapItemSelector mapItemSelector
+     * @param amount int
+	 * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector filterByAmount(int amount) {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
@@ -108,6 +129,7 @@ public class MapItemSelector {
     
     /**
      * Method filterByExcluding.
+     * @param item MapItem
      * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector filterByExcluding(MapItem item) {
@@ -128,6 +150,7 @@ public class MapItemSelector {
 	 
     /**
 	 * Method sortByDirectlyClosestToPoint.
+     * @param point MapPoint
      * @return MapItemSelector mapItemSelector
      */
     public MapItemSelector sortByDirectlyClosestToPoint (MapPoint point) {
@@ -213,7 +236,7 @@ public class MapItemSelector {
     
     /**
   	 * Method sortByWeakest.
-     * @return MapItemSelector mapItemSelector
+     * @return MapItemSelector mapItemSelector 
      */
     public MapItemSelector sortByWeakest() {
       	MapItemSelector mapItemSelector = new MapItemSelector ();
@@ -245,8 +268,8 @@ public class MapItemSelector {
       
 	/** 
 	 * Method sortByStrongest.
-	 * @return MapItemSelector mapItemSelector
-	 */
+     * @return MapItemSelector mapItemSelector
+     */
 	public MapItemSelector sortByStrongest() {
     	MapItemSelector mapItemSelector = new MapItemSelector ();
     	mapItemSelector.setMap(map);
@@ -275,6 +298,7 @@ public class MapItemSelector {
 		return mapItemSelector;
   	}
 	
+
 	public MapItemSelector sortByStrategy(String strategyName, MapItem source) {
 		if (strategyName.equals(Strategy.STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT)) {
 			return sortByDirectlyClosestToPoint(source.getLocation());

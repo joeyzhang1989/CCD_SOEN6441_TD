@@ -9,6 +9,9 @@ import com.soen6441.core.critter.CritterManager;
 import com.soen6441.core.critter.CritterManagerFactory;
 import com.soen6441.core.critter.CritterMultiplier;
 
+/**
+ * @author Zhe Zhao
+ */
 public class CritterManagerTest {
 
 	@Test

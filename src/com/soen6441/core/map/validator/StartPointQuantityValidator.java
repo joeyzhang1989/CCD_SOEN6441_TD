@@ -26,8 +26,8 @@ public class StartPointQuantityValidator extends PathValidator {
 	 * This method Validate() overrides the method Validate() of parent class
 	 * PathValidator. It checks the Map for start points and validates the Map.
 	 * 
-	 * @return boolean A boolean values that represent whether # of startPoints
-	 *         are valid. 
+     * @return boolean A boolean values that represent whether # of startPoints
+	 *         are valid.
      */
 
 	@Override

@@ -25,8 +25,8 @@ public class EndPointQuantityValidator extends PathValidator {
 	 * This method Validate() overrides the method Validate() of parent class PathValidator. 
 	 * It checks the Map for end points and validates the Map.
 	 * 
-	 * @return boolean A boolean values that represent whether # of EndPoints
-	 * are valid. 
+     * @return boolean A boolean values that represent whether # of EndPoints
+	 * are valid.
      */
 
 	@Override

@@ -5,6 +5,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Zhe Zhao
+ */
 public class Strategy {
 	
 	/*
@@ -18,18 +21,34 @@ public class Strategy {
 	 * Mark - Basic - Getters & Setters
 	 */
 	 
+	/**
+	 * Method getImageName.
+	 * @return String
+	 */
 	public String getImageName() {
 		return imageName;
 	}
 
+	/**
+	 * Method setImageName.
+	 * @param imageName String
+	 */
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}
 
+	/**
+	 * Method getName.
+	 * @return String
+	 */
 	public String getName() {
 		return name;
 	}
 
+	/**
+	 * Method setName.
+	 * @param name String
+	 */
 	public void setName(String name) {
 		this.name = name;
 	}
@@ -82,6 +101,10 @@ public class Strategy {
 	}
 	
 
+	/**
+	 * Method getAllStrategies.
+	 * @return List<Strategy>
+	 */
 	public static List<Strategy> getAllStrategies() {
 		List<Strategy> sortedStrategies = new ArrayList<Strategy>();
 		
@@ -92,10 +115,19 @@ public class Strategy {
 		return sortedStrategies;
 	}
 	
+	/**
+	 * Method getStrategy.
+	 * @param strategyName String
+	 * @return Strategy
+	 */
 	public static Strategy getStrategy(String strategyName) {
 		return strategies.get(strategyName);
 	}
 
+	/**
+	 * Method getStrategyNames.
+	 * @return List<String>
+	 */
 	public static List<String> getStrategyNames() {
 		return strategyNames;
 	}

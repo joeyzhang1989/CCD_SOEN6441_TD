@@ -72,10 +72,18 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	
 	
 	
+	/**
+	 * Method suggestedSize.
+	 * @return Dimension
+	 */
 	public Dimension suggestedSize() {
 		return gridView.suggestedSize();
 	}
 
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -88,6 +96,10 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		}
 	}
 	
+	/**
+	 * Method paintRange.
+	 * @param g Graphics2D
+	 */
 	private void paintRange(Graphics2D g) {
 		Tower tower = (Tower) map.getSelectedItem();
 		Point center = mapPointToSwingPoint(tower.getLocation());
@@ -165,6 +177,10 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	 * Mark - Grid View Selection Delegation - Methods
 	 */
 	
+	/**
+	 * Method gridViewDidSelect.
+	 * @see com.soen6441.ui.common.GridViewSelectionListener#gridViewDidSelect()
+	 */
 	@Override
 	public void gridViewDidSelect() {
 		GridPoint gridPoint = gridView.getSelectedCell().getPoint();
@@ -176,10 +192,18 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	 * Mark - Grid View Selection Delegation - Getters & Setters
 	 */
 
+	/**
+	 * Method getSelectionListener.
+	 * @return GridViewSelectionListener
+	 */
 	public GridViewSelectionListener getSelectionListener() {
 		return selectionListener;
 	}
 
+	/**
+	 * Method setSelectionListener.
+	 * @param selectionListener GridViewSelectionListener
+	 */
 	public void setSelectionListener(GridViewSelectionListener selectionListener) {
 		this.selectionListener = selectionListener;
 	}
@@ -190,6 +214,11 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	 * Mark - Item Events Handle - Methods
 	 */
 	 
+	/**
+	 * Method gridMapDidAddItem.
+	 * @param item MapItem
+	 * @see com.soen6441.core.map.GridMapItemsListener#gridMapDidAddItem(MapItem)
+	 */
 	@Override
 	public void gridMapDidAddItem(MapItem item) {
 		if(item != null) {
@@ -201,6 +230,11 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		}
 	}
 
+	/**
+	 * Method gridMapDidRemoveItem.
+	 * @param item MapItem
+	 * @see com.soen6441.core.map.GridMapItemsListener#gridMapDidRemoveItem(MapItem)
+	 */
 	@Override
 	public void gridMapDidRemoveItem(MapItem item) {
 		GridPoint point = mapPointToGridPoint(item.getLocation());
@@ -210,6 +244,7 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		gridView.replaceCell(itemCell, scenaryCell);
 	}
 
+	
 	@Override
 	public void gridMapDidAddCritter(Critter critter) {
 		Point point = mapPointToSwingPoint(critter.getLocation());
@@ -221,6 +256,11 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		this.repaint();
 	}
 
+	/**
+	 * Method gridMapDidRemoveCritter.
+	 * @param critter Critter
+	 * @see com.soen6441.core.map.GridMapItemsListener#gridMapDidRemoveCritter(Critter)
+	 */
 	@Override
 	public void gridMapDidRemoveCritter(Critter critter) {
 		CritterView critterView = critterViews.get(critter);
@@ -228,6 +268,11 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		critterViews.remove(critter);
 	}
 	
+	/**
+	 * Method cellFromItemView.
+	 * @param itemView MapItemView
+	 * @return MapItemCell
+	 */
 	private MapItemCell cellFromItemView(MapItemView itemView) {
 		MapItemCell cell = new MapItemCell();
 		cell.setSize(_UNIT_LENGTH, _UNIT_LENGTH);
@@ -235,6 +280,11 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		return cell;
 	}
 	
+	/**
+	 * Method itemViewFromItem.
+	 * @param item MapItem
+	 * @return MapItemView
+	 */
 	private MapItemView itemViewFromItem(MapItem item){
 		MapItemView itemView = null;
 		if(item == null) {
@@ -256,20 +306,40 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	 * Mark - Grid Point & Map Point & Point , Conversion - Methods
 	 */
 	
+	/**
+	 * Method mapPointToGridPoint.
+	 * @param mapPoint MapPoint
+	 * @return GridPoint
+	 */
 	public static GridPoint mapPointToGridPoint(MapPoint mapPoint) {
 		return new GridPoint(mapPoint.getGridedY(), mapPoint.getGridedX());
 	}
 	
+	/**
+	 * Method gridPointToMapPoint.
+	 * @param gridPoint GridPoint
+	 * @return MapPoint
+	 */
 	public static MapPoint gridPointToMapPoint(GridPoint gridPoint) {
 		return new MapPoint(gridPoint.getColumn(), gridPoint.getRow());
 	}
 	
+	/**
+	 * Method mapPointToSwingPoint.
+	 * @param mapPoint MapPoint
+	 * @return Point
+	 */
 	public static Point mapPointToSwingPoint(MapPoint mapPoint) {
 		int x = (int)(mapPoint.getX() * _UNIT_LENGTH);
 		int y = (int)(mapPoint.getY() * _UNIT_LENGTH);
 		return new Point(x, y);
 	}
 	
+	/**
+	 * Method timerTick.
+	 * @param timer Timer
+	 * @see com.soen6441.core.TimerListener#timerTick(Timer)
+	 */
 	@Override
 	public void timerTick(Timer timer) {
 		this.repaint();

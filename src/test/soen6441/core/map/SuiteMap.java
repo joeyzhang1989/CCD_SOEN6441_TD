@@ -6,6 +6,9 @@ import org.junit.runners.Suite.SuiteClasses;
 
 import test.soen6441.core.map.validator.SuiteValidator;
 
+/**
+ * @author Zhe Zhao
+ */
 @RunWith(Suite.class)
 @SuiteClasses({ GridMapTestItemManagement.class, GridMapTestSelection.class,
 		MapItemSelectorTest.class, MapPathTest.class,

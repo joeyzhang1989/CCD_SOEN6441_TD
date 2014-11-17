@@ -23,7 +23,7 @@ public class RoadQuantityValidator extends PathValidator {
 	 * PathValidator. It checks the length of the path and will make sure that
 	 * the path is valid.
 	 * 
-	 * @return boolean A boolean values that represent whether the length of the
+     * @return boolean A boolean values that represent whether the length of the
 	 *         path is valid.
      */
 	@Override

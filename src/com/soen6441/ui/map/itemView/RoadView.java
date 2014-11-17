@@ -21,7 +21,7 @@ public class RoadView extends MapItemView{
 	 * Method update.
 	 * @param o Observable
 	 * @param arg Object
-	 * @see java.util.Observer#update(Observable, Object) 
+	 * @see java.util.Observer#update(Observable, Object)
      */
 	@Override
 	public void update(Observable o, Object arg) {
@@ -37,7 +37,7 @@ public class RoadView extends MapItemView{
 	
 	/**
 	 * Method getItemRoad.	
-	 * @return Road 
+	 * @return Road  
      */
 	public Road getItemRoad(){
 		return (Road)this.getItem();

@@ -10,6 +10,9 @@ import com.soen6441.core.IArchive;
 import com.soen6441.core.critter.CritterMultiplier.NameForArchiving;
 import com.soen6441.core.map.MapPoint;
 
+/**
+ * @author Zhe Zhao
+ */
 public class CritterWave implements IArchive {
 	
 	/*
@@ -24,18 +27,34 @@ public class CritterWave implements IArchive {
 	 * Mark - Basic - Getters & Setters
 	 */
 	 
+	/**
+	 * Method getTimeGap.
+	 * @return double
+	 */
 	public double getTimeGap() {
 		return timeGap;
 	}
 
+	/**
+	 * Method setTimeGap.
+	 * @param timeGap double
+	 */
 	public void setTimeGap(double timeGap) {
 		this.timeGap = timeGap;
 	}
 
+	/**
+	 * Method getCritters.
+	 * @return List<CritterMultiplier>
+	 */
 	public List<CritterMultiplier> getCritters() {
 		return critters;
 	}
 
+	/**
+	 * Method setCritters.
+	 * @param critters List<CritterMultiplier>
+	 */
 	public void setCritters(List<CritterMultiplier> critters) {
 		this.critters = critters;
 	}
@@ -51,14 +70,26 @@ public class CritterWave implements IArchive {
 	 */
 	 
 
+	/**
+	 * Method getCurrentIndex.
+	 * @return int
+	 */
 	public int getCurrentIndex() {
 		return currentIndex;
 	}
 
+	/**
+	 * Method amount.
+	 * @return int
+	 */
 	public int amount() {
 		return critters.size();
 	}
 
+	/**
+	 * Method nextCritter.
+	 * @return Critter
+	 */
 	public Critter nextCritter() {
 		CritterMultiplier critterMultiplier = critters.get(currentIndex);
 		currentIndex ++;
@@ -71,12 +102,20 @@ public class CritterWave implements IArchive {
 	 * Mark - Archive - Methods
 	 */
 
+	/**
+     * @author Zhe Zhao
+	 */
 	public class NameForArchiving {
 		public static final String Class = "CritterWave";
 		private static final String TimeGap = "timeGap";
 		private static final String Critters = "critters";
 	}
 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		this.setTimeGap(Double.parseDouble(element.element(NameForArchiving.TimeGap).getText()));
@@ -94,6 +133,11 @@ public class CritterWave implements IArchive {
 		}		
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		

@@ -3,6 +3,9 @@ package demo.soen6441.core.timer;
 import com.soen6441.core.Timer;
 import com.soen6441.core.TimerListener;
 
+/**
+ * @author Zhe Zhao
+ */
 public class TimerDemo implements TimerListener{
 	
 	private Timer timer;
@@ -21,12 +24,21 @@ public class TimerDemo implements TimerListener{
 		System.out.println("0");
 	}
 
+	/**
+	 * Method timerTick.
+	 * @param timer Timer
+	 * @see com.soen6441.core.TimerListener#timerTick(Timer)
+	 */
 	@Override
 	public void timerTick(Timer timer) {
 		System.out.println(timer.getCurrentRepeatTimes());
 	}
 
 
+	/**
+	 * Method main.
+	 * @param args String[]
+	 */
 	public static void main(String[] args) {
 		new TimerDemo();
 		

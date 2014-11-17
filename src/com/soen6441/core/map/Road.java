@@ -35,6 +35,9 @@ public class Road extends MapItem {
 	 * Mark - Basic - Properties
 	 */
 	
+	/**
+     * @author Mohammad Ali
+	 */
 	public enum RoadType{
 		NORMAL, START, END
 	}
@@ -53,7 +56,7 @@ public class Road extends MapItem {
 	
 	/**
 	 * Method getType.
-	 * @return Type 
+	 * @return Type
      */
 	public RoadType getRoadType() {
 		return roadType;
@@ -76,7 +79,7 @@ public class Road extends MapItem {
 	
 	/**
 	 * Method getName.
-	 * @return String 
+	 * @return String
      */
 	@Override
 	public String getName() {

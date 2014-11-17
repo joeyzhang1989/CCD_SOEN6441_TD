@@ -42,6 +42,10 @@ public class MapItemSelectorTest {
 	private Critter c2;
 	private Critter c3;
 
+	/**
+	 * Method setUp.
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		map = new GridMap();

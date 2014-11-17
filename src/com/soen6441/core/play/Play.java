@@ -96,7 +96,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	
 	/**
 	 * Use this method to get the shared instance
-     * @return Play  
+     * @return Play
      */
 	public static Play currentPlay(){
 		if (currentPlay == null){
@@ -163,12 +163,16 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Please call {@code #getCoins()} first to check whether there is enough money to spend
 	 * 
 	 * @param coins
-	 * @see #getCoins() 
-	 */
+	 * @see #getCoins()
+     */
 	public void spendCoins(int coins){
 		this.setCoins(this.getCoins() - coins);
 	}
 	
+	/**
+	 * Method alterLife.
+	 * @param life int
+	 */
 	public void alterLife(int life) {
 		this.setLife(this.getLife() + life);
 	}
@@ -202,7 +206,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 
 	/**
 	 * Method getLife.
-     * @return int  
+     * @return int 
      */
 	public int getLife() {
 		return life;
@@ -228,7 +232,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	}
 
 	/**
-     * @return int  
+     * @return int
      */
 	public int getCoins() {
 		return coins;
@@ -268,12 +272,20 @@ public class Play extends Observable implements IArchive, TimerListener{
 	
 	private Timer waveTimer;
 	
+	/**
+	 * Method getCritterWaves.
+	 * @return List<CritterWave>
+	 */
 	public List<CritterWave> getCritterWaves() {
 		return critterWaves;
 	}
 	
 	/*
 	 * Mark - Critter Waves - Methods
+	 */
+	/**
+	 * Method currentWave.
+	 * @return CritterWave
 	 */
 	private CritterWave currentWave(){
 		return critterWaves.get(currentWaveIndex);
@@ -308,6 +320,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		}
 	}
 	
+	/**
+	 * Method getCritterWaveAmount.
+	 * @return int
+	 */
 	public int getCritterWaveAmount() {
 		return critterWaves.size();
 	}
@@ -316,10 +332,18 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Mark - Critter Waves - Getters & Setters
 	 */
 
+	/**
+	 * Method setCritterWaves.
+	 * @param critterWaves List<CritterWave>
+	 */
 	public void setCritterWaves(List<CritterWave> critterWaves) {
 		this.critterWaves = critterWaves;
 	}
 
+	/**
+	 * Method getCurrentWaveIndex.
+	 * @return int
+	 */
 	public int getCurrentWaveIndex() {
 		return currentWaveIndex;
 	}
@@ -351,6 +375,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		
 	}
 	
+	/**
+	 * Method runningTimerTick.
+	 * @param timer Timer
+	 */
 	private void runningTimerTick(Timer timer){
 		if (map.getCritters().size() == 0 && critterState == _CRITTER_STATE_PRODUCED) {
 			critterState = _CRITTER_STATE_WAIT;
@@ -369,10 +397,18 @@ public class Play extends Observable implements IArchive, TimerListener{
 		}
 	}
 	
+	/**
+	 * Method registeRunner.
+	 * @param timerListener TimerListener
+	 */
 	public void registeRunner(TimerListener timerListener) {
 		runningListeners.add(timerListener);
 	}
 	
+	/**
+	 * Method resignRunner.
+	 * @param timerListener TimerListener
+	 */
 	public void resignRunner(TimerListener timerListener) {
 		runningListeners.remove(timerListener);
 	}
@@ -404,6 +440,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Mark - Runner - Getters & Setters
 	 */
 	
+	/**
+	 * Method getRunningTimer.
+	 * @return Timer
+	 */
 	public Timer getRunningTimer() {
 		return runningTimer;
 	}
@@ -413,6 +453,11 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	
 
+	/**
+	 * Method timerTick.
+	 * @param timer Timer
+	 * @see com.soen6441.core.TimerListener#timerTick(Timer)
+	 */
 	@Override
 	public void timerTick(Timer timer) {
 		if (timer == runningTimer) {
@@ -433,10 +478,18 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	 
 
+	/**
+	 * Method getEventListener.
+	 * @return PlayEventListener
+	 */
 	public PlayEventListener getEventListener() {
 		return eventListener;
 	}
 
+	/**
+	 * Method setEventListener.
+	 * @param eventListener PlayEventListener
+	 */
 	public void setEventListener(PlayEventListener eventListener) {
 		this.eventListener = eventListener;
 	}
@@ -447,6 +500,9 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Mark - Archive - Methods
 	 */
 
+	/**
+	 * @author Zhe Zhao
+	 */
 	public class NameForArchiving {
 		public static final String Class = "Play";
 		public static final String COINS = "coins";
@@ -454,6 +510,11 @@ public class Play extends Observable implements IArchive, TimerListener{
 
 	}
 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		
@@ -471,6 +532,11 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.map = map;
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);

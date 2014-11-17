@@ -48,9 +48,8 @@ public abstract class PathValidator {
 	
 	/**
 	 * Method validate will check whether a map is valid.
-	 * @return boolean 
-	 */
-	
+	 * @return boolean  
+     */	
 	abstract public boolean validate();
 		
 	/*
@@ -59,7 +58,7 @@ public abstract class PathValidator {
 
 	/**
 	 * Method getErrorMessage.
-	 * @return String 
+	 * @return String
      */
 	public String getErrorMessage(){
 		return errorMessage;

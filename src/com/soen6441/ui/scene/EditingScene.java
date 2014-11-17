@@ -228,7 +228,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method title.
-		 * @return String 
+		 * @return String
          * @see com.soen6441.ui.common.IInspectable#title()
          */
 		@Override
@@ -239,8 +239,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method subtitle.
-		 * @return String 
-         * @see com.soen6441.ui.common.IInspectable#subtitle() 
+		 * @return String
+         * @see com.soen6441.ui.common.IInspectable#subtitle()
          */
 		@Override
 		public String subtitle() {
@@ -249,9 +249,9 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method description
-		 * @return String 
-         * @see com.soen6441.ui.common.IInspectable#description() 
-         */
+		
+        
+         * @return String  * @see com.soen6441.ui.common.IInspectable#description()  */
 		@Override
 		public String description() {
 			return "This is an empty space where u can add a start, end or normal-road point";
@@ -259,7 +259,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method commands.
-		 * @return List<Command> 
+		 * @return List<Command>
          * @see com.soen6441.ui.common.IInspectable#commands()
          */
 		@Override
@@ -271,6 +271,11 @@ public class EditingScene extends View implements GridViewSelectionListener {
 			return commands;
 		}
 
+		/**
+		 * Method gridCommands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#gridCommands()
+		 */
 		@Override
 		public List<Command> gridCommands() {
 			return null;
@@ -279,8 +284,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		/**
 		 * Method execute.
 		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
-         */
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command) */
 		@Override
 		public void execute(Command command) {
 			Road road = null; 
@@ -328,7 +332,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		 * Method title.
 		
 		
-		 * @return String * @see com.soen6441.ui.common.IInspectable#title() */
+		 * @return String * @see com.soen6441.ui.common.IInspectable#title() * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 			return road.getName();
@@ -336,8 +341,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method subtitle.
-		 * @return String 
-         * @see com.soen6441.ui.common.IInspectable#subtitle() 
+		 * @return String
+         * @see com.soen6441.ui.common.IInspectable#subtitle()
          */
 		@Override
 		public String subtitle() {
@@ -346,14 +351,18 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method description.
-		
-		
-		 * @return String * @see com.soen6441.ui.common.IInspectable#description() */
+		 * @return String * @see com.soen6441.ui.common.IInspectable#description() * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 			return "This is a road cell that you can destroy";
 		}
 
+		/**
+		 * Method gridCommands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#gridCommands()
+		 */
 		@Override
 		public List<Command> gridCommands() {
 			return null;
@@ -361,7 +370,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		
 		/**
 		 * Method commands.
-		 * @return List<Command> 
+		 * @return List<Command>
          * @see com.soen6441.ui.common.IInspectable#commands()
          */
 		@Override
@@ -398,8 +407,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * This method will check that the path is valid from Start to End.
 	 * 
 	 * @return boolean
-	 * True or False depending on validation  
-     * @see PathManager  
+	 * True or False depending on validation
+     * @see PathManager
      */
 	private boolean validateMap() {
 		GridMap gridMap = this.play.getMap();
@@ -428,10 +437,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - Storage - Getters & Setters
 	 */
 	
-	/**
-	 * Method getWorkingFile.
-	 * @return File 
-     */
+	
 	public File getWorkingFile() {
 		return workingFile;
 	}

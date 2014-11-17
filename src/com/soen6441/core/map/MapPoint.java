@@ -73,7 +73,7 @@ public class MapPoint implements IArchive, Cloneable{
 	
 	/**
 	 * Method getGridedY.
-     * @return int  
+     * @return int
      */
 	public int getGridedY(){
 			
@@ -96,7 +96,7 @@ public class MapPoint implements IArchive, Cloneable{
 	
 	/**
 	 * Method getX.
-     * @return double  
+     * @return double
      */
 	public double getX() {
 		return x;
@@ -114,7 +114,7 @@ public class MapPoint implements IArchive, Cloneable{
 
 	/**
 	 * Method getY.
-     * @return double 
+     * @return double
      */
 	public double getY() {
 		return y;
@@ -137,13 +137,17 @@ public class MapPoint implements IArchive, Cloneable{
 	 * Method distanceTo.
 	 * @param point MapPoint
 	 * @return double
-	 */
+     */
 	public double distanceTo(MapPoint point){
 		double dx = point.x - this.x;
 		double dy = point.y - this.y;
 		return Math.sqrt(dx * dx + dy * dy);
 	}
 	
+	/**
+	 * Method length.
+	 * @return double
+	 */
 	public double length(){
 		return distanceTo(new MapPoint(0, 0));
 	}
@@ -152,7 +156,7 @@ public class MapPoint implements IArchive, Cloneable{
 	 * Method add.
 	 * @param point MapPoint
 	 * @return MapPoint
-	 */
+     */
 	public MapPoint add(MapPoint point){
 		MapPoint result = new MapPoint();
 		result.x = this.x + point.x;
@@ -164,7 +168,7 @@ public class MapPoint implements IArchive, Cloneable{
 	 * Method substract.
 	 * @param point MapPoint
 	 * @return MapPoint
-	 */
+     */
 	public MapPoint substract(MapPoint point){
 		MapPoint result = new MapPoint();
 		result.x = this.x - point.x;
@@ -172,6 +176,11 @@ public class MapPoint implements IArchive, Cloneable{
 		return result;
 	}
 	
+	/**
+	 * Method scale.
+	 * @param value double
+	 * @return MapPoint
+	 */
 	public MapPoint scale(double value){
 		MapPoint result = new MapPoint();
 		result.x = this.x * value;
@@ -182,7 +191,7 @@ public class MapPoint implements IArchive, Cloneable{
 	/**
 	 * Method normalize.
 	 * @return MapPoint
-	 */
+     */
 	public MapPoint normalize(){
 		
 		// make positive to 1, make negative to -1, keep 0 to 0
@@ -208,7 +217,7 @@ public class MapPoint implements IArchive, Cloneable{
 	/**
 	 * Method crossDirections.
 	 * @return List<MapPoint>
-	 */
+     */
 	public static List<MapPoint> crossDirections(){
 		List<MapPoint> directions = new ArrayList<MapPoint>();
 		directions.add(new MapPoint(1, 0));
@@ -222,18 +231,31 @@ public class MapPoint implements IArchive, Cloneable{
 	 * Mark - Archive - Methods
 	 */
 	
+	/**
+     * @author Mohammad Ali
+	 */
 	public class NameForArchiving{
 		public static final String Class = "MapPoint";
 		private static final String X = "x";
 		private static final String Y = "y";
 	}
 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		this.x = Double.valueOf(element.attributeValue(NameForArchiving.X));
 		this.y = Double.valueOf(element.attributeValue(NameForArchiving.Y));
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);
@@ -250,7 +272,7 @@ public class MapPoint implements IArchive, Cloneable{
 	/**
 	 * Method equals.
 	 * @param obj Object
-     * @return boolean 
+     * @return boolean
      */
 	@Override
 	public boolean equals(Object obj) {
@@ -268,6 +290,10 @@ public class MapPoint implements IArchive, Cloneable{
 		return true;
 	}
 	
+	/**
+	 * Method copy.
+	 * @return MapPoint
+	 */
 	public MapPoint copy(){
 		MapPoint mapPoint = new MapPoint();
 		mapPoint.x = this.x;
@@ -276,9 +302,9 @@ public class MapPoint implements IArchive, Cloneable{
 	}
 	
 	/**
-	 * Method toString.
-	 * @return String
-	 */
+	 * Method toString
+     * @return String
+     */
 	@Override
 	public String toString() {
 		return "MapPoint. x:" + x + ", y:" + y;

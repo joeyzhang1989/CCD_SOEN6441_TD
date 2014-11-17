@@ -66,7 +66,7 @@ public class PlayManager {
 	 * Requires jaxen 1.1-beta-6.jar located in Dom4j lib folder.
 	 * 
 	 * @param file The name of the File form which to read 
-     * @return Play  
+     * @return Play
      */
 	public Play read(File file) {
 
@@ -92,6 +92,10 @@ public class PlayManager {
 
 	}
 	
+	/**
+	 * Method readDefaultCritterWaves.
+	 * @return List<CritterWave>
+	 */
 	private List<CritterWave> readDefaultCritterWaves() {
 		List<CritterWave> critterWaves = new ArrayList<CritterWave>();
 		

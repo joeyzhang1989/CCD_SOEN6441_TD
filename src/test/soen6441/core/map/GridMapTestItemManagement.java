@@ -11,6 +11,8 @@ import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
 
 /**
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class GridMapTestItemManagement {
 	

@@ -37,7 +37,8 @@ public class Effect implements TimerListener {
 
 	/**
 	 * Constructor for Effect.
-	 * @param on IAffectable
+	 * @param effect Effect
+	 * @return boolean
 	 */
 	/*
 	public Effect(IAffectable on) {
@@ -82,6 +83,11 @@ public class Effect implements TimerListener {
 		
 	}
 	
+	/**
+	 * Method timerTick.
+	 * @param timer Timer
+	 * @see com.soen6441.core.TimerListener#timerTick(Timer)
+	 */
 	@Override
 	public void timerTick(Timer timer) {
 		
@@ -93,7 +99,7 @@ public class Effect implements TimerListener {
 	
 	/**
 	 * Method getType.
-     * @return String 
+     * @return String  
      */
 	public String getType() {
 		return type;
@@ -101,8 +107,8 @@ public class Effect implements TimerListener {
 	
 	/**
 	 * Method getOn.
- 	 * @return IAffectable  
-     */
+     * @param type String
+	 */
 	
 
 	public void setType(String type) {
@@ -111,26 +117,50 @@ public class Effect implements TimerListener {
 	
 	private String cellImageName;
 
+	/**
+	 * Method getCellImageName.
+	 * @return String
+	 */
 	public String getCellImageName() {
 		return cellImageName;
 	}
 
+	/**
+	 * Method setCellImageName.
+	 * @param cellImageName String
+	 */
 	public void setCellImageName(String cellImageName) {
 		this.cellImageName = cellImageName;
 	}
 
+	/**
+	 * Method getOn.
+	 * @return MapItem
+	 */
 	public MapItem getOn() {
 		return on;
 	}
 
+	/**
+	 * Method setOn.
+	 * @param on MapItem
+	 */
 	public void setOn(MapItem on) {
 		this.on = on;
 	}
 
+	/**
+	 * Method getTimer.
+	 * @return Timer
+	 */
 	public Timer getTimer() {
 		return timer;
 	}
 
+	/**
+	 * Method setTimer.
+	 * @param timer Timer
+	 */
 	public void setTimer(Timer timer) {
 		this.timer = timer;
 	}

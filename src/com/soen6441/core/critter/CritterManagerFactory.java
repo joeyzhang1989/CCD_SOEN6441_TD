@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author Zhe Zhao
+ */
 public class CritterManagerFactory {
 
 	/*
@@ -18,6 +21,7 @@ public class CritterManagerFactory {
 	 * Mark - Singleton - Methods
 	 */
 
+	
 	public static CritterManagerFactory defaultFactory(){
 		if (defaultFactory == null){
 			defaultFactory = new CritterManagerFactory();
@@ -58,6 +62,11 @@ public class CritterManagerFactory {
 	 * Mark - Basic - Methods
 	 */
 	 
+	/**
+	 * Method getManager.
+	 * @param typeName String
+	 * @return CritterManager
+	 */
 	public CritterManager getManager(String typeName){
 		return managers.get(typeName);
 	}

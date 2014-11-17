@@ -83,7 +83,7 @@ public class TowerManagerFactory {
 	 * This method is used to get a certain type of TowerManager by its type name.
 	 * 
 	 * @param typeName
-	 * @return Return a TowerManager object 
+	 * @return Return a TowerManager object  
      */
 	
 	public TowerManager getManager(String typeName) {
@@ -92,8 +92,8 @@ public class TowerManagerFactory {
 
 	/**
 	 * Method getTypeNames.
-	 * @return List<String>
-	 */
+	 * @return List<String> 
+     */
 	public List<String> getTypeNames() {
 		return typeNames;
 	}

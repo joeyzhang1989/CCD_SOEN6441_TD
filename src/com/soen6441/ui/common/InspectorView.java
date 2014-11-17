@@ -186,7 +186,7 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	
 	/**
 	 * Method getOn.
-	 * @return IInspectable  
+	 * @return IInspectable
      */
 	public IInspectable getOn() {
 		return on;
@@ -204,6 +204,10 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	 * Mark - Grid View Selection - Methods
 	 */
 	 
+	/**
+	 * Method gridViewDidSelect.
+	 * @see com.soen6441.ui.common.GridViewSelectionListener#gridViewDidSelect()
+	 */
 	@Override
 	public void gridViewDidSelect() {
 		

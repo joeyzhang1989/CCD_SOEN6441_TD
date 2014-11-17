@@ -56,7 +56,6 @@ public class GridView extends View {
 	 * @return Dimension 
 	 * 	Object containing (width and height)  
      */
-	
 	public Dimension suggestedSize() {
 		int width=this.numberOfColumns*this.unitWidth;
 		int height=this.numberOfRows*this.unitHeight;
@@ -86,7 +85,7 @@ public class GridView extends View {
 
 	/**
 	 * Method getNumberOfColumns.	
-	 * @return int 
+	 * @return int
      */
 	public int getNumberOfColumns() {
 		return numberOfColumns;
@@ -103,7 +102,7 @@ public class GridView extends View {
 
 	/**
 	 * Method getUnitWidth.	
-	 * @return int 
+	 * @return int
      */
 	public int getUnitWidth() {
 		return unitWidth;
@@ -165,13 +164,10 @@ public class GridView extends View {
 	/**
 	 * Returns the cell in the current location
 	 * 
-	 * @param row
-	 *  The Row of the cell that is returned
-	 * @param column
-	 * 	The Column of the cell that is returned
-	
+	 * @param point GridPoint
 	 * @return Cell
-	 *  The Cell object returned */
+	 *  The Cell object returned 
+     */
 	public GridViewCell getCell(GridPoint point) {
 		int row = point.getRow();
 		int column = point.getColumn();

@@ -41,7 +41,7 @@ public class Command {
 
 	/**
 	 * Method getTitle.
-	 * @return String  
+	 * @return String
      */
 	public String getTitle() {
 		return title;
@@ -56,7 +56,7 @@ public class Command {
 	}
 	/**
 	 * Method getSubtitle.
-	 * @return String  
+	 * @return String 
      */
 	public String getSubtitle() {
 		return subtitle;
@@ -69,10 +69,18 @@ public class Command {
 		this.subtitle = subtitle;
 	}
 
+	/**
+	 * Method getImageName.
+	 * @return String
+	 */
 	public String getImageName() {
 		return imageName;
 	}
 
+	/**
+	 * Method setImageName.
+	 * @param imageName String
+	 */
 	public void setImageName(String imageName) {
 		this.imageName = imageName;
 	}

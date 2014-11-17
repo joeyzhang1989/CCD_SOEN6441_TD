@@ -9,6 +9,9 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.ui.parallel.ImageAssets;
 import com.soen6441.ui.parallel.View;
 
+/**
+ * @author Zhe Zhao
+ */
 public class MapItemView extends View implements Observer{
 	
 	/*
@@ -22,7 +25,7 @@ public class MapItemView extends View implements Observer{
 	
 	/**
 	 * Method getItem.
-     * @return MapItem	 
+     * @return MapItem	
      */
 	public MapItem getItem() {
 		return item;
@@ -46,6 +49,10 @@ public class MapItemView extends View implements Observer{
 	 * Mark - Draw - Methods
 	 */
 	 
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	public void paint(Graphics g) {
 		super.paint(g);
 		MapItem item = this.getItem();
@@ -58,6 +65,10 @@ public class MapItemView extends View implements Observer{
 		paintEffects(g);
 	}
 
+	/**
+	 * Method paintEffects.
+	 * @param g Graphics
+	 */
 	private void paintEffects(Graphics g) {
 		if (this.item != null) {
 			for (Effect effect : item.getAllEffects()) {
@@ -70,6 +81,12 @@ public class MapItemView extends View implements Observer{
 	 * Mark - Observe - Methods
 	 */
 	 
+	/**
+	 * Method update.
+	 * @param o Observable
+	 * @param arg Object
+	 * @see java.util.Observer#update(Observable, Object)
+	 */
 	@Override
 	public void update(Observable o, Object arg) {
 		// TODO Auto-generated method stub

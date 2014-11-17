@@ -5,6 +5,8 @@ import java.awt.Font;
 import javax.swing.JTextArea;
 
 /**
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class TextView extends JTextArea {
 	public TextView() {

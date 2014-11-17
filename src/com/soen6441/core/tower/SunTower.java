@@ -27,7 +27,7 @@ public class SunTower extends Tower {
 	 * Copy properties from one SunTower object to another.
 	 * 
 	 * @param tower
-	 * @see Tower#copyTo(Tower)  
+	 * @see Tower#copyTo(Tower)
      */
 	@Override
 	public void copyTo(Tower tower){
@@ -38,7 +38,7 @@ public class SunTower extends Tower {
 	/**
 	 * Return detail information of a SunTower object.
 	 * @return String
-	 */
+     */
 	@Override
 	public String getDetailInformation() {
 		String result = super.getDetailInformation();
@@ -49,6 +49,7 @@ public class SunTower extends Tower {
 	 * Inner class contains name strings for archiving.
 	 * @author Haiyang Sun
 	 *
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		
@@ -68,9 +69,10 @@ public class SunTower extends Tower {
 	
 	/**
 	 * Encode value of properties of an sun tower object.
-	 * @see Tower#encode(Element)
-	 * @see IArchive
-	 */
+	 * @return Element
+	 * @see Tower#encode(Element) 
+     * @see IArchive 
+     */
 	@Override
 	public Element encode() {
 		Element element = super.encode();
@@ -116,9 +118,10 @@ public class SunTower extends Tower {
 	/**
 	 * This method is use to enhance properties of the tower.
 	 * It is called by Motivate Effect, EnergyTower.
-	 * @see MotivateEffect
-	 * @see EnergyTower
-	 */
+	 * @param enhanceRate double
+	 * @see MotivateEffect 
+     * @see EnergyTower
+     */
 	@Override
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
@@ -127,7 +130,7 @@ public class SunTower extends Tower {
 	/**
 	 * This method is used to reset all effected values of this object to its original values.
 	 * @see MapItem
-	 */
+     */
 	@Override
 	protected void resetAffectableValue() {
 		super.resetAffectableValue();

@@ -41,7 +41,7 @@ public class MapPath implements IArchive{
 	/**
 	 * Method getFirstLocation.
 	 * @return MapPoint
-	 */
+     */
 	public MapPoint getFirstLocation(){
 		return locations.get(0);
 	}
@@ -49,7 +49,7 @@ public class MapPath implements IArchive{
 	/**
 	 * Method getLastLocation.
 	 * @return MapPoint
-	 */
+     */
 	public MapPoint getLastLocation(){
 		return locations.get(locations.size() - 1);
 	}
@@ -68,7 +68,7 @@ public class MapPath implements IArchive{
 
 	/**
 	 * Method getLocations.
-     * @return List<MapPoint>  
+     * @return List<MapPoint>
      */
 	public List<MapPoint> getLocations() {
 		return locations;
@@ -91,9 +91,8 @@ public class MapPath implements IArchive{
 	 * 
 	 * @param point		A MapPoint object
 	 * @param amount	The distance from the MapPoint object represented by a double
-	 * @return 			The distance to travel on the Map  
-     */
-	
+	 * @return 			The distance to travel on the Map
+     */	
 	public double goAlong(MapPoint point , double amount){
 		int index = 0;
 		MapPoint startPoint = null;
@@ -130,6 +129,14 @@ public class MapPath implements IArchive{
 		return amount;
 	}
 	
+	/**
+	 * Method goAlongInSegment.
+	 * @param point MapPoint
+	 * @param amount double
+	 * @param startPoint MapPoint
+	 * @param endPoint MapPoint
+	 * @return double
+	 */
 	private double goAlongInSegment(MapPoint point , double amount, MapPoint startPoint, MapPoint endPoint){
 		double distanceToEnd = point.distanceTo(endPoint);
 		if (amount > distanceToEnd) {
@@ -139,6 +146,13 @@ public class MapPath implements IArchive{
 		}
 	}
 
+	/**
+	 * Method isInSegment.
+	 * @param point MapPoint
+	 * @param startPoint MapPoint
+	 * @param endPoint MapPoint
+	 * @return boolean
+	 */
 	private boolean isInSegment(MapPoint point , MapPoint startPoint, MapPoint endPoint) {
 		if (point.equals(startPoint)) return true;
 				
@@ -160,6 +174,11 @@ public class MapPath implements IArchive{
 		return false;
 	}
 	
+	/**
+	 * Method distanceToLastLocation.
+	 * @param point MapPoint
+	 * @return double
+	 */
 	public double distanceToLastLocation (MapPoint point) {
 		double sum = 0;
 		
@@ -189,12 +208,20 @@ public class MapPath implements IArchive{
 	 * Mark - Archive - Methods
 	 */
 
+	/**
+     * @author Zhe Zhao
+	 */
 	public class NameForArchiving {
 		public static final String Class = "MapPath";
 		public static final String LOCATIONS = "locations";
 
 	}
 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		Node locations = element.selectSingleNode(NameForArchiving.LOCATIONS);
@@ -210,6 +237,11 @@ public class MapPath implements IArchive{
 		}
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);

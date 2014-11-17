@@ -9,6 +9,9 @@ import com.soen6441.ui.map.MapItemView;
 import com.soen6441.ui.map.MapView;
 import com.soen6441.ui.parallel.ImageAssets;
 
+/**
+ * @author Zhe Zhao
+ */
 public class CritterView extends MapItemView {
 	
 	public CritterView() {
@@ -25,6 +28,10 @@ public class CritterView extends MapItemView {
 		paintHpBar(g);
 	}
 	
+	/**
+	 * Method paintHpBar.
+	 * @param g Graphics
+	 */
 	private void paintHpBar(Graphics g) {
 		int width = 32;
 		int height = 4;
@@ -62,6 +69,10 @@ public class CritterView extends MapItemView {
 	}
 
 	
+	/**
+	 * Method getItemCritter.
+	 * @return Critter
+	 */
 	public Critter getItemCritter(){
 		return (Critter)this.getItem();
 	}

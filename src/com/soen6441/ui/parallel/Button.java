@@ -68,7 +68,7 @@ public class Button extends JButton {
 	/**
 	 * Getter for property <code>title</code>
 	 * 
-	 * @return String  
+	 * @return String
      */
 	public String getTitle() {
 		return title;
@@ -85,7 +85,7 @@ public class Button extends JButton {
 	
 	/**
 	 * Getter for property <code>subtitle</code>	
-	 * @return String  
+	 * @return String
      */
 	public String getSubtitle() {
 		return subtitle;
@@ -110,7 +110,7 @@ public class Button extends JButton {
 	 *  
 	 * 
 	 * @param text String	
-	 * @see #setTitle(String) 
+	 * @see #setTitle(String)
      */
 	@Override
 	public void setText(String text) {
@@ -122,7 +122,8 @@ public class Button extends JButton {
 	 *  
 	 * 
 	 * @deprecated since <unknown>	
-	 * @return String * @see #getTitle() 
+	 * @return String 
+     * @see #getTitle()
      */
 	@Override
 	public String getText() {
@@ -133,6 +134,10 @@ public class Button extends JButton {
 		}
 	}
 
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	@Override
 	public void paint(Graphics g) {
 		Graphics2D graphics2d = (Graphics2D)g;

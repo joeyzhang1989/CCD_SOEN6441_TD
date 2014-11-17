@@ -251,27 +251,52 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	
 
+	/**
+	 * Method playWaveDidStart.
+	 * @param play Play
+	 * @see com.soen6441.core.play.PlayEventListener#playWaveDidStart(Play)
+	 */
 	@Override
 	public void playWaveDidStart(Play play) {
 		controlButton.setEnabled(false);
 	}
 
+	/**
+	 * Method playWaveDidSendAllCritter.
+	 * @param play Play
+	 * @see com.soen6441.core.play.PlayEventListener#playWaveDidSendAllCritter(Play)
+	 */
 	@Override
 	public void playWaveDidSendAllCritter(Play play) {
 		
 	}
 
+	/**
+	 * Method playAllCrittersDidKilled.
+	 * @param play Play
+	 * @see com.soen6441.core.play.PlayEventListener#playAllCrittersDidKilled(Play)
+	 */
 	@Override
 	public void playAllCrittersDidKilled(Play play) {
 		controlButton.setEnabled(true);
 	}
 
+	/**
+	 * Method playGameover.
+	 * @param play Play
+	 * @see com.soen6441.core.play.PlayEventListener#playGameover(Play)
+	 */
 	@Override
 	public void playGameover(Play play) {
 		JOptionPane.showMessageDialog(this, "Gameover");
 		back();
 	}
 
+	/**
+	 * Method playSuccess.
+	 * @param play Play
+	 * @see com.soen6441.core.play.PlayEventListener#playSuccess(Play)
+	 */
 	@Override
 	public void playSuccess(Play play) {
 		JOptionPane.showMessageDialog(this, "Success");
@@ -342,8 +367,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method title.			
-		 * @return String  
-         * @see com.soen6441.ui.common.IInspectable#title() 
+		 * @return String
+         * @see com.soen6441.ui.common.IInspectable#title()
          */
 		@Override
 		public String title() {
@@ -352,8 +377,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method subtitle.
-		 * @return String  
-         * @see com.soen6441.ui.common.IInspectable#subtitle()  
+		 * @return String
+         * @see com.soen6441.ui.common.IInspectable#subtitle()
          */
 		@Override
 		public String subtitle() {
@@ -362,7 +387,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		 * @return String  
+		 * @return String
          * @see com.soen6441.ui.common.IInspectable#description() 
          */ 
 
@@ -372,6 +397,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			return "You can select any type of tower to build on this cell.";
 		}
 
+		/**
+		 * Method gridCommands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#gridCommands()
+		 */
 		@Override
 		public List<Command> gridCommands() {
 			return null;
@@ -379,8 +409,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		
 		/**
 		 * Method commands.
-		 * @return List<Command>  
-         *@see com.soen6441.ui.common.IInspectable#commands() 
+		 *
+         * @return List<Command> 
+         * @see com.soen6441.ui.common.IInspectable#commands()
          */
 		@Override
 		public List<Command> commands() {
@@ -390,7 +421,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		/**
 		 * Method execute.
 		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
          */
 		@Override
 		public void execute(Command command) {
@@ -447,7 +478,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		/**
 		 * Method title.
 		 * @return String 
-         * @see com.soen6441.ui.common.IInspectable#title() 
+         * @see com.soen6441.ui.common.IInspectable#title()
          */
 		@Override
 		public String title() {
@@ -457,9 +488,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method subtitle.
-		
-		
-		 * @return String  * @see com.soen6441.ui.common.IInspectable#subtitle()  */
+		 * @return String  
+         * @see com.soen6441.ui.common.IInspectable#subtitle()  
+         * @see com.soen6441.ui.common.IInspectable#subtitle()
+		 */
 		@Override
 		public String subtitle() {
 			
@@ -469,8 +501,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		 * @return String  
-         * @see com.soen6441.ui.common.IInspectable#description()  
+		 * @return String
+         * @see com.soen6441.ui.common.IInspectable#description()
          */
 		@Override
 		public String description() {
@@ -478,6 +510,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			return tower.getDescription() + "\n" + tower.getDetailInformation();
 		}
 		
+		/**
+		 * Method gridCommands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#gridCommands()
+		 */
 		@Override
 		public List<Command> gridCommands() {
 			if (tower.isStrategyEnabled()) {
@@ -496,8 +533,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method commands.
-		 * @return List<Command>  
-         * @see com.soen6441.ui.common.IInspectable#commands()  
+		 * @return List<Command>
+         * @see com.soen6441.ui.common.IInspectable#commands()
          */
 		@Override
 		public List<Command> commands() {
@@ -516,7 +553,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		/**
 		 * Method execute.
 		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command)  
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
          */
 		@Override
 		public void execute(Command command) {
@@ -566,9 +603,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		}
 		/**
 		 * Method title. check the selected road type to update the inspectorView Title
-		
-		
-		 * @return String  * @see com.soen6441.ui.common.IInspectable#title()  */
+		 * @return String  * @see com.soen6441.ui.common.IInspectable#title()  * @see com.soen6441.ui.common.IInspectable#title()
+		 */
 		@Override
 		public String title() {
 			return road.getName();
@@ -576,8 +612,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 		/**
 		 * Method subtitle.
-		 * @return String  
-         * @see com.soen6441.ui.common.IInspectable#subtitle()  
+		 * @return String
+         * @see com.soen6441.ui.common.IInspectable#subtitle()
          */
 		@Override
 		public String subtitle() {
@@ -587,15 +623,19 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		
-		
-		 * @return String  * @see com.soen6441.ui.common.IInspectable#description()  */
+		 * @return String  * @see com.soen6441.ui.common.IInspectable#description()  * @see com.soen6441.ui.common.IInspectable#description()
+		 */
 		@Override
 		public String description() {
 		
 			return null;
 		}
 
+		/**
+		 * Method gridCommands.
+		 * @return List<Command>
+		 * @see com.soen6441.ui.common.IInspectable#gridCommands()
+		 */
 		@Override
 		public List<Command> gridCommands() {
 			return null;
@@ -603,8 +643,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		
 		/**
 		 * Method commands.
-		 * @return List<Command>  
-         * @see com.soen6441.ui.common.IInspectable#commands() 
+		 * @return List<Command>
+         * @see com.soen6441.ui.common.IInspectable#commands()
          */
 		@Override
 		public List<Command> commands() {
@@ -615,7 +655,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		/**
 		 * Method execute.
 		 * @param command Command
-		 * @see com.soen6441.ui.common.IInspectable#execute(Command) 
+		 * @see com.soen6441.ui.common.IInspectable#execute(Command)
          */
 		@Override
 		public void execute(Command command) {

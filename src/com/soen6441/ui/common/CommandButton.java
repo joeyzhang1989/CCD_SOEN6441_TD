@@ -8,17 +8,32 @@ import java.awt.Graphics2D;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.ImageAssets;
 
+/**
+ * @author Zhe Zhao
+ */
 public class CommandButton extends Button {
 	private Command command;
 
+	/**
+	 * Method getCommand.
+	 * @return Command
+	 */
 	public Command getCommand() {
 		return command;
 	}
 
+	/**
+	 * Method setCommand.
+	 * @param command Command
+	 */
 	public void setCommand(Command command) {
 		this.command = command;
 	}
 	
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	@Override
 	public void paint(Graphics g) {
 		String title = command.getTitle();

@@ -18,32 +18,31 @@ public interface IInspectable{
 
 	/**
 	 * Method title.
-	 * @return String 
+	 * @return String
      */
 	public String title();
 	/**
 	 * Method subtitle.
-	 * @return String  
+	 * @return String
      */
 	public String subtitle();
 	//public Image image;
 	
 	/**
 	 * Method description.	
-	 * @return String  
+     * @return String
      */
-	
 	public String description();
 	
 	/**
 	 * Method gridCommands.
-	 * @return List<Command>  
+	 * @return List<Command>
      */
 	public List<Command> gridCommands();
 	
 	/**
 	 * Method commands.
-	 * @return List<Command>  
+     * @return List<Command>
      */
 	public List<Command> commands();
 	

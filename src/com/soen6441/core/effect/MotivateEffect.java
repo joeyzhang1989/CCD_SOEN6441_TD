@@ -10,6 +10,7 @@ import com.soen6441.core.tower.Tower;
  * @see Effect
  * @see MapItem
  * @see Tower
+ * @version $Revision: 1.0 $
  */
 public class MotivateEffect extends Effect {
 	
@@ -21,6 +22,10 @@ public class MotivateEffect extends Effect {
 	
 	/*
 	 * Constructor
+	 */
+	/**
+	 * Constructor for MotivateEffect.
+	 * @param type String
 	 */
 	public MotivateEffect(String type) {
 		
@@ -100,18 +105,34 @@ public class MotivateEffect extends Effect {
 	/*
 	 * Getters and Setters.
 	 */
+	/**
+	 * Method getEnhanceRate.
+	 * @return double
+	 */
 	public double getEnhanceRate() {
 		return enhanceRate;
 	}
 
+	/**
+	 * Method setEnhanceRate.
+	 * @param enhanceRate double
+	 */
 	public void setEnhanceRate(double enhanceRate) {
 		this.enhanceRate = enhanceRate;
 	}
 
+	/**
+	 * Method getEnhanceDuration.
+	 * @return double
+	 */
 	public double getEnhanceDuration() {
 		return enhanceDuration;
 	}
 
+	/**
+	 * Method setEnhanceDuration.
+	 * @param enhanceDuration double
+	 */
 	public void setEnhanceDuration(double enhanceDuration) {
 		this.enhanceDuration = enhanceDuration;
 	}

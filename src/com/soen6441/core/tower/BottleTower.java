@@ -28,7 +28,7 @@ public class BottleTower extends Tower implements EnableStrategy {
 	 * Copy properties from one BottleTower object to another.
 	 * 
 	 * @param tower
-	 * @see Tower#copyTo(Tower)  
+     * @see Tower#copyTo(Tower) 
      */
 	@Override
 	public void copyTo(Tower tower){
@@ -39,7 +39,7 @@ public class BottleTower extends Tower implements EnableStrategy {
 	/**
 	 * Return detail information of a BottleTower object.
 	 * @return String
-	 */
+     */
 	@Override
 	public String getDetailInformation() {
 		String result = super.getDetailInformation();
@@ -50,6 +50,7 @@ public class BottleTower extends Tower implements EnableStrategy {
 	 * Inner class cantains name strings for archiving.
 	 * @author Haiyang Sun
 	 *
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		
@@ -69,9 +70,10 @@ public class BottleTower extends Tower implements EnableStrategy {
 	
 	/**
 	 * Encode value of properties of a bottle tower object to an XML element.
-	 * @see Tower#encode(Element)
-	 * @see IArchive
-	 */
+	 * @return Element
+	 * @see Tower#encode(Element) 
+     * @see IArchive 
+     */
 	@Override
 	public Element encode() {
 		Element element = super.encode();
@@ -116,9 +118,10 @@ public class BottleTower extends Tower implements EnableStrategy {
 	/**
 	 * This method is use to enhance properties of the tower.
 	 * It is called by Motivate Effect, EnergyTower.
+	 * @param enhanceRate double
 	 * @see MotivateEffect
-	 * @see EnergyTower
-	 */
+     * @see EnergyTower
+     */
 	@Override
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
@@ -127,7 +130,7 @@ public class BottleTower extends Tower implements EnableStrategy {
 	/**
 	 * This method is used to reset all effected values of this object to its original values.
 	 * @see MapItem
-	 */
+     */
 	@Override
 	protected void resetAffectableValue() {
 		super.resetAffectableValue();

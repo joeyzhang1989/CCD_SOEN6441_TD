@@ -1,7 +1,7 @@
 package com.soen6441.ui.common;
 
 /**
- * @author 
+ * @author Zhe Zhao
  * @version $Revision: 1.0 $
  */
 public class GridPoint {

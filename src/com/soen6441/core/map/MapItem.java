@@ -38,7 +38,7 @@ public class MapItem extends Observable implements IArchive{
 
 	/**
 	 * Method getMap.
-     * @return GridMap  
+     * @return GridMap
      */
 	public GridMap getMap() {
 		return map;
@@ -81,7 +81,7 @@ public class MapItem extends Observable implements IArchive{
 
 	/**
 	 * Method getName.
-     * @return String  
+     * @return String
      */
 	public String getName() {
 		return name;
@@ -98,7 +98,7 @@ public class MapItem extends Observable implements IArchive{
 
 	/**
 	 * Method getCellImageName.
-	 * @return String 
+     * @return String  
      */
 	public String getCellImageName() {
 		return cellImageName;
@@ -165,14 +165,18 @@ public class MapItem extends Observable implements IArchive{
 	/**
 	 * Method getEffect.
 	 * @param type String
-     * @return Effect  
-     * @see com.soen6441.core.effect.IAffectable#getEffect(String)  
+     * @return Effect
+     * @see com.soen6441.core.effect.IAffectable#getEffect(String)
      */
 	public Effect getEffect(String type) {
 		
 		return effects.get(type);
 	}
 	
+	/**
+	 * Method getAllEffects.
+	 * @return List<Effect>
+	 */
 	public List<Effect> getAllEffects() {
 		return new ArrayList<Effect>(effects.values());
 	}
@@ -197,6 +201,9 @@ public class MapItem extends Observable implements IArchive{
 	 * Mark - Archive - Methods
 	 */
 	 
+	/**
+     * @author Zhe Zhao
+	 */
 	public class NameForArchiving{
 		public static final String Class = "MapItem";
 		private static final String Location = "location";
@@ -204,6 +211,11 @@ public class MapItem extends Observable implements IArchive{
 		private static final String CellImageName = "cellImageName";
 	}
 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		Element locationElement = element.element(NameForArchiving.Location);
@@ -218,6 +230,11 @@ public class MapItem extends Observable implements IArchive{
 		this.setCellImageName(element.element(NameForArchiving.CellImageName).getText());
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);

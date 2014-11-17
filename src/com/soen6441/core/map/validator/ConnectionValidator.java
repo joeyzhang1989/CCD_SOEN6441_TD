@@ -33,7 +33,6 @@ public class ConnectionValidator extends PathValidator {
 	 * 
 	 * @return boolean A boolean values that represent whether a Path exist between startPoint and EndPoint. 
      */
-	
 	@Override
 	public boolean validate() {
 		
@@ -98,10 +97,9 @@ public class ConnectionValidator extends PathValidator {
 	 * For a Map with one entry and exit point and only one path bwtween entry and exit. Every road object must has 
 	 * exactly two neighbours unless it is Entry or Exit Point in which case It must have only ont connected neighbour,
 	 * 
-	 * @param road  A Road Object
-	 * @return numberOfNeighbours  
+	 * @param road  A Road Object	
+     * @return numberOfNeighbours
      */
-	
 	private int numberOfNeighbours(Road road) {
 		
 		List<MapPoint> directions = MapPoint.crossDirections();

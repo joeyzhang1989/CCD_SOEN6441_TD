@@ -25,7 +25,7 @@ public class PathManager {
 	
 	/**
 	 * Method getMap
-	 * @return GridMap 
+	 * @return GridMap
      */
 	public GridMap getMap() {
 		return map;
@@ -67,7 +67,7 @@ public class PathManager {
 	 * Calling this method to validate if the items on the map could form a valid path(s)
 	 * When the validation falled, call {@link #getErrorMessage()} to get the reason of the failure.
 	 * 
-     * @return true, if the map is valid to save. false, if the map is not valid. 
+     * @return true, if the map is valid to save. false, if the map is not valid.  
      */
 	public boolean validate() {
 		for (PathValidator validator:validators) {
@@ -83,7 +83,7 @@ public class PathManager {
 
 	/**
 	 * Method getErrorMessage.
-	 * @return String 
+     * @return String
      */
 	public String getErrorMessage() {
 		return erroredValidator.getErrorMessage();
@@ -148,8 +148,8 @@ public class PathManager {
 	/**
 	 * Method findDirections.
 	 * @param point MapPoint
-	 * @return List<MapPoint>
-	 */
+     * @return List<MapPoint>
+     */
 	private List<MapPoint> findDirections(MapPoint point){
 		List<MapPoint> results = new ArrayList<MapPoint>();
 		List<MapPoint> directions = MapPoint.crossDirections();
@@ -169,8 +169,8 @@ public class PathManager {
 	 * Method findEndPoint.
 	 * @param direction MapPoint
 	 * @param fromPoint MapPoint
-	 * @return MapPoint
-	 */
+     * @return MapPoint
+     */
 	private MapPoint findEndPoint(MapPoint direction, MapPoint fromPoint){
 		MapPoint endPoint = fromPoint;
 		
@@ -230,7 +230,7 @@ public class PathManager {
 	 * @param startPoint MapPoint
 	 * @param endPoint MapPoint
 	 * @return List<MapPoint>
-	 */
+     */
 	private List<MapPoint> pointsInSegment(MapPoint startPoint, MapPoint endPoint) {
 		List<MapPoint> points = new ArrayList<MapPoint>();
 		

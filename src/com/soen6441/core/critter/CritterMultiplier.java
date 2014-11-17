@@ -5,6 +5,9 @@ import org.dom4j.Element;
 import com.soen6441.core.IArchive;
 import com.soen6441.core.critter.Critter.NameForArchiving;
 
+/**
+ * @author Zhe Zhao
+ */
 public class CritterMultiplier implements IArchive{
 	
 	/*
@@ -20,27 +23,59 @@ public class CritterMultiplier implements IArchive{
 	 * Mark - Basic - Getters & Setters
 	 */
 	 
+	/**
+	 * Method getRewardMultiplier.
+	 * @return double
+	 */
 	public double getRewardMultiplier() {
 		return rewardMultiplier;
 	}
+	/**
+	 * Method setRewardMultiplier.
+	 * @param rewardMultiplier double
+	 */
 	public void setRewardMultiplier(double rewardMultiplier) {
 		this.rewardMultiplier = rewardMultiplier;
 	}
+	/**
+	 * Method getCritterName.
+	 * @return String
+	 */
 	public String getCritterName() {
 		return critterName;
 	}
+	/**
+	 * Method setCritterName.
+	 * @param critterName String
+	 */
 	public void setCritterName(String critterName) {
 		this.critterName = critterName;
 	}
+	/**
+	 * Method getHpMultiplier.
+	 * @return double
+	 */
 	public double getHpMultiplier() {
 		return hpMultiplier;
 	}
+	/**
+	 * Method setHpMultiplier.
+	 * @param hpMultiplier double
+	 */
 	public void setHpMultiplier(double hpMultiplier) {
 		this.hpMultiplier = hpMultiplier;
 	}
+	/**
+	 * Method getSpeedMultiplier.
+	 * @return double
+	 */
 	public double getSpeedMultiplier() {
 		return speedMultiplier;
 	}
+	/**
+	 * Method setSpeedMultiplier.
+	 * @param speedMultiplier double
+	 */
 	public void setSpeedMultiplier(double speedMultiplier) {
 		this.speedMultiplier = speedMultiplier;
 	}
@@ -49,6 +84,9 @@ public class CritterMultiplier implements IArchive{
 	 * Mark - Archive - Methods
 	 */
 	 
+	/**
+     * @author Zhe Zhao
+	 */
 	public class NameForArchiving{
 		public static final String Class = "CritterMultiplier";
 		private static final String SpeedMultiplier="speedMultiplier";
@@ -58,6 +96,11 @@ public class CritterMultiplier implements IArchive{
 	}
 	
 	
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		this.setSpeedMultiplier(Double.parseDouble(element.element(NameForArchiving.SpeedMultiplier).getText()));
@@ -66,6 +109,11 @@ public class CritterMultiplier implements IArchive{
 		this.setCritterName(element.element(NameForArchiving.Name).getText());
 		this.setRewardMultiplier(1);
 	}
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		

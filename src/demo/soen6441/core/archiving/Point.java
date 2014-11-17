@@ -65,10 +65,10 @@ public class Point implements IArchive {
 	
 	/**
 	 * Method encode.
-	 * @return Element 
-     * @see com.soen6441.core.IArchive#encode() 
+	 * @return Element
      * @see com.soen6441.core.IArchive#encode()
-	 */
+     * @see com.soen6441.core.IArchive#encode() 
+     */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class); 

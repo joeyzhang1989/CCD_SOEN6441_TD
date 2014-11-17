@@ -11,6 +11,7 @@ import com.soen6441.core.critter.Critter;
  * @see Effect
  * @see MapItem
  * @see Critter
+ * @version $Revision: 1.0 $
  */
 public class PoisonEffect extends Effect implements TimerListener{
 	
@@ -23,6 +24,10 @@ public class PoisonEffect extends Effect implements TimerListener{
 
 	/*
 	 * Constructor
+	 */
+	/**
+	 * Constructor for PoisonEffect.
+	 * @param type String
 	 */
 	public PoisonEffect(String type) {
 		
@@ -102,26 +107,50 @@ public class PoisonEffect extends Effect implements TimerListener{
 	 * Getters and Setters
 	 */
 
+	/**
+	 * Method getPoisonDamage.
+	 * @return int
+	 */
 	public int getPoisonDamage() {
 		return poisonDamage;
 	}
 
+	/**
+	 * Method setPoisonDamage.
+	 * @param poisonDamage int
+	 */
 	public void setPoisonDamage(int poisonDamage) {
 		this.poisonDamage = poisonDamage;
 	}
 
+	/**
+	 * Method getPoisonCdTime.
+	 * @return double
+	 */
 	public double getPoisonCdTime() {
 		return poisonCdTime;
 	}
 
+	/**
+	 * Method setPoisonCdTime.
+	 * @param poisonCdTime double
+	 */
 	public void setPoisonCdTime(double poisonCdTime) {
 		this.poisonCdTime = poisonCdTime;
 	}
 
+	/**
+	 * Method getPoisonTimes.
+	 * @return int
+	 */
 	public int getPoisonTimes() {
 		return poisonTimes;
 	}
 
+	/**
+	 * Method setPoisonTimes.
+	 * @param poisonTimes int
+	 */
 	public void setPoisonTimes(int poisonTimes) {
 		this.poisonTimes = poisonTimes;
 	}

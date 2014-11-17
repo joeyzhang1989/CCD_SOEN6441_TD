@@ -8,7 +8,9 @@ import test.soen6441.core.SuiteCore;
 import test.soen6441.ui.SuiteUI;
 
 /**
- *@author 
+ *
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 @RunWith(Suite.class)
 @SuiteClasses({SuiteCore.class, SuiteUI.class})
