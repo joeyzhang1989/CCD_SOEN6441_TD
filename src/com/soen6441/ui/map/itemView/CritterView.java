@@ -54,7 +54,7 @@ public class CritterView extends MapItemView {
 	public void update(Observable o, Object arg) {
 		super.update(o, arg);
 		if (arg == Critter.OBSERVABLE_EVENT_PROPERTY_HP_DID_CHANGE){
-			this.repaint();
+//			this.repaint();
 		} else if (arg == Critter.OBSERVABLE_EVENT_PROPERTY_LOCATION_DID_CHANGE) {
 			this.setLocation(MapView.mapPointToSwingPoint(getItem().getLocation()));
 //			this.repaint();
