@@ -8,7 +8,7 @@
 				<upgradePrice>180</upgradePrice>
 				<sellPrice>80</sellPrice>
 				<damage>20</damage>
-				<range>1</range>
+				<range>1.5</range>
 				<cdTime>1</cdTime>
 				<cellImageName>tower_cell_1_1.png</cellImageName>
 				<name>Bottle Tower</name>

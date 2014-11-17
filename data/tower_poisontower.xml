@@ -8,7 +8,7 @@
 				<upgradePrice>280</upgradePrice>
 				<sellPrice>120</sellPrice>
 				<damage>15</damage>
-				<range>1</range>
+				<range>1.5</range>
 				<cdTime>1.5</cdTime>
 				<poisonDamage>5</poisonDamage>
 				<poisonCdTime>2</poisonCdTime>

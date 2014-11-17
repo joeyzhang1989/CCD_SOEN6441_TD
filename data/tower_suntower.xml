@@ -8,7 +8,7 @@
 				<upgradePrice>260</upgradePrice>
 				<sellPrice>124</sellPrice>
 				<damage>15</damage>
-				<range>1</range>
+				<range>1.5</range>
 				<cdTime>1</cdTime>
 				<cellImageName>tower_cell_3_1.png</cellImageName>
 				<name>Sun Tower</name>

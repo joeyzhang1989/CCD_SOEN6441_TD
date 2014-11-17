@@ -8,7 +8,7 @@
 				<upgradePrice>120</upgradePrice>
 				<sellPrice>50</sellPrice>
 				<damage>5</damage>
-				<range>1</range>
+				<range>1.5</range>
 				<cdTime>5</cdTime>
 				<enhanceRate>1.1</enhanceRate>
 				<enhanceDuration>2</enhanceDuration>
