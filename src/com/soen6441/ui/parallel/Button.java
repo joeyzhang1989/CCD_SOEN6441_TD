@@ -138,12 +138,13 @@ public class Button extends JButton {
 		Graphics2D graphics2d = (Graphics2D)g;
 		graphics2d.setFont(this.getFont());
 		boolean isPressed = this.getModel().isPressed();
+		boolean enabled = this.isEnabled(); 
 		boolean hasSubtitle = subtitle != null;
 		
-		Color colorTint = new Color(0x333333);
+		Color colorTint = enabled ? new Color(0x333333) : new Color(0xCCCCCC);
 		Color colorBack = new Color(0xFFFFFF);
-		
-		if (isPressed) {
+
+		if (enabled && isPressed) {
 			graphics2d.setColor(colorTint);
 			graphics2d.fillRect(0, 0, this.getWidth(), this.getHeight());
 		} else {

@@ -274,4 +274,5 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	public void timerTick(Timer timer) {
 		this.repaint();
 	}
+
 }

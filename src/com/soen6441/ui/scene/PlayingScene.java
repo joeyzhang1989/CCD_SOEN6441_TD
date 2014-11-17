@@ -8,10 +8,13 @@ import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
+import javax.swing.JOptionPane;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
+import com.soen6441.core.play.PlayEventListener;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
 import com.soen6441.core.tower.TowerManagerFactory;
@@ -35,7 +38,7 @@ import com.soen6441.ui.parallel.View;
  * 
  * @version $Revision: 1.0 $
  */
-public class PlayingScene extends View implements Observer, GridViewSelectionListener{
+public class PlayingScene extends View implements Observer, GridViewSelectionListener, PlayEventListener{
 	
 	/*
 	 * Mark - Context - Properties
@@ -99,6 +102,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	protected void init() {
 		play = Play.currentPlay();
 		play.addObserver(this);
+		play.setEventListener(this);
 		super.init();
 		
 	}
@@ -219,12 +223,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				play.stopRunner();
-				play.deleteObserver(PlayingScene.this);
-				Play.destroy();
-				 
-				PlayingScene.this.viewFlow.pop();
-				
+				back();
 			}
 		});
 		
@@ -233,9 +232,51 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		play.startRunner();
 	}
 	
-	public void updateInfoLabel(){
+	private void updateInfoLabel(){
 		infoLabel.setText("Wave: " + (play.getCurrentWaveIndex() + 1) + "/"  + play.getCritterWaveAmount());
 	}
+	
+	private void back() {
+		play.stopRunner();
+		play.deleteObserver(PlayingScene.this);
+		Play.destroy();
+		 
+		PlayingScene.this.viewFlow.pop();
+		
+	}
+	
+	/*
+	 * Mark - Play Events - Methods
+	 */
+	
+
+	@Override
+	public void playWaveDidStart(Play play) {
+		controlButton.setEnabled(false);
+	}
+
+	@Override
+	public void playWaveDidSendAllCritter(Play play) {
+		
+	}
+
+	@Override
+	public void playAllCrittersDidKilled(Play play) {
+		controlButton.setEnabled(true);
+	}
+
+	@Override
+	public void playGameover(Play play) {
+		JOptionPane.showMessageDialog(this, "Gameover");
+		back();
+	}
+
+	@Override
+	public void playSuccess(Play play) {
+		JOptionPane.showMessageDialog(this, "Success");
+		back();
+	}
+	 
 	
 	/*
 	 * Mark - Inspection - Methods
@@ -550,5 +591,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		}
 	
 	}
+
+
 
 }

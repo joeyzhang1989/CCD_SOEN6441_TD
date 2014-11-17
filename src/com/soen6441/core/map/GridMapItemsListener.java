@@ -8,4 +8,5 @@ public interface GridMapItemsListener {
 	
 	public void gridMapDidAddCritter(Critter critter);
 	public void gridMapDidRemoveCritter(Critter critter);
+	
 }
