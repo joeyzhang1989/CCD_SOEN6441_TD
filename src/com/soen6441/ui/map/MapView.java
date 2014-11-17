@@ -244,7 +244,11 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		gridView.replaceCell(itemCell, scenaryCell);
 	}
 
-	
+	/**
+	 * Method gridMapDidAddCritter.
+	 * @param critter Critter
+	 * @see com.soen6441.core.map.GridMapItemsListener#gridMapDidAddCritter(Critter)
+	 */
 	@Override
 	public void gridMapDidAddCritter(Critter critter) {
 		Point point = mapPointToSwingPoint(critter.getLocation());
