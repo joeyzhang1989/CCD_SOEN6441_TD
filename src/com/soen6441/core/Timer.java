@@ -138,7 +138,10 @@ public class Timer implements ActionListener{
 		timer.setRepeats(flag);
 	}
 
-
+	/**
+	 * Method isRepeats.
+	 * @return boolean
+	 */
 	public boolean isRepeats() {
 		return timer.isRepeats();
 	}
