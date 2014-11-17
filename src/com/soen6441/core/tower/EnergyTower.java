@@ -118,6 +118,7 @@ public class EnergyTower extends Tower {
 		List<MapItem> targets = selector
 				.filterByType(Tower.class)
 				.filterByCircularArea(this.getLocation(), this.getRange().getEffectedValue())
+				.filterByExcluding(this)
 				.sortByDirectlyClosestToPoint(this.getLocation())
 				.getItems();
 		
@@ -139,9 +140,8 @@ public class EnergyTower extends Tower {
 			effect.setCellImageName(this.getEffectImageName());
 			
 			Tower tower = (Tower)item;
-			if (tower.getClass() != this.getClass()) {
-				tower.addEffect(effect);
-			}						
+			tower.addEffect(effect);
+									
 		}
 	}
 	
