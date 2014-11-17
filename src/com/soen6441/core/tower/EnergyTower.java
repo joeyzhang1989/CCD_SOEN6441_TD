@@ -53,7 +53,7 @@ public class EnergyTower extends Tower {
 	 */
 	@Override
 	public String getDetailInformation() {
-		String result = "CDTime :" + this.getCdTime().getEffectedValue() + System.getProperty("line.separator")
+		String result = "CDTime :" + (int)this.getCdTime().getEffectedValue() + System.getProperty("line.separator")
 					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator")
 					  + "Duration :" + this.enhanceDuration + System.getProperty("line.separator");
 		return result;
