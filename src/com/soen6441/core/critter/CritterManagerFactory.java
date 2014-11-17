@@ -25,10 +25,11 @@ public class CritterManagerFactory {
 
 	private CritterManagerFactory() {
 		
-		typeNames = new ArrayList<String>(Arrays.asList("Critter 1","Critter 2"));
+		typeNames = new ArrayList<String>(Arrays.asList("Critter 1","Critter 2", "Critter 3"));
 		fileNames = new HashMap<String, String>();
 		fileNames.put("Critter 1", "critter_1");
 		fileNames.put("Critter 2", "critter_2");
+		fileNames.put("Critter 3", "critter_3");
 		
 		
 		for(int i=0; i<typeNames.size(); i++) {

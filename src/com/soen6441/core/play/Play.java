@@ -213,6 +213,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * @param life int
 	 */
 	public void setLife(int life) {
+		if (life == 0) {
+			life = 0;
+		}
+		
 		this.life = life;
 		
 		this.setChanged();
@@ -235,6 +239,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * @param coins int
 	 */
 	public void setCoins(int coins) {
+		if (coins == 0) {
+			coins = 0;
+		}
+		
 		this.coins = coins;
 
 		this.setChanged();

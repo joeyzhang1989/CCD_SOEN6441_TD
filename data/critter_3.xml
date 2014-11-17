@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<Critter>
+		<totalHp>1000</totalHp>
+		<hp>1000</hp>
+		<speed>0.5</speed>
+		<reward>100</reward>
+		<stealAmount>20</stealAmount>
+		
+		<name>Critter 3</name>
+		<cellImageName>critter_cell_3.png</cellImageName>
+	</Critter>
+</xml>

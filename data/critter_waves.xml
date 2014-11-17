@@ -60,4 +60,34 @@
 			</CritterMultiplier>
 		</critters>
 	</CritterWave>
+	<CritterWave>
+		<timeGap>0.5</timeGap>
+		<critters>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>2.5</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>2.5</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>2.5</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>2.5</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.5</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+		</critters>
+	</CritterWave>
 </xml>
