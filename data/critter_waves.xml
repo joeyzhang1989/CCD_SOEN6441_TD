@@ -61,7 +61,7 @@
 		</critters>
 	</CritterWave>
 	<CritterWave>
-		<timeGap>0.5</timeGap>
+		<timeGap>0.8</timeGap>
 		<critters>
 			<CritterMultiplier>
 				<critterName>Critter 2</critterName>
@@ -86,6 +86,186 @@
 			<CritterMultiplier>
 				<critterName>Critter 3</critterName>
 				<hpMultiplier>2.5</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+		</critters>
+	</CritterWave>
+	<CritterWave>
+		<timeGap>0.7</timeGap>
+		<critters>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>1.5</hpMultiplier>
+				<speedMultiplier>1.2</speedMultiplier>
+			</CritterMultiplier>
+		</critters>
+	</CritterWave>
+	<CritterWave>
+		<timeGap>0.6</timeGap>
+		<critters>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>4.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>5.0</hpMultiplier>
+				<speedMultiplier>1.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.2</speedMultiplier>
+			</CritterMultiplier>
+		</critters>
+	</CritterWave>
+	<CritterWave>
+		<timeGap>0.8</timeGap>
+		<critters>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>4.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>5.0</hpMultiplier>
+				<speedMultiplier>1.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.2</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>4.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+		</critters>
+	</CritterWave>
+	<CritterWave>
+		<timeGap>0.7</timeGap>
+		<critters>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>4.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>5.0</hpMultiplier>
+				<speedMultiplier>1.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.2</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>4.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+		</critters>
+	</CritterWave>
+	<CritterWave>
+		<timeGap>0.7</timeGap>
+		<critters>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>4.0</hpMultiplier>
+				<speedMultiplier>2.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>5.0</hpMultiplier>
+				<speedMultiplier>1.5</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 3</critterName>
+				<hpMultiplier>2.0</hpMultiplier>
+				<speedMultiplier>1.2</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 1</critterName>
+				<hpMultiplier>6.0</hpMultiplier>
+				<speedMultiplier>1.0</speedMultiplier>
+			</CritterMultiplier>
+			<CritterMultiplier>
+				<critterName>Critter 2</critterName>
+				<hpMultiplier>3.0</hpMultiplier>
 				<speedMultiplier>2.5</speedMultiplier>
 			</CritterMultiplier>
 		</critters>

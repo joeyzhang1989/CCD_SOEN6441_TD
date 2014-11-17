@@ -68,28 +68,28 @@ public class Strategy {
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT);
 		strategy.setImageName("strategy_1.png");
-		strategy.setDescription("XXXXX");
+		strategy.setDescription("Nearest to this tower ");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 		
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_ON_PATH_CLOSEST_TO_END_POINT);
 		strategy.setImageName("strategy_2.png");
-		strategy.setDescription("XXXXX");
+		strategy.setDescription("Nearest to the end point");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_WEAKEST);
 		strategy.setImageName("strategy_3.png");
-		strategy.setDescription("XXXXX");
+		strategy.setDescription("Weakest");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_STRONGEST);
 		strategy.setImageName("strategy_4.png");
-		strategy.setDescription("XXXXX");
+		strategy.setDescription("Strongest");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
 	}
