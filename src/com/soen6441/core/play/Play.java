@@ -15,6 +15,8 @@ import com.soen6441.core.TimerListener;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.critter.CritterWave;
 import com.soen6441.core.map.GridMap;
+import com.soen6441.core.map.GridMapItemsListener;
+import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.tower.Tower;
@@ -215,10 +217,13 @@ public class Play extends Observable implements IArchive, TimerListener{
 		
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE);
+		
+		if (this.life <= 0) {
+			gameover();
+		}
 	}
 
 	/**
-	 * Method getCoins.
      * @return int  
      */
 	public int getCoins() {
@@ -234,6 +239,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
+		
+		if (this.coins <= 0) {
+			gameover();
+		}
 	}
 	
 	/*
@@ -242,6 +251,12 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 
 	private List<CritterWave> critterWaves;
 	private int currentWaveIndex = -1;
+	
+	private int critterState = _CRITTER_STATE_WAIT;
+	private final static int _CRITTER_STATE_WAIT = 0;
+	private final static int _CRITTER_STATE_PRODUCING = 1;
+	private final static int _CRITTER_STATE_PRODUCED = 2;
+	
 	
 	private Timer waveTimer;
 	
@@ -257,6 +272,8 @@ public class Play extends Observable implements IArchive, TimerListener{
 	}
 	
 	public void nextWave() {
+		critterState = _CRITTER_STATE_PRODUCING;
+		
 		currentWaveIndex ++;
 		CritterWave currentWave = currentWave();
 		
@@ -267,12 +284,20 @@ public class Play extends Observable implements IArchive, TimerListener{
 		waveTimer.setTimerListener(this);
 		
 		waveTimer.startImmediately();
+		
+		if (eventListener != null) {
+			eventListener.playWaveDidStart(currentPlay);
+		}
 	}
 
 	private void waveTimerTick(){
 		Critter critter = currentWave().nextCritter();
 		MapPoint startLocation = map.getStartPoints().get(0).copy();
 		map.addCritter(critter, startLocation);
+		
+		if (currentWave().getCurrentIndex() == currentWave().amount() - 1) {
+			critterState = _CRITTER_STATE_PRODUCED;
+		}
 	}
 	
 	public int getCritterWaveAmount() {
@@ -301,6 +326,9 @@ public class Play extends Observable implements IArchive, TimerListener{
 	public static final double RUNNER_FPS = 32;
 	private List<TimerListener> runningListeners;
 	
+	
+	
+	
 	/*
 	 * Mark - Runner - Methods
 	 */
@@ -316,6 +344,17 @@ public class Play extends Observable implements IArchive, TimerListener{
 	}
 	
 	private void runningTimerTick(Timer timer){
+		if (map.getCritters().size() == 0 && critterState == _CRITTER_STATE_PRODUCED) {
+			critterState = _CRITTER_STATE_WAIT;
+			if (eventListener != null) {
+				eventListener.playAllCrittersDidKilled(currentPlay);
+			}
+			
+			if (this.currentWaveIndex == critterWaves.size() - 1) {
+				success();
+			}
+		}
+		
 		List<TimerListener> runningListeners = new ArrayList<TimerListener>(this.runningListeners);
 		for (TimerListener timerListener: runningListeners) {
 			timerListener.timerTick(timer);
@@ -336,6 +375,20 @@ public class Play extends Observable implements IArchive, TimerListener{
 	
 	public void stopRunner() {
 		runningTimer.stop();
+	}
+	
+	private void gameover() {
+		if (eventListener != null) {
+			eventListener.playGameover(currentPlay);
+		}
+		stopRunner();
+	}
+	
+	private void success() {
+		if (eventListener != null) {
+			eventListener.playSuccess(currentPlay);
+		}
+		stopRunner();
 	}
 	
 	
@@ -361,8 +414,70 @@ public class Play extends Observable implements IArchive, TimerListener{
 		}
 	}
 	
+	/*
+	 * Mark - Events - Properties
+	 */
 	
+	private PlayEventListener eventListener;
+	
+	/*
+	 * Mark - Events - Getters & Setters
+	 */
 	 
+
+	public PlayEventListener getEventListener() {
+		return eventListener;
+	}
+
+	public void setEventListener(PlayEventListener eventListener) {
+		this.eventListener = eventListener;
+	}
+	
+
+
+	/*
+	 * Mark - Archive - Methods
+	 */
+
+	public class NameForArchiving {
+		public static final String Class = "Play";
+		public static final String COINS = "coins";
+		public static final String MAP = "map";
+
+	}
+
+	@Override
+	public void decode(Element element) {
+		
+		// setting the # of coins
+		Node coinNode = element.selectSingleNode(NameForArchiving.COINS);
+		this.coins = Integer.parseInt(coinNode.getText());
+		
+		// reading the map node to access GridMap.
+		Node mapNode = element.selectSingleNode(NameForArchiving.MAP);
+		Element gridMapNode = (Element) mapNode.selectSingleNode(GridMap.NameForArchiving.Class);
+
+		GridMap map = new GridMap();
+		map.decode(gridMapNode);
+
+		this.map = map;
+	}
+
+	@Override
+	public Element encode() {
+		Element element = new DefaultElement(NameForArchiving.Class);
+
+		//adding coin Node and setting value to it
+		Element coins = element.addElement(NameForArchiving.COINS);
+		coins.addText(String.valueOf(this.coins));
+		
+		//adding map Node and then assigning GridMap to it.
+		Element mapElement = element.addElement(NameForArchiving.MAP);
+		mapElement.add(this.getMap().encode());
+
+		return element;
+	}
+	
 	/*
 	 * Mark - Debug - Methods
 	 */
@@ -422,48 +537,4 @@ public class Play extends Observable implements IArchive, TimerListener{
 		
 		map.getPathManager().generateRoadItemsFromPaths();
 	}
-
-	/*
-	 * Mark - Archive - Methods
-	 */
-	
-	public class NameForArchiving {
-		public static final String Class = "Play";
-		public static final String COINS = "coins";
-		public static final String MAP = "map";
-
-	}
-
-	@Override
-	public void decode(Element element) {
-		
-		// setting the # of coins
-		Node coinNode = element.selectSingleNode(NameForArchiving.COINS);
-		this.coins = Integer.parseInt(coinNode.getText());
-		
-		// reading the map node to access GridMap.
-		Node mapNode = element.selectSingleNode(NameForArchiving.MAP);
-		Element gridMapNode = (Element) mapNode.selectSingleNode(GridMap.NameForArchiving.Class);
-
-		GridMap map = new GridMap();
-		map.decode(gridMapNode);
-
-		this.map = map;
-	}
-
-	@Override
-	public Element encode() {
-		Element element = new DefaultElement(NameForArchiving.Class);
-
-		//adding coin Node and setting value to it
-		Element coins = element.addElement(NameForArchiving.COINS);
-		coins.addText(String.valueOf(this.coins));
-		
-		//adding map Node and then assigning GridMap to it.
-		Element mapElement = element.addElement(NameForArchiving.MAP);
-		mapElement.add(this.getMap().encode());
-
-		return element;
-	}
-	
 }
