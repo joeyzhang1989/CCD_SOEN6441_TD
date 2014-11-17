@@ -437,7 +437,10 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * Mark - Storage - Getters & Setters
 	 */
 	
-	
+	/**
+	 * Method getWorkingFile.
+	 * @return File
+     */
 	public File getWorkingFile() {
 		return workingFile;
 	}
