@@ -217,7 +217,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * @param life int
 	 */
 	public void setLife(int life) {
-		if (life == 0) {
+		if (life < 0) {
 			life = 0;
 		}
 		
@@ -226,7 +226,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE);
 		
-		if (this.life <= 0) {
+		if (this.life == 0) {
 			gameover();
 		}
 	}
@@ -243,7 +243,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * @param coins int
 	 */
 	public void setCoins(int coins) {
-		if (coins == 0) {
+		if (coins < 0) {
 			coins = 0;
 		}
 		
@@ -252,9 +252,9 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 		
-		if (this.coins <= 0) {
-			gameover();
-		}
+//		if (this.coins <= 0) {
+//			gameover();
+//		}
 	}
 	
 	/*
