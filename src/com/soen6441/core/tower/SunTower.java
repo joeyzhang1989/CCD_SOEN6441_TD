@@ -81,6 +81,12 @@ public class SunTower extends Tower {
 	/*
 	 * Attack methods
 	 */
+	
+	/**
+	  * This method is used to get particular targets of this tower on a map.
+	  * @see Tower#searchForTargets()
+	  * @see MapItemSelector
+	  */
 	@Override
 	protected void searchForTargets() {
 		MapItemSelector selector = map.getItemSelector();
@@ -94,18 +100,34 @@ public class SunTower extends Tower {
 	}
 	
 	@Override
+	
+	/**
+	 * Attack method: make damage to its targets.
+	 * @see PoisonEffect
+	 * @see Tower#attack()
+	 */
 	protected void attack() {
 		for (MapItem item:this.getTargets()) {
 			Critter critter = (Critter)item;
 			critter.damaged((int) this.getDamage().getEffectedValue());	
 		}
 	}
+	
+	/**
+	 * This method is use to enhance properties of the tower.
+	 * It is called by Motivate Effect, EnergyTower.
+	 * @see MotivateEffect
+	 * @see EnergyTower
+	 */
 	@Override
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
 	}
 	
-
+	/**
+	 * This method is used to reset all effected values of this object to its original values.
+	 * @see MapItem
+	 */
 	@Override
 	protected void resetAffectableValue() {
 		super.resetAffectableValue();

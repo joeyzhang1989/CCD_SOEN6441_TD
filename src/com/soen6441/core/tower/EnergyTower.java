@@ -106,6 +106,12 @@ public class EnergyTower extends Tower {
 	/*
 	 * Attack methods
 	 */
+	
+	/**
+	  * This method is used to get particular targets of this tower on a map.
+	  * @see Tower#searchForTargets()
+	  * @see MapItemSelector
+	  */
 	@Override
 	protected void searchForTargets() {
 		MapItemSelector selector = map.getItemSelector();
@@ -118,6 +124,11 @@ public class EnergyTower extends Tower {
 		this.setTargets(targets);
 	}
 	
+	/**
+	 * Attack method: Enhance properties of towers nearby.
+	 * @see EnergyTower
+	 * @see Tower#attack()
+	 */
 	@Override
 	protected void attack() {
 		for (MapItem item:this.getTargets()) {
@@ -130,26 +141,37 @@ public class EnergyTower extends Tower {
 			Tower tower = (Tower)item;
 			if (tower.getClass() != this.getClass()) {
 				tower.addEffect(effect);
-			}
-					
-				
+			}						
 		}
 	}
+	
+	/**
+	 * This method is use to enhance properties of the tower.
+	 * It is called by Motivate Effect, EnergyTower.
+	 * @see MotivateEffect
+	 * @see EnergyTower
+	 */
 	@Override
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
 	}
 	
-
+	/**
+	 * This method is used to reset all effected values of this object to its original values.
+	 * @see MapItem
+	 */
 	@Override
 	protected void resetAffectableValue() {
 		super.resetAffectableValue();
 	}
-
+	
+	/*
+	 * Getters and Setters
+	 */
 	public double getEnhanceRate() {
 		return enhanceRate;
 	}
-
+	
 	public void setEnhanceRate(double enhanceRate) {
 		this.enhanceRate = enhanceRate;
 	}

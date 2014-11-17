@@ -81,6 +81,12 @@ public class BottleTower extends Tower {
 	/*
 	 * Attack methods
 	 */
+	
+	 /**
+	  * This method is used to get particular targets of this tower on a map.
+	  * @see Tower#searchForTargets()
+	  * @see MapItemSelector
+	  */
 	@Override
 	protected void searchForTargets() {
 		MapItemSelector selector = map.getItemSelector();
@@ -94,6 +100,10 @@ public class BottleTower extends Tower {
 		this.setTargets(targets);
 	}
 	
+	/**
+	 * Attack method: make damage to its target.
+	 * @see Tower#attack()
+	 */
 	@Override
 	protected void attack() {
 		for (MapItem item:this.getTargets()) {
@@ -102,11 +112,21 @@ public class BottleTower extends Tower {
 		}
 	}
 	
+	/**
+	 * This method is use to enhance properties of the tower.
+	 * It is called by Motivate Effect, EnergyTower.
+	 * @see MotivateEffect
+	 * @see EnergyTower
+	 */
 	@Override
 	public void reinforce(double enhanceRate) {
 		super.reinforce(enhanceRate);
 	}
 	
+	/**
+	 * This method is used to reset all effected values of this object to its original values.
+	 * @see MapItem
+	 */
 	@Override
 	protected void resetAffectableValue() {
 		super.resetAffectableValue();
