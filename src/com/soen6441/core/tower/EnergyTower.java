@@ -53,7 +53,7 @@ public class EnergyTower extends Tower {
 	 */
 	@Override
 	public String getDetailInformation() {
-		String result = "CDTime :" + (int)this.getCdTime().getEffectedValue() + System.getProperty("line.separator")
+		String result = "CDTime :" + (int)this.getCdTime().getAffectedValue() + System.getProperty("line.separator")
 					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator")
 					  + "Duration :" + this.enhanceDuration + System.getProperty("line.separator");
 		return result;
@@ -117,7 +117,7 @@ public class EnergyTower extends Tower {
 		MapItemSelector selector = map.getItemSelector();
 		List<MapItem> targets = selector
 				.filterByType(Tower.class)
-				.filterByCircularArea(this.getLocation(), this.getRange().getEffectedValue())
+				.filterByCircularArea(this.getLocation(), this.getRange().getAffectedValue())
 				.filterByExcluding(this)
 				.sortByDirectlyClosestToPoint(this.getLocation())
 				.getItems();

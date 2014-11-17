@@ -92,7 +92,7 @@ public class SunTower extends Tower {
 		MapItemSelector selector = map.getItemSelector();
 		List<MapItem> targets = selector
 				.filterByType(Critter.class)
-				.filterByCircularArea(this.getLocation(), this.getRange().getEffectedValue())
+				.filterByCircularArea(this.getLocation(), this.getRange().getAffectedValue())
 				.sortByDirectlyClosestToPoint(this.getLocation())
 				.getItems();
 		
@@ -109,7 +109,7 @@ public class SunTower extends Tower {
 	protected void attack() {
 		for (MapItem item:this.getTargets()) {
 			Critter critter = (Critter)item;
-			critter.damaged((int) this.getDamage().getEffectedValue());	
+			critter.damaged((int) this.getDamage().getAffectedValue());	
 		}
 	}
 	

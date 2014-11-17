@@ -93,7 +93,7 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		Point center = mapPointToSwingPoint(tower.getLocation());
 		center.x += _UNIT_LENGTH * 0.5;
 		center.y += _UNIT_LENGTH * 0.5;
-		int range = (int)(tower.getRange().getEffectedValue() * _UNIT_LENGTH);
+		int range = (int)(tower.getRange().getAffectedValue() * _UNIT_LENGTH);
 		
 		for (int i = 0; i < 4; i ++) {
 			g.setColor(new Color(0x66, 0x66, 0x66, 256 * (6-i) / 8 - 1));

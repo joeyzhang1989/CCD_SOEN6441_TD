@@ -93,7 +93,7 @@ public class BottleTower extends Tower implements EnableStrategy {
 		MapItemSelector selector = map.getItemSelector();
 		List<MapItem> targets = selector
 				.filterByType(Critter.class)
-				.filterByCircularArea(this.getLocation(), this.getRange().getEffectedValue())
+				.filterByCircularArea(this.getLocation(), this.getRange().getAffectedValue())
 				.sortByStrategy(this.getStrategyName(), this)
 				.filterByAmount(1)
 				.getItems();
@@ -109,7 +109,7 @@ public class BottleTower extends Tower implements EnableStrategy {
 	protected void attack() {
 		for (MapItem item:this.getTargets()) {
 			Critter critter = (Critter)item;
-			critter.damaged((int) this.getDamage().getEffectedValue());	
+			critter.damaged((int) this.getDamage().getAffectedValue());	
 		}
 	}
 	
