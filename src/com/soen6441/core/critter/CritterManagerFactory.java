@@ -20,8 +20,11 @@ public class CritterManagerFactory {
 	/*
 	 * Mark - Singleton - Methods
 	 */
-
 	
+	/**
+	 * Method defaultFactory.
+	 * @return CritterManagerFactory
+	 */
 	public static CritterManagerFactory defaultFactory(){
 		if (defaultFactory == null){
 			defaultFactory = new CritterManagerFactory();
