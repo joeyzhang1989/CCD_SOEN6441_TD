@@ -298,7 +298,12 @@ public class MapItemSelector {
 		return mapItemSelector;
   	}
 	
-
+	/**
+	 * Method sortByStrategy.
+	 * @param strategyName String
+	 * @param source MapItem
+	 * @return MapItemSelector
+	 */
 	public MapItemSelector sortByStrategy(String strategyName, MapItem source) {
 		if (strategyName.equals(Strategy.STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT)) {
 			return sortByDirectlyClosestToPoint(source.getLocation());
