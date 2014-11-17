@@ -6,13 +6,20 @@ import com.soen6441.core.IArchive;
 import com.soen6441.core.critter.Critter.NameForArchiving;
 
 public class CritterMultiplier implements IArchive{
+	
+	/*
+	 * Mark - Basic - Properties
+	 */
 
 	private String critterName;
 	private double hpMultiplier;
 	private double speedMultiplier;
 	private double rewardMultiplier;
 	
-	
+	/*
+	 * Mark - Basic - Getters & Setters
+	 */
+	 
 	public double getRewardMultiplier() {
 		return rewardMultiplier;
 	}
@@ -38,6 +45,10 @@ public class CritterMultiplier implements IArchive{
 		this.speedMultiplier = speedMultiplier;
 	}
 	
+	/*
+	 * Mark - Archive - Methods
+	 */
+	 
 	public class NameForArchiving{
 		public static final String Class = "CritterMultiplier";
 		private static final String SpeedMultiplier="speedMultiplier";
@@ -57,7 +68,7 @@ public class CritterMultiplier implements IArchive{
 	}
 	@Override
 	public Element encode() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	

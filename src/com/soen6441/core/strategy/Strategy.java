@@ -6,9 +6,18 @@ import java.util.List;
 import java.util.Map;
 
 public class Strategy {
+	
+	/*
+	 * Mark - Basic - Properties
+	 */
+	
 	private String imageName;
 	private String name;
 	
+	/*
+	 * Mark - Basic - Getters & Setters
+	 */
+	 
 	public String getImageName() {
 		return imageName;
 	}
@@ -25,6 +34,10 @@ public class Strategy {
 		this.name = name;
 	}
 	
+	/*
+	 * Mark - Supported Strategies - Properties
+	 */
+	 
 	public static final String STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT = "StrategyNameDirectlyClosestToPoint";
 	public static final String STRATEGY_NAME_ON_PATH_CLOSEST_TO_END_POINT = "StrategyNameOnPathClosestToEndPoint";
 	public static final String STRATEGY_NAME_WEAKEST = "StrategyNameWeakest";
@@ -33,7 +46,10 @@ public class Strategy {
 	private static Map<String, Strategy> strategies;
 	private static List<String> strategyNames;
 	
-	
+	/*
+	 * Mark - Supported Strategies - Methods
+	 */
+	 
 	static {
 		strategies = new HashMap<String, Strategy>();
 		strategyNames = new ArrayList<String>();

@@ -11,12 +11,19 @@ import com.soen6441.core.critter.CritterMultiplier.NameForArchiving;
 import com.soen6441.core.map.MapPoint;
 
 public class CritterWave implements IArchive {
+	
+	/*
+	 * Mark - Basic - Methods
+	 */
+	 
 
 	private double timeGap;
 	private List<CritterMultiplier> critters;
 
-	private int currentIndex;
-
+	/*
+	 * Mark - Basic - Getters & Setters
+	 */
+	 
 	public double getTimeGap() {
 		return timeGap;
 	}
@@ -32,6 +39,17 @@ public class CritterWave implements IArchive {
 	public void setCritters(List<CritterMultiplier> critters) {
 		this.critters = critters;
 	}
+	
+	/*
+	 * Mark - Index Control - Properties
+	 */
+	 
+	private int currentIndex;
+
+	/*
+	 * Mark - Index Control - Methods
+	 */
+	 
 
 	public int getCurrentIndex() {
 		return currentIndex;
@@ -48,6 +66,10 @@ public class CritterWave implements IArchive {
 		CritterManager manager= CritterManagerFactory.defaultFactory().getManager(name);
 		return manager.generateCritter(critterMultiplier);
 	}
+	
+	/*
+	 * Mark - Archive - Methods
+	 */
 
 	public class NameForArchiving {
 		public static final String Class = "CritterWave";
@@ -74,7 +96,7 @@ public class CritterWave implements IArchive {
 
 	@Override
 	public Element encode() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

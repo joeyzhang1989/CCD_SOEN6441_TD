@@ -15,11 +15,37 @@ import com.soen6441.core.strategy.Strategy;
  * @author Mengyao Wang 
  */
 public class MapItemSelector {
+	
+	/*
+	 * Mark - Context - Properties
+	 */
 
 	private GridMap map;
-
 	private List<MapItem> items;
 	
+	/*
+	 * Mark - Context - Getters & Setters
+	 */
+    
+    public GridMap getMap() {
+		return map;
+	}
+
+	public void setMap(GridMap map) {
+		this.map = map;
+	}
+
+	public List<MapItem> getItems() {
+		return items;
+	}
+
+	public void setItems(List<MapItem> items) {
+		this.items = items;
+	}
+	
+	/*
+	 * Mark - Filters - Methods
+	 */
 	
 	/**
 	 * Method fliterByCircularArea.
@@ -96,7 +122,10 @@ public class MapItemSelector {
 		return mapItemSelector;
 	}
     
-    
+    /*
+	 * Mark - Sorts - Methods
+	 */
+	 
     /**
 	 * Method sortByDirectlyClosestToPoint.
      * @return MapItemSelector mapItemSelector
@@ -258,22 +287,6 @@ public class MapItemSelector {
 		}
 		
 		return this;
-	}
-      
-    public GridMap getMap() {
-		return map;
-	}
-
-	public void setMap(GridMap map) {
-		this.map = map;
-	}
-
-	public List<MapItem> getItems() {
-		return items;
-	}
-
-	public void setItems(List<MapItem> items) {
-		this.items = items;
 	}
 }
 

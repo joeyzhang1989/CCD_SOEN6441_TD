@@ -8,21 +8,27 @@ import java.util.Map;
 
 public class CritterManagerFactory {
 
-	private List<String> typeNames;
-	private Map<String, String> fileNames;
-	
-	private Map<String, CritterManager> managers = new HashMap<String, CritterManager>();
+	/*
+	 * Mark - Singleton - Properties
+	 */
 	
 	private static CritterManagerFactory defaultFactory;
-
 	
+	/*
+	 * Mark - Singleton - Methods
+	 */
+
 	public static CritterManagerFactory defaultFactory(){
 		if (defaultFactory == null){
 			defaultFactory = new CritterManagerFactory();
 		}
 		return defaultFactory;
 	}
-
+	
+	/*
+	 * Mark - Constructors
+	 */
+	
 	private CritterManagerFactory() {
 		
 		typeNames = new ArrayList<String>(Arrays.asList("Critter 1","Critter 2", "Critter 3"));
@@ -38,7 +44,20 @@ public class CritterManagerFactory {
 		}
 		
 	}
-
+	
+	/*
+	 * Mark - Basic - Properties
+	 */
+	 
+	private List<String> typeNames;
+	private Map<String, String> fileNames;
+	
+	private Map<String, CritterManager> managers = new HashMap<String, CritterManager>();
+	
+	/*
+	 * Mark - Basic - Methods
+	 */
+	 
 	public CritterManager getManager(String typeName){
 		return managers.get(typeName);
 	}

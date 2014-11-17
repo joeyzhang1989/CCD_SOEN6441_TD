@@ -1,11 +1,12 @@
-package com.soen6441.ui.parallel;
+package com.soen6441.ui.common;
 
 import java.awt.Color;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 
-import com.soen6441.ui.common.Command;
+import com.soen6441.ui.parallel.Button;
+import com.soen6441.ui.parallel.ImageAssets;
 
 public class CommandButton extends Button {
 	private Command command;
