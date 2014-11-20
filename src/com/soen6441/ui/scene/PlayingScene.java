@@ -89,6 +89,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	//bottomView
 	private Button backButton;
+	private Button saveButton;
 	
 	/*
 	 * Mark - View - Life Cycle
@@ -181,6 +182,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		backButton.setLocation(10, 10);
 		bottomView.add(backButton);
 		
+		//Save button
+		saveButton = new Button();
+		saveButton.setTitle("Save");
+		saveButton.setSize(60, 20);
+		saveButton.setLocation(720, 10);
+		bottomView.add(saveButton);
+		
 		//mapView
 		/* 
 		 * get the map information from the mapView and set the 
@@ -225,6 +233,17 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				back();
+			}
+		});
+		
+		/**
+		 * perform the save function to save the playing Game
+		 * 
+		 */
+		saveButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
 			}
 		});
 		
