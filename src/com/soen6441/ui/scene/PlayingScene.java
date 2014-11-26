@@ -47,7 +47,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	/*
 	 * Mark - Context - Properties
 	 */
-	
+
 	private Play play;
 	
 	/*
@@ -103,14 +103,15 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 * to initialize the initial View in the Playscene and
 	 * get the play instance (singleton)addObserver to the observerable play
 	 */
-	@Override
 	protected void init() {
+		super.init();
 		play = Play.currentPlay();
 		play.addObserver(this);
 		play.setEventListener(this);
-		super.init();
 		
-	}
+		Log log = new Log(Log.CATEGORY_MAP).message("Played");
+		play.addLogToMapFile(log);
+	};
 	
 	/**
 	 * override the method initSubviews in the super class View
@@ -265,7 +266,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	
 	private void save() {
 		PlayManager playManager = new PlayManager();
-		playManager.save(new File("./a.tdp.xml"), play);
+		playManager.save(play.getSourceFile(), play);
 		JOptionPane.showMessageDialog(this, "Save Successfull");
 	}
 
@@ -327,6 +328,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	@Override
 	public void playGameover(Play play) {
+
+		Log log = new Log(Log.CATEGORY_MAP).message("Lost");
+		play.addLogToMapFile(log);
+		
 		JOptionPane.showMessageDialog(this, "Gameover");
 		back();
 	}
@@ -338,6 +343,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	@Override
 	public void playSuccess(Play play) {
+
+		Log log = new Log(Log.CATEGORY_MAP).message("Won").value(Integer.toString(play.getScore()));
+		play.addLogToMapFile(log);
+		
 		JOptionPane.showMessageDialog(this, "Success");
 		back();
 	}

@@ -56,6 +56,10 @@ public class Logger implements IArchive{
 		return filteredLogs;
 	}
 	
+	public synchronized void clearLogs() {
+		logs = new ArrayList<Log>();
+	}
+	
 	/*
 	 * Mark - Archive - Methods
 	 */

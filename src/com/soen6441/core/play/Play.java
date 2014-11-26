@@ -1,12 +1,12 @@
 package com.soen6441.core.play;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
 
 import org.dom4j.Element;
-import org.dom4j.Node;
 import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
@@ -17,8 +17,6 @@ import com.soen6441.core.critter.CritterWave;
 import com.soen6441.core.log.Log;
 import com.soen6441.core.log.Logger;
 import com.soen6441.core.map.GridMap;
-import com.soen6441.core.map.GridMapItemsListener;
-import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.tower.Tower;
@@ -110,7 +108,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	/**
 	 * Close the access to the general constructor
 	 */
-	private Play()
+	public Play()
 	{
 		initRunner();
 	}
@@ -529,6 +527,14 @@ public class Play extends Observable implements IArchive, TimerListener{
 		identity ++;
 		return identity;
 	}
+	
+	public void addLogToMapFile(Log log){
+		File mapFile = new File(mapFilePath);
+		PlayManager manager = new PlayManager();
+		Play originalPlay = manager.read(mapFile);
+		originalPlay.getMap().getLogger().addLog(log);
+		manager.save(originalPlay.getSourceFile(), originalPlay);
+	}
 
 	/*
 	 * Mark - Log - Getters & Setters
@@ -553,8 +559,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	public class NameForArchiving {
 		public static final String Class = "Play";
+		public static final String MapFilePath = "mapFilePath";
 		public static final String Coins = "coins";
 		public static final String Life = "life";
+		public static final String Score = "score";
 		
 		public static final String CurrentWaveIndex = "currentWaveIndex";
 		public static final String Map = "map";
@@ -571,13 +579,16 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	@Override
 	public void decode(Element element) {
+		this.mapFilePath = element.elementText(NameForArchiving.MapFilePath);
 		
 		this.coins = Integer.parseInt(element.elementText(NameForArchiving.Coins));
 		this.life = Integer.parseInt(element.elementText(NameForArchiving.Life));
+		this.score = Integer.parseInt(element.elementText(NameForArchiving.Score));
 		this.currentWaveIndex = Integer.parseInt(element.elementText(NameForArchiving.CurrentWaveIndex));
 		
 		Element mapElement = element.element(NameForArchiving.Map).element(GridMap.NameForArchiving.Class);
 		GridMap map = new GridMap();
+		map.setPlay(this);
 		map.decode(mapElement);
 		this.map = map;
 		
@@ -597,9 +608,11 @@ public class Play extends Observable implements IArchive, TimerListener{
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);
-		
+
+		element.addElement(NameForArchiving.MapFilePath).addText(String.valueOf(this.mapFilePath));
 		element.addElement(NameForArchiving.Coins).addText(String.valueOf(this.coins));
 		element.addElement(NameForArchiving.Life).addText(String.valueOf(this.life));
+		element.addElement(NameForArchiving.Score).addText(String.valueOf(this.score));
 		element.addElement(NameForArchiving.CurrentWaveIndex).addText(Integer.toString(currentWaveIndex));
 		element.addElement(NameForArchiving.Map).add(map.encode());
 		element.addElement(NameForArchiving.Identity).addText(Long.toString(this.identity));
@@ -609,8 +622,36 @@ public class Play extends Observable implements IArchive, TimerListener{
 	}
 	
 	/*
+	 * Mark - File - Properties
+	 */
+	 
+	private File sourceFile;
+	private String mapFilePath;
+	
+	/*
+	 * Mark - File - Getters & Setters
+	 */
+	 
+	public File getSourceFile() {
+		return sourceFile;
+	}
+
+	public void setSourceFile(File sourceFile) {
+		this.sourceFile = sourceFile;
+	}
+	
+	public String getMapFilePath() {
+		return mapFilePath;
+	}
+
+	public void setMapFilePath(String mapFilePath) {
+		this.mapFilePath = mapFilePath;
+	}
+	
+	/*
 	 * Mark - Debug - Methods
 	 */
+
 
 	public void buildDemo(){
 		

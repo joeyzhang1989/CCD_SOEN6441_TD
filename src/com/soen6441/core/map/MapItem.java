@@ -12,6 +12,7 @@ import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
 import com.soen6441.core.effect.Effect;
+import com.soen6441.core.play.Play;
 
 
 /**
@@ -24,18 +25,26 @@ import com.soen6441.core.effect.Effect;
  */
 
 public class MapItem extends Observable implements IArchive{
-
-	/*
-	 * Mark - Basic - Properties
-	 */
-
-	protected GridMap map;
-	private MapPoint location;
 	
 	/*
-	 * Mark - Basic - Getters & Setters
+	 * Mark - Context - Properties
 	 */
 
+	protected Play play;
+	protected GridMap map;
+	
+	/*
+	 * Mark - Context - Getters & Setters
+	 */
+
+	public Play getPlay() {
+		return play;
+	}
+
+	public void setPlay(Play play) {
+		this.play = play;
+	}
+	
 	/**
 	 * Method getMap.
      * @return GridMap
@@ -51,6 +60,17 @@ public class MapItem extends Observable implements IArchive{
 	public void setMap(GridMap map) {
 		this.map = map;
 	}
+
+	/*
+	 * Mark - Basic - Properties
+	 */
+
+	private MapPoint location;
+	
+	/*
+	 * Mark - Basic - Getters & Setters
+	 */
+
 
 	/**
 	 * Method getLocation.

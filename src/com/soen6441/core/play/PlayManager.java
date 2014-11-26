@@ -80,12 +80,12 @@ public class PlayManager {
 		Element rootElement = document.getRootElement();
 		Element playElement = (Element) rootElement.selectSingleNode(Play.NameForArchiving.Class);
 
-		Play play = Play.currentPlay();
-		play.setLife(10);
+		Play play = new Play();
 		play.decode(playElement);
 
 		play.getMap().getPathManager().generatePathsFromRoadItems();
 		play.setCritterWaves(readDefaultCritterWaves());
+		play.setSourceFile(file);
 		
 		return play;
 

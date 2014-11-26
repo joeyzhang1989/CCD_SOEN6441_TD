@@ -9,8 +9,7 @@ import javax.swing.JFileChooser;
 import javax.swing.SwingConstants;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-
-
+import com.soen6441.core.play.Play;
 import com.soen6441.core.play.PlayManager;
 import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
@@ -33,8 +32,10 @@ public class MainScene extends View {
 	 * Mark - View - Properties
 	 */
 
-	private Button playButton;
+	private Button loadGameButton;
 
+	private Button newGameButton;
+	
 	private Button editButton;
 
 	private Button newMapButton;
@@ -52,35 +53,39 @@ public class MainScene extends View {
 		
 		// add a label in the mainscene;
 		Label label = new Label();
-		// set the information of the label;
 		label.setText("X-TD");
-
-		// The setFont is the method that is used to set the style of label.
-
 		label.setFontSize(100);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
-		label.setLocation(160, 100);
-		label.setSize(500, 250);
+		label.setLocation(160, 130);
+		label.setSize(500, 100);
 		this.add(label);
 
 		// add a playbutton in the mainscene
-		playButton = new Button();
-		playButton.setTitle("Play");
-		playButton.setLocation(300, 320);
-		playButton.setSize(200, 40);
-		this.add(playButton);
+		loadGameButton = new Button();
+		loadGameButton.setTitle("Load Game");
+		loadGameButton.setLocation(300, 300);
+		loadGameButton.setSize(200, 40);
+		this.add(loadGameButton);
+		
+
+		// add a newGameButton in the mainscene
+		newGameButton = new Button();
+		newGameButton.setTitle("New Game");
+		newGameButton.setLocation(300, 350);
+		newGameButton.setSize(200, 40);
+		this.add(newGameButton);
 
 		// add an editbutton in the mainscene
 		editButton = new Button();
 		editButton.setTitle("Edit a map");
-		editButton.setLocation(300, 370);
+		editButton.setLocation(300, 400);
 		editButton.setSize(200, 40);
 		this.add(editButton);
 
 		// add a newmapbutton in the mainscene
 		newMapButton = new Button();
 		newMapButton.setTitle("Create new map");
-		newMapButton.setLocation(300, 420);
+		newMapButton.setLocation(300, 450);
 		newMapButton.setSize(200, 40);
 		this.add(newMapButton);
 
@@ -89,18 +94,36 @@ public class MainScene extends View {
 	
 	@Override
 	protected void initEvents() {
-		playButton.addActionListener(new ActionListener() {
+		loadGameButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				File file = openFile();
+				File file = openGameFile();
 				
 				if ( file != null ) {
 					PlayManager playManager = new PlayManager();
-					playManager.read(file);
+					Play play = playManager.read(file);
+					Play.setPlay(play);
 
 					PlayingScene playingScene = new PlayingScene();
 					MainScene.this.viewFlow.push(playingScene);
+				}
+			}
+		});
+		
+		newGameButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				File file = openMapFile();
+				
+				if ( file != null ) {
+					PlayManager playManager = new PlayManager();
+					Play play = playManager.read(file);
+					Play.setPlay(play);
+
+					NewGameScene newGameScene = new NewGameScene();
+					MainScene.this.viewFlow.push(newGameScene);
 				}
 			}
 		});
@@ -109,14 +132,14 @@ public class MainScene extends View {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 
-				File file = openFile();
+				File file = openMapFile();
 				
 				if ( file != null ) {
 					PlayManager playManager = new PlayManager();
-					playManager.read(file);
+					Play play = playManager.read(file);
+					Play.setPlay(play);
 					
 					EditingScene editingScene = new EditingScene();
-					editingScene.setWorkingFile(file);
 					MainScene.this.viewFlow.push(editingScene);
 				}
 			}
@@ -136,8 +159,23 @@ public class MainScene extends View {
 	 * Method openFile.
 	 * @return File
      */
-	private File openFile(){
+	private File openMapFile(){
 		JFileChooser fileChooser = new JFileChooser(new File("maps/"));
+		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
+		fileChooser.setFileFilter(filter);
+	
+		int option = fileChooser.showOpenDialog(MainScene.this);
+
+		if (option == JFileChooser.APPROVE_OPTION) {
+			File file = fileChooser.getSelectedFile();	
+			return file;
+		} else {
+			return null;
+		}
+	}
+	
+	private File openGameFile(){
+		JFileChooser fileChooser = new JFileChooser(new File("games/"));
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");
 		fileChooser.setFileFilter(filter);
 	

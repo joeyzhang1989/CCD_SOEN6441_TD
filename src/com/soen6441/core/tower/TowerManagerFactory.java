@@ -54,7 +54,6 @@ public class TowerManagerFactory {
 		
 		for(int i=0; i<typeNames.size(); i++) {
 			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i).toLowerCase()+".xml");
-	
 			managers.put(typeNames.get(i), towerManager);
 		}
 		

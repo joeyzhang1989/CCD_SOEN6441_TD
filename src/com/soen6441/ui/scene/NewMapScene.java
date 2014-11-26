@@ -7,6 +7,7 @@ import java.io.File;
 
 import javax.swing.JOptionPane;
 
+import com.soen6441.core.log.Log;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.play.Play;
 import com.soen6441.ui.parallel.Button;
@@ -27,6 +28,7 @@ import com.soen6441.ui.parallel.View;
 
 public class NewMapScene extends View {
 
+	
 	/*
 	 * Mark - View - Properties
 	 */
@@ -148,18 +150,23 @@ public class NewMapScene extends View {
 		int width = Integer.valueOf(widthString);
 		int height = Integer.valueOf(heightString);
 		
-		Play play = Play.currentPlay();
+		Play play = new Play();
 		GridMap gridMap = new GridMap();
 		gridMap.setWidth(width);
 		gridMap.setHeight(height);
 		play.setMap(gridMap);
+		gridMap.setPlay(play);
 		
 		String nameString = nameTextField.getText();
 		File file = new File("maps/" + nameString + ".tdm.xml");
+		play.setSourceFile(file);
+		
+		Play.setPlay(play);
+		
+		Log log = new Log(Log.CATEGORY_MAP).message("Created");
+		gridMap.getLogger().addLog(log);
 		
 		EditingScene editingScene = new EditingScene();
-		editingScene.setWorkingFile(file);
-		
 		this.viewFlow.push(editingScene);
 	
 	}

@@ -1,2 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xml><Play><coins>1000</coins><map><GridMap><width>4</width><height>4</height><startPoints><MapPoint x="2.0" y="0.0"/></startPoints><endPoints><MapPoint x="0.0" y="1.0"/></endPoints><paths><MapPath><locations><MapPoint x="2.0" y="0.0"/><MapPoint x="2.0" y="2.0"/><MapPoint x="0.0" y="2.0"/><MapPoint x="0.0" y="1.0"/></locations></MapPath></paths></GridMap></map></Play></xml>

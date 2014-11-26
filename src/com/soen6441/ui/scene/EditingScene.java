@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.swing.JOptionPane;
 
+import com.soen6441.core.log.Log;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.PathManager;
@@ -44,7 +45,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 
 	private Play play;
-
+	
 	/*
 	 * Mark - View - Properties
 	 */
@@ -64,8 +65,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 	
 	protected void init() {
-		play = Play.currentPlay();
 		super.init();
+		this.play = Play.currentPlay();
 	};
 
 	/**
@@ -393,12 +394,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	}
 
 	/*
-	 * Mark - Storage - Properties
-	 */
-
-	private File workingFile = new File("maps/x.tdm.xml");
-
-	/*
 	 * Mark - Storage - Methods
 	 */
 
@@ -425,31 +420,19 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 * 
 	 */
 	private void save() {
+		Log log = new Log(Log.CATEGORY_MAP).message("Edited");
+		play.getMap().getLogger().addLog(log);
+		
 		play.setCoins(Integer.parseInt(this.money.getText())); 
 		PlayManager playManager = new PlayManager();
-		playManager.save(workingFile, play);
+		playManager.save(play.getSourceFile(), play);
 		infoLabel.setText("The map file has been saved.");
 		JOptionPane.showMessageDialog(this, "Save Successfull");
+
 	}
 
 	/*
 	 * Mark - Storage - Getters & Setters
 	 */
-	
-	/**
-	 * Method getWorkingFile.
-	 * @return File
-     */
-	public File getWorkingFile() {
-		return workingFile;
-	}
-
-	/**
-	 * Method setWorkingFile.
-	 * @param workingFile File
-	 */
-	public void setWorkingFile(File workingFile) {
-		this.workingFile = workingFile;
-	}
 
 }
