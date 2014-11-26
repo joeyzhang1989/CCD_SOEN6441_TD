@@ -67,13 +67,13 @@ public class TowerManagerFactory {
 	/**
 	 * The array is used to store type names.
 	 */
-	private  List<String> typeNames;
+	private List<String> typeNames;
 	
 	
 	/**
 	 * The map is used to store TowerManager objects and its names.
 	 */
-	private  Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
+	private Map<String, TowerManager> managers = new HashMap<String, TowerManager>();
 	
 	/* 
 	 * Mark - Basic - Methods

@@ -3,6 +3,7 @@ package com.soen6441.ui.scene;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -10,11 +11,13 @@ import java.util.Observer;
 
 import javax.swing.JOptionPane;
 
+import com.soen6441.core.log.Log;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.Road;
 import com.soen6441.core.play.Play;
 import com.soen6441.core.play.PlayEventListener;
+import com.soen6441.core.play.PlayManager;
 import com.soen6441.core.strategy.Strategy;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.core.tower.TowerManager;
@@ -243,7 +246,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		saveButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				save();
 			}
 		});
 		
@@ -256,6 +259,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		infoLabel.setText("Wave: " + (play.getCurrentWaveIndex() + 1) + "/"  + play.getCritterWaveAmount());
 	}
 	
+	private void save() {
+		PlayManager playManager = new PlayManager();
+		playManager.save(new File("./a.tdp.xml"), play);
+		JOptionPane.showMessageDialog(this, "Save Successfull");
+	}
+
 	private void back() {
 		play.stopRunner();
 		play.deleteObserver(PlayingScene.this);
@@ -264,7 +273,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		PlayingScene.this.viewFlow.pop();
 		
 	}
-	
 	/*
 	 * Mark - Play Events - Methods
 	 */
@@ -278,6 +286,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	public void playWaveDidStart(Play play) {
 		controlButton.setEnabled(false);
+		saveButton.setEnabled(false);
+
+		Log log = new Log(Log.CATEGORY_WAVE).message("Started @" + play.getCurrentWaveIndex());
+		play.getLogger().addLog(log);
 	}
 
 	/**
@@ -287,7 +299,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	@Override
 	public void playWaveDidSendAllCritter(Play play) {
-		
+
+		Log log = new Log(Log.CATEGORY_WAVE).message("All Critters are Sent @" + play.getCurrentWaveIndex());
+		play.getLogger().addLog(log);
 	}
 
 	/**
@@ -298,6 +312,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	public void playAllCrittersDidKilled(Play play) {
 		controlButton.setEnabled(true);
+		saveButton.setEnabled(true);
+
 	}
 
 	/**
@@ -378,7 +394,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			for (String typeName : typeNames) {
 				TowerManager towerManager = towerManagerFactory.getManager(typeName);
 				Command command = new Command();
-				command.setTitle("Build " + towerManager.createTower().getName());
+				command.setTitle("Buy " + towerManager.getLeveledTowers().get(0).getName());
 				command.setSubtitle(towerManager.getInitialPrice() + "$");
 				buildCommands.add(command);
 			}
@@ -454,6 +470,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				Tower tower = towerManager.createTower();
 				GridMap gridMap = play.getMap();
 				play.getMap().setItem(tower, gridMap.getSelectedPoint());
+				
+				Log log = new Log(Log.CATEGORY_TOWER).identity(tower.getIdentity()).message("Created");
+				play.getLogger().addLog(log);
 			}
 		}
 	}
@@ -582,10 +601,16 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 					play.spendCoins(tower.getUpgradePrice());
 					tower.upgrade();
 					inspectorView.update();
+					
+					Log log = new Log(Log.CATEGORY_TOWER).identity(tower.getIdentity()).message("Upgraded");
+					play.getLogger().addLog(log);
 				}	
 			} else if (command == refundCommand) {
 				play.earnCoins(tower.getSellPrice());
 				play.getMap().removeItem(tower);
+				
+				Log log = new Log(Log.CATEGORY_TOWER).identity(tower.getIdentity()).message("Refunded");
+				play.getLogger().addLog(log);
 			} else {
 				int index = strategyCommands.indexOf(command);
 				String strategyName = Strategy.getStrategyNames().get(index);

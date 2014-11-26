@@ -4,4 +4,7 @@
 	<map>
 		<GridMap></GridMap>
 	</map>
-</GridMap>
+	<logger>
+		<Logger></Logger>
+	</logger>
+</Play>

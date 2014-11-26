@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.dom4j.Element;
 
+import com.soen6441.core.ArchiveCenter;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
+import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.NameForArchiving;
 
 /**
  * This class is a specific type of tower, SunTower.
@@ -43,6 +46,10 @@ public class SunTower extends Tower {
 	public String getDetailInformation() {
 		String result = super.getDetailInformation();
 		return result;
+	}
+	
+	public static void registeToArchiveCenter() {
+		ArchiveCenter.registeClass(SunTower.class, NameForArchiving.Class);
 	}
 	
 	/**

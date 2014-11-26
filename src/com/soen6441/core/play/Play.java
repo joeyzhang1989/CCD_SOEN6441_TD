@@ -14,6 +14,8 @@ import com.soen6441.core.Timer;
 import com.soen6441.core.TimerListener;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.critter.CritterWave;
+import com.soen6441.core.log.Log;
+import com.soen6441.core.log.Logger;
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.map.GridMapItemsListener;
 import com.soen6441.core.map.MapItem;
@@ -141,11 +143,12 @@ public class Play extends Observable implements IArchive, TimerListener{
 	
 	private int life;
 	private int coins;
+	private int score;
 	
 	/*
 	 * Mark - Basic - Methods
 	 */
-	
+
 	/**
 	 * Any logic wants to increase the coins, should call this method 
 	 * 
@@ -155,6 +158,9 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	public void earnCoins(int coins){
 		this.setCoins(this.getCoins() + coins);
+		
+		Log log = new Log(Log.CATEGORY_GAME).message("Money Earned").value(Integer.toString(coins));
+		logger.addLog(log);
 	}
 
 	
@@ -167,6 +173,9 @@ public class Play extends Observable implements IArchive, TimerListener{
      */
 	public void spendCoins(int coins){
 		this.setCoins(this.getCoins() - coins);
+
+		Log log = new Log(Log.CATEGORY_GAME).message("Money Lost").value(Integer.toString(coins));
+		logger.addLog(log);
 	}
 	
 	/**
@@ -175,6 +184,13 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	public void alterLife(int life) {
 		this.setLife(this.getLife() + life);
+
+		Log log = new Log(Log.CATEGORY_GAME).message("Life Changed").value(Integer.toString(life));
+		logger.addLog(log);
+	}
+	
+	public void alterScore(int score) {
+		this.setScore(this.getScore() + score);
 	}
 	
 	/*
@@ -251,10 +267,14 @@ public class Play extends Observable implements IArchive, TimerListener{
 
 		this.setChanged();
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
-		
-//		if (this.coins <= 0) {
-//			gameover();
-//		}
+	}
+	
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
 	}
 	
 	/*
@@ -494,19 +514,51 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.eventListener = eventListener;
 	}
 	
+	/*
+	 * Mark - Log - Properties
+	 */
 
+	private long identity = 0;
+	private Logger logger = new Logger();
+	
+	/*
+	 * Mark - Log - Methods
+	 */
+	 
+	public long generateIdentity(){
+		identity ++;
+		return identity;
+	}
 
+	/*
+	 * Mark - Log - Getters & Setters
+	 */
+	
+	public Logger getLogger() {
+		return logger;
+	}
+
+	public void setLogger(Logger logger) {
+		this.logger = logger;
+	}
+
+	
 	/*
 	 * Mark - Archive - Methods
 	 */
+
 
 	/**
 	 * @author Zhe Zhao
 	 */
 	public class NameForArchiving {
 		public static final String Class = "Play";
-		public static final String COINS = "coins";
-		public static final String MAP = "map";
+		public static final String Coins = "coins";
+		public static final String CurrentWaveIndex = "currentWaveIndex";
+		public static final String Map = "map";
+		public static final String Identity = "identity";
+		public static final String Logger = "logger";
+		
 
 	}
 
@@ -518,18 +570,20 @@ public class Play extends Observable implements IArchive, TimerListener{
 	@Override
 	public void decode(Element element) {
 		
-		// setting the # of coins
-		Node coinNode = element.selectSingleNode(NameForArchiving.COINS);
-		this.coins = Integer.parseInt(coinNode.getText());
+		this.coins = Integer.parseInt(element.elementText(NameForArchiving.Coins));
+		this.currentWaveIndex = Integer.parseInt(element.elementText(NameForArchiving.CurrentWaveIndex));
 		
-		// reading the map node to access GridMap.
-		Node mapNode = element.selectSingleNode(NameForArchiving.MAP);
-		Element gridMapNode = (Element) mapNode.selectSingleNode(GridMap.NameForArchiving.Class);
-
+		Element mapElement = element.element(NameForArchiving.Map).element(GridMap.NameForArchiving.Class);
 		GridMap map = new GridMap();
-		map.decode(gridMapNode);
-
+		map.decode(mapElement);
 		this.map = map;
+		
+		this.identity = Integer.parseInt(element.elementText(NameForArchiving.Identity));
+		
+		Element loggerElement = element.element(NameForArchiving.Logger).element(Logger.NameForArchiving.Class);
+		Logger logger = new Logger();
+		logger.decode(loggerElement);
+		this.logger = logger;
 	}
 
 	/**
@@ -540,14 +594,12 @@ public class Play extends Observable implements IArchive, TimerListener{
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);
-
-		//adding coin Node and setting value to it
-		Element coins = element.addElement(NameForArchiving.COINS);
-		coins.addText(String.valueOf(this.coins));
 		
-		//adding map Node and then assigning GridMap to it.
-		Element mapElement = element.addElement(NameForArchiving.MAP);
-		mapElement.add(this.getMap().encode());
+		element.addElement(NameForArchiving.Coins).addText(String.valueOf(this.coins));
+		element.addElement(NameForArchiving.CurrentWaveIndex).addText(Integer.toString(currentWaveIndex));
+		element.addElement(NameForArchiving.Map).add(map.encode());
+		element.addElement(NameForArchiving.Identity).addText(Long.toString(this.identity));
+		element.addElement(NameForArchiving.Logger).add(logger.encode());
 
 		return element;
 	}
@@ -611,4 +663,5 @@ public class Play extends Observable implements IArchive, TimerListener{
 		
 		map.getPathManager().generateRoadItemsFromPaths();
 	}
+	
 }

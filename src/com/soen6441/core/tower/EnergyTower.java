@@ -4,9 +4,12 @@ import java.util.List;
 
 import org.dom4j.Element;
 
+import com.soen6441.core.ArchiveCenter;
 import com.soen6441.core.effect.MotivateEffect;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
+import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.NameForArchiving;
 
 /**
  * This class is a specific type of tower, EnergyTower.
@@ -57,6 +60,10 @@ public class EnergyTower extends Tower {
 					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator")
 					  + "Duration :" + this.enhanceDuration + System.getProperty("line.separator");
 		return result;
+	}
+	
+	public static void registeToArchiveCenter() {
+		ArchiveCenter.registeClass(EnergyTower.class, NameForArchiving.Class);
 	}
 	
 	/**

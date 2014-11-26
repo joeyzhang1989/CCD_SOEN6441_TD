@@ -2,16 +2,15 @@
 <GridMap>
 	<width></width>
 	<height></height>
-	<startPoints>
-		<MapPoint></MapPoint>
+	<items>
+		<MapItem></MapItem>
 		***
-	</startPoints>
-	<endPoints>
-		<MapPoint></MapPoint>
+	</items>
+	<critters>
+		<MapItem></MapItem>
 		***
-	</endPoints>
-	<paths>
-		<MapPath></MapPath>
-		***
-	</paths>
+	</critters>
+	<logger>
+		<Logger></Logger>
+	</logger>
 </GridMap>

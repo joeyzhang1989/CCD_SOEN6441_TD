@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.dom4j.Element;
 
+import com.soen6441.core.ArchiveCenter;
 import com.soen6441.core.IArchive;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
+import com.soen6441.core.map.Road;
+import com.soen6441.core.map.Road.NameForArchiving;
 import com.soen6441.core.strategy.EnableStrategy;
 
 /**
@@ -44,6 +47,10 @@ public class BottleTower extends Tower implements EnableStrategy {
 	public String getDetailInformation() {
 		String result = super.getDetailInformation();
 		return result;
+	}
+	
+	public static void registeToArchiveCenter() {
+		ArchiveCenter.registeClass(BottleTower.class, NameForArchiving.Class);
 	}
 	
 	/**

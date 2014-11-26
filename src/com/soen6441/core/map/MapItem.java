@@ -242,6 +242,7 @@ public class MapItem extends Observable implements IArchive{
 		element.addElement(NameForArchiving.Location).add(location.encode());
 		
 		element.addElement(NameForArchiving.Name).addText(name);
+		
 		element.addElement(NameForArchiving.CellImageName).addText(cellImageName);
 		
 		return element;

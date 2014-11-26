@@ -1,5 +1,9 @@
 package com.soen6441.core.map;
 
+import org.dom4j.Element;
+
+import com.soen6441.core.ArchiveCenter;
+
 
 /**
  * This class will represent Road which is a MapItem. It extends MapItem and also defines additional methods 
@@ -17,8 +21,7 @@ public class Road extends MapItem {
 	 */
 	
 	public Road() {
-		super();
-		this.roadType = RoadType.NORMAL;
+		this(RoadType.NORMAL);
 	}
 	
 	/**
@@ -28,6 +31,9 @@ public class Road extends MapItem {
 	public Road(RoadType roadType) {
 		super();
 		this.roadType = roadType;
+		
+		this.setName("");
+		this.setCellImageName("");
 	}
 	
 	
@@ -113,4 +119,63 @@ public class Road extends MapItem {
 			return null;
 		}
 	}
+	
+
+	/*
+	 * Mark - Archive - Methods
+	 */
+	
+	private String roadTypeToString() {
+
+		switch (roadType) {
+		case NORMAL:
+			return "Normal";
+		case START:
+			return "Start";
+		case END:
+			return "End";
+		default:
+			return null;
+		}
+	}
+	
+	private RoadType stringToRoadType(String value) {
+		if (value.equals("Normal")) {
+			return RoadType.NORMAL;
+		}
+		if (value.equals("Start")) {
+			return RoadType.START;
+		}
+		if (value.equals("End")) {
+			return RoadType.END;
+		}
+		return null;
+	}
+	
+	public static void registeToArchiveCenter() {
+		ArchiveCenter.registeClass(Road.class, NameForArchiving.Class);
+	}
+	
+	public class NameForArchiving{
+		public static final String Class = "Road";
+		private static final String RoadType = "roadType";
+	}
+	
+	@Override
+	public void decode(Element element) {
+		String value = element.elementText(NameForArchiving.RoadType);
+		this.roadType = stringToRoadType(value);
+		
+		super.decode(element);
+	}
+
+	@Override
+	public Element encode() {
+		Element element = super.encode();
+		element.setName(NameForArchiving.Class);
+		element.addElement(NameForArchiving.RoadType).addText(roadTypeToString());
+		
+		return element;
+	}
+	
 }

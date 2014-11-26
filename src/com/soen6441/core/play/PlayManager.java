@@ -33,7 +33,6 @@ public class PlayManager {
 	 */
 
 	public void save(File file, Play play) {
-		play.getMap().getPathManager().generatePathsFromRoadItems();
 
 		// Creating the xml file for map storage
 		Document document = DocumentHelper.createDocument();
@@ -85,7 +84,7 @@ public class PlayManager {
 		play.setLife(10);
 		play.decode(playElement);
 
-		play.getMap().getPathManager().generateRoadItemsFromPaths();
+		play.getMap().getPathManager().generatePathsFromRoadItems();
 		play.setCritterWaves(readDefaultCritterWaves());
 		
 		return play;
