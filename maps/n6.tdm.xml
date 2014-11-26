@@ -1,2 +1,83 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xml><Play><coins>1000</coins><currentWaveIndex>-1</currentWaveIndex><map><GridMap><width>10</width><height>10</height><items><Road><location><MapPoint x="3.0" y="2.0"/></location><name></name><cellImageName></cellImageName><roadType>Start</roadType></Road><Road><location><MapPoint x="3.0" y="4.0"/></location><name></name><cellImageName></cellImageName><roadType>End</roadType></Road><Road><location><MapPoint x="4.0" y="2.0"/></location><name></name><cellImageName></cellImageName><roadType>Normal</roadType></Road><Road><location><MapPoint x="4.0" y="4.0"/></location><name></name><cellImageName></cellImageName><roadType>Normal</roadType></Road><Road><location><MapPoint x="5.0" y="2.0"/></location><name></name><cellImageName></cellImageName><roadType>Normal</roadType></Road><Road><location><MapPoint x="5.0" y="3.0"/></location><name></name><cellImageName></cellImageName><roadType>Normal</roadType></Road><Road><location><MapPoint x="5.0" y="4.0"/></location><name></name><cellImageName></cellImageName><roadType>Normal</roadType></Road></items></GridMap></map><identity>0</identity><logger><Logger><logs/></Logger></logger></Play></xml>
+<xml>
+	<Play>
+		<coins>1000</coins>
+		<life>10</life>
+		<currentWaveIndex>-1</currentWaveIndex>
+		<map>
+			<GridMap>
+				<width>10</width>
+				<height>10</height>
+				<items>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Start</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>End</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+				</items>
+				<logger>
+					<Logger>
+						<logs />
+					</Logger>
+				</logger>
+			</GridMap>
+		</map>
+		<identity>0</identity>
+		<logger>
+			<Logger>
+				<logs />
+			</Logger>
+		</logger>
+	</Play>
+</xml>

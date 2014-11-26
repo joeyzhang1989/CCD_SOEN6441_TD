@@ -1,8 +1,8 @@
 package com.soen6441.ui.parallel;
 
+import java.awt.Color;
 import java.awt.Font;
 
-import javax.swing.Icon;
 import javax.swing.JLabel;
 
 /**
@@ -28,6 +28,7 @@ public class Label extends JLabel {
 	
 	private void initFont() {
 		this.setFont(new Font("Verdana", 0, 14));
+		this.setForeground(new Color(0x00CCCC));
 	}
 	
 	/**

@@ -554,6 +554,8 @@ public class Play extends Observable implements IArchive, TimerListener{
 	public class NameForArchiving {
 		public static final String Class = "Play";
 		public static final String Coins = "coins";
+		public static final String Life = "life";
+		
 		public static final String CurrentWaveIndex = "currentWaveIndex";
 		public static final String Map = "map";
 		public static final String Identity = "identity";
@@ -571,6 +573,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	public void decode(Element element) {
 		
 		this.coins = Integer.parseInt(element.elementText(NameForArchiving.Coins));
+		this.life = Integer.parseInt(element.elementText(NameForArchiving.Life));
 		this.currentWaveIndex = Integer.parseInt(element.elementText(NameForArchiving.CurrentWaveIndex));
 		
 		Element mapElement = element.element(NameForArchiving.Map).element(GridMap.NameForArchiving.Class);
@@ -596,6 +599,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		Element element = new DefaultElement(NameForArchiving.Class);
 		
 		element.addElement(NameForArchiving.Coins).addText(String.valueOf(this.coins));
+		element.addElement(NameForArchiving.Life).addText(String.valueOf(this.life));
 		element.addElement(NameForArchiving.CurrentWaveIndex).addText(Integer.toString(currentWaveIndex));
 		element.addElement(NameForArchiving.Map).add(map.encode());
 		element.addElement(NameForArchiving.Identity).addText(Long.toString(this.identity));

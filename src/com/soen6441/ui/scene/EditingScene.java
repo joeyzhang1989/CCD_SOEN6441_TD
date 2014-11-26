@@ -73,14 +73,14 @@ public class EditingScene extends View implements GridViewSelectionListener {
 	 */
 	protected void initSubviews() {
 		super.initSubviews();
-	
+
+		this.setBackground(new Color(0x242424));
+		
 		// Upper view containing the money label,infolabel label,controlbutton button
 		View upperView = new View();
 		upperView.setLocation(0, 0);
 		upperView.setSize(800, 60);
-		// upperView.setBackground(Color.gray);
-
-		this.setBackground(new Color(0xDDDDDD));// set the overall background color
+		upperView.setBackground(new Color(0x000000));
 
 		// Validate button
 		this.controlButton = new Button();
@@ -113,7 +113,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		View lowerView = new View();
 		lowerView.setLocation(0, 540);
 		lowerView.setSize(800, 40);
-		// lowerView.setBackground(Color.blue);
+		lowerView.setBackground(new Color(0x000000));
 
 		// back button
 		this.saveButton = new Button();
@@ -128,7 +128,6 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		lowerView.add(this.saveButton);
 		lowerView.add(this.backButton);
-		// lowerView.setBackground(Color.cyan);
 		this.add(lowerView);
 
 		// MapView
@@ -145,7 +144,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		this.inspectorView = new InspectorView();
 		this.inspectorView.setLocation(620, 60);
 		this.inspectorView.setSize(180, 480);
-		this.inspectorView.setBackground(new Color(0xEEEEEE));
+		this.inspectorView.setBackground(new Color(0x111111));
 		this.add(inspectorView);
 	}
 

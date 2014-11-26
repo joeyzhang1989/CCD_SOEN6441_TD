@@ -48,8 +48,8 @@ public class CommandButton extends Button {
 		boolean hasSubtitle = subtitle != null;
 		boolean hasImage = imageName != null;
 
-		Color colorTint = enabled ? new Color(0x333333) : new Color(0xCCCCCC);
-		Color colorBack = new Color(0xFFFFFF);
+		Color colorTint = enabled ? new Color(0x00CCCC) : new Color(0x333333);
+		Color colorBack = new Color(0x111111);
 		
 		if (hasTitle) {
 	

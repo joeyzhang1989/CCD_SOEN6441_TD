@@ -1,13 +1,18 @@
 package com.soen6441.ui.scene;
 
-import java.awt.TextField;
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
+
 import javax.swing.JOptionPane;
+
 import com.soen6441.core.map.GridMap;
 import com.soen6441.core.play.Play;
-import com.soen6441.ui.parallel.*;
+import com.soen6441.ui.parallel.Button;
+import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.TextField;
+import com.soen6441.ui.parallel.View;
 
 /**
  * This class is used to create the weight and height of a new map, and with two
@@ -42,6 +47,9 @@ public class NewMapScene extends View {
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
+		
+		this.setBackground(new Color(0x242424));
+		
 		// add a label of widthText
 		widthTextLabel = new Label();
 		widthTextLabel.setText("Width");

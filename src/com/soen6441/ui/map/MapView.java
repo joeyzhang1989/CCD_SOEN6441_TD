@@ -6,6 +6,7 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Point;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import com.soen6441.core.Timer;
@@ -87,6 +88,7 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
+		paintAttack((Graphics2D)g);
 		if (map.getSelectedPoint() != null) {
 			MapItem item = map.getSelectedItem();
 			
@@ -108,12 +110,39 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		int range = (int)(tower.getRange().getAffectedValue() * _UNIT_LENGTH);
 		
 		for (int i = 0; i < 4; i ++) {
-			g.setColor(new Color(0x66, 0x66, 0x66, 256 * (6-i) / 8 - 1));
+			g.setColor(new Color(0x00, 0xCC, 0xCC, 256 * (6-i) / 8 - 1));
 			g.drawOval(center.x - range, center.y - range, range * 2, range * 2);
 			range --;
 		}
 	}
 	
+	private void paintAttack(Graphics2D g) {
+		List<MapItem> items = map.getItemSelector()
+								 .filterByType(Tower.class)
+								 .getItems();
+		g.setColor(new Color(0x00CCCC));
+		
+		for (MapItem item : items) {
+			
+			Tower tower = (Tower)item;
+			if (tower.isShowLinkingEffect()) {
+
+				Point sourcePoint = mapPointToSwingPoint(item.getLocation());
+				sourcePoint.x += _UNIT_LENGTH / 2;
+				sourcePoint.y += _UNIT_LENGTH / 2;
+				
+				List<MapItem> targets = tower.getTargets();
+				
+				for (MapItem target : targets) {
+					Point targetPoint = mapPointToSwingPoint(target.getLocation());
+					targetPoint.x += _UNIT_LENGTH / 2;
+					targetPoint.y += _UNIT_LENGTH / 2;
+					
+					g.drawLine(sourcePoint.x, sourcePoint.y, targetPoint.x, targetPoint.y);
+				}
+			}
+		}
+	}
 	/*
 	 * Mark - Basic - Properties
 	 */

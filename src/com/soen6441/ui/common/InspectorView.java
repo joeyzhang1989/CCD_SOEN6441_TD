@@ -79,7 +79,6 @@ public class InspectorView extends View implements GridViewSelectionListener{
 		descriptionTextView.setFontSize(12);
 		descriptionTextView.setSize(160, 200);
 		descriptionTextView.setLocation(10, 60);
-		descriptionTextView.setBackground(new Color(0xEEEEEE));
         
 		GridView gridView = new GridView();
 		gridView.setSelectionListener(this);

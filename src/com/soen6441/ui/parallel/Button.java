@@ -145,8 +145,8 @@ public class Button extends JButton {
 		boolean isPressed = this.getModel().isPressed();
 		boolean enabled = this.isEnabled(); 
 		
-		Color colorTint = enabled ? new Color(0x333333) : new Color(0xCCCCCC);
-		Color colorBack = new Color(0xFFFFFF);
+		Color colorTint = enabled ? new Color(0x00CCCC) : new Color(0x333333);
+		Color colorBack = new Color(0x111111);
 
 		if (enabled && isPressed) {
 			graphics2d.setColor(colorTint);

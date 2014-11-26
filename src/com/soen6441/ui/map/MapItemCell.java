@@ -27,7 +27,7 @@ public class MapItemCell extends GridViewCell{
 	 */
 	@Override
 	public void paint(Graphics g) {
-		g.setColor(new Color(0xFFFFFF));
+		g.setColor(new Color(0x000000));
 		g.fillRect(0, 0, this.getWidth(), this.getHeight());
 		super.paint(g);
 		paintSelection(g);
@@ -38,10 +38,10 @@ public class MapItemCell extends GridViewCell{
 	 * @param g Graphics
 	 */
 	protected void paintSelection(Graphics g) {
-		g.setColor(new Color(0xF8F8F8));
+		g.setColor(new Color(0x222222));
 		g.drawRect(0, 0, this.getWidth(), this.getHeight());
 		if (this.isSelected()) {
-			g.setColor(new Color(0xAAAAAA));
+			g.setColor(new Color(0x00CCCC));
 			g.drawRect(1, 1, this.getWidth() - 2, this.getHeight() - 2);
 		}
 	}

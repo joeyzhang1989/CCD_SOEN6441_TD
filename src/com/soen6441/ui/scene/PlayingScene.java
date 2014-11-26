@@ -119,15 +119,18 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
+		
+		this.setBackground(new Color(0x242424));
+		
 		//initial the bannnerView 
 		View bannerView = new View();
 		bannerView.setLocation(0, 0);
 		bannerView.setSize(800, 60);
+		bannerView.setBackground(new Color(0x000000));
 		this.add(bannerView);
 		
 		// add the controlButton to the play Scene bannerview
 		
-		this.setBackground(new Color(0xDDDDDD));// set the overall background color
 		controlButton = new Button();
 		controlButton.setTitle("Next Wave");
 		// set button location to the interface 
@@ -176,6 +179,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		View bottomView = new View();
 		bottomView.setLocation(0, 540);
 		bottomView.setSize(800, 40);
+		bottomView.setBackground(new Color(0x000000));
 		PlayingScene.this.add(bottomView);
 		
 		//Quit button
@@ -209,7 +213,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		inspectorView  = new InspectorView();
 		inspectorView.setLocation(620, 60);
 		inspectorView.setSize(180,480);
-		inspectorView.setBackground(new Color(0xEEEEEE));
+		inspectorView.setBackground(new Color(0x111111));
 		this.add(inspectorView);
 		
 	}	

@@ -1,5 +1,6 @@
 package com.soen6441.ui.map;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.util.Observable;
 import java.util.Observer;
@@ -13,6 +14,10 @@ import com.soen6441.ui.parallel.View;
  * @author Zhe Zhao
  */
 public class MapItemView extends View implements Observer{
+	
+	{
+		this.setBackground(new Color(0x111111));
+	}
 	
 	/*
 	 * Mark - Basic - Properties

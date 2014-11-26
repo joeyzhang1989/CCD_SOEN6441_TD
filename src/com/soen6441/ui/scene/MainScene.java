@@ -47,6 +47,9 @@ public class MainScene extends View {
 	@Override
 	protected void initSubviews() {
 		super.initSubviews();
+		
+		this.setBackground(new Color(0x242424));
+		
 		// add a label in the mainscene;
 		Label label = new Label();
 		// set the information of the label;
@@ -55,7 +58,6 @@ public class MainScene extends View {
 		// The setFont is the method that is used to set the style of label.
 
 		label.setFontSize(100);
-		label.setForeground(Color.DARK_GRAY);
 		label.setHorizontalAlignment(SwingConstants.CENTER);
 		label.setLocation(160, 100);
 		label.setSize(500, 250);
