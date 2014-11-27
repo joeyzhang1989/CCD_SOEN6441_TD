@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<Play>
-		<mapFilePath>null</mapFilePath>
+		<mapFileName>null</mapFileName>
 		<coins>1000</coins>
 		<life>10</life>
 		<score>0</score>

@@ -113,7 +113,7 @@ public class NewGameScene extends View {
 		String nameString = nameTextField.getText();
 		File file = new File("games/" + nameString + ".tdg.xml");
 		
-		play.setMapFilePath(play.getSourceFile().getAbsolutePath());
+		play.setMapFilePath(play.getSourceFile().getName());
 		play.setSourceFile(file);
 		play.getMap().getLogger().clearLogs();
 		

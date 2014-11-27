@@ -529,7 +529,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	}
 	
 	public void addLogToMapFile(Log log){
-		File mapFile = new File(mapFilePath);
+		File mapFile = new File("maps/" + mapFileName);
 		PlayManager manager = new PlayManager();
 		Play originalPlay = manager.read(mapFile);
 		originalPlay.getMap().getLogger().addLog(log);
@@ -559,7 +559,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	public class NameForArchiving {
 		public static final String Class = "Play";
-		public static final String MapFilePath = "mapFilePath";
+		public static final String MapFileName = "mapFileName";
 		public static final String Coins = "coins";
 		public static final String Life = "life";
 		public static final String Score = "score";
@@ -579,7 +579,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	@Override
 	public void decode(Element element) {
-		this.mapFilePath = element.elementText(NameForArchiving.MapFilePath);
+		this.mapFileName = element.elementText(NameForArchiving.MapFileName);
 		
 		this.coins = Integer.parseInt(element.elementText(NameForArchiving.Coins));
 		this.life = Integer.parseInt(element.elementText(NameForArchiving.Life));
@@ -609,7 +609,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);
 
-		element.addElement(NameForArchiving.MapFilePath).addText(String.valueOf(this.mapFilePath));
+		element.addElement(NameForArchiving.MapFileName).addText(String.valueOf(this.mapFileName));
 		element.addElement(NameForArchiving.Coins).addText(String.valueOf(this.coins));
 		element.addElement(NameForArchiving.Life).addText(String.valueOf(this.life));
 		element.addElement(NameForArchiving.Score).addText(String.valueOf(this.score));
@@ -626,7 +626,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 */
 	 
 	private File sourceFile;
-	private String mapFilePath;
+	private String mapFileName;
 	
 	/*
 	 * Mark - File - Getters & Setters
@@ -641,11 +641,11 @@ public class Play extends Observable implements IArchive, TimerListener{
 	}
 	
 	public String getMapFilePath() {
-		return mapFilePath;
+		return mapFileName;
 	}
 
 	public void setMapFilePath(String mapFilePath) {
-		this.mapFilePath = mapFilePath;
+		this.mapFileName = mapFilePath;
 	}
 	
 	/*
