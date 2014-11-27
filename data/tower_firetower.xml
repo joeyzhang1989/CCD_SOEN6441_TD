@@ -3,50 +3,50 @@
 	<TowerManager>
 		<initialPrice>200</initialPrice>
 		<leveledTowers>
-			<PoisonTower>
+			<FireTower>
 				<level>1</level>
 				<upgradePrice>280</upgradePrice>
 				<sellPrice>120</sellPrice>
 				<damage>15</damage>
 				<range>1.5</range>
 				<cdTime>1.5</cdTime>
-				<poisonDamage>5</poisonDamage>
-				<poisonCdTime>2</poisonCdTime>
-				<poisonTimes>5</poisonTimes>
+				<burnDamage>5</burnDamage>
+				<burnCdTime>2</burnCdTime>
+				<burnTimes>5</burnTimes>
 				<cellImageName>tower_cell_5_1.png</cellImageName>
-				<name>Poison Tower</name>
-				<description>Poison Tower attacks single target with DOT.</description>
-				<effectImageName>effect_cell_2_1.png</effectImageName></PoisonTower>
-			<PoisonTower>
+				<name>Fire Tower</name>
+				<description>Fire Tower attacks single target with DOT.</description>
+				<effectImageName>effect_cell_2_1.png</effectImageName></FireTower>
+			<FireTower>
 				<level>2</level>
 				<upgradePrice>340</upgradePrice>
 				<sellPrice>330</sellPrice>
 				<damage>20</damage>
 				<range>2</range>
 				<cdTime>1.4</cdTime>
-				<poisonDamage>7</poisonDamage>
-				<poisonCdTime>2</poisonCdTime>
-				<poisonTimes>5</poisonTimes>
+				<burnDamage>7</burnDamage>
+				<burnCdTime>2</burnCdTime>
+				<burnTimes>5</burnTimes>
 				<cellImageName>tower_cell_5_2.png</cellImageName>
-				<name>Poison Tower</name>
-				<description>Poison Tower attacks single target with DOT.</description>
+				<name>Fire Tower</name>
+				<description>Fire Tower attacks single target with DOT.</description>
 				<effectImageName>effect_cell_2_2.png</effectImageName>
-			</PoisonTower>
-			<PoisonTower>
+			</FireTower>
+			<FireTower>
 				<level>3</level>
 				<upgradePrice>0</upgradePrice>
 				<sellPrice>560</sellPrice>
 				<damage>25</damage>
 				<range>3</range>
 				<cdTime>1.2</cdTime>
-				<poisonDamage>10</poisonDamage>
-				<poisonCdTime>2</poisonCdTime>
-				<poisonTimes>5</poisonTimes>
+				<burnDamage>10</burnDamage>
+				<burnCdTime>2</burnCdTime>
+				<burnTimes>5</burnTimes>
 				<cellImageName>tower_cell_5_3.png</cellImageName>
-				<name>Poison Tower</name>
-				<description>Poison Tower attacks single target with DOT.</description>
+				<name>Fire Tower</name>
+				<description>Fire Tower attacks single target with DOT.</description>
 				<effectImageName>effect_cell_2_3.png</effectImageName>
-			</PoisonTower>
+			</FireTower>
 		</leveledTowers>
 	</TowerManager>
 </xml>

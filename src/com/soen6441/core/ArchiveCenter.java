@@ -10,7 +10,7 @@ import com.soen6441.core.tower.BottleTower;
 import com.soen6441.core.tower.EnergyTower;
 import com.soen6441.core.tower.IceTower;
 import com.soen6441.core.tower.MoonTower;
-import com.soen6441.core.tower.PoisonTower;
+import com.soen6441.core.tower.FireTower;
 import com.soen6441.core.tower.SunTower;
 
 public class ArchiveCenter {
@@ -23,7 +23,7 @@ public class ArchiveCenter {
 		EnergyTower.registeToArchiveCenter();
 		IceTower.registeToArchiveCenter();
 		MoonTower.registeToArchiveCenter();
-		PoisonTower.registeToArchiveCenter();
+		FireTower.registeToArchiveCenter();
 		SunTower.registeToArchiveCenter();
 	}
 	

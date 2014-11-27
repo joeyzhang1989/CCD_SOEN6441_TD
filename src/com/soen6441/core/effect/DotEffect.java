@@ -13,28 +13,28 @@ import com.soen6441.core.critter.Critter;
  * @see Critter
  * @version $Revision: 1.0 $
  */
-public class PoisonEffect extends Effect implements TimerListener{
+public class DotEffect extends Effect implements TimerListener{
 	
 	/*
 	 * Properties
 	 */
-	int poisonDamage;
-	double poisonCdTime;
-	int poisonTimes;
+	int dotDamage;
+	double dotCdTime;
+	int dotTimes;
 
 	/*
 	 * Constructor
 	 */
 	/**
-	 * Constructor for PoisonEffect.
+	 * Constructor for DotEffect.
 	 * @param type String
 	 */
-	public PoisonEffect(String type) {
+	public DotEffect(String type) {
 		
 		this.setType(type);
 		
 	}
-	public PoisonEffect() {
+	public DotEffect() {
 		
 	}
 	
@@ -50,8 +50,8 @@ public class PoisonEffect extends Effect implements TimerListener{
 	public boolean strongerThan (Effect effect) {
 		
 		if (effect.type.equalsIgnoreCase(type)) {
-			PoisonEffect exist = (PoisonEffect)effect;			
-			if (this.getPoisonDamage() > exist.getPoisonDamage()) {
+			DotEffect exist = (DotEffect)effect;			
+			if (this.getDotDamage() > exist.getDotDamage()) {
 				return true;
 			}
 		}
@@ -66,9 +66,9 @@ public class PoisonEffect extends Effect implements TimerListener{
 	@Override
 	public void start() {
 		
-		this.getTimer().setTimeIntervalSecond(this.poisonCdTime);
+		this.getTimer().setTimeIntervalSecond(this.dotCdTime);
 		this.getTimer().setRepeats(true);
-		this.getTimer().setRepeatTimes(this.poisonTimes);
+		this.getTimer().setRepeatTimes(this.dotTimes);
 		this.getTimer().start();		
 	}
 	
@@ -92,69 +92,37 @@ public class PoisonEffect extends Effect implements TimerListener{
 
 		Critter critter = (Critter)this.getOn();
 		
-		if (this.getTimer().getCurrentRepeatTimes() == this.poisonTimes) {
+		if (this.getTimer().getCurrentRepeatTimes() == this.dotTimes) {
 			
 			this.getOn().removeEffect(this);
-			critter.damaged(poisonDamage);
+			critter.damaged(dotDamage);
 			
 		} else {
 			
-			critter.damaged(poisonDamage);
+			critter.damaged(dotDamage);
 		}				
 	}
 	
 	/*
 	 * Getters and Setters
 	 */
-
-	/**
-	 * Method getPoisonDamage.
-	 * @return int
-	 */
-	public int getPoisonDamage() {
-		return poisonDamage;
+	public int getDotDamage() {
+		return dotDamage;
 	}
-
-	/**
-	 * Method setPoisonDamage.
-	 * @param poisonDamage int
-	 */
-	public void setPoisonDamage(int poisonDamage) {
-		this.poisonDamage = poisonDamage;
+	public void setDotDamage(int dotDamage) {
+		this.dotDamage = dotDamage;
 	}
-
-	/**
-	 * Method getPoisonCdTime.
-	 * @return double
-	 */
-	public double getPoisonCdTime() {
-		return poisonCdTime;
+	public double getDotCdTime() {
+		return dotCdTime;
 	}
-
-	/**
-	 * Method setPoisonCdTime.
-	 * @param poisonCdTime double
-	 */
-	public void setPoisonCdTime(double poisonCdTime) {
-		this.poisonCdTime = poisonCdTime;
+	public void setDotCdTime(double dotCdTime) {
+		this.dotCdTime = dotCdTime;
 	}
-
-	/**
-	 * Method getPoisonTimes.
-	 * @return int
-	 */
-	public int getPoisonTimes() {
-		return poisonTimes;
+	public int getDotTimes() {
+		return dotTimes;
 	}
-
-	/**
-	 * Method setPoisonTimes.
-	 * @param poisonTimes int
-	 */
-	public void setPoisonTimes(int poisonTimes) {
-		this.poisonTimes = poisonTimes;
-	}
-
-	
+	public void setDotTimes(int dotTimes) {
+		this.dotTimes = dotTimes;
+	}	
 	
 }
