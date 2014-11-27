@@ -4,6 +4,7 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
+import test.soen6441.core.effect.SuiteEffect;
 import test.soen6441.core.map.SuiteMap;
 import test.soen6441.core.map.validator.SuiteValidator;
 import test.soen6441.core.play.SuitePlay;
@@ -18,7 +19,8 @@ import test.soen6441.core.tower.SuiteTower;
 	SuiteValidator.class,
 	SuiteMap.class,
 	SuitePlay.class,
-	SuiteTower.class})
+	SuiteTower.class,
+	SuiteEffect.class})
 
 public class SuiteCore {
 
