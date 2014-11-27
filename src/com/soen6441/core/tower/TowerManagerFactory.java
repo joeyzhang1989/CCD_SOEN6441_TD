@@ -50,7 +50,7 @@ public class TowerManagerFactory {
 	 */
 	private TowerManagerFactory() {
 		
-		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","IceTower","SunTower","MoonTower","FireTower","EnergyTower"));
+		typeNames = new ArrayList<String>(Arrays.asList("BottleTower","IceTower","SplashTower","SunTower","MoonTower","FireTower","EnergyTower"));
 		
 		for(int i=0; i<typeNames.size(); i++) {
 			TowerManager towerManager = new TowerManager(typeNames.get(i), System.getProperty("user.dir")+ "/data/tower_"+typeNames.get(i).toLowerCase()+".xml");

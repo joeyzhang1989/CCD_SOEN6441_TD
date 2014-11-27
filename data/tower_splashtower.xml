@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<TowerManager>
+		<initialPrice>150</initialPrice>
+		<leveledTowers>
+			<SplashTower>
+				<level>1</level>
+				<upgradePrice>250</upgradePrice>
+				<sellPrice>102</sellPrice>
+				<damage>15</damage>
+				<range>1.5</range>
+				<cdTime>1</cdTime>
+				<splashDamage>5</splashDamage>
+				<splashRange>1</splashRange>
+				<cellImageName>tower_cell_2_1.png</cellImageName>
+				<name>Splash Tower</name>
+				<description>Splash Tower attacks single target with splash effect.</description>
+				<effectImageName>effect_cell_1_1.png</effectImageName></SplashTower>
+			<SplashTower>
+				<level>2</level>
+				<upgradePrice>320</upgradePrice>
+				<sellPrice>302</sellPrice>
+				<damage>35</damage>
+				<range>2</range>
+				<cdTime>0.8</cdTime>
+				<splashDamage>20</splashDamage>
+				<splashRange>1.5</splashRange>
+				<cellImageName>tower_cell_2_2.png</cellImageName>
+				<name>Splash Tower</name>
+				<description>Splash Tower attacks single target with splash effect.</description>
+				<effectImageName>effect_cell_1_2.png</effectImageName>
+			</SplashTower>
+			<SplashTower>
+				<level>3</level>
+				<upgradePrice>0</upgradePrice>
+				<sellPrice>480</sellPrice>
+				<damage>45</damage>
+				<range>3</range>
+				<cdTime>0.6</cdTime>
+				<splashDamage>30</splashDamage>
+				<splashRange>1.5</splashRange>
+				<cellImageName>tower_cell_2_3.png</cellImageName>
+				<name>Splash Tower</name>
+				<description>Splash Tower attacks single target with splash effect.</description>
+				<effectImageName>effect_cell_1_3.png</effectImageName>
+			</SplashTower>
+		</leveledTowers>
+	</TowerManager>
+</xml>

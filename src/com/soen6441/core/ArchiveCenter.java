@@ -11,6 +11,7 @@ import com.soen6441.core.tower.EnergyTower;
 import com.soen6441.core.tower.IceTower;
 import com.soen6441.core.tower.MoonTower;
 import com.soen6441.core.tower.FireTower;
+import com.soen6441.core.tower.SplashTower;
 import com.soen6441.core.tower.SunTower;
 
 public class ArchiveCenter {
@@ -25,6 +26,7 @@ public class ArchiveCenter {
 		MoonTower.registeToArchiveCenter();
 		FireTower.registeToArchiveCenter();
 		SunTower.registeToArchiveCenter();
+		SplashTower.registeToArchiveCenter();
 	}
 	
 	public static void registeClass(Class classObject, String elementName) {

@@ -53,6 +53,7 @@ public class SplashEffect extends Effect {
 		List<MapItem> targets = selector
 				.filterByType(Critter.class)
 				.filterByCircularArea(this.getOn().getLocation(), this.getSplashRange())
+				.filterByExcluding(this.getOn())
 				.sortByDirectlyClosestToPoint(this.getOn().getLocation())
 				.getItems();
 		
