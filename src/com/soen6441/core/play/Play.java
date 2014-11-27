@@ -609,14 +609,6 @@ public class Play extends Observable implements IArchive, TimerListener{
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);
 
-		element.addElement(NameForArchiving.MapFilePath).addText(String.valueOf(this.mapFilePath));
-		element.addElement(NameForArchiving.Coins).addText(String.valueOf(this.coins));
-		element.addElement(NameForArchiving.Life).addText(String.valueOf(this.life));
-		element.addElement(NameForArchiving.Score).addText(String.valueOf(this.score));
-		element.addElement(NameForArchiving.CurrentWaveIndex).addText(Integer.toString(currentWaveIndex));
-		element.addElement(NameForArchiving.Map).add(map.encode());
-		element.addElement(NameForArchiving.Identity).addText(Long.toString(this.identity));
-		element.addElement(NameForArchiving.Logger).add(logger.encode());
 
 		return element;
 	}
