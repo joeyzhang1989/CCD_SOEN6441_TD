@@ -16,6 +16,7 @@ import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapPath;
 import com.soen6441.core.map.MapPoint;
 import com.soen6441.core.map.Road;
+import com.soen6441.core.play.Play;
 
 /**
  * MapItemSelector test case to test the sorting and flitering methods to
@@ -48,9 +49,12 @@ public class MapItemSelectorTest {
 	 */
 	@Before
 	public void setUp() throws Exception {
+		Play play = new Play();
 		map = new GridMap();
 		map.setWidth(8);
 		map.setHeight(8);
+		play.setMap(map);
+		map.setPlay(play);
 
 		p1 = new MapPoint(0, 0);
 		p2 = new MapPoint(0, 2);
