@@ -6,18 +6,39 @@ import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
 
+/**
+ * This is a kind of special effect on critter.
+ * By adding this effect to a critter instance, 
+ * the critter will splash damage to nearby critters within its splash range .
+ * @author Haiyang Sun
+ * @see Effect
+ * @see MapItem
+ * @see Critter
+ * @version $Revision: 1.0 $
+ */
 public class SplashEffect extends Effect {
 	
 	/*
 	 * Properties
 	 */
+	
 	int splashDamage;
 	double splashRange;
 	
+	/*
+	 * Constructors
+	 */
+	
+	/**
+	 * Constructor
+	 * @param type
+	 */
 	public SplashEffect(String type) {
 		this.setType(type);
 	}
-	
+	/**
+	 * Constructor
+	 */
 	public SplashEffect() {
 
 	}

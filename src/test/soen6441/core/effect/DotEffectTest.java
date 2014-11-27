@@ -12,6 +12,8 @@ import com.soen6441.core.critter.Critter;
 import com.soen6441.core.effect.DotEffect;
 
 /**
+ * This class tests two main method of DotEffect class.
+ * 
  * @author Haiyang Sun
  *
  */
