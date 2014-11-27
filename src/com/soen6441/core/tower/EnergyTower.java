@@ -8,8 +8,6 @@ import com.soen6441.core.ArchiveCenter;
 import com.soen6441.core.effect.MotivateEffect;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
-import com.soen6441.core.map.Road;
-import com.soen6441.core.map.Road.NameForArchiving;
 
 /**
  * This class is a specific type of tower, EnergyTower.

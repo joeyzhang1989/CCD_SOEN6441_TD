@@ -9,8 +9,6 @@ import com.soen6441.core.IArchive;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.map.MapItemSelector;
-import com.soen6441.core.map.Road;
-import com.soen6441.core.map.Road.NameForArchiving;
 import com.soen6441.core.strategy.EnableStrategy;
 
 /**
