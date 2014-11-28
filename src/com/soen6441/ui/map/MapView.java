@@ -143,6 +143,8 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 			}
 		}
 	}
+	
+//	private void 
 	/*
 	 * Mark - Basic - Properties
 	 */
