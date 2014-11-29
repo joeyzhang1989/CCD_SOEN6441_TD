@@ -3,7 +3,6 @@ package com.soen6441.core.critter;
 import org.dom4j.Element;
 
 import com.soen6441.core.IArchive;
-import com.soen6441.core.critter.Critter.NameForArchiving;
 
 /**
  * @author Zhe Zhao

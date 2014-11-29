@@ -1,11 +1,9 @@
 package com.soen6441.ui.map.itemView;
 
-import java.awt.Graphics;
 import java.util.Observable;
 
 import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.map.MapItemView;
-import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * @author Zhe Zhao
