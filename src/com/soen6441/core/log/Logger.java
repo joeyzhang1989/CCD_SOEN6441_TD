@@ -64,8 +64,8 @@ public class Logger implements IArchive{
 	 * Mark - Archive - Methods
 	 */
 	public class NameForArchiving{
-		public static final String Class 		= "Logger";
-		private static final String Logs 		= "logs";
+		public static final String Class = "Logger";
+		private static final String Logs = "logs";
 	}
 	 
 	@Override
