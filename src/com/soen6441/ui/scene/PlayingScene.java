@@ -293,6 +293,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		controlButton.setEnabled(false);
 		saveButton.setEnabled(false);
 
+		Log log = new Log(Log.CATEGORY_WAVE).message("Started @" + play.getCurrentWaveIndex());
+		play.getLogger().addLog(log);
 	}
 
 	/**
