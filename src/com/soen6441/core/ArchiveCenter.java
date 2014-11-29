@@ -14,6 +14,11 @@ import com.soen6441.core.tower.FireTower;
 import com.soen6441.core.tower.SplashTower;
 import com.soen6441.core.tower.SunTower;
 
+/**
+ * @author Zhe Zhao
+ * @version $Revision: 1.0 $
+ */
+
 public class ArchiveCenter {
 	
 	private static Map<String, Class> registedClasses = new HashMap<String, Class>();
