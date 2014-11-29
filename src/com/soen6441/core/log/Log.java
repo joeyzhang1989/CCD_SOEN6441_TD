@@ -141,14 +141,5 @@ public class Log implements IArchive {
 		}
 	}
 
-	@Override
-	public Element encode() {
-		Element element = new DefaultElement(NameForArchiving.Class);
-		element.addAttribute(NameForArchiving.Date, _DATE_FORMATE.format(this.date));
-		element.addAttribute(NameForArchiving.Category, this.category);
-		element.addAttribute(NameForArchiving.Identity, Long.toString(this.identity));
-		element.addAttribute(NameForArchiving.Message, this.message);
-		element.addAttribute(NameForArchiving.Value, this.value);
-		return element;
-	}
+	
 }
