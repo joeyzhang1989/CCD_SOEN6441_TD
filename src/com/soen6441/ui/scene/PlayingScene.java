@@ -264,7 +264,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		infoLabel.setText("Wave: " + (play.getCurrentWaveIndex() + 1) + "/"  + play.getCritterWaveAmount());
 	}
 	
-
+	private void save() {
+		PlayManager playManager = new PlayManager();
+		playManager.save(play.getSourceFile(), play);
+		JOptionPane.showMessageDialog(this, "Save Successfull");
+	}
 
 	private void back() {
 		play.stopRunner();
