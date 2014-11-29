@@ -14,6 +14,13 @@ import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.TextField;
 import com.soen6441.ui.parallel.View;
 
+/**
+ * 
+ * @author Mengyao Wang
+ * 
+ * @version $Revision: 1.0 $
+ */
+
 public class NewGameScene extends View {
 	
 	/*
