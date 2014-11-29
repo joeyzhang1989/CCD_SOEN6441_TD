@@ -298,6 +298,24 @@ public class MapItemSelector {
 		return mapItemSelector;
   	}
 	
-
+	/**
+	 * Method sortByStrategy.
+	 * @param strategyName String
+	 * @param source MapItem
+	 * @return MapItemSelector
+	 */
+	public MapItemSelector sortByStrategy(String strategyName, MapItem source) {
+		if (strategyName.equals(Strategy.STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT)) {
+			return sortByDirectlyClosestToPoint(source.getLocation());
+		} else if (strategyName.equals(Strategy.STRATEGY_NAME_ON_PATH_CLOSEST_TO_END_POINT)) {
+			return sortByOnPathClosestToEndPoint();
+		} else if (strategyName.equals(Strategy.STRATEGY_NAME_WEAKEST)) {
+			return sortByWeakest();
+		} else if (strategyName.equals(Strategy.STRATEGY_NAME_STRONGEST)) {
+			return sortByStrongest();
+		}
+		
+		return this;
+	}
 }
 
