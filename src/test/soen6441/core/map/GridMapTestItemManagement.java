@@ -2,6 +2,7 @@ package test.soen6441.core.map;
 
 import static org.junit.Assert.*;
 
+import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -25,9 +26,14 @@ public class GridMapTestItemManagement {
 		sharedGridMap.setWidth(10);
 		sharedGridMap.setHeight(10);
 		
-		aRoadOnSharedGridMap = new Road();
-		sharedGridMap.setItem(aRoadOnSharedGridMap, new MapPoint(3, 3));
 		
+		
+	}
+	@Before
+	public void setUp()
+	{
+		aRoadOnSharedGridMap = new Road();
+		sharedGridMap.setItem(aRoadOnSharedGridMap, new MapPoint(5, 5));
 	}
 
 	@Test
@@ -49,7 +55,7 @@ public class GridMapTestItemManagement {
 	public void testGetItem() {
 		MapItem item;
 		// get a current item
-		item = sharedGridMap.getItem(new MapPoint(3, 3));
+		item = sharedGridMap.getItem(new MapPoint(5, 5));
 		assertSame(item, aRoadOnSharedGridMap);
 		
 		// get a non existed item
