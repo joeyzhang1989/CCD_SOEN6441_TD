@@ -81,6 +81,7 @@ public class Logger implements IArchive{
 	@Override
 	public void decode(Element element) {
 		Element logsElement = element.element(NameForArchiving.Logs);
+		@SuppressWarnings("unchecked")
 		List<Element> logElements = logsElement.elements(Log.NameForArchiving.Class);
 		for (Element logElement : logElements) {
 			Log log = new Log();
