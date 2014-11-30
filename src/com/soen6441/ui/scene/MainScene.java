@@ -105,8 +105,8 @@ public class MainScene extends View {
 					Play play = playManager.read(file);
 					Play.setPlay(play);
 
-					PlayingScene playingScene = new PlayingScene();
-					MainScene.this.viewFlow.push(playingScene);
+					RankingScene scene = new RankingScene();
+					MainScene.this.viewFlow.push(scene);
 				}
 			}
 		});

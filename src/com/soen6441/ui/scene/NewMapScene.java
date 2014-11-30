@@ -98,7 +98,7 @@ public class NewMapScene extends View {
 		backButton = new Button();
 		backButton.setTitle("BACK");
 		backButton.setSize(60, 20);
-		backButton.setLocation(10, 540);
+		backButton.setLocation(10, 550);
 		this.add(backButton);
 
 	}
@@ -156,6 +156,9 @@ public class NewMapScene extends View {
 		gridMap.setHeight(height);
 		play.setMap(gridMap);
 		gridMap.setPlay(play);
+		play.setLife(10);
+		play.setCoins(2000);
+		play.setPlayerName("");
 		
 		String nameString = nameTextField.getText();
 		File file = new File("maps/" + nameString + ".tdm.xml");

@@ -3,6 +3,8 @@ package com.soen6441.ui.common;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +54,7 @@ public class InspectorView extends View implements GridViewSelectionListener{
 		super.init();
 		this.setSize(180, 500);
 		this.commandButtons = new ArrayList<CommandButton>();
+		
 	}
 	
 	@Override
@@ -208,4 +211,5 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	public void gridViewDidSelect() {
 		
 	}
+
 }

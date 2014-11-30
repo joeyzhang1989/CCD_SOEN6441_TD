@@ -272,7 +272,6 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	private void back() {
 		play.stopRunner();
 		play.deleteObserver(PlayingScene.this);
-		Play.destroy();
 		 
 		PlayingScene.this.viewFlow.pop();
 		
@@ -343,7 +342,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	@Override
 	public void playSuccess(Play play) {
 
-		Log log = new Log(Log.CATEGORY_MAP).message("Won").value(Integer.toString(play.getScore()));
+		String value = play.getPlayerName() + "|" + Integer.valueOf(play.getScore());
+		Log log = new Log(Log.CATEGORY_MAP).message("Won").value(value);
 		play.addLogToMapFile(log);
 		
 		JOptionPane.showMessageDialog(this, "Success");

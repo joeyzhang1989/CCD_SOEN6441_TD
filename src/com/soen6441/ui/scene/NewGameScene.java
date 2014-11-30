@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 import com.soen6441.core.play.Play;
 import com.soen6441.core.play.PlayManager;
@@ -33,8 +34,10 @@ public class NewGameScene extends View {
 	 * Mark - View - Properties
 	 */
 	
-	private TextField nameTextField;
-	private Label nameTextLabel;
+	private TextField fileNameTextField;
+	private Label fileNameLabel;
+	private TextField playerNameTextField;
+	private Label playerNameLabel;
 	private Button nextButton;
 	private Button backButton;
 	
@@ -53,28 +56,42 @@ public class NewGameScene extends View {
 		this.setBackground(new Color(0x242424));
 		
 		
-		nameTextLabel = new Label();
-		nameTextLabel.setText("Name");
-		nameTextLabel.setSize(200, 40);
-		nameTextLabel.setLocation(220, 200 + 50);
-		this.add(nameTextLabel);
+		fileNameLabel = new Label();
+		fileNameLabel.setText("File Name");
+		fileNameLabel.setSize(290, 40);
+		fileNameLabel.setLocation(0, 200);
+		fileNameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		this.add(fileNameLabel);
 		
-		this.nameTextField = new TextField();
-		this.nameTextField.setText("");
-		this.nameTextField.setSize(200, 40);
-		this.nameTextField.setLocation(300, 200 + 50);
-		this.add(nameTextField);
+		fileNameTextField = new TextField();
+		fileNameTextField.setText("");
+		fileNameTextField.setSize(200, 40);
+		fileNameTextField.setLocation(300, 200);
+		this.add(fileNameTextField);
+		
+		playerNameLabel = new Label();
+		playerNameLabel.setText("Player Name");
+		playerNameLabel.setSize(290, 40);
+		playerNameLabel.setLocation(0, 250);
+		playerNameLabel.setHorizontalAlignment(SwingConstants.RIGHT);
+		this.add(playerNameLabel);
+		
+		playerNameTextField = new TextField();
+		playerNameTextField.setText("");
+		playerNameTextField.setSize(200, 40);
+		playerNameTextField.setLocation(300, 250);
+		this.add(playerNameTextField);
 
 		nextButton = new Button();
 		nextButton.setTitle("Next");
-		nextButton.setLocation(300, (int)nameTextField.getLocation().getY() + 50);
+		nextButton.setLocation(300, 300);
 		nextButton.setSize(200, 40);
 		this.add(nextButton);
 
 		backButton = new Button();
 		backButton.setTitle("BACK");
 		backButton.setSize(60, 20);
-		backButton.setLocation(10, 540);
+		backButton.setLocation(10, 550);
 		this.add(backButton);
 
 	}
@@ -117,19 +134,20 @@ public class NewGameScene extends View {
 		}
 		
 		
-		String nameString = nameTextField.getText();
+		String nameString = fileNameTextField.getText();
 		File file = new File("games/" + nameString + ".tdg.xml");
 		
 		play.setMapFilePath(play.getSourceFile().getName());
 		play.setSourceFile(file);
 		play.getMap().getLogger().clearLogs();
+		play.setPlayerName(playerNameTextField.getText());
 		
 		new PlayManager().save(play.getSourceFile(), play);
 		
 		Play.setPlay(play);
 		
-		PlayingScene playingScene = new PlayingScene();
-		this.viewFlow.push(playingScene);
+		RankingScene scene = new RankingScene();
+		this.viewFlow.push(scene);
 	
 	}
 	
@@ -142,7 +160,7 @@ public class NewGameScene extends View {
 	 * @return boolean
      */
 	private boolean validateFileName() {
-		String nameString = nameTextField.getText();
+		String nameString = fileNameTextField.getText();
 		File file = new File("games/" + nameString +".tdg.xml");
 		if(file.exists()){
 			JOptionPane.showMessageDialog(this, "This name of file is exist.");

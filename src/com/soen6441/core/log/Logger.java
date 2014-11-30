@@ -46,6 +46,16 @@ public class Logger implements IArchive{
 		return filteredLogs;
 	}
 	
+	public synchronized List<Log> getLogs(String category, String message) {
+		List<Log> filteredLogs = new ArrayList<Log>();
+		for (Log log : logs) {
+			if (log.getCategory().equals(category) && log.getMessage().equals(message)) {
+				filteredLogs.add(log);
+			}
+		}
+		return filteredLogs;
+	}
+	
 	public synchronized List<Log> getLogs(String category, long identity) {
 		List<Log> filteredLogs = new ArrayList<Log>();
 		for (Log log : logs) {

@@ -119,6 +119,10 @@ public class View extends JPanel {
 		
 	}
 	
+	protected void viewDidDisplay() {
+		
+	}
+	
 	/*
 	 * Mark - View Management - Methods
 	 */
