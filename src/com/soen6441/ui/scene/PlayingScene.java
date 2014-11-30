@@ -216,6 +216,10 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		inspectorView.setBackground(new Color(0x111111));
 		this.add(inspectorView);
 		
+		if (play.getCurrentWaveIndex() >= play.getCritterWaveAmount() - 1) {
+			controlButton.setEnabled(false);
+			saveButton.setEnabled(false);
+		}
 	}	
 
 	@Override
