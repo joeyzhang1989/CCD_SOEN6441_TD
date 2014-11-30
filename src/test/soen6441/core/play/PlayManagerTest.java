@@ -39,14 +39,13 @@ public class PlayManagerTest {
 	
 	@AfterClass
 	public static void tearDown() {
-		
 		try {
-			if (testFile.exists()){
+			if (testFile != null && testFile.exists()) {
 				testFile.delete();
-			}   
-	      }catch(Exception e) {
-	         e.printStackTrace();
-	      }
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 	
 	/*

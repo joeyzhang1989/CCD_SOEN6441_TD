@@ -676,9 +676,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		
 		this.setCoins(1000);
 		this.setLife(10);
+		this.setPlayerName("No Name");
 		
 		map = new GridMap();
-		
+		map.setPlay(this);
 		map.setWidth(6);
 		map.setHeight(4);
 		
