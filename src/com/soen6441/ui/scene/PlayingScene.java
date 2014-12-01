@@ -68,6 +68,12 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 			if (arg == Play.OBSERVABLE_EVENT_PROPERTY_LIFE_DID_CHANGE){
 				lifelabel.setText(Integer.toString(play.getLife()));
 			}
+		} else if (o == inspectedMapItem && o instanceof Tower) {
+			if (arg == Tower.OBSERVABLE_EVENT_PROPERTY_EFFECTS_DID_CHANGE){
+				inspectorView.update();
+			} else if (arg == Tower.OBSERVABLE_EVENT_PROPERTY_STRATEGY_NAME_DID_CHANGE){
+				inspectorView.update();
+			}
 		}
 	}
 	
@@ -354,6 +360,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		back();
 	}
 	 
+	/*
+	 * Mark - Inspection - Properties
+	 */
+	 
+	private MapItem inspectedMapItem;
 	
 	/*
 	 * Mark - Inspection - Methods
@@ -365,22 +376,33 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	 */
 	@Override
 	public void gridViewDidSelect() {
-		MapItem mapItem = play.getMap().getSelectedItem();
 		
-		if (mapItem == null){
+		if (inspectedMapItem == null) {
+			
+		} else if (inspectedMapItem instanceof Road) {
+			
+		} else if (inspectedMapItem instanceof Tower) {
+			inspectedMapItem.deleteObserver(this);
+		}
+		
+		this.inspectedMapItem = play.getMap().getSelectedItem();
+		
+		if (inspectedMapItem == null){
 			inspectorView.setOn(new InspectableScenery());
 			inspectorView.update();
 			
-		} else if (mapItem instanceof Road){
-			Road road = (Road)mapItem;
+		} else if (inspectedMapItem instanceof Road){
+			Road road = (Road)inspectedMapItem;
 			inspectorView.setOn(new InspectableRoad(road));
 			inspectorView.update();
 			
-		} else if (mapItem instanceof Tower){
-			Tower tower = (Tower) mapItem;
+		} else if (inspectedMapItem instanceof Tower){
+			Tower tower = (Tower) inspectedMapItem;
 			inspectorView.setOn(new InspectableTower(tower));
 			inspectorView.update();
+			inspectedMapItem.addObserver(this);
 		}
+		
 	}
 		
 	
@@ -575,8 +597,9 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				strategyCommands = new ArrayList<Command>();
 				List<Strategy> strategies = Strategy.getAllStrategies();
 				for (Strategy strategy : strategies) {
+					boolean current = tower.getStrategyName().equals(strategy.getName());
 					Command command = new Command();
-					command.setImageName(strategy.getImageName());
+					command.setImageName(current ? strategy.getOnImageName() : strategy.getImageName());
 					strategyCommands.add(command);
 				}
 				return strategyCommands;
@@ -632,7 +655,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				String strategyName = Strategy.getStrategyNames().get(index);
 				tower.setStrategyName(strategyName);
 			}
-		}	
+		}
 	}	
 
 

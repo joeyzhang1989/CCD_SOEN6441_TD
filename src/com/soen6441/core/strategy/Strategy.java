@@ -16,28 +16,14 @@ public class Strategy {
 	
 	private String name;
 	private String imageName;
+	private String onImageName;
+
 	private String description;
 	
 	/*
 	 * Mark - Basic - Getters & Setters
 	 */
 
-	 
-	/**
-	 * Method getImageName.
-	 * @return String
-	 */
-	public String getImageName() {
-		return imageName;
-	}
-
-	/**
-	 * Method setImageName.
-	 * @param imageName String
-	 */
-	public void setImageName(String imageName) {
-		this.imageName = imageName;
-	}
 
 	/**
 	 * Method getName.
@@ -55,6 +41,30 @@ public class Strategy {
 		this.name = name;
 	}
 
+	/**
+	 * Method getImageName.
+	 * @return String
+	 */
+	public String getImageName() {
+		return imageName;
+	}
+
+	/**
+	 * Method setImageName.
+	 * @param imageName String
+	 */
+	public void setImageName(String imageName) {
+		this.imageName = imageName;
+	}
+
+	public String getOnImageName() {
+		return onImageName;
+	}
+
+	public void setOnImageName(String onImageName) {
+		this.onImageName = onImageName;
+	}
+	
 	public String getDescription() {
 		return description;
 	}
@@ -89,6 +99,7 @@ public class Strategy {
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_DIRECTLY_CLOSEST_TO_POINT);
 		strategy.setImageName("strategy_1.png");
+		strategy.setOnImageName("strategy_1_on.png");
 		strategy.setDescription("Nearest to this tower ");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
@@ -96,6 +107,7 @@ public class Strategy {
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_ON_PATH_CLOSEST_TO_END_POINT);
 		strategy.setImageName("strategy_2.png");
+		strategy.setOnImageName("strategy_2_on.png");
 		strategy.setDescription("Nearest to the end point");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
@@ -103,6 +115,7 @@ public class Strategy {
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_WEAKEST);
 		strategy.setImageName("strategy_3.png");
+		strategy.setOnImageName("strategy_3_on.png");
 		strategy.setDescription("Weakest");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());
@@ -110,6 +123,7 @@ public class Strategy {
 		strategy = new Strategy();
 		strategy.setName(STRATEGY_NAME_STRONGEST);
 		strategy.setImageName("strategy_4.png");
+		strategy.setOnImageName("strategy_4_on.png");
 		strategy.setDescription("Strongest");
 		strategies.put(strategy.getName(), strategy);
 		strategyNames.add(strategy.getName());

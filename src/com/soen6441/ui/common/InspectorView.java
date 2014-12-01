@@ -3,11 +3,13 @@ package com.soen6441.ui.common;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.TextView;
 import com.soen6441.ui.parallel.View;
@@ -198,7 +200,7 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	public void setOn(IInspectable on) {
 		this.on = on;
 	}
-
+	
 	/*
 	 * Mark - Grid View Selection - Methods
 	 */

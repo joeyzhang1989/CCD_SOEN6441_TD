@@ -132,6 +132,12 @@ public class MapItem extends Observable implements IArchive{
 		this.cellImageName = cellImageName;
 	}
 	
+
+	/*
+	 * Mark - Effect - Observerable
+	 */
+	
+	public static String OBSERVABLE_EVENT_PROPERTY_EFFECTS_DID_CHANGE = "ObservableEvent_PropertyEffectsDidChange";
 	
 	/*
 	 * Mark - Effect - Properties
@@ -163,22 +169,23 @@ public class MapItem extends Observable implements IArchive{
 		
 		Effect comparedEffect = this.getEffect(effect.getType());
 		
-//		synchronized (effectLock) {
-			if (comparedEffect != null) {
-				if(effect.strongerThan(comparedEffect)) {
-					this.removeEffect(effect);
-					effect.setOn(this);
-					effects.put(effect.getType(), effect);
-					effect.affect();
-					effect.start();
-				}
-			} else {
+		if (comparedEffect != null) {
+			if(effect.strongerThan(comparedEffect)) {
+				this.removeEffect(effect);
 				effect.setOn(this);
 				effects.put(effect.getType(), effect);
 				effect.affect();
-				effect.start();	
+				effect.start();
 			}
-//		}
+		} else {
+			effect.setOn(this);
+			effects.put(effect.getType(), effect);
+			effect.affect();
+			effect.start();	
+		}
+		
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_EFFECTS_DID_CHANGE);
 	}
 
 
@@ -208,12 +215,13 @@ public class MapItem extends Observable implements IArchive{
 	
      * @see com.soen6441.core.effect.IAffectable#removeEffect(Effect) */
 	public void removeEffect(Effect effect) {
-//		synchronized (effectLock) {
-			effect.stop();
-			effect.setOn(null);
-			effects.remove(effect.getType());
-			this.updateAffectableValues();
-//		}
+		effect.stop();
+		effect.setOn(null);
+		effects.remove(effect.getType());
+		this.updateAffectableValues();
+
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_EFFECTS_DID_CHANGE);
 	}
 
 	
