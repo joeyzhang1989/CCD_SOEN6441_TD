@@ -106,21 +106,41 @@ public class DotEffect extends Effect implements TimerListener{
 	/*
 	 * Getters and Setters
 	 */
+	/**
+	 * Method getDotDamage.
+	 * @return int
+	 */
 	public int getDotDamage() {
 		return dotDamage;
 	}
 	public void setDotDamage(int dotDamage) {
 		this.dotDamage = dotDamage;
 	}
+	/**
+	 * Method getDotCdTime.
+	 * @return double
+	 */
 	public double getDotCdTime() {
 		return dotCdTime;
 	}
+	/**
+	 * Method setDotCdTime.
+	 * @param dotCdTime double
+	 */
 	public void setDotCdTime(double dotCdTime) {
 		this.dotCdTime = dotCdTime;
 	}
+	/**
+	 * Method getDotTimes.
+	 * @return int
+	 */
 	public int getDotTimes() {
 		return dotTimes;
 	}
+	/**
+	 * Method setDotTimes.
+	 * @param dotTimes int
+	 */
 	public void setDotTimes(int dotTimes) {
 		this.dotTimes = dotTimes;
 	}	

@@ -87,18 +87,34 @@ public class SplashEffect extends Effect {
 	}
 	
 
+	/**
+	 * Method getSplashDamage.
+	 * @return int
+	 */
 	public int getSplashDamage() {
 		return splashDamage;
 	}
 
+	/**
+	 * Method setSplashDamage.
+	 * @param splashDamage int
+	 */
 	public void setSplashDamage(int splashDamage) {
 		this.splashDamage = splashDamage;
 	}
 
+	/**
+	 * Method getSplashRange.
+	 * @return double
+	 */
 	public double getSplashRange() {
 		return splashRange;
 	}
 
+	/**
+	 * Method setSplashRange.
+	 * @param splashRange double
+	 */
 	public void setSplashRange(double splashRange) {
 		this.splashRange = splashRange;
 	}

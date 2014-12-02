@@ -5,6 +5,7 @@ import com.soen6441.core.TimerListener;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class TimerDemo implements TimerListener{
 	

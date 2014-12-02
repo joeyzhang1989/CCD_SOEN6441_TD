@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 
 /**
  *@author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Timer implements ActionListener{
 	private javax.swing.Timer timer;

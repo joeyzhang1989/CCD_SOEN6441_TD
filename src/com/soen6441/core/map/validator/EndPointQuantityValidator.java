@@ -26,7 +26,7 @@ public class EndPointQuantityValidator extends PathValidator {
 	 * one End Point.IF the # of endPoints is less than or greater than 1, the method sets the appropriate
 	 * error message indicating the error.
 	 * 
-     * @return boolean A boolean values that represent whether # of EndPoints are valid.
+	 * @return boolean A boolean values that represent whether # of EndPoints are valid.
      */
 
 	@Override

@@ -8,6 +8,7 @@ import java.util.Map;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class CritterManagerFactory {
 

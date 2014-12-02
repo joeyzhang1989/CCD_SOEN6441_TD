@@ -21,6 +21,7 @@ import com.soen6441.core.play.Play;
  * This class tests two main method of SplashEffect class.
  * @author Haiyang Sun
  *
+ * @version $Revision: 1.0 $
  */
 public class SplashEffectTest {
 	
@@ -43,6 +44,7 @@ public class SplashEffectTest {
 	
 
 	/**
+	 * @throws Exception
 	 * @throws java.lang.Exception
 	 */
 	@BeforeClass

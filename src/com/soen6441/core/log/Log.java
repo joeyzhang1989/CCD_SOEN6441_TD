@@ -12,6 +12,7 @@ import com.soen6441.core.IArchive;
 /**
  * 
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Log implements IArchive {
 	
@@ -23,6 +24,10 @@ public class Log implements IArchive {
 		this(CATEGORY_GAME);
 	}
 	
+	/**
+	 * Constructor for Log.
+	 * @param category String
+	 */
 	public Log(String category) {
 		this.setCategory(category);
 		this.date = new Date();
@@ -35,16 +40,31 @@ public class Log implements IArchive {
 	 * Mark - Build - Methods
 	 */
 	
+	/**
+	 * Method identity.
+	 * @param identity long
+	 * @return Log
+	 */
 	public Log identity(long identity) {
 		this.setIdentity(identity);
 		return this;
 	}
 	
+	/**
+	 * Method message.
+	 * @param message String
+	 * @return Log
+	 */
 	public Log message(String message) {
 		this.setMessage(message);
 		return this;
 	}
 	
+	/**
+	 * Method value.
+	 * @param value String
+	 * @return Log
+	 */
 	public Log value(String value) {
 		this.setValue(value);
 		return this;
@@ -69,38 +89,74 @@ public class Log implements IArchive {
 	 * Mark - Basic - Getters & Setters
 	 */
 	 
+	/**
+	 * Method getCategory.
+	 * @return String
+	 */
 	public String getCategory() {
 		return category;
 	}
 
+	/**
+	 * Method setCategory.
+	 * @param category String
+	 */
 	public void setCategory(String category) {
 		this.category = category;
 	}
 
+	/**
+	 * Method getIdentity.
+	 * @return long
+	 */
 	public long getIdentity() {
 		return identity;
 	}
 
+	/**
+	 * Method setIdentity.
+	 * @param identity long
+	 */
 	public void setIdentity(long identity) {
 		this.identity = identity;
 	}
 
+	/**
+	 * Method getMessage.
+	 * @return String
+	 */
 	public String getMessage() {
 		return message;
 	}
 
+	/**
+	 * Method setMessage.
+	 * @param message String
+	 */
 	public void setMessage(String message) {
 		this.message = message;
 	}
 
+	/**
+	 * Method getValue.
+	 * @return String
+	 */
 	public String getValue() {
 		return value;
 	}
 
+	/**
+	 * Method setValue.
+	 * @param value String
+	 */
 	public void setValue(String value) {
 		this.value = value;
 	}
 
+	/**
+	 * Method getDate.
+	 * @return Date
+	 */
 	public Date getDate() {
 		return date;
 	}
@@ -111,6 +167,10 @@ public class Log implements IArchive {
 	 
 	private static DateFormat _DATE_FORMATE = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
 	
+	/**
+	 * Method toString.
+	 * @return String
+	 */
 	public String toString(){
 		return _DATE_FORMATE.format(this.date) + this.category + " " + Long.toString(identity) + " " + message + " " + value; 
 	}
@@ -119,6 +179,8 @@ public class Log implements IArchive {
 	 * Mark - Archive - Methods
 	 */
 
+	/**
+	 */
 	public class NameForArchiving{
 		public static final String Class 		= "Log";
 		private static final String Date 		= "date";
@@ -128,6 +190,11 @@ public class Log implements IArchive {
 		private static final String Value 		= "value";
 	}
 	
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		try {
@@ -141,6 +208,11 @@ public class Log implements IArchive {
 		}
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);

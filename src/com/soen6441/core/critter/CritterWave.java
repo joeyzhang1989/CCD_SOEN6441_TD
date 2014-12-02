@@ -8,6 +8,7 @@ import com.soen6441.core.IArchive;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class CritterWave implements IArchive {
 	
@@ -100,6 +101,7 @@ public class CritterWave implements IArchive {
 
 	/**
      * @author Zhe Zhao
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving {
 		public static final String Class = "CritterWave";
@@ -131,7 +133,7 @@ public class CritterWave implements IArchive {
 
 	/**
 	 * Method encode.
-	 * @return Element
+	* @return Element
 	 * @see com.soen6441.core.IArchive#encode()
 	 */
 	@Override

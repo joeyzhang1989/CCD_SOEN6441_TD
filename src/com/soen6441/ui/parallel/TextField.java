@@ -21,6 +21,10 @@ public class TextField extends JTextField{
 		this.setSelectionColor(new Color(0x00CCCC));
 	}
 	
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	public void paint(Graphics g) {
 		super.paint(g);
 		g.setColor(new Color(0x00CCCC));

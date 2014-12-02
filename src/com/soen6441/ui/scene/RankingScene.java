@@ -16,6 +16,9 @@ import com.soen6441.ui.parallel.Button;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.View;
 
+/**
+  * @ author Zhe Zhao
+  */
 public class RankingScene extends View {
 
 	/*
@@ -182,6 +185,11 @@ public class RankingScene extends View {
 		
 	}
 	
+	/**
+	 * Method scoreFromLog.
+	 * @param log Log
+	 * @return int
+	 */
 	private int scoreFromLog(Log log) {
 		String[] values = log.getValue().split("\\|");
 		if (values.length > 1) {
@@ -191,6 +199,11 @@ public class RankingScene extends View {
 		}
 	}
 	
+	/**
+	 * Method playerNameFromLog.
+	 * @param log Log
+	 * @return String
+	 */
 	private String playerNameFromLog(Log log) {
 		String[] values = log.getValue().split("\\|");
 		if (values.length > 1) {

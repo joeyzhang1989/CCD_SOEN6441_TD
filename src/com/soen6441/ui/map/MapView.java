@@ -116,6 +116,10 @@ public class MapView extends View implements GridMapItemsListener, GridViewSelec
 		}
 	}
 	
+	/**
+	 * Method paintAttack.
+	 * @param g Graphics2D
+	 */
 	private void paintAttack(Graphics2D g) {
 		List<MapItem> items = map.getItemSelector()
 								 .filterByType(Tower.class)

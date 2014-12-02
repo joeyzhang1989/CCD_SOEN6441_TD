@@ -6,6 +6,7 @@ import com.soen6441.core.IArchive;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class CritterMultiplier implements IArchive{
 	
@@ -85,6 +86,7 @@ public class CritterMultiplier implements IArchive{
 	 
 	/**
      * @author Zhe Zhao
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		public static final String Class = "CritterMultiplier";

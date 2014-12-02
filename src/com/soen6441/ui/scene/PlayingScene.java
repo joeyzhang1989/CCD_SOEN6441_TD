@@ -294,7 +294,7 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 	/**
 	 * Method playWaveDidStart.
 	 * @param play Play
-	 * @see com.soen6441.core.play.PlayEventListener#playWaveDidStart(Play)
+ 	 * @see com.soen6441.core.play.PlayEventListener#playWaveDidStart(Play)
 	 */
 	@Override
 	public void playWaveDidStart(Play play) {
@@ -686,7 +686,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		}
 		/**
 		 * Method title. check the selected road type to update the inspectorView Title
-		 * @return String  * @see com.soen6441.ui.common.IInspectable#title()  * @see com.soen6441.ui.common.IInspectable#title()
+		 * @return String 
+ 		 * @see com.soen6441.ui.common.IInspectable#title()
 		 */
 		@Override
 		public String title() {
@@ -706,7 +707,8 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 
 		/**
 		 * Method description.
-		 * @return String  * @see com.soen6441.ui.common.IInspectable#description()  * @see com.soen6441.ui.common.IInspectable#description()
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#description()  
 		 */
 		@Override
 		public String description() {

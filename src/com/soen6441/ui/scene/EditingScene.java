@@ -248,9 +248,9 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method description
-		
-        
-         * @return String  * @see com.soen6441.ui.common.IInspectable#description()  */
+         * @return String  
+		 * @see com.soen6441.ui.common.IInspectable#description()  
+		 */
 		@Override
 		public String description() {
 			return "This is an empty space where u can add a start, end or normal-road point";
@@ -329,9 +329,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method title.
-		
-		
-		 * @return String * @see com.soen6441.ui.common.IInspectable#title() * @see com.soen6441.ui.common.IInspectable#title()
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#title()
 		 */
 		@Override
 		public String title() {
@@ -341,8 +340,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		/**
 		 * Method subtitle.
 		 * @return String
-         * @see com.soen6441.ui.common.IInspectable#subtitle()
-         */
+		 * @see com.soen6441.ui.common.IInspectable#subtitle() 
+		 */
 		@Override
 		public String subtitle() {
 			return "Road editing";
@@ -350,7 +349,8 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method description.
-		 * @return String * @see com.soen6441.ui.common.IInspectable#description() * @see com.soen6441.ui.common.IInspectable#description()
+		 * @return String 
+		 * @see com.soen6441.ui.common.IInspectable#description() 
 		 */
 		@Override
 		public String description() {
@@ -359,7 +359,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 
 		/**
 		 * Method gridCommands.
-		 * @return List<Command>
+	 	 * @return List<Command>
 		 * @see com.soen6441.ui.common.IInspectable#gridCommands()
 		 */
 		@Override

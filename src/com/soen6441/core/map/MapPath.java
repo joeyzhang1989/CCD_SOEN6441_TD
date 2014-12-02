@@ -40,8 +40,8 @@ public class MapPath implements IArchive{
 	
 	/**
 	 * Method getFirstLocation.
-	 * @return MapPoint
-     */
+	 * @return MapItemSelector
+	 */
 	public MapPoint getFirstLocation(){
 		return locations.get(0);
 	}
@@ -210,6 +210,7 @@ public class MapPath implements IArchive{
 
 	/**
      * @author Zhe Zhao
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving {
 		public static final String Class = "MapPath";

@@ -34,10 +34,20 @@ public class ArchiveCenter {
 		SplashTower.registeToArchiveCenter();
 	}
 	
+	/**
+	 * Method registeClass.
+	 * @param classObject Class
+	 * @param elementName String
+	 */
 	public static void registeClass(Class classObject, String elementName) {
 		registedClasses.put(elementName, classObject);
 	}
 	
+	/**
+	 * Method decodeElement.
+	 * @param objectElement Element
+	 * @return Object
+	 */
 	public static Object decodeElement(Element objectElement) {
 		Class classObject = registedClasses.get(objectElement.getName());
 		IArchive archivable = null;

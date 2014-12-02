@@ -81,6 +81,7 @@ public class TowerManager implements IArchive {
 	
 	/**
      * @author Haiyang Sun
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		
@@ -133,7 +134,7 @@ public class TowerManager implements IArchive {
 	 * Create a specific Tower object.
 	 * This method uses copyTo method of tower class.
 	 * 
-	 * @return Tower  
+	
      * @see Tower#copyTo(Tower)
      */
 	public Tower createTower() {
