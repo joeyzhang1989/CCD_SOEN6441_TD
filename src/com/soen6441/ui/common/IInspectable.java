@@ -26,7 +26,6 @@ public interface IInspectable{
 	 * @return String
      */
 	public String subtitle();
-	//public Image image;
 	
 	/**
 	 * Method description.	

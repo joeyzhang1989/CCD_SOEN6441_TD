@@ -3,6 +3,8 @@ package com.soen6441.ui.scene;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -506,11 +508,13 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				play.spendCoins(price);
 				
 				Tower tower = towerManager.createTower();
+
+				Log log = new Log(Log.CATEGORY_TOWER).identity(tower.getIdentity()).message("Created");
+				play.getLogger().addLog(log);
+				
 				GridMap gridMap = play.getMap();
 				play.getMap().setItem(tower, gridMap.getSelectedPoint());
 				
-				Log log = new Log(Log.CATEGORY_TOWER).identity(tower.getIdentity()).message("Created");
-				play.getLogger().addLog(log);
 			}
 		}
 	}
@@ -583,7 +587,25 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public String description() {
 			
-			return tower.getDescription() + "\n" + tower.getDetailInformation();
+
+			StringBuilder value = new StringBuilder();
+			value.append(tower.getDescription());
+			value.append("\n");
+			value.append("\n");
+			
+			value.append("DATA\n");
+			value.append(tower.getDetailInformation());
+			value.append("\n");
+			
+			value.append("LOG\n");
+			List<Log> logs = play.getLogger().getLogs(Log.CATEGORY_TOWER, tower.getIdentity());
+			
+			DateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+			for (Log log : logs) {
+				String dateString = dateFormat.format(log.getDate());
+				value.append(dateString + " " + log.getMessage() + "\n");
+			}
+			return value.toString();
 		}
 		
 		/**
@@ -616,13 +638,14 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 		@Override
 		public List<Command> commands() {
 			List<Command> commands = new ArrayList<Command>();
+			
+			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
+			commands.add (refundCommand);
+
 			if (tower.canUpgrade()) {
 				upgradeCommand = new Command("Upgrade Tower", tower.getUpgradePrice() + "$");
 				commands.add (upgradeCommand);
 			} 
-			
-			refundCommand = new Command("Refund Tower", tower.getSellPrice() + "$");
-			commands.add (refundCommand);
 			
 			return commands;
 		}
@@ -639,10 +662,11 @@ public class PlayingScene extends View implements Observer, GridViewSelectionLis
 				if (price >= tower.getUpgradePrice()) {
 					play.spendCoins(tower.getUpgradePrice());
 					tower.upgrade();
-					inspectorView.update();
 					
 					Log log = new Log(Log.CATEGORY_TOWER).identity(tower.getIdentity()).message("Upgraded");
 					play.getLogger().addLog(log);
+
+					inspectorView.update();
 				}	
 			} else if (command == refundCommand) {
 				play.earnCoins(tower.getSellPrice());

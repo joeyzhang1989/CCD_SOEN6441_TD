@@ -255,7 +255,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		public String description() {
 			return "This is an empty space where u can add a start, end or normal-road point";
 		}
-
+		
 		/**
 		 * Method commands.
 		 * @return List<Command>
@@ -356,7 +356,7 @@ public class EditingScene extends View implements GridViewSelectionListener {
 		public String description() {
 			return "This is a road cell that you can destroy";
 		}
-
+		
 		/**
 		 * Method gridCommands.
 	 	 * @return List<Command>
