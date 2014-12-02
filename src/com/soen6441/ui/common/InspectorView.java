@@ -1,14 +1,15 @@
 package com.soen6441.ui.common;
 
-import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
-import com.soen6441.ui.parallel.Button;
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.parallel.Label;
 import com.soen6441.ui.parallel.TextView;
 import com.soen6441.ui.parallel.View;
@@ -55,6 +56,7 @@ public class InspectorView extends View implements GridViewSelectionListener{
 		super.init();
 		this.setSize(180, 500);
 		this.commandButtons = new ArrayList<CommandButton>();
+		
 	}
 	
 	@Override
@@ -198,7 +200,7 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	public void setOn(IInspectable on) {
 		this.on = on;
 	}
-
+	
 	/*
 	 * Mark - Grid View Selection - Methods
 	 */
@@ -211,4 +213,5 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	public void gridViewDidSelect() {
 		
 	}
+
 }

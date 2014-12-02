@@ -4,8 +4,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 import org.junit.runners.Suite.SuiteClasses;
 
-import test.soen6441.core.map.validator.SuiteValidator;
-
 /**
  * @author Zhe Zhao
  */

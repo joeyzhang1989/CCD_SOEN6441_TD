@@ -43,6 +43,7 @@ public class ViewFlow extends View {
 		view.setViewFlow(this);
 		view.setSize(this.getSize());
 		this.add(view);
+		view.viewDidDisplay();
 	}
 	
 	public void pop(){
@@ -51,6 +52,10 @@ public class ViewFlow extends View {
 			this.remove(view);
 			contentViews.remove(view);
 			contentViews.get(contentViews.size() - 1).setVisible(true);
+		}
+		if (contentViews.size() > 0){
+			View view = contentViews.get(contentViews.size() - 1);
+			view.viewDidDisplay();
 		}
 	}
 }

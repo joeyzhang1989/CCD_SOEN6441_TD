@@ -8,7 +8,8 @@ import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.RoadType;
 
 /**
- * The class PathLengthValidator will validate the length of the path.
+ * The class PathLengthValidator is a subclass of PathValidator. it's repsponsibility is
+ * to validate the length of the path.
  * 
  * @author Mohammad Ali
  * @version $Revision: 1.0 $
@@ -19,12 +20,10 @@ public class RoadQuantityValidator extends PathValidator {
 	public static final String MISSING_ROAD_ERROR = "There must be at least one road Item connecting startPoint and endPoint";
 	
 	/**
-	 * This method Validate() overrides the method Validate() of parent class
-	 * PathValidator. It checks the length of the path and will make sure that
-	 * the path is valid.
+	 * This method Validate() overrides the method Validate() of it's parent class PathValidator. 
+	 * It checks the length of the path and will make sure that the length of path meets the minimum length threshold.
 	 * 
-     * @return boolean A boolean values that represent whether the length of the
-	 *         path is valid.
+     * @return boolean A boolean values that represent whether the length of the path is valid.
      */
 	@Override
 	public boolean validate() {

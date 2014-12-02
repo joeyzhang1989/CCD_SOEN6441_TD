@@ -46,6 +46,16 @@ public class Logger implements IArchive{
 		return filteredLogs;
 	}
 	
+	public synchronized List<Log> getLogs(String category, String message) {
+		List<Log> filteredLogs = new ArrayList<Log>();
+		for (Log log : logs) {
+			if (log.getCategory().equals(category) && log.getMessage().equals(message)) {
+				filteredLogs.add(log);
+			}
+		}
+		return filteredLogs;
+	}
+	
 	public synchronized List<Log> getLogs(String category, long identity) {
 		List<Log> filteredLogs = new ArrayList<Log>();
 		for (Log log : logs) {
@@ -64,13 +74,14 @@ public class Logger implements IArchive{
 	 * Mark - Archive - Methods
 	 */
 	public class NameForArchiving{
-		public static final String Class 		= "Logger";
-		private static final String Logs 		= "logs";
+		public static final String Class = "Logger";
+		private static final String Logs = "logs";
 	}
 	 
 	@Override
 	public void decode(Element element) {
 		Element logsElement = element.element(NameForArchiving.Logs);
+		@SuppressWarnings("unchecked")
 		List<Element> logElements = logsElement.elements(Log.NameForArchiving.Class);
 		for (Element logElement : logElements) {
 			Log log = new Log();

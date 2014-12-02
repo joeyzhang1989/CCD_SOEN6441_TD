@@ -1,5 +1,6 @@
 package com.soen6441.core.tower;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import org.dom4j.Element;
@@ -54,9 +55,12 @@ public class EnergyTower extends Tower {
      */
 	@Override
 	public String getDetailInformation() {
-		String result = "CDTime :" + (int)this.getCdTime().getAffectedValue() + System.getProperty("line.separator")
-					  + "Rate :" + this.enhanceRate + System.getProperty("line.separator")
-					  + "Duration :" + this.enhanceDuration + System.getProperty("line.separator");
+		
+		DecimalFormat df = new DecimalFormat("0.0");
+		
+		String result = "CDTime :" + df.format(this.getCdTime().getAffectedValue()) + "s" + System.getProperty("line.separator")
+					  + "Rate :" + df.format(this.enhanceRate) + System.getProperty("line.separator")
+					  + "Duration :" + df.format(this.enhanceDuration) + "s" + System.getProperty("line.separator");
 		return result;
 	}
 	

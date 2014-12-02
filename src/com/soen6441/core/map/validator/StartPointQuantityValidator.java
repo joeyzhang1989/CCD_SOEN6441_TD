@@ -8,9 +8,8 @@ import com.soen6441.core.map.Road;
 import com.soen6441.core.map.Road.RoadType;
 
 /**
- * The class StartPointValidator is a subclass of PathValidator. It overrides
- * the method Validate() of its parent class and check the number of StartPoints
- * in the Map.
+ * The class StartPointValidator is a subclass of PathValidator. It overrides the
+ * method Validate() of its parent class and check the number of StartPoints in the Map.
  * 
  * @author Zhe Zhao
  * @version $Revision: 1.0 $
@@ -23,11 +22,12 @@ public class StartPointQuantityValidator extends PathValidator {
 	
 	
 	/**
-	 * This method Validate() overrides the method Validate() of parent class
-	 * PathValidator. It checks the Map for start points and validates the Map.
+	 * This method Validate() overrides the method Validate() of parent class PathValidator. It checks the Map 
+	 * for start points and validates the Map.For a map to be valid, it must have exactly one start Point.If 
+	 * the # of startPoints is less than or greater than 1, the method sets the appropriate error message 
+	 * indicating the error.
 	 * 
-     * @return boolean A boolean values that represent whether # of startPoints
-	 *         are valid.
+     * @return boolean A boolean values that represent whether # of startPoints are valid.
      */
 
 	@Override

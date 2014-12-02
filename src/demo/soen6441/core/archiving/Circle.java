@@ -5,8 +5,6 @@ import org.dom4j.tree.DefaultElement;
 
 import com.soen6441.core.IArchive;
 
-import demo.soen6441.core.archiving.Point.NameForArchiving;
-
 /**
  *  @author Zhe Zhao
  * @version $Revision: 1.0 $

@@ -1,5 +1,7 @@
 package com.soen6441.core.map;
 
+import java.util.List;
+
 import org.dom4j.Element;
 
 import com.soen6441.core.ArchiveCenter;
@@ -54,7 +56,7 @@ public class Road extends MapItem {
 	 * Mark - Basic - Observerable
 	 */
 	
-	public static String OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE = "ObservableEvent_PropertyTypeDidChange";
+	public static String OBSERVABLE_EVENT_PROPERTY_CONNECTIONS_DID_CHANGE = "ObservableEvent_PropertyTypeDidChange";
 	
 	/*
 	 * Mark - Basic - Getters & Setters
@@ -74,9 +76,6 @@ public class Road extends MapItem {
 	 */
 	public void setRoadType(RoadType roadType) {
 		this.roadType = roadType;
-
-		this.setChanged();
-		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_TYPE_DID_CHANGE);
 	}
 	
 	/*
@@ -118,6 +117,42 @@ public class Road extends MapItem {
 		default:
 			return null;
 		}
+	}
+	
+	private boolean[] connections;
+	
+
+	public void rediscoverConnections(boolean center){
+		boolean[] connections = new boolean[4];
+		
+		List<MapPoint> directions = MapPoint.crossDirections();
+		for (int i = 0; i < directions.size(); i++) {
+			MapPoint direction = directions.get(i);
+			MapPoint checkPoint = this.getLocation().add(direction);
+			MapItem item = map.getItem(checkPoint);
+			if (item != null && item instanceof Road) {
+				connections[i] = true;
+				if (center) {
+					((Road)item).rediscoverConnections(false);
+				}
+			} else {
+				connections[i] = false;
+			}
+		}
+		
+		this.setConnections(connections);
+		
+	}
+
+	public boolean[] getConnections() {
+		return connections;
+	}
+
+	public void setConnections(boolean[] connections) {
+		this.connections = connections;
+		
+		this.setChanged();
+		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_CONNECTIONS_DID_CHANGE);
 	}
 	
 

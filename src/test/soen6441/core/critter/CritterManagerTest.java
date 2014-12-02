@@ -5,7 +5,6 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import com.soen6441.core.critter.Critter;
-import com.soen6441.core.critter.CritterManager;
 import com.soen6441.core.critter.CritterManagerFactory;
 import com.soen6441.core.critter.CritterMultiplier;
 

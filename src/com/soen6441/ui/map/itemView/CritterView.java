@@ -7,7 +7,6 @@ import java.util.Observable;
 import com.soen6441.core.critter.Critter;
 import com.soen6441.ui.map.MapItemView;
 import com.soen6441.ui.map.MapView;
-import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * @author Zhe Zhao

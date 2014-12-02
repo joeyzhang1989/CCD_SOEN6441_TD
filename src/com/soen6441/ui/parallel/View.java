@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.Component;
 import java.awt.LayoutManager;
 
-import javax.swing.JComponent;
 import javax.swing.JPanel;
 
 /**
@@ -117,6 +116,10 @@ public class View extends JPanel {
 	 * This method will be called right after <code> initSubviews </code>
 	 */
 	protected void initEvents(){
+		
+	}
+	
+	protected void viewDidDisplay() {
 		
 	}
 	

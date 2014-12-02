@@ -1,11 +1,8 @@
 package com.soen6441.ui.common;
-import java.awt.Color;
-import java.awt.Graphics;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import com.soen6441.ui.parallel.View;
-import com.soen6441.ui.scene.MainScene;
 
 /**
  * This class defines a unit of the GridView, a cell on the GridView. 

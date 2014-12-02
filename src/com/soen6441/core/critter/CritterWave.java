@@ -4,11 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.dom4j.Element;
-import org.dom4j.Node;
-
 import com.soen6441.core.IArchive;
-import com.soen6441.core.critter.CritterMultiplier.NameForArchiving;
-import com.soen6441.core.map.MapPoint;
 
 /**
  * @author Zhe Zhao

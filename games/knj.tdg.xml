@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xml>
 	<Play>
-		<mapFileName>X3.tdm.xml</mapFileName>
-		<coins>10000</coins>
+		<mapFileName>test.tdm.xml</mapFileName>
+		<coins>666660</coins>
 		<life>10</life>
 		<score>0</score>
 		<playerName>No Name</playerName>
@@ -10,64 +10,8 @@
 		<map>
 			<GridMap>
 				<width>11</width>
-				<height>11</height>
+				<height>10</height>
 				<items>
-					<Road>
-						<location>
-							<MapPoint x="0.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="0.0" y="1.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="0.0" y="2.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="0.0" y="8.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="0.0" y="9.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="0.0" y="10.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="1.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
 					<Road>
 						<location>
 							<MapPoint x="1.0" y="2.0" />
@@ -79,6 +23,22 @@
 					<Road>
 						<location>
 							<MapPoint x="1.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="6.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -102,23 +62,7 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="1.0" y="10.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="2.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="2.0" y="3.0" />
+							<MapPoint x="2.0" y="2.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -142,7 +86,7 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="2.0" y="7.0" />
+							<MapPoint x="2.0" y="8.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -150,31 +94,23 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="2.0" y="10.0" />
+							<MapPoint x="3.0" y="2.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="3.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="3.0" y="1.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
+						<roadType>Start</roadType>
 					</Road>
 					<Road>
 						<location>
 							<MapPoint x="3.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="5.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -190,55 +126,7 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="3.0" y="9.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="3.0" y="10.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="4.0" y="1.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="4.0" y="2.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Start</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="4.0" y="4.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="4.0" y="5.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="4.0" y="6.0" />
+							<MapPoint x="3.0" y="8.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -254,7 +142,39 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="4.0" y="9.0" />
+							<MapPoint x="5.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="7.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -270,31 +190,15 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="6.0" y="1.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
 							<MapPoint x="6.0" y="2.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
-						<roadType>End</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="6.0" y="4.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
 						<roadType>Normal</roadType>
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="6.0" y="5.0" />
+							<MapPoint x="6.0" y="4.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -310,31 +214,7 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="6.0" y="8.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="6.0" y="9.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="7.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="7.0" y="1.0" />
+							<MapPoint x="7.0" y="2.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -358,31 +238,7 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="7.0" y="9.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="7.0" y="10.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="8.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="8.0" y="3.0" />
+							<MapPoint x="8.0" y="2.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -398,6 +254,14 @@
 					</Road>
 					<Road>
 						<location>
+							<MapPoint x="8.0" y="5.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
 							<MapPoint x="8.0" y="6.0" />
 						</location>
 						<name></name>
@@ -406,47 +270,15 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="8.0" y="7.0" />
+							<MapPoint x="8.0" y="8.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="8.0" y="10.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="9.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
+						<roadType>End</roadType>
 					</Road>
 					<Road>
 						<location>
 							<MapPoint x="9.0" y="2.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="9.0" y="3.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="9.0" y="7.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>
@@ -462,30 +294,6 @@
 					</Road>
 					<Road>
 						<location>
-							<MapPoint x="9.0" y="10.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="10.0" y="0.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="10.0" y="1.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
 							<MapPoint x="10.0" y="2.0" />
 						</location>
 						<name></name>
@@ -494,23 +302,47 @@
 					</Road>
 					<Road>
 						<location>
+							<MapPoint x="10.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="5.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="7.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
 							<MapPoint x="10.0" y="8.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="10.0" y="9.0" />
-						</location>
-						<name></name>
-						<cellImageName></cellImageName>
-						<roadType>Normal</roadType>
-					</Road>
-					<Road>
-						<location>
-							<MapPoint x="10.0" y="10.0" />
 						</location>
 						<name></name>
 						<cellImageName></cellImageName>

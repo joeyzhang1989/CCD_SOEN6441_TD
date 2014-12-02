@@ -5,6 +5,7 @@
 		<coins>10000</coins>
 		<life>10</life>
 		<score>0</score>
+		<playerName>No Name</playerName>
 		<currentWaveIndex>-1</currentWaveIndex>
 		<map>
 			<GridMap>

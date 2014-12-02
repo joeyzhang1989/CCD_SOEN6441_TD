@@ -142,6 +142,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 	private int life;
 	private int coins;
 	private int score;
+	private String playerName;
 	
 	/*
 	 * Mark - Basic - Methods
@@ -273,6 +274,14 @@ public class Play extends Observable implements IArchive, TimerListener{
 
 	public void setScore(int score) {
 		this.score = score;
+	}
+	
+	public String getPlayerName() {
+		return playerName;
+	}
+
+	public void setPlayerName(String playerName) {
+		this.playerName = playerName;
 	}
 	
 	/*
@@ -528,13 +537,20 @@ public class Play extends Observable implements IArchive, TimerListener{
 		return identity;
 	}
 	
-	public void addLogToMapFile(Log log){
+	public Play getOriginalPlay(){
 		File mapFile = new File("maps/" + mapFileName);
 		PlayManager manager = new PlayManager();
 		Play originalPlay = manager.read(mapFile);
+		return originalPlay;
+	}
+	
+	public void addLogToMapFile(Log log){
+		PlayManager manager = new PlayManager();
+		Play originalPlay = getOriginalPlay();
 		originalPlay.getMap().getLogger().addLog(log);
 		manager.save(originalPlay.getSourceFile(), originalPlay);
 	}
+	
 
 	/*
 	 * Mark - Log - Getters & Setters
@@ -563,6 +579,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		public static final String Coins = "coins";
 		public static final String Life = "life";
 		public static final String Score = "score";
+		public static final String PlayerName = "playerName";
 		
 		public static final String CurrentWaveIndex = "currentWaveIndex";
 		public static final String Map = "map";
@@ -584,6 +601,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.coins = Integer.parseInt(element.elementText(NameForArchiving.Coins));
 		this.life = Integer.parseInt(element.elementText(NameForArchiving.Life));
 		this.score = Integer.parseInt(element.elementText(NameForArchiving.Score));
+		this.playerName = element.elementText(NameForArchiving.PlayerName);
 		this.currentWaveIndex = Integer.parseInt(element.elementText(NameForArchiving.CurrentWaveIndex));
 		
 		Element mapElement = element.element(NameForArchiving.Map).element(GridMap.NameForArchiving.Class);
@@ -613,6 +631,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 		element.addElement(NameForArchiving.Coins).addText(String.valueOf(this.coins));
 		element.addElement(NameForArchiving.Life).addText(String.valueOf(this.life));
 		element.addElement(NameForArchiving.Score).addText(String.valueOf(this.score));
+		element.addElement(NameForArchiving.PlayerName).addText(this.playerName);
 		element.addElement(NameForArchiving.CurrentWaveIndex).addText(Integer.toString(currentWaveIndex));
 		element.addElement(NameForArchiving.Map).add(map.encode());
 		element.addElement(NameForArchiving.Identity).addText(Long.toString(this.identity));
@@ -657,9 +676,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		
 		this.setCoins(1000);
 		this.setLife(10);
+		this.setPlayerName("No Name");
 		
 		map = new GridMap();
-		
+		map.setPlay(this);
 		map.setWidth(6);
 		map.setHeight(4);
 		
