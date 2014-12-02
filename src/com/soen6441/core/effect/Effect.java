@@ -87,8 +87,7 @@ public class Effect implements TimerListener {
 	 * Method timerTick.
 	 * @param timer Timer
 	 * @see com.soen6441.core.TimerListener#timerTick(Timer)
-	 */
-	@Override
+	 */	@Override
 	public void timerTick(Timer timer) {
 		
 	}

@@ -7,6 +7,7 @@ import java.util.Map;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Strategy {
 	
@@ -57,18 +58,34 @@ public class Strategy {
 		this.imageName = imageName;
 	}
 
+	/**
+	 * Method getOnImageName.
+	 * @return String
+	 */
 	public String getOnImageName() {
 		return onImageName;
 	}
 
+	/**
+	 * Method setOnImageName.
+	 * @param onImageName String
+	 */
 	public void setOnImageName(String onImageName) {
 		this.onImageName = onImageName;
 	}
 	
+	/**
+	 * Method getDescription.
+	 * @return String
+	 */
 	public String getDescription() {
 		return description;
 	}
 
+	/**
+	 * Method setDescription.
+	 * @param description String
+	 */
 	public void setDescription(String description) {
 		this.description = description;
 

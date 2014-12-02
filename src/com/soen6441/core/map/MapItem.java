@@ -37,10 +37,18 @@ public class MapItem extends Observable implements IArchive{
 	 * Mark - Context - Getters & Setters
 	 */
 
+	/**
+	 * Method getPlay.
+	 * @return Play
+	 */
 	public Play getPlay() {
 		return play;
 	}
 
+	/**
+	 * Method setPlay.
+	 * @param play Play
+	 */
 	public void setPlay(Play play) {
 		this.play = play;
 	}
@@ -231,6 +239,7 @@ public class MapItem extends Observable implements IArchive{
 	 
 	/**
      * @author Zhe Zhao
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		public static final String Class = "MapItem";

@@ -2,6 +2,7 @@ package com.soen6441.core;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public interface TimerListener {
 	/**

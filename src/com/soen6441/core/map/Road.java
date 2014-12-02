@@ -45,6 +45,7 @@ public class Road extends MapItem {
 	
 	/**
      * @author Mohammad Ali
+	 * @version $Revision: 1.0 $
 	 */
 	public enum RoadType{
 		NORMAL, START, END
@@ -122,6 +123,10 @@ public class Road extends MapItem {
 	private boolean[] connections;
 	
 
+	/**
+	 * Method rediscoverConnections.
+	 * @param center boolean
+	 */
 	public void rediscoverConnections(boolean center){
 		boolean[] connections = new boolean[4];
 		
@@ -144,10 +149,18 @@ public class Road extends MapItem {
 		
 	}
 
+	/**
+	 * Method getConnections.
+	 * @return boolean[]
+	 */
 	public boolean[] getConnections() {
 		return connections;
 	}
 
+	/**
+	 * Method setConnections.
+	 * @param connections boolean[]
+	 */
 	public void setConnections(boolean[] connections) {
 		this.connections = connections;
 		
@@ -160,6 +173,10 @@ public class Road extends MapItem {
 	 * Mark - Archive - Methods
 	 */
 	
+	/**
+	 * Method roadTypeToString.
+	 * @return String
+	 */
 	private String roadTypeToString() {
 
 		switch (roadType) {
@@ -174,6 +191,11 @@ public class Road extends MapItem {
 		}
 	}
 	
+	/**
+	 * Method stringToRoadType.
+	 * @param value String
+	 * @return RoadType
+	 */
 	private RoadType stringToRoadType(String value) {
 		if (value.equals("Normal")) {
 			return RoadType.NORMAL;
@@ -191,11 +213,19 @@ public class Road extends MapItem {
 		ArchiveCenter.registeClass(Road.class, NameForArchiving.Class);
 	}
 	
+	/**
+	 * @ author Zhe Zhao
+	 */
 	public class NameForArchiving{
 		public static final String Class = "Road";
 		private static final String RoadType = "roadType";
 	}
 	
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		String value = element.elementText(NameForArchiving.RoadType);
@@ -204,6 +234,11 @@ public class Road extends MapItem {
 		super.decode(element);
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = super.encode();

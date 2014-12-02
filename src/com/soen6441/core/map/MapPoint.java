@@ -233,6 +233,7 @@ public class MapPoint implements IArchive, Cloneable{
 	
 	/**
      * @author Mohammad Ali
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving{
 		public static final String Class = "MapPoint";

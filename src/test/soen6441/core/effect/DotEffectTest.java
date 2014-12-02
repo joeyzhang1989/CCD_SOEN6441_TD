@@ -16,6 +16,7 @@ import com.soen6441.core.effect.DotEffect;
  * 
  * @author Haiyang Sun
  *
+ * @version $Revision: 1.0 $
  */
 public class DotEffectTest {
 	
@@ -30,8 +31,9 @@ public class DotEffectTest {
 	
 
 	/**
+	 * @throws Exception
 	 * @throws java.lang.Exception
-	 */
+ 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		

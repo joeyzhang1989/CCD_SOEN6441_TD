@@ -10,6 +10,7 @@ import com.soen6441.ui.parallel.ImageAssets;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class CommandButton extends Button {
 	private Command command;

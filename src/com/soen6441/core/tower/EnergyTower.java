@@ -58,9 +58,10 @@ public class EnergyTower extends Tower {
 		
 		DecimalFormat df = new DecimalFormat("0.0");
 		
-		String result = "CDTime :" + df.format(this.getCdTime().getAffectedValue()) + "s" + System.getProperty("line.separator")
-					  + "Rate :" + df.format(this.enhanceRate) + System.getProperty("line.separator")
-					  + "Duration :" + df.format(this.enhanceDuration) + "s" + System.getProperty("line.separator");
+		String result = "Range  : " + df.format(this.getRange().getAffectedValue()) + System.getProperty("line.separator")
+					  + "CoolDownTime :" + df.format(this.getCdTime().getAffectedValue()) + "s" + System.getProperty("line.separator")
+					  + "PowerUpRate :" + df.format(this.enhanceRate) + System.getProperty("line.separator")
+					  + "PowerUpDuration :" + df.format(this.enhanceDuration) + "s" + System.getProperty("line.separator");
 		return result;
 	}
 	

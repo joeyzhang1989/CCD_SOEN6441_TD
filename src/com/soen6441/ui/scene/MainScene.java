@@ -174,6 +174,10 @@ public class MainScene extends View {
 		}
 	}
 	
+	/**
+	 * Method openGameFile.
+	 * @return File
+	 */
 	private File openGameFile(){
 		JFileChooser fileChooser = new JFileChooser(new File("games/"));
 		FileNameExtensionFilter filter = new FileNameExtensionFilter("XML", "xml");

@@ -11,6 +11,7 @@ import com.soen6441.core.IArchive;
 /**
  * 
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class Logger implements IArchive{
 	
@@ -32,10 +33,19 @@ public class Logger implements IArchive{
 	 * Mark - Basic - Methods
 	 */
 	 
+	/**
+	 * Method addLog.
+	 * @param log Log
+	 */
 	public synchronized void addLog(Log log) {
 		logs.add(log);
 	}
 	
+	/**
+	 * Method getLogs.
+	 * @param category String
+	 * @return List<Log>
+	 */
 	public synchronized List<Log> getLogs(String category) {
 		List<Log> filteredLogs = new ArrayList<Log>();
 		for (Log log : logs) {
@@ -46,6 +56,12 @@ public class Logger implements IArchive{
 		return filteredLogs;
 	}
 	
+	/**
+	 * Method getLogs.
+	 * @param category String
+	 * @param message String
+	 * @return List<Log>
+	 */
 	public synchronized List<Log> getLogs(String category, String message) {
 		List<Log> filteredLogs = new ArrayList<Log>();
 		for (Log log : logs) {
@@ -56,6 +72,12 @@ public class Logger implements IArchive{
 		return filteredLogs;
 	}
 	
+	/**
+	 * Method getLogs.
+	 * @param category String
+	 * @param identity long
+	 * @return List<Log>
+	 */
 	public synchronized List<Log> getLogs(String category, long identity) {
 		List<Log> filteredLogs = new ArrayList<Log>();
 		for (Log log : logs) {
@@ -73,11 +95,19 @@ public class Logger implements IArchive{
 	/*
 	 * Mark - Archive - Methods
 	 */
+	/**
+	 * @ author Zhe Zhao
+	 */
 	public class NameForArchiving{
 		public static final String Class = "Logger";
 		private static final String Logs = "logs";
 	}
 	 
+	/**
+	 * Method decode.
+	 * @param element Element
+	 * @see com.soen6441.core.IArchive#decode(Element)
+	 */
 	@Override
 	public void decode(Element element) {
 		Element logsElement = element.element(NameForArchiving.Logs);
@@ -90,6 +120,11 @@ public class Logger implements IArchive{
 		}
 	}
 
+	/**
+	 * Method encode.
+	 * @return Element
+	 * @see com.soen6441.core.IArchive#encode()
+	 */
 	@Override
 	public Element encode() {
 		Element element = new DefaultElement(NameForArchiving.Class);

@@ -51,6 +51,10 @@ public class RoadView extends MapItemView{
 		}
 	}
 	
+	/**
+	 * Method paint.
+	 * @param g Graphics
+	 */
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
@@ -58,6 +62,10 @@ public class RoadView extends MapItemView{
 		g.drawImage(ImageAssets.imageNamed(this.getItem().getCellImageName()), 0, 0, null);
 	}
 	
+	/**
+	 * Method roadImage.
+	 * @return Image
+	 */
 	private Image roadImage() {
 		Road road = getItemRoad();
 		boolean[] connections = road.getConnections();

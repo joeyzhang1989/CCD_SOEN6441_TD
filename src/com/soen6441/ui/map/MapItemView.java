@@ -12,6 +12,7 @@ import com.soen6441.ui.parallel.View;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class MapItemView extends View implements Observer{
 	

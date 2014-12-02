@@ -11,6 +11,7 @@ import java.util.Observer;
 import com.soen6441.core.map.MapItem;
 import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.ScrollView;
 import com.soen6441.ui.parallel.TextView;
 import com.soen6441.ui.parallel.View;
 
@@ -42,8 +43,7 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	
 	private Label titleLabel;
 	private Label subtitleLabel;
-//	private ImageView imageView;
-	private TextView descriptionTextArea;
+	private TextView descriptionTextView;
 	private GridView gridView;
 	private List<CommandButton> commandButtons;
 	
@@ -80,7 +80,9 @@ public class InspectorView extends View implements GridViewSelectionListener{
 		TextView descriptionTextView = new TextView();
 		descriptionTextView.setFontSize(12);
 		descriptionTextView.setSize(160, 200);
-		descriptionTextView.setLocation(10, 60);
+		descriptionTextView.setLocation(10, 50);
+		this.add(descriptionTextView);
+		this.descriptionTextView = descriptionTextView;
         
 		GridView gridView = new GridView();
 		gridView.setSelectionListener(this);
@@ -88,8 +90,6 @@ public class InspectorView extends View implements GridViewSelectionListener{
 		this.add(gridView);
 		this.gridView = gridView;
 		
-		this.add(descriptionTextView);
-		this.descriptionTextArea = descriptionTextView;
 	}
 	
 	private static final int _NUMBER_OF_COLUMN = 4;
@@ -101,12 +101,15 @@ public class InspectorView extends View implements GridViewSelectionListener{
 	public void update() {
 		titleLabel.setText(on.title());
 		subtitleLabel.setText(on.subtitle());
-		descriptionTextArea.setText(on.description());
+		descriptionTextView.setText(on.description());
+		descriptionTextView.setSize(descriptionTextView.getPreferredSize());
 		
 		//remove old buttons
 		for (CommandButton button:commandButtons){
 			this.remove(button);
 		}
+		
+		int lowerY = this.getHeight();
 		
 		//add new buttons
 		commandButtons.clear();
@@ -119,7 +122,8 @@ public class InspectorView extends View implements GridViewSelectionListener{
 				button.setFontSize(12);
 				button.setCommand(command);
 				button.setSize(160, 40);
-				button.setLocation(10, this.getHeight() - 50 * (commands.size() - i));
+				lowerY -= 50;
+				button.setLocation(10, lowerY);
 				this.add(button);
 				this.commandButtons.add(button);
 				
@@ -143,7 +147,8 @@ public class InspectorView extends View implements GridViewSelectionListener{
 			
 			Dimension dimension = gridView.suggestedSize();
 			gridView.setSize(dimension);
-			gridView.setLocation(10, (int) (this.getHeight() - 50 * commands.size() - 10 - dimension.getHeight()));
+			lowerY -= 10 + dimension.getHeight();
+			gridView.setLocation(10, lowerY);
 			
 			for (int i = 0 ; i < gridCommands.size() ; i ++) {
 				CommandButton commandButton = new CommandButton();

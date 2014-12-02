@@ -84,7 +84,6 @@ public class TowerManagerFactory {
 	 * @param typeName
 	 * @return Return a TowerManager object  
      */
-	
 	public TowerManager getManager(String typeName) {
 		return managers.get(typeName);
 	}

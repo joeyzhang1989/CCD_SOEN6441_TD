@@ -188,6 +188,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		logger.addLog(log);
 	}
 	
+	/**
+	 * Method alterScore.
+	 * @param score int
+	 */
 	public void alterScore(int score) {
 		this.setScore(this.getScore() + score);
 	}
@@ -268,18 +272,34 @@ public class Play extends Observable implements IArchive, TimerListener{
 		this.notifyObservers(OBSERVABLE_EVENT_PROPERTY_COINS_DID_CHANGE);
 	}
 	
+	/**
+	 * Method getScore.
+	 * @return int
+	 */
 	public int getScore() {
 		return score;
 	}
 
+	/**
+	 * Method setScore.
+	 * @param score int
+	 */
 	public void setScore(int score) {
 		this.score = score;
 	}
 	
+	/**
+	 * Method getPlayerName.
+	 * @return String
+	 */
 	public String getPlayerName() {
 		return playerName;
 	}
 
+	/**
+	 * Method setPlayerName.
+	 * @param playerName String
+	 */
 	public void setPlayerName(String playerName) {
 		this.playerName = playerName;
 	}
@@ -532,11 +552,19 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Mark - Log - Methods
 	 */
 	 
+	/**
+	 * Method generateIdentity.
+	 * @return long
+	 */
 	public long generateIdentity(){
 		identity ++;
 		return identity;
 	}
 	
+	/**
+	 * Method getOriginalPlay.
+	 * @return Play
+	 */
 	public Play getOriginalPlay(){
 		File mapFile = new File("maps/" + mapFileName);
 		PlayManager manager = new PlayManager();
@@ -544,6 +572,10 @@ public class Play extends Observable implements IArchive, TimerListener{
 		return originalPlay;
 	}
 	
+	/**
+	 * Method addLogToMapFile.
+	 * @param log Log
+	 */
 	public void addLogToMapFile(Log log){
 		PlayManager manager = new PlayManager();
 		Play originalPlay = getOriginalPlay();
@@ -556,10 +588,18 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Mark - Log - Getters & Setters
 	 */
 	
+	/**
+	 * Method getLogger.
+	 * @return Logger
+	 */
 	public Logger getLogger() {
 		return logger;
 	}
 
+	/**
+	 * Method setLogger.
+	 * @param logger Logger
+	 */
 	public void setLogger(Logger logger) {
 		this.logger = logger;
 	}
@@ -572,6 +612,7 @@ public class Play extends Observable implements IArchive, TimerListener{
 
 	/**
 	 * @author Zhe Zhao
+	 * @version $Revision: 1.0 $
 	 */
 	public class NameForArchiving {
 		public static final String Class = "Play";
@@ -651,18 +692,34 @@ public class Play extends Observable implements IArchive, TimerListener{
 	 * Mark - File - Getters & Setters
 	 */
 	 
+	/**
+	 * Method getSourceFile.
+	 * @return File
+	 */
 	public File getSourceFile() {
 		return sourceFile;
 	}
 
+	/**
+	 * Method setSourceFile.
+	 * @param sourceFile File
+	 */
 	public void setSourceFile(File sourceFile) {
 		this.sourceFile = sourceFile;
 	}
 	
+	/**
+	 * Method getMapFilePath.
+	 * @return String
+	 */
 	public String getMapFilePath() {
 		return mapFileName;
 	}
 
+	/**
+	 * Method setMapFilePath.
+	 * @param mapFilePath String
+	 */
 	public void setMapFilePath(String mapFilePath) {
 		this.mapFileName = mapFilePath;
 	}

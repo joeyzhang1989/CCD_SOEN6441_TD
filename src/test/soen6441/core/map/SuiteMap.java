@@ -6,6 +6,7 @@ import org.junit.runners.Suite.SuiteClasses;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 @RunWith(Suite.class)
 @SuiteClasses({ GridMapTestItemManagement.class, GridMapTestSelection.class,

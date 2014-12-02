@@ -10,6 +10,7 @@ import com.soen6441.ui.map.MapView;
 
 /**
  * @author Zhe Zhao
+ * @version $Revision: 1.0 $
  */
 public class CritterView extends MapItemView {
 	
