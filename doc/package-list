@@ -2,6 +2,7 @@ com.soen6441
 com.soen6441.core
 com.soen6441.core.critter
 com.soen6441.core.effect
+com.soen6441.core.log
 com.soen6441.core.map
 com.soen6441.core.map.validator
 com.soen6441.core.play
@@ -21,6 +22,7 @@ demo.soen6441.ui.viewFlow
 test.soen6441
 test.soen6441.core
 test.soen6441.core.critter
+test.soen6441.core.effect
 test.soen6441.core.map
 test.soen6441.core.map.validator
 test.soen6441.core.play
