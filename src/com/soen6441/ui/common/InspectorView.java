@@ -5,8 +5,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
+import java.util.Observer;
 
+import com.soen6441.core.map.MapItem;
+import com.soen6441.core.tower.Tower;
 import com.soen6441.ui.parallel.Label;
+import com.soen6441.ui.parallel.ScrollView;
 import com.soen6441.ui.parallel.TextView;
 import com.soen6441.ui.parallel.View;
 
