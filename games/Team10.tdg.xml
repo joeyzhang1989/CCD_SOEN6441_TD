@@ -1,0 +1,848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml>
+	<Play>
+		<mapFileName>X3.tdm.xml</mapFileName>
+		<coins>4772</coins>
+		<life>10</life>
+		<score>25</score>
+		<playerName>Team10</playerName>
+		<currentWaveIndex>4</currentWaveIndex>
+		<map>
+			<GridMap>
+				<width>11</width>
+				<height>11</height>
+				<items>
+					<Road>
+						<location>
+							<MapPoint x="0.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="0.0" y="1.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="0.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="0.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="0.0" y="9.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="0.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<SplashTower>
+						<location>
+							<MapPoint x="1.0" y="4.0" />
+						</location>
+						<name>Splash Tower</name>
+						<cellImageName>tower_cell_7_3.png</cellImageName>
+						<identity>12</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>480</sellPrice>
+						<range>3.0</range>
+						<damage>45.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Splash Tower attacks single target with splash effect.</description>
+						<manager>__DYNAMIC__</manager>
+						<splashDamage>30.0</splashDamage>
+						<splashRange>1.5</splashRange>
+						<effectImageName>effect_cell_1_3.png</effectImageName>
+					</SplashTower>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="7.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="1.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="2.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<BottleTower>
+						<location>
+							<MapPoint x="2.0" y="2.0" />
+						</location>
+						<name>Bottle Tower</name>
+						<cellImageName>tower_cell_1_3.png</cellImageName>
+						<identity>10</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>432</sellPrice>
+						<range>3.0</range>
+						<damage>60.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Bottle Tower attacks single target.</description>
+						<manager>__DYNAMIC__</manager>
+					</BottleTower>
+					<Road>
+						<location>
+							<MapPoint x="2.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="2.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<SplashTower>
+						<location>
+							<MapPoint x="2.0" y="5.0" />
+						</location>
+						<name>Splash Tower</name>
+						<cellImageName>tower_cell_7_3.png</cellImageName>
+						<identity>13</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>480</sellPrice>
+						<range>3.0</range>
+						<damage>45.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Splash Tower attacks single target with splash effect.</description>
+						<manager>__DYNAMIC__</manager>
+						<splashDamage>30.0</splashDamage>
+						<splashRange>1.5</splashRange>
+						<effectImageName>effect_cell_1_3.png</effectImageName>
+					</SplashTower>
+					<Road>
+						<location>
+							<MapPoint x="2.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="2.0" y="7.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<BottleTower>
+						<location>
+							<MapPoint x="2.0" y="9.0" />
+						</location>
+						<name>Bottle Tower</name>
+						<cellImageName>tower_cell_1_3.png</cellImageName>
+						<identity>7</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>432</sellPrice>
+						<range>3.0</range>
+						<damage>60.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Bottle Tower attacks single target.</description>
+						<manager>__DYNAMIC__</manager>
+					</BottleTower>
+					<Road>
+						<location>
+							<MapPoint x="2.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="1.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<EnergyTower>
+						<location>
+							<MapPoint x="3.0" y="3.0" />
+						</location>
+						<name>Energy Tower</name>
+						<cellImageName>tower_cell_6_3.png</cellImageName>
+						<identity>11</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>480</sellPrice>
+						<range>3.0</range>
+						<damage>15.0</damage>
+						<cdTime>5.0</cdTime>
+						<description>Energy Tower motivate other towers in its range.</description>
+						<manager>__DYNAMIC__</manager>
+						<enhanceRate>1.3</enhanceRate>
+						<enhanceDuration>4.0</enhanceDuration>
+						<effectImageName>effect_cell_4_3.png</effectImageName>
+					</EnergyTower>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="9.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="3.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="1.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Start</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="5.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="4.0" y="9.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<SplashTower>
+						<location>
+							<MapPoint x="5.0" y="5.0" />
+						</location>
+						<name>Splash Tower</name>
+						<cellImageName>tower_cell_7_3.png</cellImageName>
+						<identity>4</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>480</sellPrice>
+						<range>3.0</range>
+						<damage>45.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Splash Tower attacks single target with splash effect.</description>
+						<manager>__DYNAMIC__</manager>
+						<splashDamage>30.0</splashDamage>
+						<splashRange>1.5</splashRange>
+						<effectImageName>effect_cell_1_3.png</effectImageName>
+					</SplashTower>
+					<BottleTower>
+						<location>
+							<MapPoint x="5.0" y="7.0" />
+						</location>
+						<name>Bottle Tower</name>
+						<cellImageName>tower_cell_1_3.png</cellImageName>
+						<identity>8</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>432</sellPrice>
+						<range>3.0</range>
+						<damage>60.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Bottle Tower attacks single target.</description>
+						<manager>__DYNAMIC__</manager>
+					</BottleTower>
+					<Road>
+						<location>
+							<MapPoint x="5.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="1.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>End</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="5.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<SplashTower>
+						<location>
+							<MapPoint x="6.0" y="7.0" />
+						</location>
+						<name>Splash Tower</name>
+						<cellImageName>tower_cell_7_3.png</cellImageName>
+						<identity>9</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>480</sellPrice>
+						<range>3.0</range>
+						<damage>45.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Splash Tower attacks single target with splash effect.</description>
+						<manager>__DYNAMIC__</manager>
+						<splashDamage>30.0</splashDamage>
+						<splashRange>1.5</splashRange>
+						<effectImageName>effect_cell_1_3.png</effectImageName>
+					</SplashTower>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="6.0" y="9.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="7.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="7.0" y="1.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="7.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="7.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="7.0" y="9.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="7.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="8.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="8.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="8.0" y="4.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="8.0" y="6.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="8.0" y="7.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="8.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="9.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="9.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="9.0" y="3.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<IceTower>
+						<location>
+							<MapPoint x="9.0" y="6.0" />
+						</location>
+						<name>Ice Tower</name>
+						<cellImageName>tower_cell_2_3.png</cellImageName>
+						<identity>5</identity>
+						<level>3</level>
+						<upgradePrice>0</upgradePrice>
+						<sellPrice>480</sellPrice>
+						<range>3.0</range>
+						<damage>15.0</damage>
+						<cdTime>0.6</cdTime>
+						<description>Ice Tower attacks single target with slow-down affect.</description>
+						<manager>__DYNAMIC__</manager>
+						<slowRate>0.5</slowRate>
+						<slowDuration>3.0</slowDuration>
+						<effectImageName>effect_cell_1_3.png</effectImageName>
+					</IceTower>
+					<Road>
+						<location>
+							<MapPoint x="9.0" y="7.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="9.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="9.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="0.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="1.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="2.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<BottleTower>
+						<location>
+							<MapPoint x="10.0" y="7.0" />
+						</location>
+						<name>Bottle Tower</name>
+						<cellImageName>tower_cell_1_2.png</cellImageName>
+						<identity>3</identity>
+						<level>2</level>
+						<upgradePrice>260</upgradePrice>
+						<sellPrice>224</sellPrice>
+						<range>2.0</range>
+						<damage>40.0</damage>
+						<cdTime>0.8</cdTime>
+						<description>Bottle Tower attacks single target.</description>
+						<manager>__DYNAMIC__</manager>
+					</BottleTower>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="8.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="9.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+					<Road>
+						<location>
+							<MapPoint x="10.0" y="10.0" />
+						</location>
+						<name></name>
+						<cellImageName></cellImageName>
+						<roadType>Normal</roadType>
+					</Road>
+				</items>
+				<logger>
+					<Logger>
+						<logs />
+					</Logger>
+				</logger>
+			</GridMap>
+		</map>
+		<identity>13</identity>
+		<logger>
+			<Logger>
+				<logs>
+					<Log date="2014/12/02 18:04:10" category="Game " identity="0" message="Money Lost" value="150" />
+					<Log date="2014/12/02 18:04:10" category="Tower" identity="1" message="Created" value="" />
+					<Log date="2014/12/02 18:04:14" category="Wave " identity="0" message="Started @0" value="" />
+					<Log date="2014/12/02 18:04:15" category="Game " identity="0" message="Money Lost" value="250" />
+					<Log date="2014/12/02 18:04:15" category="Tower" identity="1" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:04:26" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:04:26" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:04:29" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:04:29" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:04:40" category="Game " identity="0" message="Money Lost" value="320" />
+					<Log date="2014/12/02 18:04:40" category="Tower" identity="1" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:04:46" category="Game " identity="0" message="Money Lost" value="200" />
+					<Log date="2014/12/02 18:04:46" category="Tower" identity="2" message="Created" value="" />
+					<Log date="2014/12/02 18:04:47" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:04:47" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:04:49" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:04:49" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:04:58" category="Game " identity="0" message="Money Lost" value="100" />
+					<Log date="2014/12/02 18:04:58" category="Tower" identity="3" message="Created" value="" />
+					<Log date="2014/12/02 18:04:59" category="Game " identity="0" message="Money Lost" value="180" />
+					<Log date="2014/12/02 18:04:59" category="Tower" identity="3" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:00" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:05:00" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:05:06" category="Game " identity="0" message="Money Lost" value="280" />
+					<Log date="2014/12/02 18:05:06" category="Tower" identity="2" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:08" category="Wave " identity="0" message="Started @1" value="" />
+					<Log date="2014/12/02 18:05:16" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:05:16" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:05:17" category="Game " identity="0" message="Money Earned" value="480" />
+					<Log date="2014/12/02 18:05:17" category="Tower" identity="1" message="Refunded" value="" />
+					<Log date="2014/12/02 18:05:25" category="Game " identity="0" message="Money Lost" value="150" />
+					<Log date="2014/12/02 18:05:25" category="Tower" identity="4" message="Created" value="" />
+					<Log date="2014/12/02 18:05:25" category="Game " identity="0" message="Money Lost" value="250" />
+					<Log date="2014/12/02 18:05:25" category="Tower" identity="4" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:26" category="Game " identity="0" message="Money Lost" value="320" />
+					<Log date="2014/12/02 18:05:26" category="Tower" identity="4" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:28" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:05:28" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:05:31" category="Game " identity="0" message="Money Lost" value="120" />
+					<Log date="2014/12/02 18:05:31" category="Tower" identity="5" message="Created" value="" />
+					<Log date="2014/12/02 18:05:32" category="Game " identity="0" message="Money Lost" value="220" />
+					<Log date="2014/12/02 18:05:32" category="Tower" identity="5" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:33" category="Game " identity="0" message="Money Lost" value="260" />
+					<Log date="2014/12/02 18:05:33" category="Tower" identity="5" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:34" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:05:34" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:05:37" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:05:37" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:05:39" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:05:39" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:05:49" category="Game " identity="0" message="Money Lost" value="100" />
+					<Log date="2014/12/02 18:05:49" category="Tower" identity="6" message="Created" value="" />
+					<Log date="2014/12/02 18:05:51" category="Game " identity="0" message="Money Earned" value="330" />
+					<Log date="2014/12/02 18:05:51" category="Tower" identity="2" message="Refunded" value="" />
+					<Log date="2014/12/02 18:05:53" category="Game " identity="0" message="Money Lost" value="180" />
+					<Log date="2014/12/02 18:05:53" category="Tower" identity="6" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:54" category="Game " identity="0" message="Money Lost" value="260" />
+					<Log date="2014/12/02 18:05:54" category="Tower" identity="6" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:05:58" category="Wave " identity="0" message="Started @2" value="" />
+					<Log date="2014/12/02 18:06:00" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:00" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:06:03" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:03" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:06:10" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:10" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:06:13" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:13" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:06:23" category="Game " identity="0" message="Money Lost" value="100" />
+					<Log date="2014/12/02 18:06:23" category="Tower" identity="7" message="Created" value="" />
+					<Log date="2014/12/02 18:06:24" category="Game " identity="0" message="Money Lost" value="180" />
+					<Log date="2014/12/02 18:06:24" category="Tower" identity="7" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:24" category="Game " identity="0" message="Money Lost" value="260" />
+					<Log date="2014/12/02 18:06:24" category="Tower" identity="7" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:26" category="Game " identity="0" message="Money Lost" value="100" />
+					<Log date="2014/12/02 18:06:26" category="Tower" identity="8" message="Created" value="" />
+					<Log date="2014/12/02 18:06:27" category="Game " identity="0" message="Money Lost" value="180" />
+					<Log date="2014/12/02 18:06:27" category="Tower" identity="8" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:27" category="Game " identity="0" message="Money Lost" value="260" />
+					<Log date="2014/12/02 18:06:27" category="Tower" identity="8" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:30" category="Game " identity="0" message="Money Lost" value="150" />
+					<Log date="2014/12/02 18:06:30" category="Tower" identity="9" message="Created" value="" />
+					<Log date="2014/12/02 18:06:30" category="Game " identity="0" message="Money Lost" value="250" />
+					<Log date="2014/12/02 18:06:30" category="Tower" identity="9" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:30" category="Game " identity="0" message="Money Lost" value="320" />
+					<Log date="2014/12/02 18:06:30" category="Tower" identity="9" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:39" category="Game " identity="0" message="Money Earned" value="432" />
+					<Log date="2014/12/02 18:06:39" category="Tower" identity="6" message="Refunded" value="" />
+					<Log date="2014/12/02 18:06:39" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:39" category="Game " identity="0" message="Money Earned" value="100" />
+					<Log date="2014/12/02 18:06:40" category="Game " identity="0" message="Money Lost" value="100" />
+					<Log date="2014/12/02 18:06:40" category="Tower" identity="10" message="Created" value="" />
+					<Log date="2014/12/02 18:06:41" category="Game " identity="0" message="Money Lost" value="180" />
+					<Log date="2014/12/02 18:06:41" category="Tower" identity="10" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:06:43" category="Wave " identity="0" message="Started @3" value="" />
+					<Log date="2014/12/02 18:06:50" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:50" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:06:52" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:52" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:06:59" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:06:59" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:07:00" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:07:00" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:07:14" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:07:14" category="Game " identity="0" message="Money Earned" value="100" />
+					<Log date="2014/12/02 18:07:17" category="Game " identity="0" message="Money Lost" value="260" />
+					<Log date="2014/12/02 18:07:17" category="Tower" identity="10" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:07:29" category="Game " identity="0" message="Money Lost" value="80" />
+					<Log date="2014/12/02 18:07:29" category="Tower" identity="11" message="Created" value="" />
+					<Log date="2014/12/02 18:07:30" category="Game " identity="0" message="Money Lost" value="120" />
+					<Log date="2014/12/02 18:07:30" category="Tower" identity="11" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:07:31" category="Game " identity="0" message="Money Lost" value="240" />
+					<Log date="2014/12/02 18:07:31" category="Tower" identity="11" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:07:52" category="Wave " identity="0" message="Started @4" value="" />
+					<Log date="2014/12/02 18:07:55" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:07:55" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:07:57" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:07:57" category="Game " identity="0" message="Money Earned" value="20" />
+					<Log date="2014/12/02 18:08:00" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:08:00" category="Game " identity="0" message="Money Earned" value="50" />
+					<Log date="2014/12/02 18:08:11" category="Game " identity="0" message="Money Lost" value="150" />
+					<Log date="2014/12/02 18:08:11" category="Tower" identity="12" message="Created" value="" />
+					<Log date="2014/12/02 18:08:12" category="Game " identity="0" message="Money Lost" value="250" />
+					<Log date="2014/12/02 18:08:12" category="Tower" identity="12" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:08:12" category="Game " identity="0" message="Money Lost" value="320" />
+					<Log date="2014/12/02 18:08:12" category="Tower" identity="12" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:08:13" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:08:13" category="Game " identity="0" message="Money Earned" value="100" />
+					<Log date="2014/12/02 18:08:15" category="Game " identity="0" message="Money Lost" value="150" />
+					<Log date="2014/12/02 18:08:15" category="Tower" identity="13" message="Created" value="" />
+					<Log date="2014/12/02 18:08:15" category="Game " identity="0" message="Money Lost" value="250" />
+					<Log date="2014/12/02 18:08:15" category="Tower" identity="13" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:08:15" category="Game " identity="0" message="Money Lost" value="320" />
+					<Log date="2014/12/02 18:08:15" category="Tower" identity="13" message="Upgraded" value="" />
+					<Log date="2014/12/02 18:08:17" category="Wave " identity="0" message="Critter Killed" value="" />
+					<Log date="2014/12/02 18:08:17" category="Game " identity="0" message="Money Earned" value="100" />
+				</logs>
+			</Logger>
+		</logger>
+	</Play>
+</xml>

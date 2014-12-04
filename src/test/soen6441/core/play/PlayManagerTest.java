@@ -75,6 +75,7 @@ public class PlayManagerTest {
 		Play play = new PlayManager().read(testFile);
 		GridMap map = play.getMap();
 		
+		
 		List<MapPoint> startPoints = map.getStartPoints();
 		List<MapPoint> endPoints = map.getEndPoints();
 		List<MapPath> path = map.getPaths();
